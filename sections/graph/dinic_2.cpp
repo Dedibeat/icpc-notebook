@@ -1,4 +1,5 @@
 // * $O(\min(E^{1/2}, V^{2/3})E)$ if $U = 1$; $O(\sqrt{V}E)$ for bipartite matching.
+// After calc(s,t), leftOfMinCut(v) gives the source side; minCutEdges() lists crossing edges.
 // Requires bits/stdc++.h and using namespace std.
 using ll = long long;
 using vi = vector<int>;
@@ -50,4 +51,13 @@ struct Dinic {
 		return flow;
 	}
 	bool leftOfMinCut(int a) { return lvl[a] != 0; }
+	vector<pair<int, int>> minCutEdges() {
+		vector<pair<int, int>> cut;
+		rep(v,0,sz(adj)) if (leftOfMinCut(v)) {
+			for (Edge& e : adj[v])
+				if (e.oc > 0 && e.c == 0 && !leftOfMinCut(e.to))
+					cut.push_back({v, e.to});
+		}
+		return cut;
+	}
 };
