@@ -1,5 +1,5 @@
 Geometry:
-    Randomized minimum enclosing circle
+    [added] Randomized minimum enclosing circle
 
 Graph:
 
@@ -8,8 +8,8 @@ String:
 
 
 Math:
-    Miller–Rabin primality test
-    Pollard Rho factorization
+    [added] Miller-Rabin primality test
+    [added] Pollard Rho factorization
 
 DP:
 
@@ -17,5 +17,5 @@ DP:
 Data structures:
 
 
-mics:
-    Zobrist hashing
+misc:
+    [added] Zobrist hashing
