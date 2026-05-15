@@ -1,0 +1,1 @@
+nth_element(a.begin(), a.begin()+k, a.end());
