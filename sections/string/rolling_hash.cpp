@@ -7,7 +7,7 @@ struct Hash {
         h.assign(n + 1, 0);
         p.assign(n + 1, 1);
         for (int i = 0; i < n; i++) {
-            h[i + 1] = h[i] * B + s[i];
+            h[i + 1] = h[i] * B + (unsigned char)s[i] + 1;
             p[i + 1] = p[i] * B;
         }
     }

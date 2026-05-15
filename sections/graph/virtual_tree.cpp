@@ -42,14 +42,15 @@ int lca(int u, int v) {
 bool sort_tin(const int &a, const int &b) { return tin[a] < tin[b]; }
 
 vector<int> vtree(const vector<int> &key) {
-	// NOTE: key must be sorted by tin before LCA insertion, or LCAs can be missed.
+	// Returns key vertices plus needed LCAs, sorted by tin.
 	if (key.empty()) return {};
 
 	vector<int> res = key;
 	sort(res.begin(), res.end(), sort_tin);
 
-	for (int i = 1; i < (int)key.size(); i++) {
-		res.push_back(lca(key[i - 1], key[i]));
+	int k = res.size();
+	for (int i = 1; i < k; i++) {
+		res.push_back(lca(res[i - 1], res[i]));
 	}
 
 	sort(res.begin(), res.end(), sort_tin);
@@ -104,4 +105,5 @@ int main() {
 	}
 
 	cout << ans << '\n';
+	return 0;
 }

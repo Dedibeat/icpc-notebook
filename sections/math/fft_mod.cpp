@@ -5,7 +5,7 @@
  * Time: O(N \log N), where $N = |A|+|B|$ (twice as slow as NTT or FFT)
  * Status: stress-tested
  */
-#include "FastFourierTransform.h"
+// Requires fft_v2.cpp printed above this snippet (defines C, fft, ll, rep, sz).
 typedef vector<ll> vl;
 template<int M> vl convMod(const vl &a, const vl &b) {
 	if (a.empty() || b.empty()) return {};

@@ -1,9 +1,13 @@
 const int N = 1e6;
-// NOTE: arrays are size N, so mobius_sieve(N) is out of bounds. Use N+1.
-int mu[N], primes[N], pcnt;
-bool is_comp[N];
+int mu[N + 1], primes[N + 1], pcnt;
+bool is_comp[N + 1];
 
 void mobius_sieve(int n) {
+    pcnt = 0;
+    for (int i = 0; i <= n; i++) {
+        mu[i] = 0;
+        is_comp[i] = false;
+    }
     mu[1] = 1;
     for (int i = 2; i <= n; i++) {
         if (!is_comp[i]) {

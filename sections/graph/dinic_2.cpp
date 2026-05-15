@@ -1,4 +1,13 @@
 // * $O(\min(E^{1/2}, V^{2/3})E)$ if $U = 1$; $O(\sqrt{V}E)$ for bipartite matching.
+// Requires bits/stdc++.h and using namespace std.
+using ll = long long;
+using vi = vector<int>;
+#ifndef sz
+#define sz(x) (int)(x).size()
+#endif
+#ifndef rep
+#define rep(i,a,b) for (int i = (a); i < (b); ++i)
+#endif
 
 struct Dinic {
 	struct Edge {

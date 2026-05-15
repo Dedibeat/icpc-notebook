@@ -1,18 +1,29 @@
-// NOTE: pseudocode, not C++17 as-is. Define poly/degree/loop variables or replace.
-poly FWHT(poly P, bool inverse) {
-    for (len = 1; 2 * len <= degree(P); len <<= 1) {
-        for (i = 0; i < degree(P); i += 2 * len) {
-            for (j = 0; j < len; j++) {
-                u = P[i + j];
-                v = P[i + len + j];
-                P[i + j] = u + v;
-                P[i + len + j] = u - v;
+// XOR Fast Walsh-Hadamard Transform.
+// n must be a power of two. Use inverse=true after pointwise multiply.
+// For modular T, replace division by n with multiplication by inv(n).
+// Time: O(n log n).
+template<class T>
+void fwht(vector<T>& a, bool inverse = false) {
+    int n = (int)a.size();
+    for (int len = 1; 2 * len <= n; len <<= 1) {
+        for (int i = 0; i < n; i += 2 * len) {
+            for (int j = 0; j < len; j++) {
+                T u = a[i + j], v = a[i + len + j];
+                a[i + j] = u + v;
+                a[i + len + j] = u - v;
             }
         }
     }
     if (inverse) {
-        for (i = 0; i < degree(P); i++)
-            P[i] = P[i] / degree(P);
+        for (T& x : a) x /= n;
     }
-    return P;
+}
+
+template<class T>
+vector<T> xor_convolution(vector<T> a, vector<T> b) {
+    fwht(a);
+    fwht(b);
+    for (int i = 0; i < (int)a.size(); i++) a[i] *= b[i];
+    fwht(a, true);
+    return a;
 }

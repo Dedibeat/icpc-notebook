@@ -1,5 +1,7 @@
+#define int long long
 struct Line {
-	// NOTE: use long long here; int overflows, and LONG_MAX overflows into int.
+	// Requires notebook-wide "#define int long long" before this snippet.
+	// Without it, slopes/intercepts/intersections can overflow.
 	mutable int k, m, p;
 	bool operator<(const Line& o) const { return k < o.k; }
 	bool operator<(int x) const { return p < x; }
@@ -10,7 +12,7 @@ struct Line {
 bool minimum = true;
 struct LineContainer : multiset<Line, less<>> {
 	// (for doubles, use inf = 1/.0, div(a,b) = a/b)
-	static const int inf = LONG_MAX;
+	static const int inf = LLONG_MAX;
 	int div(int a, int b) { // floored division
 		return a / b - ((a ^ b) < 0 && a % b); }
 	bool isect(iterator x, iterator y) {
@@ -19,7 +21,7 @@ struct LineContainer : multiset<Line, less<>> {
 		else x->p = div(y->m - x->m, x->k - y->k);
 		return x->p >= y->p;
 	}
-	// y = m*x+c; x wiint be the query parameter used later
+	// y = m*x+c; x will be the query parameter used later
 	void add(int m, int c) {
 	    if( minimum ){
             m=-m;

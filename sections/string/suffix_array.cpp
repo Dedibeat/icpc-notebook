@@ -1,18 +1,20 @@
 // NOTE: cyclic shifts only. Append unique sentinel and remove it for suffix array.
 vector<int> sort_cyclic_shifts(string const& s) {
     int n = s.size();
+    if (n == 0) return {};
     const int alphabet = 256;
+    auto code = [&](int i) { return (unsigned char)s[i]; };
     vector<int> p(n), c(n), cnt(max(alphabet, n), 0);
     for (int i = 0; i < n; i++)
-        cnt[s[i]]++;
+        cnt[code(i)]++;
     for (int i = 1; i < alphabet; i++)
         cnt[i] += cnt[i-1];
     for (int i = 0; i < n; i++)
-        p[--cnt[s[i]]] = i;
+        p[--cnt[code(i)]] = i;
     c[p[0]] = 0;
     int classes = 1;
     for (int i = 1; i < n; i++) {
-        if (s[p[i]] != s[p[i-1]])
+        if (code(p[i]) != code(p[i-1]))
             classes++;
         c[p[i]] = classes - 1;
     }

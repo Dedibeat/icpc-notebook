@@ -1,32 +1,22 @@
-
-struct SuffixArray {
-	str S; int N; vi sa, isa, lcp;
-	void init(str _S) { N = sz(S = _S)+1; genSa(); genLcp(); }
-	void genSa() { // sa has size sz(S)+1, starts with sz(S)
-		sa = isa = vi(N); sa[0] = N-1; iota(1+all(sa),0);
-		sort(1+all(sa),[&](int a, int b) { return S[a] < S[b]; });
-		FOR(i,1,N) { int a = sa[i-1], b = sa[i];
-			isa[b] = i > 1 && S[a] == S[b] ? isa[a] : i; }
-		for (int len = 1; len < N; len *= 2) { // currently sorted
-			// by first len chars
-			vi s(sa), is(isa), pos(N); iota(all(pos),0); 
-			each(t,s) {int T=t-len;if (T>=0) sa[pos[isa[T]]++] = T;}
-			FOR(i,1,N) { int a = sa[i-1], b = sa[i]; /// verify that nothing goes out of bounds
-				isa[b] = is[a]==is[b]&&is[a+len]==is[b+len]?isa[a]:i; }
-		}
-	}
-	void genLcp() { // Kasai's Algo
-		lcp = vi(N-1); int h = 0;
-		F0R(b,N-1) { int a = sa[isa[b]-1];
-			while (a+h < sz(S) && S[a+h] == S[b+h]) ++h;
-			lcp[isa[b]-1] = h; if (h) h--; }
-		R.init(lcp); /// if we cut off first chars of two strings
-		/// with lcp h then remaining portions still have lcp h-1 
-	}
-	RMQ<int> R; 
-	int getLCP(int a, int b) { // lcp of suffixes starting at a,b
-		if (a == b) return sz(S)-a;
-		int l = isa[a], r = isa[b]; if (l > r) swap(l,r);
-		return R.query(l,r-1);
-	}
-};
+// Kasai LCP array from string s and suffix array sa.
+// lcp[i] = LCP(sa[i], sa[i+1]), size max(0, n-1).
+// Time: O(n). Source: standard Kasai algorithm (cp-algorithms/USACO Guide).
+vector<int> lcp_array(const string& s, const vector<int>& sa) {
+    int n = (int)s.size();
+    if (n == 0) return {};
+    vector<int> rank(n), lcp(max(0, n - 1));
+    for (int i = 0; i < n; i++) rank[sa[i]] = i;
+    int h = 0;
+    for (int i = 0; i < n; i++) {
+        int r = rank[i];
+        if (r == n - 1) {
+            h = 0;
+            continue;
+        }
+        int j = sa[r + 1];
+        while (i + h < n && j + h < n && s[i + h] == s[j + h]) h++;
+        lcp[r] = h;
+        if (h) h--;
+    }
+    return lcp;
+}

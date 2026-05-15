@@ -12,6 +12,19 @@
  */
 #pragma once
 
+using ll = long long;
+using vi = vector<int>;
+#ifndef sz
+#define sz(x) (int)(x).size()
+#endif
+#ifndef all
+#define all(x) begin(x), end(x)
+#endif
+#ifndef rep
+#define rep(i,a,b) for (int i = (a); i < (b); ++i)
+#endif
+using namespace std::complex_literals;
+
 typedef complex<double> C;
 typedef vector<double> vd;
 void fft(vector<C>& a) {

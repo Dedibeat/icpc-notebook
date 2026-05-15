@@ -1,3 +1,4 @@
+#include<vector>
 template<typename T>
 void SubsetZetaTransform(vector<T>& v) {
 	const int n = v.size(); // n must be a power of 2
@@ -28,7 +29,7 @@ void SupersetZetaTransform(vector<T>& v) {
 template<typename T>
 void SupersetMobiusTransform(vector<T>& v) {
 	const int n = v.size(); // n must be a power of 2
-	for (int j = 1; j < n; j <<= 1) {
+	for(int j = 1; j < n; j <<= 1) {
 		for (int i = 0; i < n; i++)
 			if (i & j) v[i ^ j] -= v[i];
 	}
@@ -37,7 +38,7 @@ void SupersetMobiusTransform(vector<T>& v) {
 template<typename T>
 void DivisorZetaTransform(vector<T>& v) {
 	const int n = (int)v.size() - 1;
-	for (int p : PrimeEnumerate(n)) {
+	for(int p : PrimeEnumerate(n)) {
 		for (int i = 1; i * p <= n; i++)
 			v[i * p] += v[i];
 	}
@@ -46,7 +47,7 @@ void DivisorZetaTransform(vector<T>& v) {
 template<typename T>
 void DivisorMobiusTransform(vector<T>& v) {
 	const int n = (int)v.size() - 1;
-	for (int p : PrimeEnumerate(n)) {
+	for(int p : PrimeEnumerate(n)) {
 		for (int i = n / p; i; i--)
 			v[i * p] -= v[i];
 	}
@@ -54,7 +55,7 @@ void DivisorMobiusTransform(vector<T>& v) {
 template<typename T>
 void MultipleZetaTransform(vector<T>& v) {
 	const int n = (int)v.size() - 1;
-	for (int p : PrimeEnumerate(n)) {
+	for(int p : PrimeEnumerate(n)) {
 		for (int i = n / p; i; i--)
 			v[i] += v[i * p];
 	}
@@ -62,9 +63,9 @@ void MultipleZetaTransform(vector<T>& v) {
 
 template<typename T>
 void MultipleMobiusTransform(vector<T>& v) {
-	// NOTE: file currently misses closing braces after this function; fix before use.
 	const int n = (int)v.size() - 1;
 	for (int p : PrimeEnumerate(n)) {
 		for (int i = 1; i * p <= n; i++)
 			v[i] -= v[i * p];
 	}
+}
