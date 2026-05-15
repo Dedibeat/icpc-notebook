@@ -1,0 +1,183 @@
+\documentclass[a4paper,landscape]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{tocloft}
+\usepackage{tikz}
+\usepackage{xcolor}
+
+\geometry{a4paper, landscape, margin=0.7in}
+\pagestyle{empty}
+
+% Define custom colors
+\definecolor{codebg}{RGB}{248,248,248}
+\definecolor{keywordcolor}{RGB}{0,0,180}
+\definecolor{stringcolor}{RGB}{163,21,21}
+\definecolor{commentcolor}{RGB}{0,128,0}
+\definecolor{numbercolor}{RGB}{120,120,120}
+\definecolor{identifiercolor}{RGB}{0,0,0}
+
+\lstset{
+    language=C++,
+    backgroundcolor=\color{codebg},
+    basicstyle=\footnotesize\ttfamily\color{identifiercolor},
+    keywordstyle=\color{keywordcolor}\bfseries,
+    stringstyle=\color{stringcolor},
+    commentstyle=\color{commentcolor}\itshape,
+    numberstyle=\tiny\color{numbercolor},
+    numbers=left,
+    stepnumber=1,
+    numbersep=8pt,
+    breaklines=true,
+    showstringspaces=false,
+    columns=fullflexible,
+    tabsize=2,
+    rulecolor=\color{black},
+    captionpos=b,
+    inputencoding=utf8,
+    extendedchars=true,
+    literate={’}{{'}}1 {“}{{``}}1 {”}{{''}}1 {≤}{{$\le$}}1 {≥}{{$\ge$}}1 {·}{{$\cdot$}}1 {μ}{{$\mu$}}1 {ö}{{\"o}}1 {é}{{\'e}}1 {≈}{{$\approx$}}1 {→}{{$\to$}}1 {–}{{--}}1 {—}{{--}}1
+}
+
+\setlength{\columnsep}{1cm}  % Set space between columns
+\columnseprule=0.4pt  % Add vertical line with thickness 0.4pt
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2pt}
+\raggedcolumns
+
+\newcommand{\alg}[6]{
+\par\noindent\rule{\linewidth}{0.4pt}\par
+\subsection{#1}
+\textbf{Use:} #2\\
+\textbf{Complexity:} #3\\
+\textbf{Pitfalls:} #4\\
+\textbf{Assumptions/deps:} #5
+\lstinputlisting{#6}
+}
+
+\newcommand{\notealg}[6]{
+\par\noindent\rule{\linewidth}{0.4pt}\par
+\subsection{#1}
+\textbf{Use:} #2\\
+\textbf{Complexity:} #3\\
+\textbf{Pitfalls:} #4\\
+\textbf{Assumptions/deps:} #5
+\lstinputlisting[language={},basicstyle=\footnotesize\ttfamily\color{identifiercolor}]{#6}
+}
+
+\begin{document}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\begin{titlepage}
+    \centering
+    \vspace*{3cm}
+    {\Huge\bfseries ICPC Team Notebook\par}
+    \vspace{1.5cm}
+    \begin{multicols}{3}
+    \renewcommand{\contentsname}{}
+    \tableofcontents
+    \addtocontents{toc}{\protect\thispagestyle{empty}}
+    \end{multicols}
+\end{titlepage}
+
+\newpage
+\begin{multicols}{2}
+
+\section{Template}
+\alg{Contest Template}{Default C++17 starting file.}{$O(1)$ setup.}{Uses \texttt{\#define int long long}; remove multi-test loop if input has one case. Current return expression is intentional source text.}{Includes \texttt{bits/stdc++.h}, macros, pair printer, and \texttt{solve()}.}{template.cpp}
+
+\section{Data Structures}
+\alg{Disjoint Set Union}{Dynamic connectivity, Kruskal, components.}{Amortized $O(\alpha(n))$.}{Reinitialize per test case. \texttt{unite} returns false when already joined.}{0-indexed; uses \texttt{vector}, \texttt{iota}.}{sections/data_structures/dsu.cpp}
+\alg{Fenwick Tree}{Prefix sums, range sums, kth by prefix.}{All operations $O(\log n)$.}{External indices are 0-based; \texttt{lower\_bound} needs nonnegative frequencies.}{Uses \texttt{long long}; half-open query \texttt{[l,r)}.}{sections/data_structures/fenwick.cpp}
+\alg{Sparse Table}{Static RMQ/min queries.}{Build $O(n\log n)$, query $O(1)$.}{Only idempotent ops for overlapping two-block query; range is \texttt{[l,r)} and must be nonempty.}{Uses \texttt{long long}; adapt merge function for max/gcd.}{sections/data_structures/sparse_table.cpp}
+\alg{Short Segment Tree}{Iterative point set and range sum.}{Build $O(n)$, update/query $O(\log n)$.}{Query is half-open \texttt{[l,r)}; \texttt{N} fixed at compile time.}{Fill \texttt{t[n+i]} before \texttt{build()}.}{sections/data_structures/short_segment_tree.cpp}
+\alg{Priority Queue with Delete}{Lazy deletion for max heap.}{Amortized $O(\log n)$.}{\texttt{top()} assumes logical heap nonempty; delete only values inserted earlier.}{Uses two \texttt{priority\_queue<int>}.}{sections/data_structures/priority_queue_with_delete.cpp}
+\alg{Lazy Segment Tree}{Range assignment and range sum.}{Build $O(n)$, operations $O(\log n)$.}{Inclusive bounds; empty ranges allowed. Change \texttt{apply/pull/neutral} for other operations.}{0-indexed array; call recursive methods with \texttt{1,0,n-1}.}{sections/data_structures/lazy_segment_tree.cpp}
+\alg{Line Container}{Dynamic convex hull trick for max/min linear queries.}{Amortized $O(\log n)$ add/query.}{Default \texttt{minimum=true}; product \texttt{k*x+m} can overflow. Duplicate slopes handled by code.}{Snippet defines \texttt{\#define int long long}; requires \texttt{multiset}, \texttt{LLONG\_MAX}.}{sections/data_structures/line_container.cpp}
+\alg{Implicit Treap}{Sequence split/merge/reverse by position.}{Expected $O(\log n)$ per split/merge.}{Must allocate nodes and set \texttt{prior,value,cnt,rev,l,r}. Recursion depth randomized but possible.}{0-indexed positions; call \texttt{push} before descending.}{sections/data_structures/treap.cpp}
+\alg{DSU on Segment Tree}{Mergeable frequency/count segment trees, usually per DSU/tree node.}{Update/query $O(\log V)$; merge proportional to touched nodes.}{\texttt{tree[40*maxn]} and \texttt{tp} must be large/reset. Coordinate range \texttt{[tl,tr]} must match calls.}{Requires \texttt{maxn}; global node pool.}{sections/data_structures/dsu_on_segtree.cpp}
+
+\section{String}
+\alg{KMP Prefix Function}{Borders and single-pattern matching helper.}{$O(n)$.}{For matching, run on \texttt{pattern + sep + text}; choose sep absent from alphabet.}{0-indexed prefix lengths.}{sections/string/kmp.cpp}
+\alg{Z Function}{Longest prefix match starting at each position.}{$O(n)$.}{For pattern matching, use separator not in alphabet. \texttt{z[0]=0}.}{0-indexed string.}{sections/string/z_function.cpp}
+\alg{Aho-Corasick}{Count matches of many patterns in text.}{Build $O(total\ length\cdot A)$, scan $O(n)$.}{Only lowercase \texttt{a..z}; call \texttt{build()} after all patterns.}{Stores output counts, not pattern ids.}{sections/string/Aho.cpp}
+\alg{Rolling Hash}{64-bit polynomial hash for substrings.}{Build $O(n)$, query $O(1)$.}{Probabilistic collision; unsigned overflow is intentional.}{Half-open \texttt{get(l,r)}.}{sections/string/rolling_hash.cpp}
+\alg{Manacher Odd}{Odd palindrome radii.}{$O(n)$.}{This returns odd radii only; sentinels \texttt{\$} and \texttt{\^} must not conflict if adapted.}{For even palindromes use separate transform/template.}{sections/string/manacher.cpp}
+\alg{Minimum Rotation}{Lexicographically minimum cyclic rotation index.}{$O(n)$.}{For periodic strings returns one minimum index. Empty string not handled.}{0-indexed index in original string.}{sections/string/min_rotation.cpp}
+\alg{Suffix Array}{Sort cyclic shifts; use sentinel for suffix array.}{$O(n\log n)$.}{Append unique smallest sentinel and remove it for real suffix array. Empty handled.}{Alphabet bytes 0..255; returns cyclic shift order.}{sections/string/suffix_array.cpp}
+\alg{Kasai LCP}{LCP array from string and suffix array.}{$O(n)$.}{Requires valid suffix array for same string. Output size is \texttt{n-1}.}{Pairs with suffix array snippet.}{sections/string/lcp.cpp}
+
+\section{Graph}
+\textbf{Checklist:} directed or undirected? weights negative? multiple edges/self-loops? clear globals between tests? recursion depth? 0-index input conversion?\\
+\alg{Dijkstra}{Single-source shortest paths with nonnegative weights.}{$O((n+m)\log n)$.}{No negative edges. \texttt{INFLL} must exceed max path; \texttt{d+w} can overflow if too close.}{Graph as \texttt{vector<vector<pair<int,ll>>>}.}{sections/graph/dijkstra.cpp}
+\alg{Strongly Connected Components}{Kosaraju SCC decomposition.}{$O(n+m)$.}{Recursive DFS may overflow. Component ids are source-to-sink topo order of SCC DAG.}{Directed graph; call \texttt{init} per test case.}{sections/graph/scc.cpp}
+\alg{LCA Binary Lifting}{LCA and distance in rooted tree.}{Build $O(n\log n)$, query $O(\log n)$.}{Call \texttt{build(root)}; recursion depth can overflow on large chain.}{Graph must be a tree; 0-indexed.}{sections/graph/lca_binary_lifting.cpp}
+\alg{Bridges}{Find bridges in undirected graph, including multiedges.}{$O(n+m)$.}{Parent edge skip handles one parallel edge; remember graph is undirected.}{Define \texttt{IS\_BRIDGE}; globals \texttt{n,adj}.}{sections/graph/bridge.cpp}
+\alg{Articulation Points}{Find cut vertices in undirected graph.}{$O(n+m)$.}{Root needs more than one DFS child. Current version can report same vertex multiple times.}{Define \texttt{IS\_CUTPOINT}; globals \texttt{n,adj}.}{sections/graph/articulation_point.cpp}
+\alg{Dinic Max Flow}{Directed max flow and min cut.}{General fast in practice; unit capacities have better listed bounds.}{Edges are directed; add both directions for undirected capacity. Capacities are \texttt{long long}.}{Requires \texttt{sz}, \texttt{rep}, \texttt{bits/stdc++.h}/STL.}{sections/graph/dinic_2.cpp}
+\alg{Min Cost Flow}{Successive shortest path with potentials.}{$O(FE\log V)$ plus Bellman-Ford init.}{Negative costs ok, but no negative cost cycles. May return less than requested flow.}{Cap/cost are \texttt{long long}; directed edges.}{sections/graph/min_cost_flow.cpp}
+\alg{Kuhn Bipartite Matching}{Maximum bipartite matching for smaller/simple cases.}{Usually $O(VE)$ worst case.}{Left side size \texttt{n}, right side \texttt{m}. Rebuild \texttt{visited} each phase.}{Use Hopcroft-Karp if limits are large.}{sections/graph/matching.cpp}
+\alg{Heavy Light Decomposition}{Path/subtree add and max query on tree.}{$O(\log^2 n)$ path operations.}{Constructor roots at 0 and mutates adjacency. \texttt{VALS\_EDGES=true} excludes LCA.}{Includes dynamic segment tree \texttt{Node}; requires macros \texttt{sz/all}.}{sections/graph/heavy_light_decomposition.cpp}
+\alg{DSU on Tree Sack}{Answer subtree color-frequency queries.}{$O(n\log n)$ total for add/remove loops.}{Reset all globals per test; recursion depth on chains; color ids must fit \texttt{cnt}.}{Tree in global \texttt{g}; fill answer at marked line.}{sections/graph/dsu_on_tree_sack.cpp}
+\alg{Virtual Tree}{Build compressed tree from key vertices and LCAs.}{$O(k\log k)$ after LCA preprocessing.}{Snippet is a full problem solution; clears only virtual nodes in result. \texttt{LG} must fit n.}{Depends on its own DFS/LCA globals; 0-indexed tree.}{sections/graph/virtual_tree.cpp}
+\alg{Kruskal Reconstruction Tree}{Build merge tree for MST edge-threshold queries.}{$O(m\log m\,\alpha(n))$.}{For disconnected graph, returned root is only last component. \texttt{MAXK} must be large enough.}{Uses global \texttt{edges}; clear between tests.}{sections/graph/kruskal_reconstruction_tree.cpp}
+\alg{Global Min Cut}{Stoer-Wagner undirected global min cut.}{$O(V^3)$ with matrix version.}{Undirected symmetric matrix only; weights nonnegative; integer sums may overflow.}{Requires \texttt{vi}, \texttt{sz}, \texttt{rep}, \texttt{all}.}{sections/graph/global_min_cut.cpp}
+\alg{Maximum Clique}{Branch-and-bound maximum clique / complement for independent set.}{Exponential; fast for about $n\le 155$ in tested cases.}{Input must be symmetric bitset matrix, no self-edges. \texttt{bitset<200>} limits n.}{Requires \texttt{vi}, \texttt{sz}, \texttt{all}, \texttt{rep}.}{sections/graph/max_clique.cpp}
+\alg{Critical Cities Dominator}{Dominator-style critical vertices from source to sink in directed graph.}{About $O((n+m)\log n)$.}{Standalone problem solution, not a reusable library. Assumes sink reachable from source.}{Includes its own \texttt{main}; 1-indexed input converted to 0-index.}{sections/graph/critical_cities_dominator.cpp}
+
+\section{Math}
+\textbf{Checklist:} prime modulus? overflow in multiplication/lcm? zero inverse? random/probabilistic? clear bases/sieves? CRT residues compatible?\\
+\alg{Number Theory Essentials}{Extended gcd, modular inverse, fast power.}{$O(\log n)$.}{\texttt{inv} uses Fermat: only prime modulus. Use \texttt{inv\_any} for coprime composite mod.}{\texttt{modpow} uses \texttt{\_\_int128}.}{sections/math/NT_essentails.cpp}
+\alg{Sieve}{Enumerate primes below limit.}{$O(n\log\log n)$.}{Returns primes \texttt{< lim}, not \texttt{<= lim}. \texttt{MAX\_PR} fixed.}{Requires \texttt{vi}, \texttt{rep}.}{sections/math/sieve.cpp}
+\alg{CRT}{Merge two congruences, non-coprime allowed.}{$O(\log \min(m_1,m_2))$.}{Works only if residues compatible. LCM can overflow \texttt{long long}.}{Depends on \texttt{egcd} from number theory essentials.}{sections/math/CRT.cpp}
+\alg{Mod Inverse Table}{Inverses, factorials, inverse factorials modulo prime.}{$O(n)$.}{\texttt{MOD} must be prime and \texttt{n<MOD}. \texttt{ifact} code is cumulative inverse factorial.}{Change \texttt{MOD} before use.}{sections/math/mod_inverse_table.cpp}
+\alg{Primitive Root}{Find generator modulo prime.}{$O(\sqrt p\log p)$ roughly.}{Int multiplication is cast to long long, but \texttt{p} should fit int. Prime modulus expected.}{Uses factorization of \texttt{p-1}.}{sections/math/primitive_root.cpp}
+\alg{Miller Rabin and Pollard Rho}{64-bit primality and factorization.}{Primality $O(\log n)$; factorization expected about $O(n^{1/4})$.}{Probabilistic factor search but deterministic bases for 64-bit primality. Factors unsorted.}{Uses unsigned 64-bit and \texttt{\_\_uint128\_t}.}{sections/math/miller_rabin_pollard_rho.cpp}
+\alg{Gaussian Elimination mod p}{Rank of augmented matrix over prime field.}{$O(nm^2)$ style elimination.}{\texttt{inv()} assumes prime modulus; does not return solution vector or detect inconsistency separately.}{Depends on prime-mod inverse.}{sections/math/Gaussian_elimination.cpp}
+\notealg{Catalan Numbers}{Quick formulas for Catalan counts.}{$O(1)$ formula after binomial precompute.}{Division requires modular inverse; modulus must allow it.}{Use factorial/binomial table separately.}{sections/math/catalan.md}
+\alg{Mobius Sieve}{Linear sieve for Mobius function.}{$O(n)$.}{\texttt{N} fixed; reset arrays before each build. \texttt{mu[1]=1}.}{Globals \texttt{mu,primes,is\_comp}.}{sections/math/mobius_inversion.cpp}
+\notealg{Mobius Inversion Notes}{Formula reminder for divisor-sum inversion.}{Reference notes.}{Apply only when the divisor relation really matches.}{Pair with the sieve below.}{sections/math/mobius_inversion.md}
+\alg{Maximum XOR Subset}{Linear basis maximum subset xor.}{$O(Bn)$, $B=32$.}{Reset \texttt{basis}; signed int and bit 31 can be tricky. Use \texttt{long long} for bigger values.}{Standalone with \texttt{main}.}{sections/math/maximum_xor_subset.cpp}
+\alg{Number of Subset XOR Values}{Count distinct xor values from a linear basis.}{$O(Bn)$.}{Returns $2^{rank}$, not number of subsets. Reset basis; answer may overflow int.}{Standalone with \texttt{main}.}{sections/math/number_of_subset_xor.cpp}
+\alg{XOR FWHT}{XOR convolution.}{$O(n\log n)$.}{Size must be power of two. Modular inverse needed instead of division for modular values.}{Pointwise multiply between forward and inverse transforms.}{sections/math/hadamard_transform.cpp}
+\alg{Discrete kth Roots mod Prime}{Solve $x^k=a \pmod p$.}{$O(\sqrt p\log p)$.}{\texttt{p} must be prime. Returns distinct sorted roots; \texttt{a=0} returns \texttt{\{0\}}.}{Includes primitive root and BSGS helpers.}{sections/math/discrete_mod.cpp}
+\alg{FFT}{Polynomial convolution over doubles.}{$O(n\log n)$.}{Rounding fails for large coefficient energy; n rounded to power of two.}{Requires complex literals and helper macros \texttt{sz/all/rep}.}{sections/math/fft_v2.cpp}
+\alg{FFT Mod}{Convolution modulo arbitrary int.}{$O(n\log n)$.}{Inputs must be in \texttt{[0,M)}; precision bound matters.}{Requires \texttt{fft\_v2.cpp} before this snippet.}{sections/math/fft_mod.cpp}
+\alg{Fraction Finder}{Binary search over rationals with bounded numerator/denominator.}{$O(\log N)$ calls.}{Predicate must be monotone and true at \texttt{hi}; overflow possible in mediants.}{Uses \texttt{ll}.}{sections/math/fraction_finder.cpp}
+\alg{Zeta and Mobius Transforms}{Subset/superset/divisor/multiple transforms.}{$O(n\log n)$ or harmonic prime loops.}{Subset size must be power of two. Divisor versions need prime enumeration.}{Depends on \texttt{PrimeEnumerate(n)} for divisor/multiple transforms.}{sections/math/zeta_and_mobius.cpp}
+
+\section{Geometry}
+\textbf{Checklist:} integer or floating? EPS? collinear kept or removed? boundary included? polygon order? coordinates up to $10^9$ may need \texttt{\_\_int128}. Circles need tangent/same-center cases.\\
+\alg{Geometry Base}{Shared floating 2D point/vector primitives.}{Each primitive $O(1)$.}{Exact \texttt{operator<} but EPS equality; avoid mixing with integer exact logic.}{Copy before other floating geometry snippets.}{sections/geometry/geometry_base.cpp}
+\alg{Integer Geometry}{Exact orientation for large integer coordinates.}{$O(1)$.}{Use \texttt{\_\_int128} for products near $10^{18}$; return only sign.}{Defines \texttt{IP}, \texttt{i128}.}{sections/geometry/integer_geometry.cpp}
+\alg{Convex Hull and Geometry Routines}{Segments, polygon tests, hull, diameter, circle intersections.}{Most $O(1)$; polygon/hull $O(n)$ or $O(n\log n)$.}{Hull removes collinear boundary points with \texttt{<=}. Line intersection assumes nonparallel lines.}{Depends on \texttt{geometry\_base.cpp}; hull output has no duplicate last point.}{sections/geometry/convex_hull.cpp}
+\alg{Point in Convex Polygon}{Fast containment query in a convex polygon.}{$O(\log n)$ per query.}{Polygon must be CCW and no duplicate last point; \texttt{strict} excludes boundary.}{Depends on \texttt{geometry\_base.cpp}.}{sections/geometry/convex_point_query.cpp}
+\alg{Closest Pair}{Minimum squared distance among points.}{$O(n\log n)$.}{Returns squared distance; needs at least 2 points; duplicates return 0.}{Depends on \texttt{geometry\_base.cpp}.}{sections/geometry/closest_pair.cpp}
+\alg{Circle Tangents}{External/internal tangent points between two circles or point-circle.}{$O(1)$.}{Use \texttt{r2=0} for point tangents; negate radius for internal tangents. Same center returns empty.}{Depends on \texttt{geometry\_base.cpp}.}{sections/geometry/circle_tangents.cpp}
+\alg{Minimum Enclosing Circle}{Smallest circle covering all points.}{Expected $O(n)$.}{Randomized; circumcenter fails for collinear triples but algorithm should call only when needed. EPS matters.}{Depends on \texttt{geometry\_base.cpp}; uses \texttt{shuffle}, \texttt{mt19937}.}{sections/geometry/minimum_enclosing_circle.cpp}
+
+\section{Dynamic Programming}
+\alg{Knuth Optimization}{Interval DP with monotone split bounds.}{$O(n^2)$ after prefix/cost setup.}{Only valid when Knuth quadrangle/monotone conditions hold. Snippet is 1-indexed and uses \texttt{\#define int long long}.}{Standalone example with \texttt{main}; globals sized by \texttt{N}.}{sections/dp/knuth.cpp}
+\alg{Divide and Conquer DP}{Optimize DP with monotone optimal split.}{Typically $O(mn\log n)$ here; tighter variants can be $O(mn)$.}{Do not use unless monotonicity of \texttt{opt} is proven/tested. Cost \texttt{C(k,j)} must be fast.}{Implement \texttt{C}; recurrence assumes previous row and 0-indexed intervals.}{sections/dp/divide_and_conquer_dp.cpp}
+\notealg{Divide and Conquer DP Notes}{Proof checklist for monotone DP optimization.}{Reference notes.}{The note is a guide, not a proof for a specific problem.}{Read before using the template.}{sections/dp/divide_and_conquer_dp.md}
+
+\section{Misc}
+\alg{Quick Select}{Get kth element / partition order statistic.}{Average/guaranteed linear for \texttt{nth\_element}.}{After call, only kth is fixed; sides are partitioned, not sorted.}{\texttt{k} is 0-indexed iterator offset.}{sections/misc/quick_select.cpp}
+\alg{mt19937 RNG}{Random 32-bit generator.}{$O(1)$ per value.}{Modulo causes bias; use distributions if exact uniformity matters.}{Includes full small demo with \texttt{main}.}{sections/misc/rand_mt19937.cpp}
+\alg{mt19937\_64 RNG}{Random 64-bit generator.}{$O(1)$ per value.}{Seed once; do not reseed inside tight loops.}{Requires \texttt{chrono}, \texttt{mt19937\_64}.}{sections/misc/rand_mt19937_faster.cpp}
+\alg{Random Hashing}{Assign random xor keys to values.}{Expected $O(1)$ map operations.}{Hash is probabilistic. Requires stable rng and clearing map when state universe changes.}{Depends on \texttt{rng}; \texttt{uint64\_t}.}{sections/misc/random_hashing.cpp}
+\alg{Zobrist Hashing}{Incremental xor hash for states.}{Build $O(positions\cdot values)$, update/hash $O(1)$ or $O(n)$.}{Probabilistic collisions; state values must be valid indices.}{Uses \texttt{mt19937\_64}; \texttt{uint64\_t}.}{sections/misc/zobrist_hashing.cpp}
+\alg{GNU Extensions}{PBDS ordered sets/maps and rope snippets.}{$O(\log n)$ usual PBDS/rope ops.}{Examples are not one compilable file. PBDS multiset with \texttt{less\_equal} is risky; pair trick is safer.}{GNU C++ only.}{sections/misc/gnu_extensions.cpp}
+\notealg{GNU Extensions Notes}{Short PBDS/rope reminders.}{Reference notes.}{Do not paste empty note blocks; use code snippet above.}{GNU C++ only.}{sections/misc/gnu_extensions.md}
+\alg{Simulated Annealing Skeleton}{Approximate optimization when exact method is hard.}{Heuristic.}{Risky in ICPC: tune step, time limit, random direction, and score. No correctness guarantee.}{Depends on geometry point \texttt{P} and user functions.}{sections/misc/simulated_anihilating.cpp}
+\notealg{Debug Checklist}{Contest debugging prompts for WA/RE/TLE/MLE.}{Checklist.}{Use before rewriting blindly; check output format and resets.}{Plain text notes.}{sections/misc/debug.md}
+
+\end{multicols}
+\end{document}
