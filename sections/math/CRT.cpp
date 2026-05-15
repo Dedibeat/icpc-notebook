@@ -1,4 +1,5 @@
 // returns {x, lcm}; x satisfies:
+// NOTE: lcm = m1/g*m2 can overflow long long.
 // x = a1 mod m1
 // x = a2 mod m2
 // returns {-1,-1} if impossible

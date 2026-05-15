@@ -177,6 +177,7 @@ int main() {
 
 	// Trace the idom tree from the finish node to the start node,
 	// finding all dominators along the way
+	// NOTE: assumes city_num-1 is reachable from 0; otherwise idom[-1] UB.
 	vector<int> critical{0};
 	int at = city_num - 1;
 	while (at != 0) {

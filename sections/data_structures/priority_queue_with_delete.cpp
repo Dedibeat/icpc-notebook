@@ -1,4 +1,5 @@
 struct Heap {
+	// NOTE: top() assumes heap is nonempty and deletes were previously inserted.
 	PQ<int> qi,qo;
 	void ins(int v,int o) { (o>0?qi:qo).push(v); }
 	int top() {

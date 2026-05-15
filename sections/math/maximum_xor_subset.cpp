@@ -4,6 +4,7 @@ using namespace std;
 #define endl '\n'
  
 int basis[35];
+// NOTE: reset basis per test case; signed int inputs make bit 31 comparisons tricky.
 void add (int x) {
     for (int i = 31; i >= 0; --i) {
         if ((x >> i) & 1) {

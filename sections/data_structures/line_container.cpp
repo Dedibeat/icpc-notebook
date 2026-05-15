@@ -1,4 +1,5 @@
 struct Line {
+	// NOTE: use long long here; int overflows, and LONG_MAX overflows into int.
 	mutable int k, m, p;
 	bool operator<(const Line& o) const { return k < o.k; }
 	bool operator<(int x) const { return p < x; }

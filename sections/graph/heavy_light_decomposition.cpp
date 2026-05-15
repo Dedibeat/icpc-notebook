@@ -1,3 +1,4 @@
+// NOTE: does not compile as-is: missing '#include' and Node must match your segtree.
 include "../data-structures/LazySegmentTree.h"
 
 template <bool VALS_EDGES> struct HLD {

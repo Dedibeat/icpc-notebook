@@ -62,6 +62,7 @@ void MultipleZetaTransform(vector<T>& v) {
 
 template<typename T>
 void MultipleMobiusTransform(vector<T>& v) {
+	// NOTE: file currently misses closing braces after this function; fix before use.
 	const int n = (int)v.size() - 1;
 	for (int p : PrimeEnumerate(n)) {
 		for (int i = 1; i * p <= n; i++)

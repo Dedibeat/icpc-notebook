@@ -42,6 +42,7 @@ int lca(int u, int v) {
 bool sort_tin(const int &a, const int &b) { return tin[a] < tin[b]; }
 
 vector<int> vtree(const vector<int> &key) {
+	// NOTE: key must be sorted by tin before LCA insertion, or LCAs can be missed.
 	if (key.empty()) return {};
 
 	vector<int> res = key;

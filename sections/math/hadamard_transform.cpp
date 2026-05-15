@@ -1,3 +1,4 @@
+// NOTE: pseudocode, not C++17 as-is. Define poly/degree/loop variables or replace.
 poly FWHT(poly P, bool inverse) {
     for (len = 1; 2 * len <= degree(P); len <<= 1) {
         for (i = 0; i < degree(P); i += 2 * len) {

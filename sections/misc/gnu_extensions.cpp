@@ -1,5 +1,6 @@
 #include <ext/pb_ds/assoc_container.hpp>
 #include <ext/pb_ds/tree_policy.hpp>
+// NOTE: examples below are not one compilable file; paste only the needed block.
 using namespace __gnu_pbds;
 
 template<typename T>

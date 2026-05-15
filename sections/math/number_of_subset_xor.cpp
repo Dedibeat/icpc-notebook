@@ -4,6 +4,7 @@ using namespace std;
 #define endl '\n'
  
 int basis[35];
+// NOTE: counts distinct XOR values (2^rank), not subsets; reset basis per test case.
 void add (int x) {
     for (int i = 31; i >= 0; --i) {
         if ((x >> i) & 1) {

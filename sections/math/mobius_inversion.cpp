@@ -1,4 +1,5 @@
 const int N = 1e6;
+// NOTE: arrays are size N, so mobius_sieve(N) is out of bounds. Use N+1.
 int mu[N], primes[N], pcnt;
 bool is_comp[N];
 

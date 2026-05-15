@@ -38,6 +38,7 @@
  * Root is at index 1, responsible for array[0..n-1].
  */
 struct segTree {
+    // NOTE: broken for assigning 0; lazy=0 means "no lazy". Use has_lazy[].
     int n;
     vector<int> val, sum, lazy;
 

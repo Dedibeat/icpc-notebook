@@ -1,4 +1,5 @@
 struct Aho {
+    // NOTE: only for lowercase 'a'..'z'. Other chars index out of bounds.
     static const int A = 26;
 
     struct Node {

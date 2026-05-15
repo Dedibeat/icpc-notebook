@@ -1,3 +1,4 @@
+// NOTE: inv() below assumes prime mod. Composite mod needs different elimination.
 int gauss(vector<vector<long long>> a, int mod) {
     int n = a.size(), m = a[0].size() - 1;
     int row = 0;
