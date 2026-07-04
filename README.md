@@ -261,3 +261,21 @@ fires only mid-contest. All 48 tests pass.
 
 notebook.tex synced: Custom Hash and Deep Recursion Stack entries added;
 Discrete Log/kth Roots dependency lines, Manacher and RNG entries updated.
+
+## Edit-Block Pass - 2026-07-04
+
+Applied the lazy-segment-tree convention — a marked "customize" block, with
+machinery below it labeled do-not-edit — to every snippet that expects
+mid-contest modification. All 49 tests pass.
+
+| Snippet | Edit surface now |
+|---|---|
+| `graph/dsu_on_tree_sack.cpp` | Marked block with `add_one(v,d)` + `answer(v)` hooks above the machinery, replacing a bare comment inside the recursion. Header states the contract: when `answer(v)` runs, exactly subtree(v) has been added. New randomized test verifies that contract against brute force. |
+| `data_structures/sparse_table.cpp` | Single `op()` (was `min` hardcoded in two places that had to be edited in sync). |
+| `data_structures/short_segment_tree.cpp` | Single `op()` + `ID` (was three `+` and a `0` scattered through build/modify/query). |
+| `dp/knuth.cpp`, `dp/divide_and_conquer_dp.cpp` | "EDIT ONLY C()/cost()" markers so nobody touches the optimization loops. |
+| `string/Aho.cpp` | Alphabet isolated behind `A` + `idx()` (mapping was duplicated in add and scan). First Aho test added (randomized vs brute-force count, duplicate/suffix patterns). |
+| `math/hadamard_transform.cpp` | Cross-reference: AND/OR convolutions live in zeta_and_mobius.cpp. |
+
+Not converted on purpose: NTT/FFT/Dinic/MCMF/2-SAT/geometry (library code
+with no expected edits), treap and the KACTL do-not-change set.

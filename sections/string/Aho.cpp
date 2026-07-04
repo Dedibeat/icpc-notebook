@@ -1,6 +1,7 @@
 struct Aho {
-    // NOTE: only for lowercase 'a'..'z'. Other chars index out of bounds.
+    // EDIT ONLY A and idx() for other alphabets; out-of-range chars = UB.
     static const int A = 26;
+    static int idx(char ch) { return ch - 'a'; }
 
     struct Node {
         int nxt[A];
@@ -21,7 +22,7 @@ struct Aho {
     void add(const string& s) {
         int v = 0;
         for (char ch : s) {
-            int c = ch - 'a';
+            int c = idx(ch);
             if (t[v].nxt[c] == -1) {
                 t[v].nxt[c] = t.size();
                 t.push_back(Node());
@@ -62,7 +63,7 @@ struct Aho {
         int v = 0;
         long long ans = 0;
         for (char ch : s) {
-            int c = ch - 'a';
+            int c = idx(ch);
             v = t[v].nxt[c];
             ans += t[v].out;
         }

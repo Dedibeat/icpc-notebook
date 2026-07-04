@@ -1,8 +1,8 @@
-// Sparse table for static range minimum query.
-// Complexity: build O(n log n), query O(1).
-// Pitfalls: query range is [l,r) and needs l < r; idempotent ops (min/max/gcd) only.
-// Usage: SparseTable st(a); st.query(l, r);
+// Sparse table for static idempotent range query, [l, r) with l < r, O(1).
+// Build O(n log n). EDIT ONLY op(): must be idempotent (min/max/gcd/and/or).
 struct SparseTable {
+    static long long op(long long a, long long b) { return min(a, b); }
+
     vector<vector<long long>> st;
     vector<int> lg;
     SparseTable() {}
@@ -15,10 +15,10 @@ struct SparseTable {
         st[0] = a;
         for (int j = 1; j < (int)st.size(); j++)
             for (int i = 0; i + (1 << j) <= n; i++)
-                st[j][i] = min(st[j - 1][i], st[j - 1][i + (1 << (j - 1))]);
+                st[j][i] = op(st[j - 1][i], st[j - 1][i + (1 << (j - 1))]);
     }
     long long query(int l, int r) {
         int j = lg[r - l];
-        return min(st[j][l], st[j][r - (1 << j)]);
+        return op(st[j][l], st[j][r - (1 << j)]);
     }
 };

@@ -10,6 +10,7 @@ const int N = 3e5 + 5;
 int n, m;
 vector<int> dp_bef, dp_cur;
 int a[N], pref[N];
+// EDIT ONLY cost(): comp() below is the optimization machinery.
 int cost(int l, int r) {
     int sum = pref[r] - pref[l - 1];
     return sum * sum;

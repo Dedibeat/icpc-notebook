@@ -1,6 +1,7 @@
 // XOR Fast Walsh-Hadamard Transform.
 // n must be a power of two. Use inverse=true after pointwise multiply.
 // For modular T, replace division by n with multiplication by inv(n).
+// AND/OR convolutions: use superset/subset zeta+mobius (zeta_and_mobius.cpp).
 // Time: O(n log n).
 template<class T>
 void fwht(vector<T>& a, bool inverse = false) {

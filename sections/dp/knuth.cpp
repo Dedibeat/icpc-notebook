@@ -8,6 +8,7 @@ using namespace std;
 const int N = 5e3 + 5;
 int a[N], pref[N];
 int dp[N][N], opt[N][N];
+// EDIT ONLY C(): the interval cost. The loops below are the optimization.
 int C(int l, int r) { return pref[r] - pref[l - 1]; }
 int32_t main() {
     ios::sync_with_stdio(0); cin.tie(NULL);
