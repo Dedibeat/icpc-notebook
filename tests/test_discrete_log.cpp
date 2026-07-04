@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+#include "../sections/misc/custom_hash.cpp"
 #include "../sections/math/discrete_log.cpp"
 
 long long bruteLog(long long a, long long b, long long m, long long bound) {

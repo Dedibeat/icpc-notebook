@@ -241,3 +241,23 @@ share the global base so hashes compare across strings.
 scheme collides on the Thue-Morse pair while the new one distinguishes it,
 checks cross-object comparison, and exhaustively verifies hash equality ==
 substring equality over all substring pairs of a random small-alphabet string.
+
+## Killer-Test Hardening Pass - 2026-07-04
+
+Follow-up to the rolling-hash fix: systematic sweep for the same failure
+class — code that passes casual tests but dies on purpose-built inputs or
+fires only mid-contest. All 48 tests pass.
+
+| Issue (same class as the mod-2^64 hash) | Fix |
+|---|---|
+| BSGS (`discrete_log`, `discrete_mod`) used `unordered_map` with gcc's identity hash: a setter choosing m with a bucket-prime structure puts all ~sqrt(m) keys in one bucket -> O(m), TLE. | New `misc/custom_hash.cpp` (`chash`: splitmix64 + runtime-random offset); both snippets now require it. Test proves adversarial key pattern stays spread across buckets. |
+| `template.cpp` `#define log(x)` shadows `std::log` -> incomprehensible compile errors the day someone writes math `log(n)`. | Renamed `dbg`/`dbgl` with a comment saying why. |
+| Manacher used `'$'`/`'^'` sentinels: input containing those walks out of bounds (UB). Also had no test. | Sentinels are now bytes 1/2 (safe for all printable input). New brute-force test incl. strings made of `$`/`^` and the `#`-transform recipe. |
+| Geometry `sqrt((double)x)` on `long double`: silently truncates to 53-bit mantissa; with 1e9 coords the lost digits exceed EPS=1e-12. | `sqrtl` in geometry_base/convex_hull/closest_pair/circle_tangents. All geometry tests still pass. |
+| NTT silently returned garbage for sizes > 2^23 ((MOD-1)/len truncates). | `assert(n <= 1<<23)` — fail loudly instead. |
+| Recursion-depth pitfalls documented everywhere but no mitigation existed. | New `misc/deep_recursion_stack.cpp` (`raise_stack()`, setrlimit to 256MB). Test really recurses 2e6 deep past the 8MB default. |
+| `rand_mt19937.cpp` demo taught `int x = rng()` (negative half the time). | Demo shows unsigned, `uniform_int_distribution`, `shuffle`, 64-bit composition; bans `rand()`/`random_shuffle`. |
+| This knowledge lived nowhere printable. | `debug.md` gained a "Known killer tests" section (hashing, unordered_map, deep recursion, Kuhn worst case, FFT precision, non-strict-weak comparators, rand()). |
+
+notebook.tex synced: Custom Hash and Deep Recursion Stack entries added;
+Discrete Log/kth Roots dependency lines, Manacher and RNG entries updated.

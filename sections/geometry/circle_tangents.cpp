@@ -9,7 +9,7 @@ vector<pair<P, P>> circleTangents(P c1, T r1, P c2, T r2) {
     if (sgn(d2) == 0 || sgn(h2) < 0) return {};
     vector<pair<P, P>> out;
     for (T sign : {-1.0L, 1.0L}) {
-        P v = (d * dr + perp(d) * sqrt((double)max((T)0, h2)) * sign) / d2;
+        P v = (d * dr + perp(d) * sqrtl(max((T)0, h2)) * sign) / d2;
         out.push_back({c1 + v * r1, c2 + v * r2});
     }
     if (sgn(h2) == 0) out.pop_back();

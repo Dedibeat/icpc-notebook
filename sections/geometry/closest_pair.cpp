@@ -33,7 +33,7 @@ pair<T, pair<P, P>> closestPair(vector<P> p) {
         copy(tmp.begin(), tmp.begin() + (r - l), p.begin() + l);
 
         int sz = 0;
-        T d = sqrt((double)ans.first);
+        T d = sqrtl(ans.first);
         for (int i = l; i < r; i++) if (fabsl(p[i].x - mx) <= d + EPS) {
             for (int j = sz - 1; j >= 0 && p[i].y - tmp[j].y <= d + EPS; j--)
                 upd(p[i], tmp[j]);

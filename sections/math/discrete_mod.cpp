@@ -1,11 +1,12 @@
 // Solve x^k = a (mod p) for prime p, via primitive root + BSGS index log.
-// Requires NT_essentials.cpp (modpow, inv_any) and primitive_root.cpp.
+// Requires NT_essentials.cpp (modpow, inv_any), primitive_root.cpp, and
+// chash from misc/custom_hash.cpp.
 // Complexity: O(sqrt(p) log p). Returns sorted distinct roots; a=0 gives {0}.
 // Usage: vector<long long> xs = kth_roots_mod_prime(a, k, p);
 long long discrete_log_prime_root(long long g, long long a, long long p) {
     // g must be a primitive root modulo prime p, and a != 0.
     long long m = (long long)sqrtl(p - 1) + 1;
-    unordered_map<long long, long long> baby;
+    unordered_map<long long, long long, chash> baby;
     long long cur = 1;
     for (long long j = 0; j < m; j++) {
         if (!baby.count(cur)) baby[cur] = j;

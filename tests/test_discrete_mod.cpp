@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+#include "../sections/misc/custom_hash.cpp"
 #include "../sections/math/NT_essentials.cpp"
 #include "../sections/math/primitive_root.cpp"
 #include "../sections/math/discrete_mod.cpp"

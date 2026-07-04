@@ -42,6 +42,7 @@ vector<ll> conv_ntt(vector<ll> a, vector<ll> b) {
     if (a.empty() || b.empty()) return {};
     int res = a.size() + b.size() - 1, n = 1;
     while (n < res) n <<= 1;
+    assert(n <= (1 << 23)); // beyond 2^23 the roots silently break for this mod
     a.resize(n); b.resize(n);
     ntt(a, false); ntt(b, false);
     for (int i = 0; i < n; i++) a[i] = a[i] * b[i] % NTT_MOD;
