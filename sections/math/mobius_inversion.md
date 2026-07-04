@@ -52,3 +52,5 @@ Used to:
 - Invert divisor summations
 
 ## Linear Sieve for $\mu$ (O(n))
+
+See `mobius_inversion.cpp` (`mobius_sieve(n)` fills `mu[1..n]`).

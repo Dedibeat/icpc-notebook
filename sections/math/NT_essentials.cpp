@@ -1,3 +1,5 @@
+// egcd: g = gcd(a,b) and x,y with a*x + b*y = g. Needed by CRT.cpp.
+// inv_any: inverse mod any modulus (or -1); inv: prime mod only (Fermat).
 long long egcd(long long a, long long b, long long& x, long long& y) {
     if (!b) {
         x = 1; y = 0;

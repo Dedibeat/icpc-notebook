@@ -2,6 +2,8 @@
 // Complexity: O((n + m) log n).
 // Pitfalls: no negative edges; INF must exceed any possible distance.
 // Usage: vector<vector<pair<int,ll>>> g(n); auto d = dijkstra(g, s);
+// Path reconstruction: add vector<int> par(n,-1); set par[to]=v next to
+// dist[to]=d+w; walk par[] back from t.
 using ll = long long;
 const ll INFLL = (1LL << 62);
 

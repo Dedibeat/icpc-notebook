@@ -1,3 +1,7 @@
+// Iterative segment tree: point set, range query [l, r). O(log n) per op.
+// To change the operation, replace the three `+` and the identity 0 below.
+// Op must be associative AND commutative (min/max/gcd/xor ok; for
+// non-commutative ops like matrix mult use a two-sided query version).
 const int N = 1e5;  // limit for array size
 int n;  // array size
 long long t[2 * N];

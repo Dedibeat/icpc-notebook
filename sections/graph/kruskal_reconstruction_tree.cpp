@@ -1,7 +1,12 @@
 // Kruskal reconstruction tree for an undirected weighted graph.
-// Original vertices are [0, n0). New internal node weight is edge weight.
-// For connected graph, root is total_nodes - 1 after build().
+// Original vertices are [0, n0); each MST-merge adds an internal node whose
+// node_weight is the edge weight. Connected graph: root = total_nodes - 1.
 // Time: O(m log m alpha(n)).
+// Queries (weights increase toward the root):
+// - max edge on u..v MST path = node_weight[LCA(u,v) in ktree].
+// - "vertices reachable from u via edges <= w" = leaves under the highest
+//   ancestor of u with node_weight <= w (find it by binary lifting).
+// For min-edge/max-bottleneck versions sort edges descending instead.
 const int MAXK = 400000 + 5; // at least 2 * original_n + m_components
 struct KEdge { int w, u, v; };
 vector<KEdge> edges;

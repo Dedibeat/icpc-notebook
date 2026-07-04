@@ -1,58 +1,23 @@
-using vi = vector<int>;
-#ifndef sz
-#define sz(x) (int)(x).size()
-#endif
-#ifndef all
-#define all(x) begin(x), end(x)
-#endif
-
-// Dependency used by HLD below: range add, range max, half-open [l, r).
-struct Node {
-    int lo, hi, lazy = 0, val = 0;
-    Node *l = 0, *r = 0;
-    Node(int lo, int hi) : lo(lo), hi(hi) {}
-    void push() {
-        if (hi - lo <= 1) return;
-        int mid = (lo + hi) / 2;
-        if (!l) l = new Node(lo, mid), r = new Node(mid, hi);
-        if (lazy) {
-            l->add(lo, hi, lazy);
-            r->add(lo, hi, lazy);
-            lazy = 0;
-        }
-    }
-    void add(int L, int R, int x) {
-        if (R <= lo || hi <= L) return;
-        if (L <= lo && hi <= R) {
-            val += x;
-            lazy += x;
-            return;
-        }
-        push();
-        l->add(L, R, x);
-        r->add(L, R, x);
-        val = max(l->val, r->val);
-    }
-    int query(int L, int R) {
-        if (R <= lo || hi <= L) return INT_MIN;
-        if (L <= lo && hi <= R) return val;
-        push();
-        return max(l->query(L, R), r->query(L, R));
-    }
-};
-
-// 0-indexed. VALS_EDGES=true stores edge values at the deeper endpoint.
-// Path/subtree operations are O(log^2 N) with the Node above.
+// HLD: path/subtree update+query in O(log^2 n) on top of SegTree from
+// lazy_segment_tree.cpp (print that first; configure its marked block for
+// the needed op — default range add / range sum works as-is).
+// 0-indexed, rooted at 0. VALS_EDGES=false: values on vertices, path includes
+// both endpoints. VALS_EDGES=true: values on edges, stored at the DEEPER
+// endpoint; the LCA vertex is skipped automatically.
+// Usage: HLD<false> h(adj); h.modifyPath(u,v,x); h.queryPath(u,v);
+//        h.modifySubtree(v,x); h.querySubtree(v); pos[v] = index in tree.
+// Pitfalls: recursive dfs on ~2e5 chain; for a non-commutative SegTree::merge
+// queryPath combines chain segments in arbitrary order (sum/min/max are fine).
 template <bool VALS_EDGES> struct HLD {
     int N, tim = 0;
-    vector<vi> adj;
-    vi par, siz, rt, pos;
-    Node *tree;
-    HLD(vector<vi> adj_)
-        : N(sz(adj_)), adj(adj_), par(N, -1), siz(N, 1),
-          rt(N), pos(N), tree(new Node(0, N)) { dfsSz(0); dfsHld(0); }
+    vector<vector<int>> adj;
+    vector<int> par, siz, rt, pos;
+    SegTree tree;
+    HLD(vector<vector<int>> adj_)
+        : N(adj_.size()), adj(adj_), par(N, -1), siz(N, 1),
+          rt(N), pos(N), tree(N) { dfsSz(0); dfsHld(0); }
     void dfsSz(int v) {
-        if (par[v] != -1) adj[v].erase(find(all(adj[v]), par[v]));
+        if (par[v] != -1) adj[v].erase(find(adj[v].begin(), adj[v].end(), par[v]));
         for (int& u : adj[v]) {
             par[u] = v;
             dfsSz(u);
@@ -67,7 +32,7 @@ template <bool VALS_EDGES> struct HLD {
             dfsHld(u);
         }
     }
-    template <class B> void process(int u, int v, B op) {
+    template <class B> void process(int u, int v, B op) { // op gets [l, r), may be empty
         for (; rt[u] != rt[v]; v = par[rt[v]]) {
             if (pos[rt[u]] > pos[rt[v]]) swap(u, v);
             op(pos[rt[v]], pos[v] + 1);
@@ -75,28 +40,22 @@ template <bool VALS_EDGES> struct HLD {
         if (pos[u] > pos[v]) swap(u, v);
         op(pos[u] + VALS_EDGES, pos[v] + 1);
     }
-    void modifyPath(int u, int v, int val) {
-        process(u, v, [&](int l, int r) { tree->add(l, r, val); });
+    void modifyPath(int u, int v, SegTree::L x) {
+        process(u, v, [&](int l, int r) { if (l < r) tree.update(l, r - 1, x); });
     }
-    int queryPath(int u, int v) {
-        int res = INT_MIN;
-        process(u, v, [&](int l, int r) { res = max(res, tree->query(l, r)); });
+    SegTree::V queryPath(int u, int v) {
+        SegTree::V res = SegTree::VID;
+        process(u, v, [&](int l, int r) {
+            if (l < r) res = SegTree::merge(res, tree.query(l, r - 1));
+        });
         return res;
     }
-    void modifySubtree(int v, int val) {
-        tree->add(pos[v] + VALS_EDGES, pos[v] + siz[v], val);
+    void modifySubtree(int v, SegTree::L x) {
+        int l = pos[v] + VALS_EDGES, r = pos[v] + siz[v];
+        if (l < r) tree.update(l, r - 1, x);
     }
-    int querySubtree(int v) {
-        return tree->query(pos[v] + VALS_EDGES, pos[v] + siz[v]);
+    SegTree::V querySubtree(int v) {
+        int l = pos[v] + VALS_EDGES, r = pos[v] + siz[v];
+        return l < r ? tree.query(l, r - 1) : SegTree::VID;
     }
 };
-//  op(pos[u] + VALS_EDGES, pos[v] + 1);
-//   - HLD<false>: values are on vertices.
-//       - Path u..v includes both endpoints.
-//       - Query/update range starts at pos[u].
-//   - HLD<true>: values are on edges.
-//       - Store each edge’s value at the deeper child vertex.
-//       - Path u..v should exclude the LCA vertex, because no edge is stored “on” the LCA.
-//       - So range starts at pos[u] + 1.
-//   Example: edge values on path 2 -> 1 -> 3.
-//   The LCA is 1. The edges are represented at vertices 2 and 3, not at 1, so VALS_EDGES=true skips pos[1].

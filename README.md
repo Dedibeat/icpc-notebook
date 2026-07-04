@@ -179,3 +179,24 @@ snippets. Full sweep: all 40 tests in `tests/` compile with
 | `data_structures/persistent_segment_tree.cpp` | K-th smallest on range + range value counts; classic regional problem shape. |
 
 Unchanged by team decision: dominator tree, max clique, global min cut, treap.
+
+## Usability Pass - 2026-07-04
+
+Same philosophy as the lazy segment tree: one obvious way to call each
+snippet, customization points marked, dependencies stated in the header.
+All 44 tests pass with `-std=c++17 -Wall -Wextra -pedantic`.
+
+| Snippet | Change |
+|---|---|
+| `graph/heavy_light_decomposition.cpp` | Rebuilt on top of `SegTree` from `lazy_segment_tree.cpp` — one segment tree to type, HLD inherits whatever op its marked block is configured for. Deleted the private 40-line pointer `Node` (add/max only). Randomized test vs brute force for both `VALS_EDGES` variants. |
+| `graph/bridge.cpp`, `graph/articulation_point.cpp` | Removed undefined `IS_BRIDGE`/`IS_CUTPOINT` callback prototypes (link error if typed as-is); results now collected in `bridges` / `is_cut[]` + `cutpoints`. New brute-force tests incl. multiedges and disconnected graphs. |
+| `math/Gaussian_elimination.cpp` | Now actually solves `Ax=b`: returns -1 (no solution) or #free variables, fills a valid solution. Self-contained. Verified against exhaustive enumeration mod 5. |
+| `data_structures/dsu_on_segtree.cpp` | Default-argument bounds: `upd(root,pos,d)`, `query(root,l,r)`, `merge(u,v)` — no more hand-threading `tl/tr`. Fixed a real multi-test bug: `tp=1` reset reused stale pool nodes; `upd` now zeroes fresh nodes. New randomized test with merges. |
+| `graph/scc.cpp` | Added `condense(c)` (deduped SCC DAG) and documented that comp ids are topologically ordered so DAG DP can loop in id order. Test extended. |
+| `graph/kruskal_reconstruction_tree.cpp` | Header now has the two standard query recipes (max edge on path = LCA weight; threshold reachability = subtree of highest ancestor with weight <= w). |
+| `math/NT_essentails.cpp` | Renamed `NT_essentials.cpp`; header explains egcd/inv_any/inv and notes CRT depends on it. `CRT.cpp` header rewritten (chaining, range of x, dependency). |
+| `data_structures/short_segment_tree.cpp` | Header marks the customization point (three `+` and identity) and warns op must be commutative in this variant. |
+| `math/fft_v2.cpp` | Removed KACTL build-system artifacts (`#pragma once`, include/exclude-line markers) that made the printed snippet confusing. |
+| `misc/gnu_extensions.cpp` | Removed the unsafe `less_equal` PBDS multiset variant entirely; pair-trick documented as the one way. Deleted the hollow `gnu_extensions.md`. |
+| `graph/dijkstra.cpp`, `misc/random_hashing.cpp`, `math/mobius_inversion.md` | Path-reconstruction recipe; xor-vs-sum multiset note + rng dependency; completed dangling section. |
+| `notebook.tex` | All entries synced with the current snippets (renamed/removed/added files, new APIs); every new algorithm from both passes now has a printable entry. `notebook.pdf` needs a local rebuild (no LaTeX in CI container). |
