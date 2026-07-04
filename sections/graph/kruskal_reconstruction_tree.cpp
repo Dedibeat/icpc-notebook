@@ -25,7 +25,7 @@ int build_kruskal_tree(int n0) {
         ktree[i].clear();
     }
     sort(edges.begin(), edges.end(), [](const KEdge& a, const KEdge& b) {
-        return a.w < b.w;
+        return a.w < b.w; // EDIT: > for the max-bottleneck (descending) variant
     });
     for (auto e : edges) {
         int u = getRoot(e.u), v = getRoot(e.v);

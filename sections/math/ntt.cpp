@@ -3,6 +3,8 @@
 // Inputs must be in [0, mod). For arbitrary mod use fft_mod.cpp.
 // Other NTT primes (root 3): 167772161, 469762049, 1004535809.
 using ll = long long;
+// EDIT ONLY this pair (mod, primitive root) together; max size = largest
+// power of two dividing mod-1 (2^23 here) — update the assert below too.
 const ll NTT_MOD = 998244353, NTT_G = 3;
 
 ll ntt_pow(ll a, ll e) {

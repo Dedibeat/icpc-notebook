@@ -1,7 +1,7 @@
 // Matrix multiply/power mod. mul O(n^3), mpow O(n^3 log e).
 // Usage (Fibonacci): mpow({{1,1},{1,0}}, n)[0][1] == F(n).
 using ll = long long;
-const ll MMOD = 1e9 + 7;
+const ll MMOD = 1e9 + 7; // EDIT: modulus
 using Mat = vector<vector<ll>>;
 
 Mat mul(const Mat& A, const Mat& B) {

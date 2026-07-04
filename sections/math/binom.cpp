@@ -1,6 +1,6 @@
 // Factorials/inverses mod prime, auto-extending. C(n,k) is O(1) after extend.
 using ll = long long;
-const ll mod = 1e9 + 7;
+const ll mod = 1e9 + 7; // EDIT: prime modulus
 struct Binom {
     vector<ll> fact{1}, inv{1}, invfact{1};
 

@@ -2,6 +2,8 @@
 // Complexity: amortized O(alpha(n)).
 // Pitfalls: init per test case; unite returns false if already same set.
 // Usage: DSU d(n); d.unite(u, v); d.same(u, v); d.size(u);
+// Extra per-component data (edge counts, sums, ...): add a vector sized in
+// init and fold it at the marked line in unite; a may be either original root.
 struct DSU {
     vector<int> p, sz;
     DSU(int n = 0) { init(n); }
@@ -19,6 +21,7 @@ struct DSU {
         if (sz[a] < sz[b]) swap(a, b);
         p[b] = a;
         sz[a] += sz[b];
+        // EDIT: fold extra per-component data of b into a here
         return true;
     }
     bool same(int a, int b) {

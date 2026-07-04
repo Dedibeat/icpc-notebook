@@ -3,7 +3,7 @@
 // (each achieved by exactly 2^(n-rank) subsets, empty subset gives 0).
 // Pitfalls: reset (b = Basis()) between test cases; raise B for values >= 2^60.
 struct Basis {
-    static const int B = 60;
+    static const int B = 60; // EDIT: number of value bits
     long long b[B] = {};
     bool add(long long x) { // false if x already representable
         for (int i = B - 1; i >= 0; i--) if (x >> i & 1) {

@@ -279,3 +279,25 @@ mid-contest modification. All 49 tests pass.
 
 Not converted on purpose: NTT/FFT/Dinic/MCMF/2-SAT/geometry (library code
 with no expected edits), treap and the KACTL do-not-change set.
+
+## Edit-Block Pass 2 - 2026-07-04
+
+Extended the marked-edit-surface convention to the remaining snippets where a
+contestant realistically changes something. Every advertised edit was
+verified by actually performing it and testing the result (min-heap PQ swap,
+sparse-table max swap, iterative-segtree min swap). All 49 tests pass.
+
+| Snippet | Edit surface |
+|---|---|
+| `priority_queue_with_delete.cpp` | Single `PQ` alias (was `priority_queue<int>` hardcoded twice — a min-heap conversion had to edit both in sync or silently corrupt). |
+| `dsu.cpp` | Marked line in `unite` for folding per-component data (edge counts, sums) — the spot people splice into anyway, now named. |
+| `fenwick.cpp` | Explicit warning that `rangeSum`/`lower_bound` are sum-only and must be dropped for a max-Fenwick (subtraction doesn't invert max). |
+| `geometry_base.cpp` | `T`/`EPS` marked as the only knobs. |
+| `ntt.cpp` | (mod, root) marked as a pair that changes together, tied to the size assert. |
+| `xor_basis.cpp`, `matrix_power.cpp`, `binom.cpp`, `mod_inverse_table.cpp` | Constants (`B`, moduli) carry EDIT markers. |
+| `kruskal_reconstruction_tree.cpp` | Sort comparator marked: flip to `>` for the max-bottleneck variant (matches the header recipe). |
+| `lca_binary_lifting.cpp` | Note on extending to path max/min aggregates (or using KRT instead). |
+
+Left without edit blocks on purpose: flows, 2-SAT, string algorithms,
+zeta/mobius, FFT internals — pure library calls where a hook would only
+create a place to break them.

@@ -1,5 +1,7 @@
 // Binary lifting LCA for rooted trees. Also provides dfs-order tin
 // (used by virtual_tree.cpp) and kth-ancestor lift.
+// Path max/min edge queries: mirror up[][] with an aggregate table filled in
+// dfs and combined in lift/lca — or use the Kruskal reconstruction tree.
 // Complexity: build O(n log n), query O(log n).
 // Pitfalls: call build(root); graph must be a tree; recursion depth on large chains.
 // Usage: LCA lca(n); lca.addEdge(u,v)...; lca.build(0); lca.lca(u,v); lca.dist(u,v).

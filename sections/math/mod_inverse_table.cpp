@@ -2,7 +2,7 @@
 // Complexity: O(n). Use when 0 <= n < MOD.
 // Pitfalls: inv[i] uses inv[MOD % i], not inv[i-1]; MOD must be prime.
 // Usage: build_inv(1000000); then invv[i], fact[i], ifact[i], C(n,k).
-const long long MOD = 1000000007;
+const long long MOD = 1000000007; // EDIT: prime modulus
 vector<long long> invv, fact, ifact;
 
 void build_inv(int n) {

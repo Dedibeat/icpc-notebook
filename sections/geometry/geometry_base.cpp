@@ -16,6 +16,7 @@ GEOMETRY CHECKLIST
 // Complexity: each primitive is O(1).
 // Pitfalls: operator< is exact for sort/set; geometric equality uses EPS.
 // Usage: copy this before other floating geometry snippets.
+// EDIT ONLY T and EPS (e.g. double + 1e-9 if long double is too slow).
 using T = long double;
 const T EPS = 1e-12;
 
