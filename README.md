@@ -221,3 +221,23 @@ Dependency graph of printable snippets is now:
 `fft_v2 <- fft_mod`, `geometry_base <- {convex_hull, closest_pair,
 circle_tangents, convex_point_query, minimum_enclosing_circle}`.
 Everything else is self-contained.
+
+## Rolling Hash Fix - 2026-07-04
+
+The rolling hash was mod-2^64 (unsigned overflow) polynomial hashing. That
+scheme is structurally broken: Thue-Morse string pairs of length 2048 collide
+for EVERY base, so "double hashing" with two bases mod 2^64 does not help
+either (the old pitfall comment suggesting exactly that was wrong). Verified
+empirically: the killer pair collided under bases 131, 1000003, 998244353,
+1000000007 simultaneously. This is a plausible cause of a contest WA on any
+string-hashing problem with anti-hash tests.
+
+Replaced with the standard trusted scheme: mod 2^61-1 (Mersenne prime,
+__int128 reduction) with a base randomized at program start, so fixed test
+data cannot target it. API unchanged (get(l,r), half-open). All Hash objects
+share the global base so hashes compare across strings.
+
+`tests/test_rolling_hash.cpp` now: keeps the old checks, PROVES the old
+scheme collides on the Thue-Morse pair while the new one distinguishes it,
+checks cross-object comparison, and exhaustively verifies hash equality ==
+substring equality over all substring pairs of a random small-alphabet string.
