@@ -1,32 +1,21 @@
-// Smallest primitive root modulo PRIME p (this code factors phi = p-1).
-// O(sqrt(p) + answer * log^2 p). For NTT: root of mod 998244353 is 3.
-int powmod (int a, int b, int p) {
-    int res = 1;
-    while (b)
-        if (b & 1)
-            res = int (res * 1ll * a % p),  --b;
-        else
-            a = int (a * 1ll * a % p),  b >>= 1;
-    return res;
-}
-
-int generator (int p) {
-    vector<int> fact;
-    int phi = p-1,  n = phi;
-    for (int i=2; i*i<=n; ++i)
+// Smallest primitive root modulo PRIME p (factors phi = p-1).
+// Requires modpow from NT_essentials.cpp. O(sqrt p + ans * log^2 p).
+// For NTT: root of mod 998244353 is 3. Used by discrete_mod.cpp.
+long long generator(long long p) {
+    if (p == 2) return 1;
+    vector<long long> fact;
+    long long phi = p - 1, n = phi;
+    for (long long i = 2; i * i <= n; i++)
         if (n % i == 0) {
-            fact.push_back (i);
-            while (n % i == 0)
-                n /= i;
+            fact.push_back(i);
+            while (n % i == 0) n /= i;
         }
-    if (n > 1)
-        fact.push_back (n);
-
-    for (int res=2; res<=p; ++res) {
+    if (n > 1) fact.push_back(n);
+    for (long long res = 2; res <= p; res++) {
         bool ok = true;
-        for (size_t i=0; i<fact.size() && ok; ++i)
-            ok &= powmod (res, phi / fact[i], p) != 1;
-        if (ok)  return res;
+        for (long long f : fact)
+            ok &= modpow(res, phi / f, p) != 1;
+        if (ok) return res;
     }
     return -1;
 }

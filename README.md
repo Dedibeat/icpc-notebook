@@ -200,3 +200,24 @@ All 44 tests pass with `-std=c++17 -Wall -Wextra -pedantic`.
 | `misc/gnu_extensions.cpp` | Removed the unsafe `less_equal` PBDS multiset variant entirely; pair-trick documented as the one way. Deleted the hollow `gnu_extensions.md`. |
 | `graph/dijkstra.cpp`, `misc/random_hashing.cpp`, `math/mobius_inversion.md` | Path-reconstruction recipe; xor-vs-sum multiset note + rng dependency; completed dangling section. |
 | `notebook.tex` | All entries synced with the current snippets (renamed/removed/added files, new APIs); every new algorithm from both passes now has a printable entry. `notebook.pdf` needs a local rebuild (no LaTeX in CI container). |
+
+## Modularization Pass - 2026-07-04
+
+Utilities extracted so dependent snippets print "Requires X" instead of
+retyping helpers. All 45 tests pass with `-std=c++17 -Wall -Wextra -pedantic`.
+
+| Change | Detail |
+|---|---|
+| Virtual tree now uses the LCA util | `lca_binary_lifting.cpp` gained dfs-order `tin`; `virtual_tree.cpp` shrank from 47 lines with private LCA/globals to an 18-line function `vtree(keys, lca, edges)` returning nodes by tin + (parent,child) edges. Randomized test verifies nodes = closure under pairwise LCA and each edge = deepest kept ancestor. |
+| `math/discrete_mod.cpp` deduplicated | Dropped its private `mod_pow`/`egcd`/`inv_mod`/`primitive_root_prime` (~45 lines) — now requires `NT_essentials.cpp` + `primitive_root.cpp`. |
+| `math/primitive_root.cpp` | `long long` types, reuses `modpow` from NT essentials (safe for 64-bit p via __int128). |
+| `math/discrete_log.cpp` (new) | General BSGS: smallest x with `a^x = b (mod m)` for ANY a, b, m — non-coprime handled. Tested exhaustively for all a,b,m <= 30 plus 2000 random larger moduli. |
+| `graph/matching.cpp` | Header documents the modular alternative for big graphs: Dinic with unit capacities (O(E sqrt V), same as Hopcroft-Karp — no separate HK snippet needed) and the Konig facts. |
+| `notebook.tex` | Synced: dependency lines for kth roots/primitive root/virtual tree, new Discrete Log entry. |
+
+Dependency graph of printable snippets is now:
+`lazy_segment_tree <- hld`, `lca_binary_lifting <- virtual_tree`,
+`NT_essentials <- {CRT, primitive_root <- discrete_mod}`,
+`fft_v2 <- fft_mod`, `geometry_base <- {convex_hull, closest_pair,
+circle_tangents, convex_point_query, minimum_enclosing_circle}`.
+Everything else is self-contained.

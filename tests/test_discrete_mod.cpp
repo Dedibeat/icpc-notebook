@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+#include "../sections/math/NT_essentials.cpp"
+#include "../sections/math/primitive_root.cpp"
 #include "../sections/math/discrete_mod.cpp"
 
 vector<long long> brute(long long a, long long k, long long p) {
@@ -8,7 +10,7 @@ vector<long long> brute(long long a, long long k, long long p) {
     if (a < 0) a += p;
     vector<long long> ans;
     for (long long x = 0; x < p; x++)
-        if (mod_pow(x, k, p) == a) ans.push_back(x);
+        if (modpow(x, k, p) == a) ans.push_back(x);
     return ans;
 }
 
@@ -32,5 +34,5 @@ int main() {
 
     long long p = 1000003;
     auto xs = kth_roots_mod_prime(123456, 17, p);
-    for (long long x : xs) assert(mod_pow(x, 17, p) == 123456);
+    for (long long x : xs) assert(modpow(x, 17, p) == 123456);
 }
