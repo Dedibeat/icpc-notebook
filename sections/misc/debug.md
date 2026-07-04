@@ -50,3 +50,16 @@ What do your teammates think about your algorithm?
 Memory limit exceeded:
 What is the max amount of memory your algorithm should need?
 Are you clearing all data structures between test cases?
+
+Known killer tests (things that pass samples and die on purpose-built data):
+Hashing strings mod 2^64 (overflow): Thue-Morse pairs collide for EVERY base.
+  Use the notebook hash (mod 2^61-1, random base).
+unordered_map/set with default hash: chosen keys collide into one gcc bucket
+  (identity hash) -> O(n) per op. Use chash from misc/custom_hash.cpp.
+Deep recursion: 1e6-chain graphs overflow the 8MB stack.
+  Call raise_stack() from misc/deep_recursion_stack.cpp first in main.
+Kuhn matching O(VE): dense adversarial bipartite graphs.
+  Use Dinic with unit capacities instead.
+FFT precision: huge coefficients -> use NTT (998244353) or FFT-mod.
+Sort comparator that is not strict-weak (e.g. <=): RTE/UB, not just wrong order.
+rand()/random_shuffle: RAND_MAX may be 32767; both banned in this notebook.

@@ -138,3 +138,144 @@ and printable:
 | Old/maybe snippets | Gaussian elimination and XOR basis still need focused review/tests. | Review one by one before promoting to final printed notebook. |
 
 Ignored by choice for now: dominator tree, max clique, global min cut, and treap. they should be included. whitout change.
+
+## Contest-Readiness Review Pass - 2026-07-04
+
+Focus: fix implementations that were wrong or easy to misuse under contest
+pressure, shorten what gets manually typed, and add high-value gold-level
+snippets. Full sweep: all 40 tests in `tests/` compile with
+`-std=c++17 -Wall -Wextra -pedantic` and pass.
+
+### Fixed
+
+| Snippet | Problem | Fix |
+|---|---|---|
+| `dp/knuth.cpp` | Missing closing brace: did not compile. Duplicated 13 lines of debug macros. | Fixed brace, stripped debug macros, added precondition/complexity header. Stress-tested vs brute force. |
+| `dp/divide_and_conquer_dp.cpp` | Debug-macro noise; no warning about when the optimization is valid. | Trimmed; documented that `(sum)^2` cost needs nonnegative input (QI fails otherwise — found via stress test). Stress-tested vs brute force. |
+| `math/zeta_and_mobius.cpp` | Did not compile (undefined `PrimeEnumerate`). | Self-contained rewrite with inline prime sieve; all 8 transforms tested against brute force (`tests/test_zeta_and_mobius.cpp`). Header documents AND/OR/gcd/lcm convolution recipes. |
+| `graph/virtual_tree.cpp` | 109-line full solution with problem-specific DP and `main()` baked in. | Reduced to the generic builder (LCA + `vtree`), 47 lines. Test updated. |
+| `data_structures/line_container.cpp` | Global `minimum` flag: flipping it mid-contest silently breaks other users of the container. | Removed flag; standard KACTL max-only version, min via documented `add(-k,-m)` / `-get(x)` trick. Randomized stress added to test. |
+| `math/maximum_xor_subset.cpp`, `math/number_of_subset_xor.cpp` | Two near-duplicate full programs; `int` overflow at bit 31 / `2^rank`. | Replaced by `math/xor_basis.cpp`: one 64-bit `Basis` struct (add/contains/maxXor/rank) with brute-force test. |
+| `math/binom.cpp` | Silent overflow unless notebook-wide `#define int long long` was active. | Explicit `long long` throughout. |
+| `math/sieve.cpp` | Used undefined `vi`/`rep` macros. | Plain C++, still 13 lines. |
+| `math/fraction_finder.cpp` | Used undefined `ll`. | Added alias. |
+| `data_structures/dsu_on_segtree.cpp` | Undefined `maxn`; zero usage docs. | Added `maxn`, header comment (reset `tp`, merge destroys `v`). |
+| `data_structures/priority_queue_with_delete.cpp` | `ins(v, o)` sign-flag API is easy to call wrong. | `push/erase/top/pop/size` API; randomized test vs `multiset`. |
+| `misc/simulated_anihilating.cpp` | Misspelled name; code is hill climbing, not annealing. | Renamed `simulated_annealing.cpp`; documented what it is and how to make it real annealing. |
+| `string/suffix_array.cpp` | Cyclic-shift sort only; sentinel dance left to the user. | Added 5-line `suffix_array(s)` wrapper (tested vs brute suffix sort). |
+| `string/manacher.cpp` | Odd-only with unclear return convention. | Documented convention + the `#`-separator trick for even palindromes. |
+| `string/min_rotation.cpp` | Untested nonstandard implementation. | Stress-tested vs brute force over small alphabets (`tests/test_min_rotation.cpp`); correct. |
+| `tests/test_lazy_segment_tree.cpp` | Stale API (pre-refactor), did not compile. | Rewritten for current `SegTree`; randomized stress vs brute force. |
+| `rolling_hash`, `sparse_table`, `primitive_root` | Missing pitfall notes (single hash, `l < r`, prime-only). | One-line notes added. |
+
+### Added (all with tests)
+
+| Snippet | Why |
+|---|---|
+| `math/ntt.cpp` | Exact convolution mod 998244353; no FFT precision worries. Regional staple. |
+| `graph/two_sat.cpp` | KACTL TwoSat incl. `atMostOne`; randomized-vs-brute tested. |
+| `math/matrix_power.cpp` | Linear recurrences / path counting; short and constantly needed. |
+| `graph/euler_walk.cpp` | KACTL iterative Euler path/circuit, directed + undirected; error-prone to improvise. |
+| `data_structures/persistent_segment_tree.cpp` | K-th smallest on range + range value counts; classic regional problem shape. |
+
+Unchanged by team decision: dominator tree, max clique, global min cut, treap.
+
+## Usability Pass - 2026-07-04
+
+Same philosophy as the lazy segment tree: one obvious way to call each
+snippet, customization points marked, dependencies stated in the header.
+All 44 tests pass with `-std=c++17 -Wall -Wextra -pedantic`.
+
+| Snippet | Change |
+|---|---|
+| `graph/heavy_light_decomposition.cpp` | Rebuilt on top of `SegTree` from `lazy_segment_tree.cpp` — one segment tree to type, HLD inherits whatever op its marked block is configured for. Deleted the private 40-line pointer `Node` (add/max only). Randomized test vs brute force for both `VALS_EDGES` variants. |
+| `graph/bridge.cpp`, `graph/articulation_point.cpp` | Removed undefined `IS_BRIDGE`/`IS_CUTPOINT` callback prototypes (link error if typed as-is); results now collected in `bridges` / `is_cut[]` + `cutpoints`. New brute-force tests incl. multiedges and disconnected graphs. |
+| `math/Gaussian_elimination.cpp` | Now actually solves `Ax=b`: returns -1 (no solution) or #free variables, fills a valid solution. Self-contained. Verified against exhaustive enumeration mod 5. |
+| `data_structures/dsu_on_segtree.cpp` | Default-argument bounds: `upd(root,pos,d)`, `query(root,l,r)`, `merge(u,v)` — no more hand-threading `tl/tr`. Fixed a real multi-test bug: `tp=1` reset reused stale pool nodes; `upd` now zeroes fresh nodes. New randomized test with merges. |
+| `graph/scc.cpp` | Added `condense(c)` (deduped SCC DAG) and documented that comp ids are topologically ordered so DAG DP can loop in id order. Test extended. |
+| `graph/kruskal_reconstruction_tree.cpp` | Header now has the two standard query recipes (max edge on path = LCA weight; threshold reachability = subtree of highest ancestor with weight <= w). |
+| `math/NT_essentails.cpp` | Renamed `NT_essentials.cpp`; header explains egcd/inv_any/inv and notes CRT depends on it. `CRT.cpp` header rewritten (chaining, range of x, dependency). |
+| `data_structures/short_segment_tree.cpp` | Header marks the customization point (three `+` and identity) and warns op must be commutative in this variant. |
+| `math/fft_v2.cpp` | Removed KACTL build-system artifacts (`#pragma once`, include/exclude-line markers) that made the printed snippet confusing. |
+| `misc/gnu_extensions.cpp` | Removed the unsafe `less_equal` PBDS multiset variant entirely; pair-trick documented as the one way. Deleted the hollow `gnu_extensions.md`. |
+| `graph/dijkstra.cpp`, `misc/random_hashing.cpp`, `math/mobius_inversion.md` | Path-reconstruction recipe; xor-vs-sum multiset note + rng dependency; completed dangling section. |
+| `notebook.tex` | All entries synced with the current snippets (renamed/removed/added files, new APIs); every new algorithm from both passes now has a printable entry. `notebook.pdf` needs a local rebuild (no LaTeX in CI container). |
+
+## Modularization Pass - 2026-07-04
+
+Utilities extracted so dependent snippets print "Requires X" instead of
+retyping helpers. All 45 tests pass with `-std=c++17 -Wall -Wextra -pedantic`.
+
+| Change | Detail |
+|---|---|
+| Virtual tree now uses the LCA util | `lca_binary_lifting.cpp` gained dfs-order `tin`; `virtual_tree.cpp` shrank from 47 lines with private LCA/globals to an 18-line function `vtree(keys, lca, edges)` returning nodes by tin + (parent,child) edges. Randomized test verifies nodes = closure under pairwise LCA and each edge = deepest kept ancestor. |
+| `math/discrete_mod.cpp` deduplicated | Dropped its private `mod_pow`/`egcd`/`inv_mod`/`primitive_root_prime` (~45 lines) — now requires `NT_essentials.cpp` + `primitive_root.cpp`. |
+| `math/primitive_root.cpp` | `long long` types, reuses `modpow` from NT essentials (safe for 64-bit p via __int128). |
+| `math/discrete_log.cpp` (new) | General BSGS: smallest x with `a^x = b (mod m)` for ANY a, b, m — non-coprime handled. Tested exhaustively for all a,b,m <= 30 plus 2000 random larger moduli. |
+| `graph/matching.cpp` | Header documents the modular alternative for big graphs: Dinic with unit capacities (O(E sqrt V), same as Hopcroft-Karp — no separate HK snippet needed) and the Konig facts. |
+| `notebook.tex` | Synced: dependency lines for kth roots/primitive root/virtual tree, new Discrete Log entry. |
+
+Dependency graph of printable snippets is now:
+`lazy_segment_tree <- hld`, `lca_binary_lifting <- virtual_tree`,
+`NT_essentials <- {CRT, primitive_root <- discrete_mod}`,
+`fft_v2 <- fft_mod`, `geometry_base <- {convex_hull, closest_pair,
+circle_tangents, convex_point_query, minimum_enclosing_circle}`.
+Everything else is self-contained.
+
+## Rolling Hash Fix - 2026-07-04
+
+The rolling hash was mod-2^64 (unsigned overflow) polynomial hashing. That
+scheme is structurally broken: Thue-Morse string pairs of length 2048 collide
+for EVERY base, so "double hashing" with two bases mod 2^64 does not help
+either (the old pitfall comment suggesting exactly that was wrong). Verified
+empirically: the killer pair collided under bases 131, 1000003, 998244353,
+1000000007 simultaneously. This is a plausible cause of a contest WA on any
+string-hashing problem with anti-hash tests.
+
+Replaced with the standard trusted scheme: mod 2^61-1 (Mersenne prime,
+__int128 reduction) with a base randomized at program start, so fixed test
+data cannot target it. API unchanged (get(l,r), half-open). All Hash objects
+share the global base so hashes compare across strings.
+
+`tests/test_rolling_hash.cpp` now: keeps the old checks, PROVES the old
+scheme collides on the Thue-Morse pair while the new one distinguishes it,
+checks cross-object comparison, and exhaustively verifies hash equality ==
+substring equality over all substring pairs of a random small-alphabet string.
+
+## Killer-Test Hardening Pass - 2026-07-04
+
+Follow-up to the rolling-hash fix: systematic sweep for the same failure
+class — code that passes casual tests but dies on purpose-built inputs or
+fires only mid-contest. All 48 tests pass.
+
+| Issue (same class as the mod-2^64 hash) | Fix |
+|---|---|
+| BSGS (`discrete_log`, `discrete_mod`) used `unordered_map` with gcc's identity hash: a setter choosing m with a bucket-prime structure puts all ~sqrt(m) keys in one bucket -> O(m), TLE. | New `misc/custom_hash.cpp` (`chash`: splitmix64 + runtime-random offset); both snippets now require it. Test proves adversarial key pattern stays spread across buckets. |
+| `template.cpp` `#define log(x)` shadows `std::log` -> incomprehensible compile errors the day someone writes math `log(n)`. | Renamed `dbg`/`dbgl` with a comment saying why. |
+| Manacher used `'$'`/`'^'` sentinels: input containing those walks out of bounds (UB). Also had no test. | Sentinels are now bytes 1/2 (safe for all printable input). New brute-force test incl. strings made of `$`/`^` and the `#`-transform recipe. |
+| Geometry `sqrt((double)x)` on `long double`: silently truncates to 53-bit mantissa; with 1e9 coords the lost digits exceed EPS=1e-12. | `sqrtl` in geometry_base/convex_hull/closest_pair/circle_tangents. All geometry tests still pass. |
+| NTT silently returned garbage for sizes > 2^23 ((MOD-1)/len truncates). | `assert(n <= 1<<23)` — fail loudly instead. |
+| Recursion-depth pitfalls documented everywhere but no mitigation existed. | New `misc/deep_recursion_stack.cpp` (`raise_stack()`, setrlimit to 256MB). Test really recurses 2e6 deep past the 8MB default. |
+| `rand_mt19937.cpp` demo taught `int x = rng()` (negative half the time). | Demo shows unsigned, `uniform_int_distribution`, `shuffle`, 64-bit composition; bans `rand()`/`random_shuffle`. |
+| This knowledge lived nowhere printable. | `debug.md` gained a "Known killer tests" section (hashing, unordered_map, deep recursion, Kuhn worst case, FFT precision, non-strict-weak comparators, rand()). |
+
+notebook.tex synced: Custom Hash and Deep Recursion Stack entries added;
+Discrete Log/kth Roots dependency lines, Manacher and RNG entries updated.
+
+## Edit-Block Pass - 2026-07-04
+
+Applied the lazy-segment-tree convention — a marked "customize" block, with
+machinery below it labeled do-not-edit — to every snippet that expects
+mid-contest modification. All 49 tests pass.
+
+| Snippet | Edit surface now |
+|---|---|
+| `graph/dsu_on_tree_sack.cpp` | Marked block with `add_one(v,d)` + `answer(v)` hooks above the machinery, replacing a bare comment inside the recursion. Header states the contract: when `answer(v)` runs, exactly subtree(v) has been added. New randomized test verifies that contract against brute force. |
+| `data_structures/sparse_table.cpp` | Single `op()` (was `min` hardcoded in two places that had to be edited in sync). |
+| `data_structures/short_segment_tree.cpp` | Single `op()` + `ID` (was three `+` and a `0` scattered through build/modify/query). |
+| `dp/knuth.cpp`, `dp/divide_and_conquer_dp.cpp` | "EDIT ONLY C()/cost()" markers so nobody touches the optimization loops. |
+| `string/Aho.cpp` | Alphabet isolated behind `A` + `idx()` (mapping was duplicated in add and scan). First Aho test added (randomized vs brute-force count, duplicate/suffix patterns). |
+| `math/hadamard_transform.cpp` | Cross-reference: AND/OR convolutions live in zeta_and_mobius.cpp. |
+
+Not converted on purpose: NTT/FFT/Dinic/MCMF/2-SAT/geometry (library code
+with no expected edits), treap and the KACTL do-not-change set.

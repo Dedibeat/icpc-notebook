@@ -113,7 +113,7 @@ vector<P> circleLine(P c, T r, P a, P b) {
     if (sgn(d2 - r * r) > 0) return {};
     P dir = ab / norm(ab);
     if (sgn(d2 - r * r) == 0) return {h};
-    T len = sqrt((double)max((T)0, r * r - d2));
+    T len = sqrtl(max((T)0, r * r - d2));
     return {h - dir * len, h + dir * len};
 }
 
@@ -121,13 +121,13 @@ vector<P> circleLine(P c, T r, P a, P b) {
 // Pitfalls: same center returns empty for both infinite and no intersections.
 vector<P> circleCircle(P a, T r, P b, T R) {
     P ab = b - a;
-    T d2 = norm2(ab), d = sqrt((double)d2);
+    T d2 = norm2(ab), d = sqrtl(d2);
     if (sgn(d) == 0) return {};
     T x = (d2 + r * r - R * R) / (2 * d);
     T h2 = r * r - x * x;
     if (sgn(h2) < 0) return {};
     P v = ab / d, p = a + v * x, q = perp(v);
     if (sgn(h2) == 0) return {p};
-    T h = sqrt((double)max((T)0, h2));
+    T h = sqrtl(max((T)0, h2));
     return {p - q * h, p + q * h};
 }

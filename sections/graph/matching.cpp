@@ -1,3 +1,9 @@
+// Kuhn max bipartite matching, left size n / right size m. O(V*E) worst case
+// but fast in practice with the repeat loop. matching() returns (left,right)
+// pairs; match[r] = left partner of r or -1.
+// Large/adversarial graphs: use Dinic (dinic_2.cpp) with unit capacities
+// source->left->right->sink: O(E sqrt V), same as Hopcroft-Karp.
+// Konig: min vertex cover size = max matching; complement = max independent set.
 struct bipartite {
     int n, m;
     vector<vector<int>> g;

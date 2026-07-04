@@ -1,11 +1,12 @@
-// Binary lifting LCA for rooted trees.
+// Binary lifting LCA for rooted trees. Also provides dfs-order tin
+// (used by virtual_tree.cpp) and kth-ancestor lift.
 // Complexity: build O(n log n), query O(log n).
 // Pitfalls: call build(root); graph must be a tree; recursion depth on large chains.
-// Usage: LCA lca(n); add undirected edges to lca.g; lca.build(0); lca.lca(u,v).
+// Usage: LCA lca(n); lca.addEdge(u,v)...; lca.build(0); lca.lca(u,v); lca.dist(u,v).
 struct LCA {
-    int n, LOG;
+    int n, LOG, timer = 0;
     vector<vector<int>> g, up;
-    vector<int> depth;
+    vector<int> depth, tin;
     LCA(int n = 0) { init(n); }
     void init(int n_) {
         n = n_;
@@ -14,12 +15,15 @@ struct LCA {
         g.assign(n, {});
         up.assign(LOG, vector<int>(n));
         depth.assign(n, 0);
+        tin.assign(n, 0);
+        timer = 0;
     }
     void addEdge(int u, int v) {
         g[u].push_back(v);
         g[v].push_back(u);
     }
     void dfs(int v, int p) {
+        tin[v] = timer++;
         up[0][v] = p;
         for (int j = 1; j < LOG; j++) up[j][v] = up[j - 1][up[j - 1][v]];
         for (int to : g[v]) if (to != p) {

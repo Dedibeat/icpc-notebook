@@ -30,6 +30,8 @@ int k = s.order_of_key(x);
 // iterator to k-th (0-indexed) element
 auto it = s.find_by_order(k);
 
+// multiset trick: store (value, unique id) pairs. Do NOT use less_equal<> as
+// comparator instead: it silently breaks erase(key) and lower_bound.
 using pii = pair<int,int>;
 
 ordered_set<pii> ms;
@@ -40,10 +42,9 @@ ms.insert({value, id++});
 // erase one occurrence
 ms.erase(ms.lower_bound({value, 0}));
 
-tree<int, null_type, less_equal<int>,
-     rb_tree_tag,
-     tree_order_statistics_node_update> ms;
+// order_of_key({value, 0}) = # elements < value
 
+// rope: O(log n) insert/erase of chunks (editor-style problems)
 #include <ext/rope>
 using namespace __gnu_cxx;
 

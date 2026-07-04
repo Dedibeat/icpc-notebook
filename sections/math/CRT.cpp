@@ -1,8 +1,6 @@
-// returns {x, lcm}; x satisfies:
-// NOTE: lcm = m1/g*m2 can overflow long long.
-// x = a1 mod m1
-// x = a2 mod m2
-// returns {-1,-1} if impossible
+// Solve x = a1 (mod m1), x = a2 (mod m2); returns {x, lcm(m1,m2)} with
+// 0 <= x < lcm, or {-1,-1} if impossible. Chain calls for >2 congruences.
+// Requires egcd from NT_essentials.cpp. NOTE: lcm itself must fit long long.
 pair<long long,long long> crt(long long a1, long long m1,
                               long long a2, long long m2) {
     long long x, y;

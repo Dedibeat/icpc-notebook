@@ -40,7 +40,7 @@ T dot(P a, P b) { return a.x * b.x + a.y * b.y; }
 T cross(P a, P b) { return a.x * b.y - a.y * b.x; }
 T cross(P a, P b, P c) { return cross(b - a, c - a); }
 T norm2(P a) { return dot(a, a); }
-T norm(P a) { return sqrt((double)norm2(a)); }
+T norm(P a) { return sqrtl(norm2(a)); }
 P perp(P a) { return {-a.y, a.x}; }
 
 int ori(P a, P b, P c) { return sgn(cross(a, b, c)); }

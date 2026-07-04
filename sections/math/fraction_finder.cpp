@@ -8,6 +8,7 @@
  * Status: stress-tested for n <= 300
  */
 
+using ll = long long;
 struct Frac { ll p, q; };
 
 template<class F>

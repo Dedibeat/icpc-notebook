@@ -4,8 +4,10 @@ using namespace std;
 #define F first 
 #define S second 
 #define all(x) (x).begin(), (x).end()
-#define log(x) cout << #x << " = " << x << " "
-#define logl(x) cout << #x << " = " << x << endl
+// debug printers named dbg, NOT log: a log(x) macro shadows std::log and
+// breaks any later math code with confusing errors.
+#define dbg(x) cout << #x << " = " << x << " "
+#define dbgl(x) cout << #x << " = " << x << endl
 #define print(a) cout << #a << " = "; \
 for(auto x: a) cout << x << " "; cout << endl;
 template<typename T, typename U>
