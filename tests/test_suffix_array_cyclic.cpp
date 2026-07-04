@@ -29,4 +29,15 @@ int main() {
     bytes.push_back('a');
     bytes.push_back(char(200));
     assert(sort_cyclic_shifts(bytes) == brute_cyclic(bytes));
+
+    // suffix_array wrapper vs brute suffix sort
+    for (string t : {string("banana"), string("aaaaa"), string("abacaba"), string("b")}) {
+        vector<int> sa = suffix_array(t);
+        vector<int> idx(t.size());
+        for (size_t i = 0; i < t.size(); i++) idx[i] = (int)i;
+        sort(idx.begin(), idx.end(), [&](int a, int b) {
+            return t.substr(a) < t.substr(b);
+        });
+        assert(sa == idx);
+    }
 }

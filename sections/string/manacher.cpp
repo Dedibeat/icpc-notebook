@@ -1,3 +1,6 @@
+// p[i] = # odd palindromes centered at i; longest has length 2*p[i]-1.
+// For BOTH odd and even: run on t = "#a#b#c#" (insert '#' between chars and at
+// both ends); then longest palindrome centered in t at i has length p[i]-1.
 vector<int> manacher_odd(string s) {
     int n = s.size();
     s = "$" + s + "^";

@@ -1,4 +1,5 @@
-// NOTE: cyclic shifts only. Append unique sentinel and remove it for suffix array.
+// Sorts cyclic shifts in O(n log n); suffix_array(s) wrapper below gives the
+// suffix array (input must not contain '\1').
 vector<int> sort_cyclic_shifts(string const& s) {
     int n = s.size();
     if (n == 0) return {};
@@ -44,4 +45,11 @@ vector<int> sort_cyclic_shifts(string const& s) {
         c.swap(cn);
     }
     return p;
+}
+
+// sa[i] = start of i-th smallest suffix. Use with lcp_array (Kasai) from lcp.cpp.
+vector<int> suffix_array(string s) {
+    s += '\1'; // sentinel smaller than any input char
+    vector<int> p = sort_cyclic_shifts(s);
+    return vector<int>(p.begin() + 1, p.end());
 }

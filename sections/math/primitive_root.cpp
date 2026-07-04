@@ -1,3 +1,5 @@
+// Smallest primitive root modulo PRIME p (this code factors phi = p-1).
+// O(sqrt(p) + answer * log^2 p). For NTT: root of mod 998244353 is 3.
 int powmod (int a, int b, int p) {
     int res = 1;
     while (b)

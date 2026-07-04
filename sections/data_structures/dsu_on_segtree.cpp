@@ -1,3 +1,8 @@
+// Mergeable dynamic segment trees over positions [tl, tr] (sum).
+// Roots are ints (0 = empty). merge(u,v,..) destroys v and returns u.
+// Pool: 40*maxn nodes fits ~maxn points over a range of size ~1e9 with merges.
+// Pitfalls: reset tp=1 and roots between test cases; merge reuses u's nodes.
+const int maxn = 2e5 + 5;
 struct node {
 	int s, l, r;
 	node() : s(0), l(0), r(0) {}

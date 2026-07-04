@@ -138,3 +138,44 @@ and printable:
 | Old/maybe snippets | Gaussian elimination and XOR basis still need focused review/tests. | Review one by one before promoting to final printed notebook. |
 
 Ignored by choice for now: dominator tree, max clique, global min cut, and treap. they should be included. whitout change.
+
+## Contest-Readiness Review Pass - 2026-07-04
+
+Focus: fix implementations that were wrong or easy to misuse under contest
+pressure, shorten what gets manually typed, and add high-value gold-level
+snippets. Full sweep: all 40 tests in `tests/` compile with
+`-std=c++17 -Wall -Wextra -pedantic` and pass.
+
+### Fixed
+
+| Snippet | Problem | Fix |
+|---|---|---|
+| `dp/knuth.cpp` | Missing closing brace: did not compile. Duplicated 13 lines of debug macros. | Fixed brace, stripped debug macros, added precondition/complexity header. Stress-tested vs brute force. |
+| `dp/divide_and_conquer_dp.cpp` | Debug-macro noise; no warning about when the optimization is valid. | Trimmed; documented that `(sum)^2` cost needs nonnegative input (QI fails otherwise — found via stress test). Stress-tested vs brute force. |
+| `math/zeta_and_mobius.cpp` | Did not compile (undefined `PrimeEnumerate`). | Self-contained rewrite with inline prime sieve; all 8 transforms tested against brute force (`tests/test_zeta_and_mobius.cpp`). Header documents AND/OR/gcd/lcm convolution recipes. |
+| `graph/virtual_tree.cpp` | 109-line full solution with problem-specific DP and `main()` baked in. | Reduced to the generic builder (LCA + `vtree`), 47 lines. Test updated. |
+| `data_structures/line_container.cpp` | Global `minimum` flag: flipping it mid-contest silently breaks other users of the container. | Removed flag; standard KACTL max-only version, min via documented `add(-k,-m)` / `-get(x)` trick. Randomized stress added to test. |
+| `math/maximum_xor_subset.cpp`, `math/number_of_subset_xor.cpp` | Two near-duplicate full programs; `int` overflow at bit 31 / `2^rank`. | Replaced by `math/xor_basis.cpp`: one 64-bit `Basis` struct (add/contains/maxXor/rank) with brute-force test. |
+| `math/binom.cpp` | Silent overflow unless notebook-wide `#define int long long` was active. | Explicit `long long` throughout. |
+| `math/sieve.cpp` | Used undefined `vi`/`rep` macros. | Plain C++, still 13 lines. |
+| `math/fraction_finder.cpp` | Used undefined `ll`. | Added alias. |
+| `data_structures/dsu_on_segtree.cpp` | Undefined `maxn`; zero usage docs. | Added `maxn`, header comment (reset `tp`, merge destroys `v`). |
+| `data_structures/priority_queue_with_delete.cpp` | `ins(v, o)` sign-flag API is easy to call wrong. | `push/erase/top/pop/size` API; randomized test vs `multiset`. |
+| `misc/simulated_anihilating.cpp` | Misspelled name; code is hill climbing, not annealing. | Renamed `simulated_annealing.cpp`; documented what it is and how to make it real annealing. |
+| `string/suffix_array.cpp` | Cyclic-shift sort only; sentinel dance left to the user. | Added 5-line `suffix_array(s)` wrapper (tested vs brute suffix sort). |
+| `string/manacher.cpp` | Odd-only with unclear return convention. | Documented convention + the `#`-separator trick for even palindromes. |
+| `string/min_rotation.cpp` | Untested nonstandard implementation. | Stress-tested vs brute force over small alphabets (`tests/test_min_rotation.cpp`); correct. |
+| `tests/test_lazy_segment_tree.cpp` | Stale API (pre-refactor), did not compile. | Rewritten for current `SegTree`; randomized stress vs brute force. |
+| `rolling_hash`, `sparse_table`, `primitive_root` | Missing pitfall notes (single hash, `l < r`, prime-only). | One-line notes added. |
+
+### Added (all with tests)
+
+| Snippet | Why |
+|---|---|
+| `math/ntt.cpp` | Exact convolution mod 998244353; no FFT precision worries. Regional staple. |
+| `graph/two_sat.cpp` | KACTL TwoSat incl. `atMostOne`; randomized-vs-brute tested. |
+| `math/matrix_power.cpp` | Linear recurrences / path counting; short and constantly needed. |
+| `graph/euler_walk.cpp` | KACTL iterative Euler path/circuit, directed + undirected; error-prone to improvise. |
+| `data_structures/persistent_segment_tree.cpp` | K-th smallest on range + range value counts; classic regional problem shape. |
+
+Unchanged by team decision: dominator tree, max clique, global min cut, treap.

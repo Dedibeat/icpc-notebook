@@ -1,9 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define main virtual_tree_original_main
 #include "../sections/graph/virtual_tree.cpp"
-#undef main
 
 int main() {
     n = 7;
@@ -11,8 +9,6 @@ int main() {
     for (int i = 0; i < n; i++) {
         adj[i].clear();
         vadj[i].clear();
-        at_a[i].clear();
-        a[i] = 0;
     }
 
     auto add_edge = [&](int u, int v) {

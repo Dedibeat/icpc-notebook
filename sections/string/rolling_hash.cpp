@@ -1,3 +1,6 @@
+// Polynomial hash mod 2^64. get(l,r) hashes s[l..r) in O(1).
+// Pitfalls: single hash; for paranoid problems build two Hash objects with
+// different B (e.g. 1000003 and 998244353) and compare pairs.
 struct Hash {
     static const uint64_t B = 1000003;
     vector<uint64_t> h, p;
