@@ -1,5 +1,103 @@
 # ICPC Notebook Source Evaluation
 
+## Build the printable notebook
+
+The explanatory `.md` files are rendered as Markdown, including inline and
+display math, instead of being printed as source code. Build with LuaLaTeX so
+the Markdown converter runs without shell escape:
+
+```bash
+latexmk -lualatex -interaction=nonstopmode -halt-on-error notebook.tex
+```
+
+## Technique gap inventory
+
+The technique dataset was compared with the notebook taxonomy. The resulting
+documentation-only inventory is in [missing_techniques.md](missing_techniques.md):
+it lists every taxonomy extension and every unnormalized `extras` tag with
+observed counts and dataset notes. It remains the full discussion backlog;
+selected entries from the later review are now implemented and tested separately.
+
+## Selected 30-technique expansion - 2026-09-02
+
+The agreed shortlist is now represented in the printable notebook. Four entries
+arrived in the remote update and were retained instead of duplicated: Euler walk,
+2-SAT, matrix power, and persistent segment tree. The other 26 were added here:
+
+1. Fast knapsack and subset sum (bitset, square-root compression, min-items,
+   bounded monotone-deque optimization)
+2. Monotonic stack and queue
+3. Longest increasing subsequence reconstruction
+4. Multi-source and 0-1 BFS
+5. Topological sort
+6. Kruskal MST
+7. Floyd-Warshall
+8. Euler walk (remote)
+9. 2-SAT (remote)
+10. Functional graph toolkit
+11. Character and binary tries
+12. Matrix power (remote)
+13. Meet in the middle
+14. Sprague-Grundy
+15. Sqrt decomposition
+16. Persistent segment tree (remote)
+17. Centroid decomposition
+18. Suffix automaton
+19. Offline dynamic connectivity with rollback DSU
+20. CDQ 3D dominance
+21. Block-cut tree
+22. Half-plane intersection
+23. Minkowski sum
+24. Bitmask DP and submask enumeration
+25. Digit DP state design
+26. Sweep-line event ordering and rectangle-union area
+27. Rerooting with prefix/suffix aggregates
+28. Floor-sum recurrence
+29. Consecutive-point Lagrange interpolation
+30. Min-cut modeling recipes and maximum-weight closure
+
+Formula-heavy entries have adjacent `.md` derivations. Every code entry has a
+targeted test; risky entries use randomized brute-force or structural checks.
+The complete `tests/test_*.cpp` suite passes under C++17 with assertions enabled.
+
+Primary implementation references used for the less-obvious optimizations:
+[Subset Sum Square Root Optimisation](https://codeforces.com/blog/entry/97396),
+[bounded knapsack sliding-window discussion](https://codeforces.com/blog/entry/100986),
+and [CDQ divide-and-conquer tutorial](https://codeforces.com/blog/entry/150934).
+
+## Advanced follow-up expansion - 2026-09-02
+
+The next requested batch adds 16 entries, each with a focused test:
+
+1. Bellman-Ford and difference constraints
+2. Hungarian assignment
+3. Deterministic AHU tree canonization
+4. Inclusion-exclusion code and formulas
+5. Basic array Mo's algorithm
+6. Parallel binary search
+7. Lucas theorem and Kummer note
+8. Cartesian tree
+9. Palindromic tree (eertree)
+10. Slope trick with two heaps
+11. Lagrangian relaxation (Aliens trick / WQS binary search)
+12. Formal power-series inverse, logarithm, and exponential
+13. Segment tree beats
+14. Link-cut tree
+15. Two-phase floating simplex
+16. Static compressed wavelet tree
+
+The dangerous structures have deliberately narrow contracts and explanatory
+notes. Segment tree beats supports add/chmin/chmax and sum/min/max. Link-cut is
+commutative path sum with point assignment. FPS uses the existing 998244353 NTT.
+Simplex reports optimal/infeasible/unbounded but remains a numerical fallback.
+
+References used while adapting and testing this batch include the
+[USACO Guide on Lagrangian relaxation](https://usaco.guide/adv/lagrange?lang=cpp),
+[original segment-tree-beats tutorial](https://codeforces.com/blog/entry/57319),
+[slope-trick tutorial](https://codeforces.com/blog/entry/47821),
+[KACTL](https://github.com/kth-competitive-programming/kactl), and
+[AtCoder Library convolution documentation](https://atcoder.github.io/ac-library/production/document_en/convolution.html).
+
 This is a skeptical review of the current `sections/` snippets. It does not
 assume the code is correct. No snippet should be printed as trusted notebook
 material until it has the listed tests or an equivalent stress test.

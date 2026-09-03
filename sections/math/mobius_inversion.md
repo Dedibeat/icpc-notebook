@@ -1,4 +1,4 @@
-## Möbius Function
+### Möbius function
 
 The Möbius function $\mu(n)$ is defined as
 $$
@@ -18,7 +18,7 @@ $$
 0 & \text{if } n>1.
 \end{cases}
 $$
-## Inversion Formula
+### Inversion formula
 
 If
 $$
@@ -36,21 +36,21 @@ F = f * 1
 f = F * \mu.
 $$
 
-## Common CP Applications
+### Common application
 
-Counting pairs with $\gcd(i,j)=1$:
+The number of ordered pairs $1\le i,j\le n$ with $\gcd(i,j)=1$ is
 $$
 \sum_{d=1}^{n}
 \mu(d)
 \left\lfloor \frac{n}{d} \right\rfloor^2
 $$
 
-Used to:
+Use Möbius inversion to:
 
-- Remove overcounting over divisors
-- Transform sums over $\gcd$
-- Invert divisor summations
+- remove overcounting over divisors;
+- transform sums constrained by $\gcd$;
+- invert divisor summations.
 
-## Linear Sieve for $\mu$ (O(n))
+### Implementation
 
-See `mobius_inversion.cpp` (`mobius_sieve(n)` fills `mu[1..n]`).
+`mobius_sieve(n)` fills `mu[1..n]` in $O(n)$.

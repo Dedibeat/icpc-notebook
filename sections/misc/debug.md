@@ -1,65 +1,38 @@
-Pre-submit:
-Write a few simple test cases if sample is not enough.
-Are time limits close? If so, generate max cases.
-Is the memory usage fine?
-Could anything overflow?
-Make sure to submit the right file.
+### Before submit
 
-Wrong answer:
-Print your solution! Print debug output, as well.
-Are you clearing all data structures between test cases?
-Can your algorithm handle the whole range of input?
-Read the full problem statement again.
-Do you handle all corner cases correctly?
-Have you understood the problem correctly?
-Any uninitialized variables?
-Any overflows?
-Confusing N and M, i and j, etc.?
-Are you sure your algorithm works?
-What special cases have you not thought of?
-Are you sure the STL functions you use work as you think?
-Add some assertions, maybe resubmit.
-Create some testcases to run your algorithm on.
-Go through the algorithm for a simple case.
-Go through this list again.
-Explain your algorithm to a teammate.
-Ask the teammate to look at your code.
-Go for a small walk, e.g. to the toilet.
-Is your output format correct? (including whitespace)
-Rewrite your solution from the start or let a teammate do it.
+- Re-read constraints and output format; submit the right file.
+- Test smallest, degenerate, duplicate, and maximum cases.
+- Check overflow, memory, recursion depth, and per-test reset.
+- Estimate time from the actual worst-case operation count.
 
-Runtime error:
-Have you tested all corner cases locally?
-Any uninitialized variables?
-Are you reading or writing outside the range of any vector?
-Any assertions that might fail?
-Any possible division by 0? (mod 0 for example)
-Any possible infinite recursion?
-Invalidated pointers or iterators?
-Are you using too much memory?
-Debug with resubmits (e.g. remapped signals, see Various).
+### Wrong answer
 
-Time limit exceeded:
-Do you have any possible infinite loops?
-What is the complexity of your algorithm?
-Are you copying a lot of unnecessary data? (References)
-How big is the input and output? (consider scanf)
-Avoid vector, map. (use arrays/unordered_map)
-What do your teammates think about your algorithm?
+- Print the computed state, not only the final answer.
+- Hand-simulate a tiny counterexample and add assertions.
+- Check off-by-one bounds, $N/M$ mixups, ties, duplicates, and unreachable states.
+- Verify STL/API semantics and strict comparator ordering.
+- Explain the proof and code to a teammate; let fresh eyes inspect it.
+- If the model is wrong, rewrite from the invariant instead of patching symptoms.
 
-Memory limit exceeded:
-What is the max amount of memory your algorithm should need?
-Are you clearing all data structures between test cases?
+### Runtime, time, and memory
 
-Known killer tests (things that pass samples and die on purpose-built data):
-Hashing strings mod 2^64 (overflow): Thue-Morse pairs collide for EVERY base.
-  Use the notebook hash (mod 2^61-1, random base).
-unordered_map/set with default hash: chosen keys collide into one gcc bucket
-  (identity hash) -> O(n) per op. Use chash from misc/custom_hash.cpp.
-Deep recursion: 1e6-chain graphs overflow the 8MB stack.
-  Call raise_stack() from misc/deep_recursion_stack.cpp first in main.
-Kuhn matching O(VE): dense adversarial bipartite graphs.
-  Use Dinic with unit capacities instead.
-FFT precision: huge coefficients -> use NTT (998244353) or FFT-mod.
-Sort comparator that is not strict-weak (e.g. <=): RTE/UB, not just wrong order.
-rand()/random_shuffle: RAND_MAX may be 32767; both banned in this notebook.
+- **RE:** out-of-bounds, uninitialized data, zero division, invalid iterators,
+  failed assertions, or recursion depth.
+- **TLE:** hidden nested work, infinite loops, copying large containers, slow I/O,
+  or an adversarial hash/table case.
+- **MLE:** actual peak allocation, recursion stack, retained globals, or failure to
+  clear between tests.
+
+### Known killers
+
+- Hashing modulo $2^{64}$ by overflow: Thue-Morse pairs collide for every base.
+  Use the notebook's modulo-$2^{61}-1$ hash.
+- Default `unordered_map/set`: adversarial keys may share one GCC bucket. Use
+  `chash` from `misc/custom_hash.cpp`.
+- A chain of $10^6$ recursive calls overflows an 8 MB stack. Use
+  `raise_stack()` or an iterative traversal.
+- Kuhn matching is $O(VE)$ and fails on dense adversarial graphs. Use
+  unit-capacity Dinic when needed.
+- Large FFT coefficient energy loses precision. Prefer NTT or FFT-mod.
+- A non-strict comparator such as `<=` causes undefined behavior.
+- `rand()` and `random_shuffle` are banned here; use `mt19937`.

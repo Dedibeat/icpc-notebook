@@ -1,0 +1,77 @@
+// * $O(\min(E^{1/2}, V^{2/3})E)$ if $U = 1$; $O(\sqrt{V}E)$ for bipartite matching.
+// After calc(s,t), leftOfMinCut(v) gives the source side; minCutEdges() lists crossing edges.
+// Requires bits/stdc++.h and using namespace std.
+#include<bits/stdc++.h>
+using namespace std;
+using ll = long long;
+using vi = vector<int>;
+#ifndef sz
+#define sz(x) (int)(x).size()
+#endif
+#ifndef rep
+#define rep(i,a,b) for (int i = (a); i < (b); ++i)
+#endif
+
+struct Dinic {
+	struct Edge {
+		int to, rev;
+		ll c, oc;
+		ll flow() { return max(oc - c, 0LL); } // if you need flows
+	};
+	vi lvl, ptr, q;
+	vector<vector<Edge>> adj;
+	Dinic(int n) : lvl(n), ptr(n), q(n), adj(n) {}
+	void addEdge(int a, int b, ll c, ll rcap = 0) {
+		adj[a].push_back({b, sz(adj[b]), c, c});
+		adj[b].push_back({a, sz(adj[a]) - 1, rcap, rcap});
+	}
+	ll dfs(int v, int t, ll f) {
+		if (v == t || !f) return f;
+		for (int& i = ptr[v]; i < sz(adj[v]); i++) {
+			Edge& e = adj[v][i];
+			if (lvl[e.to] == lvl[v] + 1)
+				if (ll p = dfs(e.to, t, min(f, e.c))) {
+					e.c -= p, adj[e.to][e.rev].c += p;
+					return p;
+				}
+		}
+		return 0;
+	}
+	ll calc(int s, int t) {
+		ll flow = 0; q[0] = s;
+		rep(L,0,31) do { // 'int L=30' maybe faster for random data
+			lvl = ptr = vi(sz(q));
+			int qi = 0, qe = lvl[s] = 1;
+			while (qi < qe && !lvl[t]) {
+				int v = q[qi++];
+				for (Edge e : adj[v])
+					if (!lvl[e.to] && e.c >> (30 - L))
+						q[qe++] = e.to, lvl[e.to] = lvl[v] + 1;
+			}
+			while (ll p = dfs(s, t, LLONG_MAX)) flow += p;
+		} while (lvl[t]);
+		return flow;
+	}
+	bool leftOfMinCut(int a) { return lvl[a] != 0; }
+	vector<pair<int, int>> minCutEdges() {
+		vector<pair<int, int>> cut;
+		rep(v,0,sz(adj)) if (leftOfMinCut(v)) {
+			for (Edge& e : adj[v])
+				if (e.oc > 0 && e.c == 0 && !leftOfMinCut(e.to))
+					cut.push_back({v, e.to});
+		}
+		return cut;
+	}
+};
+
+signed main()
+{
+    int n, m; cin >> n >> m;
+    Dinic d(n + 1);
+    while(m--)
+    {
+        int u, v, w; cin >> u >> v >> w;
+        d.addEdge(u, v, w);
+    }
+    cout << d.calc(1, n) << '\n';
+}
