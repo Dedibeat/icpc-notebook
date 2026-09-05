@@ -3,6 +3,8 @@
 // inequality). O(m n log n) instead of O(m n^2). 1-indexed.
 // Example: split a[1..n] into m groups, cost of a group = (sum)^2.
 // WARNING: (sum)^2 cost needs a[i] >= 0 (monotone prefix sums), else QI fails.
+// Input: n m, then n nonnegative values; requires 1<=m<=n.
+// Output: minimum sum of squared group sums over exactly m nonempty intervals.
 #include <bits/stdc++.h>
 using namespace std;
 #define int long long

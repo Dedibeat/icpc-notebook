@@ -2,13 +2,17 @@
 // Complexity: O(n + m); condense() O(m log m).
 // Comp ids are in topological order (every edge has comp[u] <= comp[v]),
 // so DP over the DAG can just loop components in id order.
-// Usage: SCC s(n); s.addEdge(u,v); int c = s.build();
-//        auto dag = s.condense(c); // deduped SCC DAG, dag[comp] = successors
+// addEdge loads arcs; build fills comp[v] and returns the component count;
+// condense(count) returns the deduplicated component DAG.
+// Example: edges 0->1,1->0,1->2 give build()==2, comp[0]==comp[1],
+//          comp[1]<comp[2].
 struct SCC {
     int n;
     vector<vector<int>> g, rg;
     vector<int> comp;
-    SCC(int n = 0) { init(n); }
+    SCC(int n = 0) {
+        init(n);
+    }
     void init(int n_) {
         n = n_;
         g.assign(n, {});
@@ -36,7 +40,7 @@ struct SCC {
         for (int v : order) if (comp[v] == -1) dfs2(v, cnt++);
         return cnt;
     }
-    vector<vector<int>> condense(int c) { // call after build()
+    vector<vector<int>> condense(int c) {
         vector<vector<int>> dag(c);
         set<pair<int, int>> seen;
         for (int u = 0; u < n; u++)

@@ -29,7 +29,7 @@ void dfs(int v, int p = -1) {
         is_cut[v] = true;
 }
 
-void find_cutpoints() {
+void find_cutpoints() { // Resets globals and fills is_cut/cutpoints for the current graph.
     timer = 0;
     visited.assign(n, false);
     is_cut.assign(n, false);

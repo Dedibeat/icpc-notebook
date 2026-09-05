@@ -1,8 +1,11 @@
 // Palindromic tree (eertree): online distinct palindromes and occurrences.
 // Complexity: O(n*A) memory here, O(n) build for fixed alphabet.
-// Pitfalls: lowercase only; add all characters before finishOccurrences();
-//           do not extend after finishing. Nodes 0/1 are roots of length -1/0.
-// Usage: Eertree e; int suffix=e.add(c); e.distinct(); e.finishOccurrences().
+// Input: lowercase characters passed to add in text order.
+// Effect: each new non-root node is one distinct palindrome; link[v] removes its outer
+// characters to reach the longest proper palindromic suffix. Nodes 0/1 have
+// lengths -1/0. Output: add returns the longest suffix node; after
+// finishOccurrences(), tree[v].occ is the total count of palindrome v.
+// Pitfalls: lowercase only; finish once after all adds, then do not extend.
 struct Eertree {
     // ---- customize alphabet here -----------------------------------------
     static const int A=26;
@@ -20,9 +23,13 @@ struct Eertree {
     int suffix;
     bool ready;
 
-    Eertree(const string& str=""){init();for(char c:str)add(c);}
-    void init(){tree={Node(-1),Node(0)};tree[0].link=0;tree[1].link=0;s={-1};text.clear();suffix=1;ready=false;}
-    int getLink(int v,int pos,int c) const {
+    Eertree(const string& str=""){
+        init();for(char c:str)add(c);
+    }
+    void init(){
+        tree={Node(-1),Node(0)};tree[0].link=0;tree[1].link=0;s={-1};text.clear();suffix=1;ready=false;
+    }
+    int getLink(int v,int pos,int c) const { // Internal: returns the longest extendable palindromic suffix node.
         while(s[pos-1-tree[v].len]!=c)v=tree[v].link;
         return v;
     }
@@ -47,7 +54,7 @@ struct Eertree {
         int r=tree[node].firstEnd;
         return text.substr(r-tree[node].len+1,tree[node].len);
     }
-    void finishOccurrences() {
+    void finishOccurrences() { // Propagates final occurrence counts; call after the last add().
         if(ready)return;
         vector<int>order(tree.size());iota(order.begin(),order.end(),0);
         sort(order.begin(),order.end(),[&](int a,int b){return tree[a].len>tree[b].len;});

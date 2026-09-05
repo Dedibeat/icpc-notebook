@@ -6,6 +6,9 @@
 #include <iostream>
 #include <vector>
 
+// Input: n m, then m directed 1-indexed edges; assumes n is reachable from 1.
+// Output: count and sorted 1-indexed vertices on every directed path from 1 to n.
+
 using std::cout;
 using std::endl;
 using std::vector;

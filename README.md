@@ -1,5 +1,12 @@
 # ICPC Notebook Source Evaluation
 
+## Local contest tools
+
+- `python3 tools/grader.py [-v] SOL [JUDGE]` compiles a line-based interactive
+  solution and judge, then pipes them together. The default judge is `judge.cpp`.
+- `bash tools/test.sh SOL` compiles `SOL.cpp`, reads `input`, and writes at most
+  10000 output lines to `output` while showing compiler errors and warnings.
+
 ## Build the printable notebook
 
 The explanatory `.md` files are rendered as Markdown, including inline and

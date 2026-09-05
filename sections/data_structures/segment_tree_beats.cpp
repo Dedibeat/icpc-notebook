@@ -4,7 +4,9 @@
 // Pitfalls: mx2/mn2 are STRICT second extrema; comparisons in the fast-path
 //           conditions must stay strict. Keep values far inside +/-INF; sums
 //           and lazy additions can overflow long long.
-// Usage: SegTreeBeats st(a); st.chmin(l,r,x); st.add(...); st.sum(l,r).
+// Input: initial values and valid 0-indexed half-open intervals [l,r).
+// Effect: add adds; chmin caps from above; chmax floors from below on [l,r).
+// Output: sum/min/max aggregate [l,r); empty ranges give 0/INF/NINF.
 struct SegTreeBeats {
     using ll=long long;
     static constexpr ll INF=(1LL<<60),NINF=-INF;

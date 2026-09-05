@@ -26,4 +26,9 @@ int main() {
         while(!q.empty()){int v=q.front();q.pop();for(int u:bc.tree[v])if(!seen[u])seen[u]=1,q.push(u);}
     }
     assert(edges==(int)bc.tree.size()-components);
+    auto oldBlocks=bc.blocks, oldTree=bc.tree;
+    bc.build();
+    assert(bc.blocks==oldBlocks && bc.tree==oldTree);
+    bc.init(1); bc.build();
+    assert(bc.blocks.empty() && bc.tree==vector<vector<int>>(1));
 }

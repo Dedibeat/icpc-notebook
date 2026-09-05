@@ -2,6 +2,8 @@
 // Valid when opt[i][j-1] <= opt[i][j] <= opt[i+1][j], e.g. C satisfies the
 // quadrangle inequality and is monotone on inclusion. O(n^2) total.
 // 1-indexed. Example: merge-stones cost C(i,j) = sum a[i..j].
+// Input: n, then n nonnegative pile weights.
+// Output: minimum total cost to merge all adjacent piles into one.
 #include <bits/stdc++.h>
 using namespace std;
 #define int long long

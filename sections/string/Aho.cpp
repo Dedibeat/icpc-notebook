@@ -1,3 +1,9 @@
+// Aho-Corasick counts occurrences of many lowercase patterns in one text.
+// Input: add lowercase patterns, build once, then scan lowercase text.
+// Effect: duplicate add calls add multiplicity; build fills failure transitions.
+// Output: countMatches(text) returns total hits over all pattern copies.
+// Complexity: build O(total pattern length*A), match O(text length); O(nodes*A).
+// Pitfalls: build fills missing transitions, so do not add patterns afterward.
 struct Aho {
     // EDIT ONLY A and idx() for other alphabets; out-of-range chars = UB.
     static const int A = 26;
@@ -32,7 +38,7 @@ struct Aho {
         t[v].out++;
     }
 
-    void build() {
+    void build() { // Completes failure transitions; call after all patterns and before matching.
         queue<int> q;
 
         for (int c = 0; c < A; c++) {

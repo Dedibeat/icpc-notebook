@@ -4,6 +4,8 @@
 // Large/adversarial graphs: use Dinic (dinic_2.cpp) with unit capacities
 // source->left->right->sink: O(E sqrt V), same as Hopcroft-Karp.
 // Konig: min vertex cover size = max matching; complement = max independent set.
+// add(l,r) adds an edge; matching() returns (left,right) pairs.
+// Example: edges (0,1),(1,0) produce two pairs (order unspecified).
 struct bipartite {
     int n, m;
     vector<vector<int>> g;

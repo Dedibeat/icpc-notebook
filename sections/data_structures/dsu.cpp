@@ -1,7 +1,9 @@
 // Disjoint Set Union.
 // Complexity: amortized O(alpha(n)).
 // Pitfalls: init per test case; unite returns false if already same set.
-// Usage: DSU d(n); d.unite(u, v); d.same(u, v); d.size(u);
+// Operations: find(v) gives a representative; unite(a,b) merges components
+// and says whether they were distinct; same/size query the current component.
+// Example: DSU d(3); d.unite(0,2); d.same(0,2)==true; d.size(0)==2.
 struct DSU {
     vector<int> p, sz;
     DSU(int n = 0) { init(n); }

@@ -1,5 +1,8 @@
-// * $O(\min(E^{1/2}, V^{2/3})E)$ if $U = 1$; $O(\sqrt{V}E)$ for bipartite matching.
-// After calc(s,t), leftOfMinCut(v) gives the source side; minCutEdges() lists crossing edges.
+// Dinic maximum flow with capacity scaling. addEdge(u,v,c,rc) adds residual
+// capacities in both directions; calc augments the current residual network.
+// Afterwards leftOfMinCut(v) marks the source side and minCutEdges lists its
+// original crossing arcs. Example: addEdge(0,1,5); calc(0,1)==5.
+// Unit capacities: O(min(sqrt(E),V^(2/3))*E); bipartite matching O(sqrt(V)*E).
 // Requires bits/stdc++.h and using namespace std.
 using ll = long long;
 using vi = vector<int>;
@@ -50,7 +53,9 @@ struct Dinic {
 		} while (lvl[t]);
 		return flow;
 	}
-	bool leftOfMinCut(int a) { return lvl[a] != 0; }
+	bool leftOfMinCut(int a) {
+		return lvl[a] != 0;
+	}
 	vector<pair<int, int>> minCutEdges() {
 		vector<pair<int, int>> cut;
 		rep(v,0,sz(adj)) if (leftOfMinCut(v)) {

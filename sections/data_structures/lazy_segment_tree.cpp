@@ -2,9 +2,11 @@
 // To reuse for another operation, edit ONLY the marked block below:
 //   types V (node) / L (tag), the two identities, and merge/applyVal/compose.
 // Configured for: range-add update, range-sum query.
-//   range assign : L LID=LLONG_MIN; applyVal -> f*len; compose -> (f==LID?a:f)
-//   range add, range min : merge=min; applyVal -> a+f (ignore len); compose=a+f
-// Usage: SegTree st(n);  or  st.init(a);   st.update(l,r,v);   st.query(l,r);
+// Pitfalls: compose(a,f) applies OLD a then NEW f; arithmetic must fit V.
+// Input: init(a), then valid 0-indexed inclusive intervals [l,r].
+// Effect: update(l,r,x) adds x to each a[i] in [l,r]; l>r does nothing.
+// Output: query(l,r) returns the range sum, or VID for l>r.
+// See the usage notes for complete, tested alternative configurations.
 struct SegTree {
     // ---- customize for the operation -------------------------------------
     using V = long long;          // node value type
@@ -22,7 +24,7 @@ struct SegTree {
 
     SegTree(int n = 0) { init(n); }
     void init(int n_) { n = max(1, n_); t.assign(4 * n, VID); lz.assign(4 * n, LID); }
-    void init(const vector<V>& a) { init((int)a.size()); build(a, 1, 0, n - 1); }
+    void init(const vector<V>& a) { init((int)a.size()); if (!a.empty()) build(a, 1, 0, n - 1); }
 
     void apply(int x, L f, int len) {
         t[x] = applyVal(t[x], f, len);
@@ -58,7 +60,7 @@ struct SegTree {
         int m = (l + r) / 2;
         return merge(query(2 * x, l, m, ql, qr), query(2 * x + 1, m + 1, r, ql, qr));
     }
-    // public wrappers: call with just the range, no node/bounds by hand
+    // Public wrappers: ranges are inclusive.
     void update(int l, int r, L f) { update(1, 0, n - 1, l, r, f); }
     V query(int l, int r)          { return query(1, 0, n - 1, l, r); }
 };

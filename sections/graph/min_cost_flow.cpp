@@ -1,8 +1,10 @@
 // Min-cost flow with potentials. Negative costs ok; no negative cost cycles.
 // Source: Stanford/KACTL successive shortest path style.
 // Complexity: O(F E log V), plus O(VE) Bellman-Ford init.
-// Pitfalls: costs/caps are long long; minCost(s,t,need) may send < need flow.
-// Usage: MCMF mf(n); mf.addEdge(u,v,cap,cost); auto [flow,cost]=mf.minCost(s,t,need);
+// addEdge(u,v,cap,cost) adds a directed choice; minCost(s,t,need) returns
+// {flow,cost} for as much of need as the residual network can send.
+// Example: addEdge(0,1,3,7); auto [flow,cost]=minCost(0,1,2); // 2, 14
+// Pitfalls: costs/caps and cost*flow must fit long long; flow may be < need.
 struct MCMF {
     using ll = long long;
     const ll INF = (1LL << 62);
@@ -15,7 +17,9 @@ struct MCMF {
     vector<ll> pot, dist;
     vector<int> pv, pe;
 
-    MCMF(int n = 0) { init(n); }
+    MCMF(int n = 0) {
+        init(n);
+    }
     void init(int n_) {
         n = n_;
         g.assign(n, {});

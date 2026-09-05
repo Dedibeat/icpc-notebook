@@ -12,7 +12,7 @@ struct BlockCutTree {
     vector<vector<int>> blocks, tree;
 
     BlockCutTree(int n = 0) { init(n); }
-    void init(int n_) {
+    void init(int n_) { // Clears the graph and every previously built block.
         n=n_; timer=0; edges.clear(); g.assign(n,{});
         tin.assign(n,-1); low.resize(n); edgeStack.clear();
         blocks.clear(); tree.clear();

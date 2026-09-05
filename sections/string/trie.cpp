@@ -1,7 +1,10 @@
 // Lowercase trie and nonnegative 63-bit xor trie.
 // Complexity: O(length) / O(63) per insert, erase, query.
+// Trie count_word returns exact multiplicity; count_prefix counts stored words
+// below a prefix. BinaryTrie max_xor(x) returns the maximum XOR value, not its mate.
+// Examples: insert("app"), insert("apple") => count_prefix("app")==2.
+//           insert 2 and 7 => max_xor(4)==6 (using stored value 2).
 // Pitfalls: lowercase alphabet only; erase only values currently present.
-// Usage: Trie t; t.insert(s); BinaryTrie b; b.insert(x); b.max_xor(x).
 struct Trie {
     // ---- customize alphabet here -----------------------------------------
     static const int A = 26;

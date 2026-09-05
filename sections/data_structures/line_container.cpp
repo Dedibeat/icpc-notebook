@@ -3,6 +3,8 @@
 // Requires notebook-wide "#define int long long" before this snippet;
 // without it slopes/intercepts/intersections overflow.
 // (for doubles: use inf = 1/.0, div(a,b) = a/b)
+// add(k,m) inserts y=kx+m; get(x) returns the largest inserted line value.
+// Example: add(2,1); add(-1,7); get(3)==7. get needs a nonempty container.
 #define int long long
 struct Line {
 	mutable int k, m, p;
@@ -26,7 +28,7 @@ struct LineContainer : multiset<Line, less<>> {
 		while ((y = x) != begin() && (--x)->p >= y->p)
 			isect(x, erase(y));
 	}
-	int get(int x) { // max over lines; container must be nonempty
+	int get(int x) {
 		assert(!empty());
 		auto l = *lower_bound(x);
 		return l.k * x + l.m;

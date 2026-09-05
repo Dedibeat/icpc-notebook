@@ -15,7 +15,9 @@ template <bool VALS_EDGES> struct HLD {
     SegTree tree;
     HLD(vector<vector<int>> adj_)
         : N(adj_.size()), adj(adj_), par(N, -1), siz(N, 1),
-          rt(N), pos(N), tree(N) { dfsSz(0); dfsHld(0); }
+          rt(N), pos(N), tree(N) {
+        dfsSz(0); dfsHld(0);
+    }
     void dfsSz(int v) {
         if (par[v] != -1) adj[v].erase(find(adj[v].begin(), adj[v].end(), par[v]));
         for (int& u : adj[v]) {

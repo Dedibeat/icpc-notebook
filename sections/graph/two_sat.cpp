@@ -2,13 +2,16 @@
 // either(a,b) adds clause (a OR b). solve() = satisfiable; values[x] in {0,1}.
 // Source: KACTL TwoSat. Time: O(n + clauses).
 // Pitfalls: recursive SCC (stack depth ~ 2n); atMostOne adds new vars.
+// Example: either(0,1); either(~0,1); solve()==true and values[1]==true.
 struct TwoSat {
     int N;
     vector<vector<int>> gr;
     vector<int> values; // 0 = false, 1 = true
 
     TwoSat(int n = 0) : N(n), gr(2 * n) {}
-    int addVar() { gr.emplace_back(); gr.emplace_back(); return N++; }
+    int addVar() {
+        gr.emplace_back(); gr.emplace_back(); return N++;
+    }
     void either(int f, int j) {
         f = max(2 * f, -1 - 2 * f);
         j = max(2 * j, -1 - 2 * j);

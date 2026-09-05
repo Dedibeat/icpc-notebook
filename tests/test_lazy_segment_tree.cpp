@@ -35,5 +35,12 @@ int main() {
             assert(rt.query(l, r) == sum);
         }
     }
+    st.init(vector<long long>{});
+    assert(st.query(0, -1) == 0);
+    st.update(0, -1, 7);
+    st.init(vector<long long>{5});
+    st.update(0, 0, -5);
+    assert(st.query(0, 0) == 0);
+    assert(st.query(1, 0) == 0);
     return 0;
 }

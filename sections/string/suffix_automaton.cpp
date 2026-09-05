@@ -1,7 +1,11 @@
 // Suffix automaton: substring membership, occurrences, distinct substrings.
 // Complexity: O(|s|*A) memory here, O(|s|) build/finish for fixed alphabet.
+// Input: lowercase text via constructor or extend(), all before finish().
+// State v represents substring lengths (len[link[v]], len[v]] sharing the same
+// end positions; this gives the distinct-substring sum below.
+// Output: state/contains test membership; occurrences returns total matches;
+// distinctSubstrings counts distinct nonempty substrings.
 // Pitfalls: lowercase only; add all characters before occurrence queries.
-// Usage: SuffixAutomaton sam(s); sam.contains(t); sam.occurrences(t);
 struct SuffixAutomaton {
     // ---- customize alphabet here -----------------------------------------
     static const int A = 26;
@@ -17,8 +21,12 @@ struct SuffixAutomaton {
     int last;
     bool ready;
 
-    SuffixAutomaton(const string& s="") { init(); for(char c:s) extend(c); }
-    void init() { st.assign(1,State()); last=0; ready=false; }
+    SuffixAutomaton(const string& s="") {
+        init(); for(char c:s) extend(c);
+    }
+    void init() {
+        st.assign(1,State()); last=0; ready=false;
+    }
     void extend(char ch) {
         assert(!ready); // occurrence counts have not been propagated yet
         int c=id(ch), cur=st.size(); st.push_back(State());
@@ -38,7 +46,7 @@ struct SuffixAutomaton {
         }
         last=cur;
     }
-    void finish() {
+    void finish() { // Propagates occurrence counts; call after all extend() calls.
         if(ready) return;
         int mx=0; for(auto& s:st) mx=max(mx,s.len);
         vector<int> cnt(mx+1),order(st.size());
@@ -55,7 +63,9 @@ struct SuffixAutomaton {
         for(char ch:s) { int c=id(ch); if(c<0||c>=A||st[v].next[c]==-1)return -1; v=st[v].next[c]; }
         return v;
     }
-    bool contains(const string& s) const { return state(s)!=-1; }
+    bool contains(const string& s) const {
+        return state(s)!=-1;
+    }
     long long occurrences(const string& s) {
         if(s.empty()) return st[last].len+1;
         finish(); int v=state(s); return v==-1?0:st[v].occ;

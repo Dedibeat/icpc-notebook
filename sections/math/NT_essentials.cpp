@@ -34,4 +34,3 @@ long long modpow(long long a, long long e, long long mod) {
 long long inv(long long a, long long mod) {
     return modpow(a, mod - 2, mod);
 }
-

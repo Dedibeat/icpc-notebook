@@ -1,17 +1,18 @@
-// Kahn topological sort; empty result means a cycle (or an empty graph).
-// Complexity: O(n+m).
-// Pitfalls: parallel edges each contribute to indegree; check size for cycles.
+// Topological order: each edge u->v puts u before v. O(n+m) time, O(n) space.
+// Pitfalls: recursive depth O(n); empty result means cycle or empty graph.
 // Usage: auto order=topological_sort(g); bool dag=order.size()==g.size();
 vector<int> topological_sort(const vector<vector<int>>& g) {
-    vector<int> indeg(g.size());
-    for (auto& e : g) for (int to : e) ++indeg[to];
-    queue<int> q;
-    for (int i = 0; i < (int)g.size(); ++i) if (!indeg[i]) q.push(i);
-    vector<int> order;
-    while (!q.empty()) {
-        int v = q.front(); q.pop(); order.push_back(v);
-        for (int to : g[v]) if (--indeg[to] == 0) q.push(to);
-    }
-    if (order.size() != g.size()) return {};
+    vector<int> state(g.size()), order; // 0=unseen, 1=active, 2=finished
+    auto dfs = [&](auto&& self, int v) -> bool {
+        if (state[v]) return state[v] == 2;
+        state[v] = 1;
+        for (int u : g[v]) if (!self(self, u)) return false;
+        state[v] = 2;
+        order.push_back(v);
+        return true;
+    };
+    for (int v = 0; v < (int)g.size(); ++v)
+        if (!dfs(dfs, v)) return {};
+    reverse(order.begin(), order.end());
     return order;
 }

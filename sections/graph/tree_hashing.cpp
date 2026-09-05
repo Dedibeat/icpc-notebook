@@ -2,7 +2,9 @@
 // Complexity: O(n log n) from sorting child ids, memory O(n).
 // Pitfalls: compare trees using the SAME TreeCanon object; recursive DFS depth;
 //           inputs must be trees. No probabilistic collisions.
-// Usage: TreeCanon canon; canon.unrooted(g1)==canon.unrooted(g2).
+// rooted(g,r) identifies a rooted tree; centers gives its one/two centers;
+// unrooted roots there so isomorphic unrooted trees get the same id.
+// Example: TreeCanon c; c.unrooted(path3)==c.unrooted(star3).
 struct TreeCanon {
     map<vector<int>,int> id;
     int get(vector<int> children) {

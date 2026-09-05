@@ -2,7 +2,7 @@
 // Complexity: O(n) time/memory using a monotonic stack.
 // Pitfalls: strict '>' makes the EARLIER equal value the ancestor; changing
 //           the comparison changes duplicate tie behavior.
-// Usage: auto t=cartesian_tree(a); t.root,t.parent,t.left,t.right.
+// Example: a={3,1,2} gives root=1, left[1]=0, right[1]=2.
 struct CartesianTree {
     int root=-1;
     vector<int>parent,left,right;

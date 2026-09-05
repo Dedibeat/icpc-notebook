@@ -1,9 +1,11 @@
 // Link-cut tree for a dynamic forest: link/cut/connectivity and path sum.
 // Reference: standard Sleator-Tarjan access/makeroot, KACTL-style interface.
 // Complexity: amortized O(log n) per operation, memory O(n).
-// Pitfalls: link must join different trees; cut removes a DIRECT edge; path
-//           aggregate is configured as commutative sum. Splay invariants are risky.
-// Usage: LinkCut lct(values); lct.link(u,v); lct.pathQuery(u,v); lct.cut(u,v).
+// Input: vertices 0..n-1, initially isolated; paths include both endpoints.
+// Effect: link joins trees, cut removes a DIRECT edge, setValue changes one node.
+// Output: link/cut report success; connected reports reachability; pathQuery
+// returns the sum on a connected u-v path (asserts if disconnected).
+// Pitfalls: path aggregate is configured as commutative sum. High-risk splay code.
 struct LinkCut {
     // ---- customize commutative path aggregate here -----------------------
     using V=long long;

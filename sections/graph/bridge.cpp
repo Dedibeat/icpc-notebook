@@ -30,7 +30,7 @@ void dfs(int v, int p = -1) {
     }
 }
 
-void find_bridges() {
+void find_bridges() { // Resets globals and fills bridges for the current undirected graph.
     timer = 0;
     bridges.clear();
     visited.assign(n, false);

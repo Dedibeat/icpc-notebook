@@ -1,7 +1,9 @@
 // Functional graph: 64-bit successor jumps plus cycle metadata.
 // Complexity: O(n log K) build, O(log K) jump, O(1) metadata queries.
 // Pitfalls: next[v] must be valid; dist=0 exactly on a cycle; reset per test.
-// Usage: FunctionalGraph f(next); f.go(v,k), f.cycle[v], f.dist[v], f.entry[v].
+// go(v,k) follows k edges. cycle[v] identifies the eventual cycle; dist[v]
+// is steps to it and entry[v] is the first cycle vertex reached.
+// Example: next={1,2,1}; go(0,3)==1, dist[0]==1, entry[0]==1.
 struct FunctionalGraph {
     static constexpr int LOG = 64;
     vector<vector<int>> up;

@@ -3,7 +3,8 @@
 // Configured for: range-add update, range-sum query.
 // Pitfalls: applyVal must work for both one cell and a whole block;
 //           L needs equality with LID. Partial operations push the block tag.
-// Usage: SqrtDecomp s(a); s.update(l,r,x); long long sum=s.query(l,r);
+// update(l,r,x) adds x to a[l..r); query(l,r) returns that range's sum.
+// Example: SqrtDecomp s({1,2,3}); s.update(1,3,4); s.query(0,3)==14.
 struct SqrtDecomp {
     // ---- customize for the operation -------------------------------------
     using V = long long;

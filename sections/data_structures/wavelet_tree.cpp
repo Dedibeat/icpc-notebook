@@ -2,7 +2,8 @@
 // Complexity: build O(n log sigma); queries O(log sigma); memory O(n log sigma).
 // Pitfalls: kth uses 0-based k and needs l<r; static only; values are compressed
 //           internally, so negatives and duplicates work.
-// Usage: WaveletTree wt(a); wt.kth(l,r,k), countLess(l,r,x), countEqual(...).
+// kth(l,r,k) selects by 0-based order; countLess/countEqual count values in
+// a[l..r). Example: wt({4,1,4,2}); kth(1,4,1)==2; countEqual(0,3,4)==2.
 struct WaveletTree {
     struct Node { int lo,hi,left=-1,right=-1; vector<int>pref; };
     vector<long long>values;

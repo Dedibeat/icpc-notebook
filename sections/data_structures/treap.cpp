@@ -1,3 +1,9 @@
+// Implicit treap: the inorder traversal is a sequence; subtree sizes are keys.
+// split(t,l,r,k) puts the first k values in l and the rest in r; merge(t,l,r)
+// concatenates l then r. reverse(t,l,r) uses 0-based inclusive positions.
+// Expected O(log n) per split/merge; traversal is O(n).
+// Pitfalls: allocate every node with cnt=1, rev=false, l=r=nullptr and a random
+// priority. reverse needs l<=r; push before descent and update sizes afterward.
 typedef struct item * pitem;
 struct item {
     int prior, value, cnt;

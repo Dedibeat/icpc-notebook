@@ -1,8 +1,9 @@
 // Offline add/remove-edge connectivity using a rollback DSU.
 // Complexity: O(q log q log n) time, O(q log q + n) memory.
-// Pitfalls: every '-' must match one active '+'; the same edge cannot be
-//           active twice. Each add/remove/query advances time by one.
-// Usage: dc.addEdge(u,v); int id=dc.connected(u,v); ...; ans=dc.solve();
+// Input: append add/remove/connected events; every call advances time.
+// Effect: each edge is active on [add time,remove time); no duplicate active copy.
+// Output: connected returns an answer index; solve returns answers by that index.
+// Pitfalls: every removal must match one active insertion.
 struct RollbackDSU {
     vector<int> p, sz;
     vector<pair<int, int>> history; // attached root, old size of its parent
@@ -42,9 +43,13 @@ struct OfflineDynamicConnectivity {
 
     OfflineDynamicConnectivity(int n = 0) : n(n) {}
     static Edge edge(int u, int v) { if (u > v) swap(u, v); return {u, v}; }
-    void addEdge(int u, int v)    { ops.push_back({'+', u, v, -1}); }
-    void removeEdge(int u, int v) { ops.push_back({'-', u, v, -1}); }
-    int connected(int u, int v) {
+    void addEdge(int u, int v)    { // Appends an edge insertion at the next time.
+        ops.push_back({'+', u, v, -1});
+    }
+    void removeEdge(int u, int v) { // Appends removal of the currently active edge.
+        ops.push_back({'-', u, v, -1});
+    }
+    int connected(int u, int v) { // Appends a query and returns its answer index.
         ops.push_back({'?', u, v, queries});
         return queries++;
     }

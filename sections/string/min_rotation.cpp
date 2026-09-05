@@ -1,3 +1,6 @@
+// Booth's algorithm: start index of the lexicographically smallest cyclic
+// rotation. O(n) time, O(n) memory; empty string returns 0.
+// Example: min_rotation("baca")==3 because "abac" is smallest.
 int min_rotation(string s) {
     s += s;
     int n = s.size(), i = 0, ans = 0;

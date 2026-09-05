@@ -2,14 +2,17 @@
 // Complexity: O(n log n) time, O(n) memory.
 // Pitfalls: recursive DFS can overflow on a long chain; build() resets state,
 //           but keeps edges. The input must be a forest.
-// Usage: CentroidDecomposition cd(n); cd.addEdge(u,v); cd.build();
+// addEdge loads the forest; build fills parent[v] in the centroid forest
+// (a centroid root has parent -1). Walk parent links for centroid-query updates.
 struct CentroidDecomposition {
     int n;
     vector<vector<int>> g;
     vector<int> sub, parent;
     vector<char> dead;
 
-    CentroidDecomposition(int n = 0) { init(n); }
+    CentroidDecomposition(int n = 0) {
+        init(n);
+    }
     void init(int n_) {
         n = n_;
         g.assign(n, {});
@@ -17,7 +20,9 @@ struct CentroidDecomposition {
         parent.assign(n, -1);
         dead.assign(n, false);
     }
-    void addEdge(int u, int v) { g[u].push_back(v); g[v].push_back(u); }
+    void addEdge(int u, int v) {
+        g[u].push_back(v); g[v].push_back(u);
+    }
 
     int sizes(int v, int p) {
         sub[v] = 1;

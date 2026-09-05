@@ -1,7 +1,11 @@
 // Fenwick tree for prefix sums.
 // Complexity: add/sum/rangeSum/lower_bound are O(log n).
 // Pitfalls: external indices are 0-based; lower_bound assumes all values nonnegative.
-// Usage: Fenwick fw(n); fw.add(i, x); fw.rangeSum(l, r); // [l,r)
+// add(i,x) increments a[i]; sumPrefix(r) sums a[0..r), and rangeSum(l,r)
+// sums a[l..r). lower_bound(s) finds the first index whose inclusive prefix
+// reaches s (or n if none).
+// Example: Fenwick f(3); f.add(0,2); f.add(2,5); f.rangeSum(1,3)==5;
+//          f.lower_bound(3)==2.
 struct Fenwick {
     int n;
     vector<long long> bit;

@@ -1,10 +1,9 @@
 // Persistent segment tree: k-th smallest value in a[l..r) in O(log M).
-// Values must be in [0, M) (coordinate-compress first). Memory O(n log M).
-// Usage:
-//   PST st(M); vector<int> root(n + 1); root[0] = 0;
-//   for (i = 0..n-1) root[i+1] = st.upd(root[i], a[i]);
-//   st.kth(root[l], root[r], k); // k-th smallest (1-based) in a[l..r)
-// count of values in [lo,hi) on a[l..r): cnt(root[r],lo,hi)-cnt(root[l],lo,hi).
+// Input: ranks in [0,M); root 0 is empty and prefix roots preserve old versions.
+// root[i] stores frequencies in prefix a[0..i). upd(old,pos) adds one value
+// without changing old. kth(root[l],root[r],k) selects the 1-based k-th rank
+// in a[l..r). Output: kth returns a rank; cnt(root,lo,hi) counts [lo,hi).
+// Coordinate-compress/decompress outside the tree. Memory O(n log M).
 struct PST {
     struct N { int l, r, cnt; };
     vector<N> t{{0, 0, 0}}; // node 0 = empty tree, usable as initial root
@@ -21,14 +20,14 @@ struct PST {
         else { int c = upd(t[v].r, mid, hi, pos); t[v].r = c; }
         return v;
     }
-    int kth(int a, int b, int k) { return kth(a, b, 0, M, k); } // roots a < b
+    int kth(int a, int b, int k) { return kth(a, b, 0, M, k); }
     int kth(int a, int b, int lo, int hi, int k) {
         if (hi - lo == 1) return lo;
         int mid = (lo + hi) / 2, cl = t[t[b].l].cnt - t[t[a].l].cnt;
         if (k <= cl) return kth(t[a].l, t[b].l, lo, mid, k);
         return kth(t[a].r, t[b].r, mid, hi, k - cl);
     }
-    int cnt(int u, int lo, int hi) { return cnt(u, 0, M, lo, hi); } // vals [lo,hi)
+    int cnt(int u, int lo, int hi) { return cnt(u, 0, M, lo, hi); }
     int cnt(int u, int l, int r, int lo, int hi) {
         if (!u || hi <= l || r <= lo) return 0;
         if (lo <= l && r <= hi) return t[u].cnt;

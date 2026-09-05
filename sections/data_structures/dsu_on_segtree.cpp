@@ -1,7 +1,9 @@
 // Mergeable dynamic segment trees (sum) over positions [0, POSMAX].
-// Each set is a root id (0 = empty). Call with defaulted bounds:
-//   upd(root[v], pos, +1);  query(root[v], l, r);  root[u] = merge(root[u], root[v]);
-// merge destroys v's tree and returns the combined root. Total O(inserts*logP).
+// Each multiset is a root id (0 = empty). upd changes one position; query(u,l,r)
+// sums the inclusive position interval [l,r]; merge combines two multisets and
+// invalidates v.
+// Example: upd(a,5,2); upd(b,7,1); a=merge(a,b); query(a,5,7)==3.
+// Total O(inserts*logP); merging all roots is proportional to touched nodes.
 // Pool: 40*maxn nodes fits ~maxn inserts for POSMAX ~ 1e9; shrink to fit ML.
 // Pitfalls: reset tp = 1 and all roots to 0 between test cases.
 const int maxn = 2e5 + 5, POSMAX = 1e9;
