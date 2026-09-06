@@ -1,0 +1,3242 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<base href="https://cses.fi/">
+<title>CSES Analysis Notebook</title><style>
+@page { size: A4; margin: 13mm 14mm 15mm; }
+* { box-sizing: border-box; }
+body { color: #172033; font: 9.6pt/1.38 system-ui, sans-serif; margin: 0 auto;
+       max-width: 185mm; }
+h1 { color: #173f73; font-size: 25pt; margin: 0 0 8mm; }
+.task-title { border-bottom: 1.5pt solid #2e6da4; color: #173f73; font-size: 16pt;
+              line-height: 1.2; margin: 0 0 4mm; padding-bottom: 1.5mm; }
+h3 { color: #245789; font-size: 11pt; line-height: 1.25; margin: 4mm 0 1mm; }
+p, ul, ol { margin: 1.5mm 0; }
+ul, ol { padding-left: 6mm; }
+a { color: #245789; text-decoration: none; }
+pre { background: #f5f7fa; border-left: 2.5pt solid #6b91b8; font: 7.2pt/1.22
+      "DejaVu Sans Mono", monospace; margin: 3mm 0; padding: 2.5mm;
+      tab-size: 2; white-space: pre-wrap; overflow-wrap: anywhere; }
+code { font-family: "DejaVu Sans Mono", monospace; }
+.cover { align-items: center; display: flex; height: 245mm; justify-content: center;
+         page-break-after: always; text-align: center; }
+.cover p { color: #536579; font-size: 12pt; }
+.contents { page-break-after: always; }
+.toc { columns: 3; column-gap: 7mm; font-size: 8.4pt; }
+.toc-group { break-inside: avoid; margin: 0 0 4mm; }
+.toc-group h2 { border-bottom: .8pt solid #6b91b8; color: #245789;
+                font-size: 10pt; margin: 0 0 1.5mm; padding-bottom: .7mm; }
+.toc-group ol { list-style: none; margin: 0; padding: 0; }
+.toc li { break-inside: avoid; margin: 0 0 1.2mm; }
+.analysis { break-before: page; }
+.chapter-title { color: #617083; font-size: 9pt; font-weight: 700;
+                 letter-spacing: .08em; margin: 0 0 2mm; text-transform: uppercase; }
+.meta { color: #617083; font-size: 8.5pt; margin-bottom: 4mm; }
+.statement { background: #f1f6fb; border-left: 2.5pt solid #2e6da4;
+             margin: 3mm 0 5mm; padding: 2.5mm 3mm; }
+.statement .statement-title { color: #245789; font-size: 10.5pt; letter-spacing: .02em;
+                              margin: 0 0 1.5mm; }
+.statement h1, .statement h2 { border: 0; color: #365d82; font-size: 10pt;
+                               line-height: 1.25; margin: 2.5mm 0 .8mm; padding: 0; }
+.statement h3, .statement h4 { color: #365d82; font-size: 9.6pt; line-height: 1.25;
+                              margin: 2mm 0 .8mm; }
+.statement h1, .statement h2, .statement h3, .statement h4 { break-after: avoid; }
+.statement p, .statement ul, .statement ol { margin: .9mm 0; }
+.statement li { margin: .3mm 0; }
+.statement pre { font-size: 7pt; margin: 1.5mm 0; }
+.explanation h1, .explanation h2 { border-bottom: 1pt solid #6b91b8; color: #245789;
+                                  font-size: 12.5pt; line-height: 1.25;
+                                  margin: 4mm 0 1.5mm; padding-bottom: .8mm; }
+.explanation h3 { font-size: 10.8pt; margin: 3mm 0 1mm; }
+.explanation h4 { color: #365d82; font-size: 9.8pt; margin: 2.5mm 0 .8mm; }
+.explanation h1, .explanation h2, .explanation h3, .explanation h4 {
+  break-after: avoid;
+}
+.math-display { display: block; margin: 2mm 0; overflow-wrap: anywhere; text-align: center; }
+img { display: block; margin: 3mm auto; max-height: 115mm; max-width: 100%; }
+table { border-collapse: collapse; width: 100%; }
+td, th { border: .4pt solid #9aa8b8; padding: 1.5mm; }
+@media print { a { color: inherit; } }
+</style>
+<script>window.MathJax={tex:{inlineMath:[["\\(","\\)"]],displayMath:[["\\[","\\]"]]},svg:{fontCache:"global"}};</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head><body>
+<section class="cover"><div><h1>CSES Analysis Notebook</h1>
+<p>Curated, non-overlapping, non-trivial techniques · 31 tasks in 5 sections</p>
+<p>Curated selection; short introductory analyses are omitted.</p></div></section>
+<section class="contents"><h1>Contents</h1><div class="toc"><section class="toc-group"><h2>Data Structures</h2><ol><li><a href="#task-3314">3314 · Mountain Range</a></li><li><a href="#task-3304">3304 · Visible Buildings Queries</a></li><li><a href="#task-2184">2184 · Missing Coin Sum Queries</a></li><li><a href="#task-1077">1077 · Sliding Window Cost</a></li></ol></section><section class="toc-group"><h2>String</h2><ol><li><a href="#task-3359">3359 · Minimal Grid Path</a></li><li><a href="#task-2186">2186 · Special Substrings</a></li><li><a href="#task-1743">1743 · String Reorder</a></li><li><a href="#task-1112">1112 · Required Substring</a></li><li><a href="#task-1087">1087 · Shortest Subsequence</a></li></ol></section><section class="toc-group"><h2>Graph</h2><ol><li><a href="#task-2177">2177 · Strongly Connected Edges</a></li><li><a href="#task-2143">2143 · Reachability Queries</a></li><li><a href="#task-2138">2138 · Reachable Nodes</a></li><li><a href="#task-2080">2080 · Fixed-Length Paths I</a></li><li><a href="#task-1686">1686 · Coin Collector</a></li><li><a href="#task-1195">1195 · Flight Discount</a></li><li><a href="#task-1136">1136 · Counting Paths</a></li></ol></section><section class="toc-group"><h2>Math</h2><ol><li><a href="#task-3397">3397 · Permutation Order</a></li><li><a href="#task-3355">3355 · Sum of Four Squares</a></li><li><a href="#task-2214">2214 · Inverse Inversions</a></li><li><a href="#task-2210">2210 · Counting Grids</a></li><li><a href="#task-2209">2209 · Counting Necklaces</a></li><li><a href="#task-2182">2182 · Divisor Analysis</a></li><li><a href="#task-2164">2164 · Josephus Queries</a></li><li><a href="#task-2137">2137 · Corner Subgrid Count</a></li><li><a href="#task-1728">1728 · Inversion Probability</a></li><li><a href="#task-1726">1726 · Moving Robots</a></li><li><a href="#task-1725">1725 · Dice Probability</a></li><li><a href="#task-1082">1082 · Sum of Divisors</a></li></ol></section><section class="toc-group"><h2>Dynamic Programming</h2><ol><li><a href="#task-2229">2229 · Permutation Inversions</a></li><li><a href="#task-2181">2181 · Counting Tilings</a></li><li><a href="#task-1653">1653 · Elevator Rides</a></li></ol></section></div></section>
+<article class="analysis" id="task-3314"><p class="chapter-title">Data Structures</p><h2 class="task-title">3314 · Mountain Range</h2><p class="meta"><a href="https://cses.fi/problemset/task/3314/">Task</a> · source analysis length 3,364 characters</p><section class="statement"><h3 class="statement-title">Problem statement</h3><p>There are <span class="math math-inline">n</span> mountains in a row, each with a specific height. You begin your hang gliding route from some mountain.</p>
+<p>You can glide from mountain <span class="math math-inline">a</span> to mountain <span class="math math-inline">b</span> if mountain <span class="math math-inline">a</span> is taller than mountain <span class="math math-inline">b</span> and all mountains between <span class="math math-inline">a</span> and <span class="math math-inline">b</span>.</p>
+<p>What is the maximum number of mountains you can visit on your route?</p>
+<h1 id="input">Input</h1>
+<p>The first line has an integer <span class="math math-inline">n</span>: the number of mountains.</p>
+<p>The next line has <span class="math math-inline">n</span> integers <span class="math math-inline">h_1, h_2,\dots, h_n</span>: the heights of the mountains.</p>
+<h1 id="output">Output:</h1>
+<p>Print one integer: the maximum number of mountains.</p>
+<h1 id="constraints">Constraints</h1>
+<ul>
+<li><span class="math math-inline">1\le n \le 2 \cdot 10^5</span></li>
+<li><span class="math math-inline">1\le h_i \le 10^9</span></li>
+</ul>
+
+
+
+
+</section><section class="explanation"><h1 id="solution1onlogn">Solution 1 (O(n log n))</h1>
+<p>We process the mountains in order of decreasing height and calculate the maximum length of a route that ends at each mountain.</p>
+<p>For each mountain, we find the nearest higher mountain to the left and to the right. Since the mountains are processed in order of decreasing height, the maximum route length has already been calculated for both of these mountains. The longest route to the current mountain can be created by choosing the longest route to the left or right mountain and adding the current mountain to it.</p>
+<p>There may be several mountains with the same height which makes the situation more complex. For this reason, we maintain an additional list of updates and apply the updates whenever the current height differs from the previous height.</p>
+<pre class="resize-horizontal prettyprint lang-cpp">#include &lt;algorithm&gt;
+#include &lt;iostream&gt;
+#include &lt;map&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+int main() {
+    int n;
+    cin &gt;&gt; n;
+
+    vector&lt;pair&lt;int, int&gt;&gt; heights;
+    for (int i = 1; i &lt;= n; i++) {
+        int h;
+        cin &gt;&gt; h;
+        heights.emplace_back(h, i);
+    }
+    sort(heights.rbegin(), heights.rend());
+
+    map&lt;int, int&gt; counts;
+    counts[0] = 0;
+    counts[n + 1] = 0;
+
+    int prev_height = 0;
+    vector&lt;pair&lt;int, int&gt;&gt; updates;
+    int result = 0;
+
+    for (auto [height, pos] : heights) {
+        if (height != prev_height) {
+            for (auto [pos, count] : updates) {
+                counts[pos] = count;
+            }
+            updates.clear();
+            prev_height = height;
+        }
+
+        auto it = counts.upper_bound(pos);
+        int next_pos = it-&gt;first;
+        it--;
+        int prev_pos = it-&gt;first;
+
+        int new_count = max(counts[prev_pos], counts[next_pos]) + 1;
+        updates.emplace_back(pos, new_count);
+        result = max(result, new_count);
+    }
+
+    cout &lt;&lt; result &lt;&lt; "\n";
+}
+</pre><h1 id="solution2on">Solution 2 (O(n))</h1>
+<p>It is also possible to solve the problem in linear time by using a different method for processing the mountains.</p>
+<p>First, we find the nearest higher mountain to the left and to the right for each mountain, which can be done in linear time using stacks. We then create a graph that determines the order in which the mountains should be processed.</p>
+<p>Next, we process the graph using topological sorting and calculate the maximum route length for each mountain, applying the same idea as in the previous solution.</p>
+<pre class="resize-horizontal prettyprint lang-cpp">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+const int INF = 1000000001;
+
+int main() {
+    int n;
+    cin &gt;&gt; n;
+
+    vector&lt;int&gt; heights(n + 2);
+    heights[0] = INF;
+    heights[n + 1] = INF;
+    for (int i = 1; i &lt;= n; i++) {
+        cin &gt;&gt; heights[i];
+    }
+
+    vector&lt;vector&lt;int&gt;&gt; after(n + 2);
+
+    vector&lt;int&gt; left_stack;
+    left_stack.push_back(0);
+    for (int i = 1; i &lt;= n; i++) {
+        while (heights[i] &gt;= heights[left_stack.back()]) {
+            left_stack.pop_back();
+        }
+        after[left_stack.back()].push_back(i);
+        left_stack.push_back(i);
+    }
+
+    vector&lt;int&gt; right_stack;
+    right_stack.push_back(n + 1);
+    for (int i = n; i &gt;= 1; i--) {
+        while (heights[i] &gt;= heights[right_stack.back()]) {
+            right_stack.pop_back();
+        }
+        after[right_stack.back()].push_back(i);
+        right_stack.push_back(i);
+    }
+
+    vector&lt;int&gt; count(n + 2);
+    vector&lt;int&gt; result(n + 2);
+
+    vector&lt;int&gt; queue;
+    queue.push_back(0);
+    queue.push_back(n + 1);
+
+    int answer = 0;
+    for (int i = 0; i &lt; queue.size(); i++) {
+        int pos = queue[i];
+        for (auto next_pos : after[pos]) {
+            result[next_pos] = max(result[next_pos], result[pos] + 1);
+            answer = max(answer, result[next_pos]);
+            count[next_pos]++;
+            if (count[next_pos] == 2) {
+                queue.push_back(next_pos);
+            }
+        }
+    }
+    cout &lt;&lt; answer &lt;&lt; "\n";
+}
+</pre></section></article><article class="analysis" id="task-3304"><h2 class="task-title">3304 · Visible Buildings Queries</h2><p class="meta"><a href="https://cses.fi/problemset/task/3304/">Task</a> · source analysis length 1,324 characters</p><section class="statement"><h3 class="statement-title">Problem statement</h3><p>There are <span class="math math-inline">n</span> buildings in a row numbered <span class="math math-inline">1, 2,\dots, n</span> from left to right. You are standing to the left of the first building. You can see a building if it is taller than all buildings to its left.</p>
+<p>Your task is to process <span class="math math-inline">q</span> queries: If only buildings in range <span class="math math-inline">[a, b]</span> existed, how many buildings would you see?</p>
+<h1 id="input">Input</h1>
+<p>The first line has two integers <span class="math math-inline">n</span> and <span class="math math-inline">q</span>: the number of buildings and queries.</p>
+<p>The second line has <span class="math math-inline">n</span> integers <span class="math math-inline">h_1, h_2, \dots, h_n</span>: the heights of the buildings.</p>
+<p>Finally, there are <span class="math math-inline">q</span> lines describing the queries. Each line has two integers <span class="math math-inline">a</span> and <span class="math math-inline">b</span>.</p>
+<h1 id="output">Output</h1>
+<p>For each query, print one integer: the number of visible buildings.</p>
+<h1 id="constraints">Constraints</h1>
+<ul>
+<li><span class="math math-inline">1 \le n \le 10^5</span></li>
+<li><span class="math math-inline">1 \le q \le 2 \cdot 10^5</span></li>
+<li><span class="math math-inline">1 \le h_i \le 10^9</span></li>
+<li><span class="math math-inline">1 \le a \le b \le n</span></li>
+</ul>
+
+
+
+
+</section><section class="explanation"><p>We first find the index of the next higher building for each building (or <span class="math math-inline">\infty</span> if there is no such building). This is done in linear time using a stack.</p>
+<p>After that, we create a jump array that, for each building, indicates the next higher building to the right after <span class="math math-inline">x</span> steps where <span class="math math-inline">x</span> is a power of two. Since there are <span class="math math-inline">O(\log n)</span> possible powers of two, creating the array takes <span class="math math-inline">O(n \log n)</span> time.</p>
+<p>Finally, we can answer any query in <span class="math math-inline">O(\log n)</span> time using the jump array.</p>
+<pre class="resize-horizontal prettyprint lang-cpp">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+const int N = 17;
+const int INF = 1000000001;
+
+int main() {
+    int n, q;
+    cin &gt;&gt; n &gt;&gt; q;
+
+    vector&lt;int&gt; heights(n + 2);
+    for (int i = 1; i &lt;= n; i++) {
+        cin &gt;&gt; heights[i];
+    }
+    heights[n + 1] = INF;
+
+    vector&lt;vector&lt;int&gt;&gt; jump(N, vector&lt;int&gt;(n + 2));
+    jump[0][n + 1] = n + 1;
+
+    vector&lt;int&gt; stack;
+    stack.push_back(n + 1);
+    for (int i = n; i &gt;= 1; i--) {
+        while (heights[stack.back()] &lt;= heights[i]) {
+            stack.pop_back();
+        }
+        jump[0][i] = stack.back();
+        stack.push_back(i);
+    }
+
+    for (int k = 1; k &lt; N; k++) {
+        for (int i = 1; i &lt;= n + 1; i++) {
+            jump[k][i] = jump[k - 1][jump[k - 1][i]];
+        }
+    }
+
+    while (q--) {
+        int a, b;
+        cin &gt;&gt; a &gt;&gt; b;
+        int pos = a;
+        int answer = 1;
+        for (int k = N - 1; k &gt;= 0; k--) {
+            if (jump[k][pos] &lt;= b) {
+                answer += 1 &lt;&lt; k;
+                pos = jump[k][pos];
+            }
+        }
+        cout &lt;&lt; answer &lt;&lt; "\n";
+    }
+}
+</pre></section></article><article class="analysis" id="task-2184"><h2 class="task-title">2184 · Missing Coin Sum Queries</h2><p class="meta"><a href="https://cses.fi/problemset/task/2184/">Task</a> · source analysis length 2,388 characters</p><section class="statement"><h3 class="statement-title">Problem statement</h3><p>You have <span class="math math-inline">n</span> coins with positive integer values. The coins are numbered <span class="math math-inline">1,2,\dots,n</span>.</p>
+<p>Your task is to process <span class="math math-inline">q</span> queries of the form: "if you can use coins <span class="math math-inline">a \dots b</span>, what is the smallest sum you cannot produce?"</p>
+<h1 id="input">Input</h1>
+<p>The first input line has two integers <span class="math math-inline">n</span> and <span class="math math-inline">q</span>: the number of coins and queries.</p>
+<p>The second line has <span class="math math-inline">n</span> integers <span class="math math-inline">x_1,x_2,\dots,x_n</span>: the value of each coin.</p>
+<p>Finally, there are <span class="math math-inline">q</span> lines that describe the queries. Each line has two values <span class="math math-inline">a</span> and <span class="math math-inline">b</span>: you can use coins <span class="math math-inline">a \dots b</span>.</p>
+<h1 id="output">Output</h1>
+<p>Print the answer for each query.</p>
+<h1 id="constraints">Constraints</h1>
+<ul>
+<li><span class="math math-inline">1 \le n, q \le 2 \cdot 10^5</span></li>
+<li><span class="math math-inline">1 \le x_i \le 10^9</span></li>
+<li><span class="math math-inline">1 \le a \le b \le n</span></li>
+</ul>
+
+
+
+
+
+
+</section><section class="explanation"><p>We process each query in <span class="math math-inline">B</span> steps where <span class="math math-inline">B=\lfloor \log_2 10^9 \rfloor = 30</span>.
+In each step, <span class="math math-inline">b=0,1,\dots,B-1</span>, we consider all coins in the query range
+such that the most significant bit of the coin value is in position <span class="math math-inline">b</span>.</p>
+<p>For each query <span class="math math-inline">i</span>, we maintain a value <span class="math math-inline">\textrm{result}[i]</span>,
+which indicates that we can produce all coin sums
+between <span class="math math-inline">1</span> and <span class="math math-inline">\textrm{result}[i]</span> using the coins.
+Initially <span class="math math-inline">\textrm{result}[i]=0</span> for each <span class="math math-inline">i=1,2,\dots,q</span>.</p>
+<p>In each step, we update the result for each query.
+Let <span class="math math-inline">\textrm{sum}(i,b)</span> and <span class="math math-inline">\textrm{min}(i,b)</span>
+denote the sum and minimum of coin values in the range of query <span class="math math-inline">i</span>
+whose most significant bit is in position <span class="math math-inline">b</span>.
+Always when <span class="math math-inline">\textrm{min}(i,b) \le \textrm{result}[i]+1</span>,
+we can extend the range of possible sums
+by adding <span class="math math-inline">\textrm{sum}(i,b)</span> to <span class="math math-inline">\textrm{result}[i]</span>.
+Finally, <span class="math math-inline">\textrm{result}[i]+1</span> is the smallest missing coin sum.</p>
+<p>We use data structures for efficient range sum and range minimum queries.
+Using these data structures,
+we can process range sum queries in <span class="math math-inline">O(1)</span> time after <span class="math math-inline">O(n)</span> time preprocessing
+and range minimum queries in <span class="math math-inline">O(1)</span> time after <span class="math math-inline">O(n \log n)</span> time preprocessing.</p>
+<p>The resulting algorithm works in <span class="math math-inline">O(B(n \log n + q))</span> time.</p>
+<pre class="resize-horizontal prettyprint lang-cpp">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+using ll = long long;
+
+const int INF = 1e9 + 1;
+const int B = 30;
+const int K = 18;
+
+int main() {
+    int n, q;
+    cin &gt;&gt; n &gt;&gt; q;
+
+    vector&lt;int&gt; x(n + 1);
+    vector&lt;int&gt; bit(n + 1);
+    for (int i = 1; i &lt;= n; i++) {
+        cin &gt;&gt; x[i];
+        bit[i] = 31 - __builtin_clz(x[i]);
+    }
+
+    vector&lt;pair&lt;int, int&gt;&gt; query(q + 1);
+    for (int i = 1; i &lt;= q; i++) {
+        cin &gt;&gt; query[i].first &gt;&gt; query[i].second;
+    }
+
+    vector&lt;ll&gt; result(q + 1);
+    vector&lt;ll&gt; sumq(n + 1);
+    vector&lt;vector&lt;int&gt;&gt; minq(K, vector&lt;int&gt;(n + 1));
+
+    for (int b = 0; b &lt; B; b++) {
+        for (int i = 1; i &lt;= n; i++) {
+            sumq[i] = sumq[i - 1];
+            if (bit[i] == b) {
+                sumq[i] += x[i];
+            }
+        }
+
+        for (int i = 1; i &lt;= n; i++) {
+            minq[0][i] = bit[i] == b ? x[i] : INF;
+        }
+        for (int k = 1; k &lt; K; k++) {
+            for (int i = 1; i &lt;= n - (1 &lt;&lt; (k - 1)); i++) {
+                minq[k][i] =
+                    min(minq[k - 1][i], minq[k - 1][i + (1 &lt;&lt; (k - 1))]);
+            }
+        }
+
+        for (int i = 1; i &lt;= q; i++) {
+            auto [a, b] = query[i];
+            int level = 31 - __builtin_clz(b - a + 1);
+            int min_x = min(minq[level][a], minq[level][b - (1 &lt;&lt; level) + 1]);
+            if (min_x &lt;= result[i] + 1) {
+                result[i] += sumq[b] - sumq[a - 1];
+            }
+        }
+    }
+
+    for (int i = 1; i &lt;= q; i++) {
+        cout &lt;&lt; result[i] + 1 &lt;&lt; "\n";
+    }
+}
+</pre></section></article><article class="analysis" id="task-1077"><h2 class="task-title">1077 · Sliding Window Cost</h2><p class="meta"><a href="https://cses.fi/problemset/task/1077/">Task</a> · source analysis length 3,946 characters</p><section class="statement"><h3 class="statement-title">Problem statement</h3><p>You are given an array of <span class="math math-inline">n</span> integers. Your task is to calculate for each window of <span class="math math-inline">k</span> elements, from left to right, the minimum total cost of making all elements equal.</p>
+<p>You can increase or decrease each element with cost <span class="math math-inline">x</span> where <span class="math math-inline">x</span> is the difference between the new and the original value. The total cost is the sum of such costs.</p>
+<h1 id="input">Input</h1>
+<p>The first line contains two integers <span class="math math-inline">n</span> and <span class="math math-inline">k</span>: the number of elements and the size of the window.</p>
+<p>Then there are <span class="math math-inline">n</span> integers <span class="math math-inline">x_1,x_2,\ldots,x_n</span>: the contents of the array.</p>
+<h1 id="output">Output</h1>
+<p>Output <span class="math math-inline">n-k+1</span> values: the costs.</p>
+<h1 id="constraints">Constraints</h1>
+<ul>
+<li><span class="math math-inline">1 \le k \le n \le 2 \cdot 10^5</span></li>
+<li><span class="math math-inline">1 \le x_i \le 10^9</span></li>
+</ul>
+
+
+
+
+</section><section class="explanation"><p>It is known that we can achieve a minimum cost inside a window if we set each
+element to be the median of the window. Thus, the remaining problem is how to
+efficiently calculate this for each window.</p>
+<h2 id="solution1">Solution 1</h2>
+<p>The following code uses two multisets <code>left</code> and <code>right</code> that contain the values
+inside a window: <code>left</code> contains the median and all element before the median,
+and <code>right</code> contains all elements after the median. In addition, <code>left_sum</code> and
+<code>right_sum</code> have the sum of elements in <code>left</code> and <code>right</code>.</p>
+<p>When the window moves, we update the multisets and sums, and then we can
+calculate the minimum total cost using them. Each window move requires a fixed
+number of <span class="math math-inline">O(\log n)</span> operations, so the algorithm works in <span class="math math-inline">O(n \log n)</span> time.</p>
+<pre class="resize-horizontal prettyprint lang-cpp">#include &lt;iostream&gt;
+#include &lt;set&gt;
+#include &lt;vector&gt;
+using namespace std;
+using ll = long long;
+
+int main() {
+    int n, k;
+    cin &gt;&gt; n &gt;&gt; k;
+    vector&lt;int&gt; x(n);
+    for (int i = 0; i &lt; n; i++) {
+        cin &gt;&gt; x[i];
+    }
+
+    multiset&lt;int&gt; left, right;
+    ll left_sum = 0, right_sum = 0;
+
+    auto fix = [&amp;] {
+        if (left.size() &gt; right.size() + 1) {
+            auto v = *left.rbegin();
+            left_sum -= v;
+            right_sum += v;
+            right.insert(v);
+            left.erase(left.find(v));
+        }
+        if (right.size() &gt; left.size()) {
+            auto v = *right.begin();
+            right_sum -= v;
+            left_sum += v;
+            left.insert(v);
+            right.erase(right.find(v));
+        }
+    };
+
+    auto add = [&amp;](int v) {
+        if (!left.empty() &amp;&amp; *left.rbegin() &gt; v) {
+            left.insert(v);
+            left_sum += v;
+        } else {
+            right.insert(v);
+            right_sum += v;
+        }
+        fix();
+    };
+
+    auto rem = [&amp;](int v) {
+        if (*left.rbegin() &gt;= v) {
+            left.erase(left.find(v));
+            left_sum -= v;
+        } else {
+            right.erase(right.find(v));
+            right_sum -= v;
+        }
+        fix();
+    };
+
+    auto cost = [&amp;] {
+        ll median = *left.rbegin();
+        ll left_cost = left.size() * median - left_sum;
+        ll right_cost = right_sum - right.size() * median;
+        return left_cost + right_cost;
+    };
+
+    for (int i = 0; i &lt; n; i++) {
+        add(x[i]);
+        if (i &gt;= k) {
+            rem(x[i - k]);
+        }
+        if (i &gt;= k - 1) {
+            cout &lt;&lt; cost() &lt;&lt; " ";
+        }
+    }
+    cout &lt;&lt; "\n";
+}
+</pre><h2 id="solution2">Solution 2</h2>
+<p>Another way to solve the problem is to use segment trees. We first compress the
+input values so that they are in the range <span class="math math-inline">[0, n - 1]</span>. After that, we maintain
+two segment trees: <code>tree</code> maintains the count of each value and <code>sum_tree</code>
+maintains the sum of values.</p>
+<p>We find the position of the median using <code>tree</code> and the sum of values before
+and after the median using <code>sum_tree</code>. Each window move requires a constant
+number of tree operations, so the algorithm works in <span class="math math-inline">O(n \log n)</span> time.</p>
+<pre class="resize-horizontal prettyprint lang-cpp">#include &lt;algorithm&gt;
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+using ll = long long;
+
+const int N = 1 &lt;&lt; 18;
+int tree[N * 2];
+ll sum_tree[N * 2];
+
+// Adds x to position k in tree.
+// Adds y to position k in sum_tree.
+void change(int k, int x, int y) {
+    k += N;
+    while (k &gt; 0) {
+        tree[k] += x;
+        sum_tree[k] += y;
+        k /= 2;
+    }
+}
+
+// Returns the sum of the values in range [l, r] in sum_tree.
+ll query(int l, int r) {
+    l += N;
+    r += N;
+    ll sum = 0;
+    while (l &lt;= r) {
+        if (l % 2 == 1) sum += sum_tree[l++];
+        if (r % 2 == 0) sum += sum_tree[r--];
+        l /= 2;
+        r /= 2;
+    }
+    return sum;
+}
+
+// Returns the first position in tree where prefix sum is at least sum.
+int search(int sum) {
+    int s = 1;
+    while (s &lt; N) {
+        if (tree[s * 2] &gt;= sum) {
+            s = s * 2;
+        } else {
+            sum -= tree[s * 2];
+            s = s * 2 + 1;
+        }
+    }
+    return s - N;
+}
+
+int main() {
+    int n, k;
+    cin &gt;&gt; n &gt;&gt; k;
+
+    vector&lt;pair&lt;int, int&gt;&gt; pairs;
+    for (int i = 0; i &lt; n; i++) {
+        int x;
+        cin &gt;&gt; x;
+        pairs.emplace_back(x, i);
+    }
+
+    sort(pairs.begin(), pairs.end());
+    vector&lt;int&gt; pos(n);
+    for (int i = 0; i &lt; n; i++) {
+        pos[pairs[i].second] = i;
+    }
+
+    for (int i = 0; i &lt; n; i++) {
+        change(pos[i], 1, pairs[pos[i]].first);
+
+        if (i &gt;= k) {
+            change(pos[i - k], -1, -pairs[pos[i - k]].first);
+        }
+
+        if (i &gt;= k - 1) {
+            int m = (k + 1) / 2;
+            int p = search(m);
+            int median = pairs[p].first;
+
+            ll left_cost = ll(m) * median - query(0, p);
+            ll right_cost = query(p + 1, n) - ll(k - m) * median;
+
+            cout &lt;&lt; left_cost + right_cost &lt;&lt; " ";
+        }
+    }
+    cout &lt;&lt; "\n";
+}
+</pre></section></article><article class="analysis" id="task-3359"><p class="chapter-title">String</p><h2 class="task-title">3359 · Minimal Grid Path</h2><p class="meta"><a href="https://cses.fi/problemset/task/3359/">Task</a> · source analysis length 1,549 characters</p><section class="statement"><h3 class="statement-title">Problem statement</h3><p>You are given an <span class="math math-inline">n \times n</span> grid whose each square contains a letter.</p>
+<p>You should move from the upper-left square to the lower-right square. You can only move right or down.</p>
+<p>What is the lexicographically minimal string you can construct?</p>
+<h1 id="input">Input</h1>
+<p>The first line has an integer <span class="math math-inline">n</span>: the size of the grid.</p>
+<p>After this, there are <span class="math math-inline">n</span> lines that describe the grid. Each line has <span class="math math-inline">n</span> letters between <code>A</code> and <code>Z</code>.</p>
+<h1 id="output">Output</h1>
+<p>Print the lexicographically minimal string.</p>
+<h1 id="constraints">Constraints</h1>
+<ul>
+<li><span class="math math-inline">1 \le n \le 3000</span></li>
+</ul>
+
+
+
+
+</section><section class="explanation"><p>The algorithm consists of <span class="math math-inline">2n-2</span> rounds that construct the minimal string corresponding to a path from the top-left square to the bottom-right square. It maintains a prefix of this minimal string throughout the process.</p>
+<p>In each round, we examine all possible ending positions of paths that correspond to the current prefix. The prefix is extended by adding a new letter. From each ending position, we consider moving one step to the right and one step down to determine the next letter to add to the path.</p>
+<p>It is important to ensure that the list of ending positions contains only distinct positions after each round. Otherwise, the algorithm could process the same ending positions multiple times, making it inefficient.</p>
+<pre class="resize-horizontal prettyprint lang-cpp">#include &lt;algorithm&gt;
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+int main() {
+    int n;
+    cin &gt;&gt; n;
+
+    vector&lt;string&gt; grid(n);
+    for (int i = 0; i &lt; n; i++) {
+        cin &gt;&gt; grid[i];
+    }
+
+    cout &lt;&lt; grid[0][0];
+
+    vector&lt;pair&lt;int, int&gt;&gt; level;
+    level.emplace_back(0, 0);
+
+    for (int i = 0; i &lt; 2 * n - 2; i++) {
+        vector&lt;pair&lt;int, int&gt;&gt; next_level;
+        char min_letter = 'Z' + 1;
+
+        auto update_next_level = [&amp;](int y, int x) {
+            if (y &lt; n &amp;&amp; x &lt; n) {
+                char letter = grid[y][x];
+                if (letter &lt; min_letter) {
+                    next_level.clear();
+                    min_letter = letter;
+                }
+                if (letter == min_letter) {
+                    next_level.emplace_back(y, x);
+                }
+            }
+        };
+
+        for (auto [y, x] : level) {
+            update_next_level(y + 1, x);
+            update_next_level(y, x + 1);
+        }
+
+        cout &lt;&lt; min_letter;
+
+        level = next_level;
+        level.erase(unique(level.begin(), level.end()), level.end());
+    }
+    cout &lt;&lt; "\n";
+}
+</pre></section></article><article class="analysis" id="task-2186"><h2 class="task-title">2186 · Special Substrings</h2><p class="meta"><a href="https://cses.fi/problemset/task/2186/">Task</a> · source analysis length 1,822 characters</p><section class="statement"><h3 class="statement-title">Problem statement</h3><p>A substring is called <em>special</em> if every character that appears in the string appears the same number of times in the substring.</p>
+<p>Your task is to count the number of special substrings in a given string.</p>
+<h1 id="input">Input</h1>
+<p>The only input line has a string of length <span class="math math-inline">n</span>. Every character is between a...z.</p>
+<h1 id="output">Output</h1>
+<p>Print one integer: the number of special substrings.</p>
+<h1 id="constraints">Constraints</h1>
+<ul>
+<li><span class="math math-inline">1 \le n \le 2 \cdot 10^5</span></li>
+</ul>
+
+
+
+
+
+
+</section><section class="explanation"><p>In this analysis, we assume that each character from <span class="math math-inline">\texttt{a}</span> to
+<span class="math math-inline">\texttt{z}</span> appears in the string. If this is not the case, some extra work is
+required to ignore the missing characters.</p>
+<p>Let <span class="math math-inline">C_{i, c}</span> be the number of occurrences of character <span class="math math-inline">c</span> among the first <span class="math math-inline">i</span>
+characters. Now, character <span class="math math-inline">c</span> appears in the substring of characters at indices
+<span class="math math-inline">[i, j)</span> exactly <span class="math math-inline">C_{j, c} - C_{i, c}</span> times.</p>
+<p>For a substring to be special, every character needs to appear a constant amount
+of times. We're not interested in the specific constant, which means we can keep
+a state of character occurrences relative to some reference character, say
+<span class="math math-inline">\texttt{a}</span>:<span class="math math-display">
+\begin{align*}
+\big( &amp; C_{i,\texttt{a}}-C_{i,\texttt{a}}, \\
+      &amp; C_{i,\texttt{b}}-C_{i,\texttt{a}}, \\
+      &amp; \dots, \\
+      &amp; C_{i,\texttt{z}}-C_{i,\texttt{a}}
+       \big),
+\end{align*}
+</span>
+Let us look at any character <span class="math math-inline">x</span>. Note that if
+we add a constant amount of occurrences of both <span class="math math-inline">x</span> and the reference character
+<span class="math math-inline">\texttt{a}</span>, the relative count stays constant, which means it suffices to
+count the number of previous occurrences of the same state.</p>
+<p>We will store the current state in an <code>array&lt;int, 26&gt;</code> and previous states to a
+<code>map</code>. The time complexity of a map operation is <span class="math math-inline">O(\log n \cdot \Sigma)</span>, where
+<span class="math math-inline">\Sigma</span> represents the alphabet size. The time complexity of the complete
+solution is <span class="math math-inline">O(n \log n \cdot \Sigma)</span>.</p>
+<pre class="resize-horizontal prettyprint lang-cpp">#include &lt;array&gt;
+#include &lt;iostream&gt;
+#include &lt;map&gt;
+using namespace std;
+using ll = long long;
+
+using A = array&lt;int, 26&gt;;
+
+int main() {
+    string s;
+    cin &gt;&gt; s;
+
+    bool seen[26]{};
+    char reference_char = s[0];
+
+    for (char c : s) seen[c - 'a'] = true;
+
+    map&lt;A, int&gt; m;
+    A cur{};
+    m[cur] = 1;
+    ll ans = 0;
+
+    for (char c : s) {
+        if (c == reference_char) {
+            for (int i = 0; i &lt; 26; ++i) {
+                if (seen[i]) cur[i]--;
+            }
+        }
+        cur[c - 'a']++;
+        ans += m[cur];
+        m[cur]++;
+    }
+
+    cout &lt;&lt; ans &lt;&lt; '\n';
+}
+</pre></section></article><article class="analysis" id="task-1743"><h2 class="task-title">1743 · String Reorder</h2><p class="meta"><a href="https://cses.fi/problemset/task/1743/">Task</a> · source analysis length 1,351 characters</p><section class="statement"><h3 class="statement-title">Problem statement</h3><p>Your task is to reorder the characters of a string so that no two adjacent characters are the same. What is the lexicographically minimal such string?</p>
+<h1 id="input">Input</h1>
+<p>The only line has a string of length <span class="math math-inline">n</span> consisting of characters A–Z.</p>
+<h1 id="output">Output</h1>
+<p>Print the lexicographically minimal reordered string where no two adjacent characters are the same. If it is not possible to create such a string, print <span class="math math-inline">-1</span>.</p>
+<h1 id="constraints">Constraints</h1>
+<ul>
+<li><span class="math math-inline">1 \le n \le 10^6</span></li>
+</ul>
+
+
+
+
+</section><section class="explanation"><p>Let us first analyze when is it possible construct a string such that no two
+adjacent characters are the same. The maximum amount of occurrences for a single
+character is reached when it appears in every other position, including the
+first and the last. This leads to the inequality <span class="math math-inline">2k\le n+1</span>, where <span class="math math-inline">k</span> is the
+number of occurrences of the most common character and <span class="math math-inline">n</span> is the length of the
+string. The construction is possible if and only if the above inequality holds.</p>
+<p>Now, we may construct the answer, one character at a time. To get the
+lexicographically smallest string, we will, at each step, choose the smallest
+character greedily. The above condition is used to check if the string can be
+completed by choosing a specific character.</p>
+<pre class="resize-horizontal prettyprint lang-cpp">#include &lt;iostream&gt;
+using namespace std;
+
+int count[128];
+
+int main() {
+    string s;
+    cin &gt;&gt; s;
+
+    int n = s.size();
+
+    for (auto c : s) {
+        count[(int)c]++;
+    }
+
+    auto check = [&amp;](int length) {
+        for (int i = 'A'; i &lt;= 'Z'; ++i) {
+            if (count[i] * 2 &gt; length + 1) {
+                return false;
+            }
+        }
+        return true;
+    };
+
+    if (!check(n)) {
+        cout &lt;&lt; -1 &lt;&lt; '\n';
+        return 0;
+    }
+
+    char prev = '$';
+    for (int i = 1; i &lt;= n; ++i) {
+        for (int nxt = 'A'; nxt &lt;= 'Z'; ++nxt) {
+            if (!count[nxt]) continue;
+            if (nxt == prev) continue;
+            count[nxt]--;
+            if (check(n - i)) {
+                cout &lt;&lt; (char)nxt;
+                prev = nxt;
+                break;
+            }
+            count[nxt]++;
+        }
+    }
+    cout &lt;&lt; '\n';
+}
+</pre></section></article><article class="analysis" id="task-1112"><h2 class="task-title">1112 · Required Substring</h2><p class="meta"><a href="https://cses.fi/problemset/task/1112/">Task</a> · source analysis length 3,866 characters</p><section class="statement"><h3 class="statement-title">Problem statement</h3><p>Your task is to calculate the number of strings of length <span class="math math-inline">n</span> having a given pattern of length <span class="math math-inline">m</span> as their substring. All strings consist of characters A–Z.</p>
+<h1 id="input">Input</h1>
+<p>The first input line has an integer <span class="math math-inline">n</span>: the length of the final string.</p>
+<p>The second line has a pattern of length <span class="math math-inline">m</span>.</p>
+<h1 id="output">Output</h1>
+<p>Print the number of strings modulo <span class="math math-inline">10^9+7</span>.</p>
+<h1 id="constraints">Constraints</h1>
+<ul>
+<li><span class="math math-inline">1 \le n \le 1000</span></li>
+<li><span class="math math-inline">1 \le m \le 100</span></li>
+</ul>
+
+
+
+
+
+
+</section><section class="explanation"><h2 id="solution1">Solution 1</h2>
+<p>Suppose we read characters of a string one after another and have to detect when
+the last <span class="math math-inline">m</span> characters form the pattern. To do that, we have to remember the
+longest prefix of the pattern that is also a suffix of our current string.</p>
+<p>For example, if the pattern is <code>ABABC</code> and we have read the string <code>CAABAB</code>, the
+prefix is <code>ABAB</code> (length <span class="math math-inline">4</span>). Consider what can happen when we read the next
+character:</p>
+<ul>
+<li>If we read <code>A</code>, the prefix becomes <code>ABA</code> (length <span class="math math-inline">3</span>).</li>
+<li>If we read <code>B</code>, the prefix becomes empty (length <span class="math math-inline">0</span>).</li>
+<li>If we read <code>C</code>, the prefix becomes <code>ABABC</code> (length <span class="math math-inline">5</span>).</li>
+<li>If we read any other character, the prefix becomes empty (length <span class="math math-inline">0</span>).</li>
+</ul>
+<p>We define a transition function <span class="math math-inline">\textrm{step}[i][c]</span>: if the length of the
+prefix is <span class="math math-inline">i</span> and we read character <span class="math math-inline">c</span>, what is the length of the prefix after
+that? For example, in the above situation <span class="math math-inline">\textrm{step}[4][\textrm{A}]=3</span>,
+<span class="math math-inline">\textrm{step}[4][B]=0</span>, and <span class="math math-inline">\textrm{step}[4][\textrm{C}]=5</span>. We also define
+that <span class="math math-inline">\textrm{step}[m][c]=m</span> for any character <span class="math math-inline">c</span> because in that case the
+pattern is a subtring of the string, regardless of what characters will come
+after that.</p>
+<p>After that, we use dynamic programming to solve the problem. We calculate values
+of <span class="math math-inline">\textrm{ways}[i][j]</span>: in how many ways can we create a string of length <span class="math math-inline">i</span>
+that ends with a prefix whose length is <span class="math math-inline">j</span> (or contains the whole pattern if
+<span class="math math-inline">j=m</span>)?</p>
+<p>The answer to the problem is <span class="math math-inline">\textrm{ways}[n][m]</span>, and the algorithm works in
+<span class="math math-inline">O(nmk)</span> time where <span class="math math-inline">k</span> is the size of the alphabet.</p>
+<pre class="resize-horizontal prettyprint lang-cpp">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+using ll = long long;
+const int M = 1000000007;
+
+int step[101][128];
+ll ways[1001][101];
+
+int main() {
+    int n;
+    cin &gt;&gt; n;
+    string s;
+    cin &gt;&gt; s;
+    int m = s.size();
+
+    for (int i = 0; i &lt; m; i++) {
+        for (int c = 'A'; c &lt;= 'Z'; c++) {
+            string u = s.substr(0, i) + (char)c;
+            while (s.substr(0, u.size()) != u) {
+                u = u.substr(1);
+            }
+            step[i][c] = u.size();
+        }
+    }
+    for (int c = 'A'; c &lt;= 'Z'; c++) {
+        step[m][c] = m;
+    }
+
+    ways[0][0] = 1;
+    for (int i = 0; i &lt; n; i++) {
+        for (int j = 0; j &lt;= m; j++) {
+            for (int c = 'A'; c &lt;= 'Z'; c++) {
+                ways[i + 1][step[j][c]] += ways[i][j];
+                ways[i + 1][step[j][c]] %= M;
+            }
+        }
+    }
+
+    cout &lt;&lt; ways[n][m] &lt;&lt; '\n';
+}
+</pre><h2 id="solution2prefixfunction">Solution 2: prefix function</h2>
+<p>The construction of the finite state machine can be sped up by utilizing the
+prefix function. It allows us to construct the transitions in <span class="math math-inline">O(nk)</span> time.</p>
+<p>The prefix function <span class="math math-inline">\pi(i)</span> of a string is defined as follows: each <span class="math math-inline">\pi(i)</span>
+denotes the maximum length of a substring that ends at position <span class="math math-inline">i</span> and is a
+strict prefix of the string. The prefix function might be familiar from the KMP
+algorithm.</p>
+<pre class="resize-horizontal prettyprint lang-cpp">#include &lt;algorithm&gt;
+#include &lt;array&gt;
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+using ll = long long;
+const int M = 1000000007;
+
+// Returns the values of the prefix function for string s.
+// The prefix function pi(i) is defined as follows: each pi(i) denotes the
+// maximum length of a substring that ends at position i and is a strict prefix
+// of the string.
+vector&lt;int&gt; prefix_function(string &amp;s) {
+    const int n = (int)s.size();
+    vector&lt;int&gt; r(n);
+    for (int i = 1; i &lt; n; ++i) {
+        int j = r[i - 1];
+        while (j &gt; 0 &amp;&amp; s[i] != s[j]) j = r[j - 1];
+        r[i] = j + (s[i] == s[j]);
+    }
+    return r;
+}
+
+int step[101][128];
+ll ways[1001][101];
+
+int main() {
+    int n;
+    cin &gt;&gt; n;
+
+    string s;
+    cin &gt;&gt; s;
+
+    int m = s.size();
+    auto links = prefix_function(s);
+
+    for (int i = 0; i &lt; m; i++) {
+        for (int c = 'A'; c &lt;= 'Z'; c++) {
+            if (s[i] == c) {
+                step[i][c] = i + 1;
+            } else if (i &gt; 0) {
+                step[i][c] = step[links[i - 1]][c];
+            }
+        }
+    }
+    for (int c = 'A'; c &lt;= 'Z'; c++) {
+        step[m][c] = m;
+    }
+
+    ways[0][0] = 1;
+    for (int i = 0; i &lt; n; i++) {
+        for (int j = 0; j &lt;= m; j++) {
+            for (int c = 'A'; c &lt;= 'Z'; c++) {
+                ways[i + 1][step[j][c]] += ways[i][j];
+                ways[i + 1][step[j][c]] %= M;
+            }
+        }
+    }
+
+    cout &lt;&lt; ways[n][m] &lt;&lt; '\n';
+}
+</pre><h2 id="references">References</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm">Wikipedia (Knuth–Morris–Pratt algorithm)</a></li>
+</ul>
+</section></article><article class="analysis" id="task-1087"><h2 class="task-title">1087 · Shortest Subsequence</h2><p class="meta"><a href="https://cses.fi/problemset/task/1087/">Task</a> · source analysis length 2,321 characters</p><section class="statement"><h3 class="statement-title">Problem statement</h3><p>You are given a DNA sequence consisting of characters A, C, G, and T.</p>
+<p>Your task is to find the shortest DNA sequence that is not a subsequence of the original sequence.</p>
+<h1 id="input">Input</h1>
+<p>The only input line contains a DNA sequence with <span class="math math-inline">n</span> characters.</p>
+<h1 id="output">Output</h1>
+<p>Print the shortest DNA sequence that is not a subsequence of the original sequence. If there are several solutions, you may print any of them.</p>
+<h1 id="constraints">Constraints</h1>
+<ul>
+<li><span class="math math-inline">1 \le n \le 10^6</span></li>
+</ul>
+
+
+
+
+</section><section class="explanation"><p>We will present a greedy approach and another, simplified version of the same
+algorithm.</p>
+<p>Start by creating a two dimensional array. Populate this array for each character
+and position with the next position at which the character appears in the string.
+With this array, we may check if a subsequence appears in the string. This may be
+done by going through the subsequence one character at a time and jumping to the
+next occurrence of the character. If at any point there is no such occurrence,
+then the string is not a subsequence of the original string.</p>
+<p>If the original string contains all of the four characters, the answer will
+always have a prefix that is a subsequence of the string. A prefix of the
+optimal length may be found with a greedy algorithm, that is, we always add the
+character whose next occurrence has the greatest index. It is always optimal to
+jump as far as possible because the occurrence arrays are increasing. Whenever
+one of the characters has no next occurrence, we add the character to the string
+and have an answer.</p>
+<pre class="resize-horizontal prettyprint lang-cpp">#include &lt;algorithm&gt;
+#include &lt;iostream&gt;
+using namespace std;
+
+const int N = 1e6;
+const int INF = 1e9;
+
+int nxt[N + 1][4];
+
+int main() {
+    string s;
+    cin &gt;&gt; s;
+
+    int n = s.size();
+
+    for (int j = 0; j &lt; 4; ++j) {
+        nxt[n][j] = INF;
+    }
+
+    for (int i = n; i &gt; 0; --i) {
+        for (int j = 0; j &lt; 4; ++j) {
+            nxt[i - 1][j] = nxt[i][j];
+        }
+        int idx = string("ACGT").find(s[i - 1]);
+        nxt[i - 1][idx] = i;
+    }
+
+    int i = 0;
+    string ans;
+    while (i &lt; INF) {
+        int c = max_element(nxt[i], nxt[i] + 4) - nxt[i];
+        ans += "ACGT"[c];
+        i = nxt[i][c];
+    }
+
+    cout &lt;&lt; ans &lt;&lt; '\n';
+}
+</pre>
+<p>This solution may be greatly simplified. Remember that, at any time, the next
+character picked will be the one whose next occurrence has the greatest index.
+Now, this character may be found by maintaining a set of seen characters.
+Whenever we have seen three of the characters and come across the fourth one,
+we know the fourth one is the one with the greatest distance from the index of
+the last picked character.</p>
+<pre class="resize-horizontal prettyprint lang-cpp">#include &lt;iostream&gt;
+#include &lt;set&gt;
+using namespace std;
+
+int main() {
+    string s;
+    cin &gt;&gt; s;
+
+    string ans;
+    set&lt;char&gt; seen;
+
+    for (char c : s) {
+        seen.insert(c);
+        if (seen.size() == 4) {
+            ans += c;
+            seen.clear();
+        }
+    }
+
+    for (char c : "ACGT") {
+        if (!seen.count(c)) {
+            ans += c;
+            break;
+        }
+    }
+
+    cout &lt;&lt; ans &lt;&lt; '\n';
+}
+</pre></section></article><article class="analysis" id="task-2177"><p class="chapter-title">Graph</p><h2 class="task-title">2177 · Strongly Connected Edges</h2><p class="meta"><a href="https://cses.fi/problemset/task/2177/">Task</a> · source analysis length 1,665 characters</p><section class="statement"><h3 class="statement-title">Problem statement</h3><p>Given an undirected graph, your task is to choose a direction for each edge so that the resulting directed graph is strongly connected.</p>
+<h1 id="input">Input</h1>
+<p>The first input line has two integers <span class="math math-inline">n</span> and <span class="math math-inline">m</span>: the number of nodes and edges. The nodes are numbered <span class="math math-inline">1,2,\dots,n</span>.</p>
+<p>After this, there are <span class="math math-inline">m</span> lines describing the edges. Each line has two integers <span class="math math-inline">a</span> and <span class="math math-inline">b</span>: there is an edge between nodes <span class="math math-inline">a</span> and <span class="math math-inline">b</span>.</p>
+<p>You may assume that the graph is simple, i.e., there are at most one edge between two nodes and every edge connects two distinct nodes.</p>
+<h1 id="output">Output</h1>
+<p>Print <span class="math math-inline">m</span> lines describing the directions of the edges. Each line has two integers <span class="math math-inline">a</span> and <span class="math math-inline">b</span>: there is an edge from node <span class="math math-inline">a</span> to node <span class="math math-inline">b</span>. You can print any valid solution.</p>
+<p>If there are no solutions, only print <code>IMPOSSIBLE</code>.</p>
+<h1 id="constraints">Constraints</h1>
+<ul>
+<li><span class="math math-inline">1 \le n \le 10^5</span></li>
+<li><span class="math math-inline">1 \le m \le 2 \cdot 10^5</span></li>
+<li><span class="math math-inline">1 \le a,b \le n</span></li>
+</ul>
+
+
+
+
+</section><section class="explanation"><p>It is useful to approach this problem by focusing on a DFS tree of the
+undirected graph. The DFS contains <em>tree edges</em> and <em>back edges</em>.</p>
+<p>We will direct each tree edge from the parent to the child. Further, let each
+<em>back edge</em> run upwards towards the root. Turns out this construction always
+works if it is possible to make the graph strongly connected overall.</p>
+<p>There are two cases in which it is not possible to make the graph strongly
+connected. Firstly, it is not possible if the given graph is not connected.
+Secondly, if there is a subtree in the DFS tree from which there is not a single
+back-edge going outside of it, it is also not possible, because there is no way
+to reach other nodes from the subtree.</p>
+<pre class="resize-horizontal prettyprint lang-cpp">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+void fail() {
+    cout &lt;&lt; "IMPOSSIBLE" &lt;&lt; '\n';
+    exit(0);
+}
+
+const int N = 100001;
+vector&lt;int&gt; g[N];
+vector&lt;pair&lt;int, int&gt;&gt; ans;
+bool visited[N];
+int depth[N], min_depth[N];
+
+void dfs(int node, int prev) {
+    visited[node] = true;
+    min_depth[node] = depth[node];
+    for (int nxt : g[node]) {
+        if (nxt == prev) continue;
+        if (visited[nxt]) {
+            if (depth[nxt] &lt; depth[node]) {
+                ans.emplace_back(node, nxt);
+            }
+            min_depth[node] = min(min_depth[node], depth[nxt]);
+        } else {
+            depth[nxt] = depth[node] + 1;
+            dfs(nxt, node);
+            min_depth[node] = min(min_depth[node], min_depth[nxt]);
+            ans.emplace_back(node, nxt);
+            if (min_depth[nxt] &gt; depth[node]) fail();
+        }
+    }
+}
+
+int main() {
+    int n, m;
+    cin &gt;&gt; n &gt;&gt; m;
+
+    for (int i = 0; i &lt; m; ++i) {
+        int a, b;
+        cin &gt;&gt; a &gt;&gt; b;
+        g[a].push_back(b);
+        g[b].push_back(a);
+    }
+
+    dfs(1, -1);
+
+    if (ans.size() != m) fail();
+
+    for (auto [a, b] : ans) {
+        cout &lt;&lt; a &lt;&lt; ' ' &lt;&lt; b &lt;&lt; '\n';
+    }
+}
+</pre></section></article><article class="analysis" id="task-2143"><h2 class="task-title">2143 · Reachability Queries</h2><p class="meta"><a href="https://cses.fi/problemset/task/2143/">Task</a> · source analysis length 2,671 characters</p><section class="statement"><h3 class="statement-title">Problem statement</h3><p>A directed graph consists of <span class="math math-inline">n</span> nodes and <span class="math math-inline">m</span> edges. The edges are numbered <span class="math math-inline">1,2,\dots,n</span>.</p>
+<p>Your task is to answer <span class="math math-inline">q</span> queries of the form "can you reach node <span class="math math-inline">b</span> from node <span class="math math-inline">a</span>?"</p>
+<h1 id="input">Input</h1>
+<p>The first input line has three integers <span class="math math-inline">n</span>, <span class="math math-inline">m</span> and <span class="math math-inline">q</span>: the number of nodes, edges and queries.</p>
+<p>Then there are <span class="math math-inline">m</span> lines describing the edges. Each line has two distinct integers <span class="math math-inline">a</span> and <span class="math math-inline">b</span>: there is an edge from node <span class="math math-inline">a</span> to node <span class="math math-inline">b</span>.</p>
+<p>Finally there are <span class="math math-inline">q</span> lines describing the queries. Each line consists of two integers <span class="math math-inline">a</span> and <span class="math math-inline">b</span>: "can you reach node <span class="math math-inline">b</span> from node <span class="math math-inline">a</span>?"</p>
+<h1 id="output">Output</h1>
+<p>Print the answer for each query: either "YES" or "NO".</p>
+<h1 id="constraints">Constraints</h1>
+<ul>
+<li><span class="math math-inline">1 \le n \le 5 \cdot 10^4</span></li>
+<li><span class="math math-inline">1 \le m,q \le 10^5</span></li>
+</ul>
+
+
+
+
+</section><section class="explanation"><p>It is useful to think of the problem in terms of strongly connected components.
+In particular, if two nodes are in the same in the same component, they are both
+reachable from each other.</p>
+<p>The strongly connected components of the graph also form a directed acyclic
+graph (DAG) of their own. There cannot be cycles in the graph condensed from the
+components because if it contained a cycle of multiple components, the nodes of
+the cycle would, by definition, form only a single component.</p>
+<p>Once we have found the strongly connected components using Tarjan's algorithm,
+we have reduced the problem to a DAG. Because there are no cycles in a DAG, we
+can make a dynamic programming solution. In particular, we may store, for each
+node, information about which other nodes are reachable from it. The
+reachability information can be copied to each <em>parent</em> of a node, once all
+the children of the node have been fully processed.</p>
+<p>If we were to store the reachability information in a boolean array, the
+solution would turn out too slow. We may, however, use bitsets to speed up the
+transformation of the information as bitsets allow us to update 64 elements at
+once.</p>
+<pre class="resize-horizontal prettyprint lang-cpp">#include &lt;bitset&gt;
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+const int N = 5e4 + 1;
+vector&lt;int&gt; g[N];
+int cur_depth, comp_cnt;
+int comp[N], depth[N], low[N];
+vector&lt;int&gt; stack;
+bool in_stack[N];
+
+// Tarjan's strongly connected components algorithm
+void scc_dfs(int node) {
+    low[node] = depth[node] = ++cur_depth;
+    stack.push_back(node);
+    in_stack[node] = true;
+    for (int nxt : g[node]) {
+        if (!depth[nxt]) {
+            scc_dfs(nxt);
+            low[node] = min(low[node], low[nxt]);
+        } else if (in_stack[nxt]) {
+            low[node] = min(low[node], depth[nxt]);
+        }
+    }
+    if (depth[node] == low[node]) {
+        int i = -1;
+        ++comp_cnt;
+        while (i != node) {
+            i = stack.back();
+            stack.pop_back();
+            in_stack[i] = false;
+            comp[i] = comp_cnt;
+        }
+    }
+}
+
+using B = bitset&lt;N&gt;;
+// `cg` is a condensed graph constructed from the SCC's.
+vector&lt;int&gt; cg[N];
+B reach[N];
+bool visited[N];
+
+void dfs(int node) {
+    if (visited[node]) return;
+    visited[node] = true;
+    reach[node][node] = true;
+    for (int nxt : cg[node]) {
+        dfs(nxt);
+        reach[node] |= reach[nxt];
+    }
+}
+
+int main() {
+    int n, m, q;
+    cin &gt;&gt; n &gt;&gt; m &gt;&gt; q;
+
+    for (int i = 1; i &lt;= m; ++i) {
+        int a, b;
+        cin &gt;&gt; a &gt;&gt; b;
+        g[a].push_back(b);
+    }
+
+    for (int i = 1; i &lt;= n; ++i) {
+        if (!depth[i]) scc_dfs(i);
+    }
+
+    for (int i = 1; i &lt;= n; ++i) {
+        for (int j : g[i]) {
+            if (comp[i] != comp[j]) {
+                cg[comp[i]].push_back(comp[j]);
+            }
+        }
+    }
+
+    for (int i = 1; i &lt;= comp_cnt; ++i) {
+        dfs(i);
+    }
+
+    for (int qi = 1; qi &lt;= q; ++qi) {
+        int a, b;
+        cin &gt;&gt; a &gt;&gt; b;
+        cout &lt;&lt; (reach[comp[a]][comp[b]] ? "YES" : "NO") &lt;&lt; '\n';
+    }
+}
+</pre></section></article><article class="analysis" id="task-2138"><h2 class="task-title">2138 · Reachable Nodes</h2><p class="meta"><a href="https://cses.fi/problemset/task/2138/">Task</a> · source analysis length 1,376 characters</p><section class="statement"><h3 class="statement-title">Problem statement</h3><p>A directed acyclic graph consists of <span class="math math-inline">n</span> nodes and <span class="math math-inline">m</span> edges. The nodes are numbered <span class="math math-inline">1,2,\dots,n</span>.</p>
+<p>Calculate for each node the number of nodes you can reach from that node (including the node itself).</p>
+<h1 id="input">Input</h1>
+<p>The first input line has two integers <span class="math math-inline">n</span> and <span class="math math-inline">m</span>: the number of nodes and edges.</p>
+<p>Then there are <span class="math math-inline">m</span> lines describing the edges. Each line has two distinct integers <span class="math math-inline">a</span> and <span class="math math-inline">b</span>: there is an edge from node <span class="math math-inline">a</span> to node <span class="math math-inline">b</span>.</p>
+<h1 id="output">Output</h1>
+<p>Print <span class="math math-inline">n</span> integers: for each node the number of reachable nodes.</p>
+<h1 id="constraints">Constraints</h1>
+<ul>
+<li><span class="math math-inline">1 \le n \le 5 \cdot 10^4</span></li>
+<li><span class="math math-inline">1 \le m \le 10^5</span></li>
+</ul>
+
+
+
+
+</section><section class="explanation"><p>A directed acyclic graph does not contain cycles which means that we may use a
+dynamic programming approach to solve the problem. Let us store a boolean array
+for each node, which tells us which nodes are reachable from the node. A
+straightforward solution would perform a DFS from each node and update the
+arrays after each edge. Each edge would correspond to <span class="math math-inline">O(n)</span> operations and
+thus, the solution would result in a time complexity of <span class="math math-inline">O(nm)</span> and would
+perform roughly <span class="math math-inline">5\cdot10^4\cdot10^5=5\cdot10^9</span> operations, which makes the
+solution a bit too slow.</p>
+<p>Fortunately, the approach can be sped up using bitsets. Bitsets allow us to
+update 64 positions of the array at once and thus, provide a factor of <span class="math math-inline">1/64</span> to
+the number of operations, bringing the total down to the order of
+<span class="math math-inline">5\cdot10^4\cdot10^5\cdot\frac 1 {64}\approx7.8\cdot10^7</span>.</p>
+<pre class="resize-horizontal prettyprint lang-cpp">#include &lt;bitset&gt;
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+const int N = 5e4 + 1;
+
+vector&lt;int&gt; g[N];
+bitset&lt;N&gt; reach[N];
+bool visited[N];
+
+void dfs(int node) {
+    if (visited[node]) return;
+    visited[node] = true;
+    reach[node][node] = true;
+    for (int nxt : g[node]) {
+        dfs(nxt);
+        reach[node] |= reach[nxt];
+    }
+}
+
+int main() {
+    int n, m;
+    cin &gt;&gt; n &gt;&gt; m;
+
+    for (int i = 1; i &lt;= m; ++i) {
+        int a, b;
+        cin &gt;&gt; a &gt;&gt; b;
+        g[a].push_back(b);
+    }
+
+    for (int i = 1; i &lt;= n; ++i) {
+        dfs(i);
+        cout &lt;&lt; reach[i].count() &lt;&lt; ' ';
+    }
+    cout &lt;&lt; '\n';
+}
+</pre></section></article><article class="analysis" id="task-2080"><h2 class="task-title">2080 · Fixed-Length Paths I</h2><p class="meta"><a href="https://cses.fi/problemset/task/2080/">Task</a> · source analysis length 7,847 characters</p><section class="statement"><h3 class="statement-title">Problem statement</h3><p>Given a tree of <span class="math math-inline">n</span> nodes, your task is to count the number of distinct paths that consist of exactly <span class="math math-inline">k</span> edges.</p>
+<h1 id="input">Input</h1>
+<p>The first input line contains two integers <span class="math math-inline">n</span> and <span class="math math-inline">k</span>: the number of nodes and the path length. The nodes are numbered <span class="math math-inline">1,2,\ldots,n</span>.</p>
+<p>Then there are <span class="math math-inline">n-1</span> lines describing the edges. Each line contains two integers <span class="math math-inline">a</span> and <span class="math math-inline">b</span>: there is an edge between nodes <span class="math math-inline">a</span> and <span class="math math-inline">b</span>.</p>
+<h1 id="output">Output</h1>
+<p>Print one integer: the number of paths.</p>
+<h1 id="constraints">Constraints</h1>
+<ul>
+<li><span class="math math-inline">1 \le k \le n \le 2 \cdot 10^5</span></li>
+<li><span class="math math-inline">1 \le a,b \le n</span></li>
+</ul>
+
+
+
+
+</section><section class="explanation"><h2 id="solution1centroiddecomposition">Solution 1: Centroid Decomposition</h2>
+<p>This problem can be solved with a technique known as centroid decomposition.</p>
+<p>The idea is to recursively split the tree into disjoint trees. We start by
+selecting a node from the tree. Then, we calculate the number of paths of length
+<span class="math math-inline">k</span> which go through the selected node. After this, all unaccounted paths are
+completely contained in the subtrees of the node. Thus, we may remove the
+selected node and repeat the same procedure for the resulting new trees.</p>
+<p>The solution would be too slow if we each time selected the node at random. The
+key idea is to pick the node so that it is a centroid of the tree, i.e., a node
+such that when it is appointed the root of the tree, each subtree has at most
+<span class="math math-inline">\lfloor n/2 \rfloor</span> nodes.</p>
+<p>If we choose a centroid node, the sizes of the resulting trees will be at most
+half of the original size. This means that each node will be part of at most
+<span class="math math-inline">O(\log n)</span> trees. As every node of every tree is processed once, the total time
+complexity of the solution is <span class="math math-inline">O(n\log n)</span>.</p>
+<p>At each step, a centroid node can be found with a greedy algorithm, which works
+as follows: root the tree, traverse recursively from the root, each time choosing
+a child with a subtree size of at least <span class="math math-inline">\lfloor n/2 \rfloor</span>. If there is no
+such child, the traversal has arrived at a centroid node.</p>
+<p>When we have found a centroid, we can start counting the paths. For this
+purpose, we use an array <code>dist</code>. Each position <span class="math math-inline">i</span> of <code>dist</code> stores the amount
+of nodes at distance <span class="math math-inline">i</span> from the centroid. To ensure that the counted paths are
+not contained solely in a single subtree and that each path is only counted
+once, we count the number of paths ending in a subtree before updating the array
+<code>dist</code> with the distances of the nodes in the subtree.</p>
+<p>The <code>dist</code> array is reused for all of the individually processed trees. So, we
+have to reset it between the recursive calls.</p>
+<pre class="resize-horizontal prettyprint lang-cpp">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+using ll = long long;
+
+const int N = 200001;
+bool deleted[N];
+int n, k, sizes[N];
+vector&lt;int&gt; g[N];
+ll answer;
+
+void dfs_sizes(int node, int parent) {
+    sizes[node] = 1;
+    for (int child : g[node]) {
+        if (child == parent || deleted[child]) continue;
+        dfs_sizes(child, node);
+        sizes[node] += sizes[child];
+    }
+}
+
+int find_centroid(int node, int parent, int n) {
+    for (int child : g[node]) {
+        if (child != parent &amp;&amp; !deleted[child] &amp;&amp; sizes[child] &gt; n / 2) {
+            return find_centroid(child, node, n);
+        }
+    }
+    return node;
+}
+
+int dist[N];
+
+void dfs_add(int node, int parent, int depth, int change) {
+    dist[depth] += change;
+    for (int child : g[node]) {
+        if (child == parent || deleted[child]) continue;
+        dfs_add(child, node, depth + 1, change);
+    }
+}
+
+void dfs_query(int node, int parent, int depth) {
+    if (k - depth &gt;= 0) answer += dist[k - depth];
+    for (int child : g[node]) {
+        if (child == parent || deleted[child]) continue;
+        dfs_query(child, node, depth + 1);
+    }
+}
+
+void recurse(int node) {
+    dfs_sizes(node, -1);
+    int r = find_centroid(node, -1, sizes[node]);
+    dist[0] = 1;
+    for (int child : g[r]) {
+        if (!deleted[child]) {
+            dfs_query(child, r, 1);
+            dfs_add(child, r, 1, 1);
+        }
+    }
+    dfs_add(r, -1, 0, -1);
+    deleted[r] = true;
+    for (int child : g[r]) {
+        if (!deleted[child]) {
+            recurse(child);
+        }
+    }
+}
+
+int main() {
+    cin &gt;&gt; n &gt;&gt; k;
+
+    for (int i = 1; i &lt;= n - 1; ++i) {
+        int a, b;
+        cin &gt;&gt; a &gt;&gt; b;
+        g[a].push_back(b);
+        g[b].push_back(a);
+    }
+
+    recurse(1);
+    cout &lt;&lt; answer &lt;&lt; '\n';
+}
+</pre><h2 id="solution2smalltolargemerging">Solution 2: Small-To-Large Merging</h2>
+<p>There is another, simpler solution to this problem. It uses a technique
+sometimes known as <em>small-to-large merging</em>. The implementation has only one
+tree traversal.</p>
+<p>After rooting the tree, we make a depth-first traversal of it. During the
+traversal, we calculate the number of paths through each node. Any path in a
+tree has a highest node: a node that is the closest to the root. We will
+calculate each path only once, at its highest node.</p>
+<p>To make sure we only count paths of length <span class="math math-inline">k</span>, we use the fact that the
+distance between tree nodes <span class="math math-inline">a</span> and <span class="math math-inline">b</span> equals</p>
+<p><span class="math math-display">
+\textrm{depth}(a)+\textrm{depth}(b)-2\cdot\textrm{depth}(c),
+</span></p>
+<p>where <span class="math math-inline">c</span> is the highest node on the path between <span class="math math-inline">a</span> and <span class="math math-inline">b</span>, also known as the
+lowest common ancestor of <span class="math math-inline">a</span> and <span class="math math-inline">b</span>. With this, finding the number of paths of
+length <span class="math math-inline">k</span> through node <span class="math math-inline">x</span> corresponds to finding the number of ways to pick
+two nodes <span class="math math-inline">a</span> and <span class="math math-inline">b</span> from different subtrees of <span class="math math-inline">x</span> with the following
+condition:</p>
+<p><span class="math math-display">
+\textrm{depth}(a)+\textrm{depth}(b)-2\cdot\textrm{depth}(x)=k.
+</span></p>
+<p>We create a <code>map</code> for each node, which stores the depths of the nodes in the
+subtree of the node. We use the technique of <em>small-to-large</em> merging for
+merging a node's <code>map</code> to its parent's <code>map</code> efficiently: if a map of a child is
+larger than the map of its parent, we swap the data structures before
+merging. This means that instead of moving elements from the map of the child to
+the map of its parent, we move them from the smaller map to the larger map.</p>
+<p>It can be proven that each element will be moved at most <span class="math math-inline">O(\log n)</span> times
+making the total time complexity of the solution <span class="math math-inline">O(n\log^2n)</span>.</p>
+<pre class="resize-horizontal prettyprint lang-cpp">#include &lt;iostream&gt;
+#include &lt;map&gt;
+#include &lt;vector&gt;
+using namespace std;
+using ll = long long;
+
+const int N = 200001;
+int n, k;
+vector&lt;int&gt; g[N];
+ll answer;
+
+map&lt;int, int&gt; dfs(int node, int parent, int depth) {
+    map&lt;int, int&gt; dist;
+    dist[depth] = 1;
+    for (int child : g[node]) {
+        if (child == parent) continue;
+        auto child_dist = dfs(child, node, depth + 1);
+        if (child_dist.size() &gt; dist.size()) {
+            swap(dist, child_dist);
+        }
+        for (auto [d, amt] : child_dist) {
+            answer += 1ll * dist[k - d + 2 * depth] * amt;
+        }
+        for (auto [d, amt] : child_dist) {
+            dist[d] += amt;
+        }
+    }
+    return dist;
+}
+
+int main() {
+    cin &gt;&gt; n &gt;&gt; k;
+
+    for (int i = 1; i &lt;= n - 1; ++i) {
+        int a, b;
+        cin &gt;&gt; a &gt;&gt; b;
+        g[a].push_back(b);
+        g[b].push_back(a);
+    }
+
+    dfs(1, -1, 0);
+    cout &lt;&lt; answer &lt;&lt; '\n';
+}
+</pre><h2 id="solution3improvedmerge">Solution 3: Improved merge</h2>
+<p>Instead of using a <code>map</code> to store information about the depths of the nodes in
+each subtree, we use a <code>deque</code>. Other than that, this solution works in a way
+that is very similar to the previous solution.</p>
+<p>Note that, in contrast to the previous solution, the <code>deque</code> indexes represent
+depths relative to the current node, as opposed to relative to the root node.
+Also note that the size of the merged data structure is proportional to the
+depth of the node, instead of the subtree size of the node.</p>
+<p>It may come as a surprise that this solution runs in <span class="math math-inline">O(n)</span> time.</p>
+<p>This proof was first <a href="https://codeforces.com/blog/entry/70822">presented</a> by
+Codeforces user <a href="https://codeforces.com/profile/neal">neal</a>.</p>
+<p>The time complexity of constructing the <code>deque</code>s is linear because each
+insertion works in <span class="math math-inline">O(1)</span> time and each node corresponds to at most two
+insertions. Thus, we need to focus only on the <code>merge</code> function.</p>
+<p>A <code>merge</code> operation results in a <code>deque</code> with a size equal to the size of the
+larger of the merged <code>deque</code>s, as opposed to the sum of the two sizes. Thus,
+the smaller <code>deque</code> is "consumed" and its elements will not amount to any more
+work. As there are only <span class="math math-inline">O(n)</span> <code>deque</code> elements in total and each of them is
+consumed at most once, the total time complexity is linear.</p>
+<pre class="resize-horizontal prettyprint lang-cpp">#include &lt;deque&gt;
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+using ll = long long;
+
+const int N = 200001;
+int n, k;
+vector&lt;int&gt; g[N];
+ll answer;
+
+void merge(deque&lt;int&gt; &amp;a, deque&lt;int&gt; &amp;b) {
+    if (b.size() &gt; a.size()) swap(a, b);
+    int bs = b.size();
+    for (int i = 0; i &lt; bs; ++i) {
+        if (0 &lt;= k - i &amp;&amp; k - i &lt; (int)a.size()) {
+            answer += b[i] * a[k - i];
+        }
+    }
+    for (int i = 0; i &lt; bs; ++i) {
+        a[i] += b[i];
+    }
+}
+
+deque&lt;int&gt; dfs(int node, int parent) {
+    deque&lt;int&gt; ret{1};
+    for (int child : g[node]) {
+        if (child == parent) continue;
+        auto child_depths = dfs(child, node);
+        child_depths.push_front(0);
+        merge(ret, child_depths);
+    }
+    return ret;
+}
+
+int main() {
+    cin &gt;&gt; n &gt;&gt; k;
+
+    for (int i = 1; i &lt;= n - 1; ++i) {
+        int a, b;
+        cin &gt;&gt; a &gt;&gt; b;
+        g[a].push_back(b);
+        g[b].push_back(a);
+    }
+
+    dfs(1, -1);
+    cout &lt;&lt; answer &lt;&lt; '\n';
+}
+</pre></section></article><article class="analysis" id="task-1686"><h2 class="task-title">1686 · Coin Collector</h2><p class="meta"><a href="https://cses.fi/problemset/task/1686/">Task</a> · source analysis length 2,243 characters</p><section class="statement"><h3 class="statement-title">Problem statement</h3><p>A game has <span class="math math-inline">n</span> rooms and <span class="math math-inline">m</span> tunnels between them. Each room has a certain number of coins. What is the maximum number of coins you can collect while moving through the tunnels when you can freely choose your starting and ending room?</p>
+<h1 id="input">Input</h1>
+<p>The first input line has two integers <span class="math math-inline">n</span> and <span class="math math-inline">m</span>: the number of rooms and tunnels. The rooms are numbered <span class="math math-inline">1,2,\dots,n</span>.</p>
+<p>Then, there are <span class="math math-inline">n</span> integers <span class="math math-inline">k_1,k_2,\ldots,k_n</span>: the number of coins in each room.</p>
+<p>Finally, there are <span class="math math-inline">m</span> lines describing the tunnels. Each line has two integers <span class="math math-inline">a</span> and <span class="math math-inline">b</span>: there is a tunnel from room <span class="math math-inline">a</span> to room <span class="math math-inline">b</span>. Each tunnel is a one-way tunnel.</p>
+<h1 id="output">Output</h1>
+<p>Print one integer: the maximum number of coins you can collect.</p>
+<h1 id="constraints">Constraints</h1>
+<ul>
+<li><span class="math math-inline">1 \le n \le 10^5</span></li>
+<li><span class="math math-inline">1 \le m \le 2 \cdot 10^5</span></li>
+<li><span class="math math-inline">1 \le k_i \le 10^9</span></li>
+<li><span class="math math-inline">1 \le a,b \le n</span></li>
+</ul>
+
+
+
+
+</section><section class="explanation"><p>We first identify the strongly connected components and create a component graph
+where each node's value is the total number of coins in the component.
+We use Kosaraju's algorithm for finding the components.</p>
+<p>After that, we find the maximum coin sum in a path in the component graph.
+We can use dynamic programming to find the maximum sum
+because the component graph is a directed acyclic graph.
+In the dynamic programming implementation, we use the fact that
+Kosaraju's algorithm creates the components in reverse topological order.</p>
+<p>The resulting algorithm works in <span class="math math-inline">O(n+m)</span> time.</p>
+<pre class="resize-horizontal prettyprint lang-cpp">#include &lt;algorithm&gt;
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+using ll = long long;
+
+vector&lt;vector&lt;int&gt;&gt; graph;
+vector&lt;vector&lt;int&gt;&gt; graph_rev;
+
+vector&lt;int&gt; coins;
+
+vector&lt;int&gt; order;
+vector&lt;int&gt; seen;
+
+void find_order(int node) {
+    if (seen[node]) return;
+    seen[node] = 1;
+    for (auto next_node : graph[node]) {
+        find_order(next_node);
+    }
+    order.push_back(node);
+}
+
+vector&lt;int&gt; component;
+vector&lt;vector&lt;int&gt;&gt; nodes;
+vector&lt;ll&gt; total_coins;
+
+void find_component(int node, int id) {
+    if (component[node]) return;
+    component[node] = id;
+    nodes[id].push_back(node);
+    total_coins[id] += coins[node];
+    for (auto next_node : graph_rev[node]) {
+        find_component(next_node, id);
+    }
+}
+
+int main() {
+    int n, m;
+    cin &gt;&gt; n &gt;&gt; m;
+
+    coins.resize(n + 1);
+    for (int i = 1; i &lt;= n; i++) {
+        cin &gt;&gt; coins[i];
+    }
+
+    graph.resize(n + 1);
+    graph_rev.resize(n + 1);
+
+    for (int i = 1; i &lt;= m; i++) {
+        int a, b;
+        cin &gt;&gt; a &gt;&gt; b;
+        graph[a].push_back(b);
+        graph_rev[b].push_back(a);
+    }
+
+    seen.resize(n + 1);
+    for (int node = 1; node &lt;= n; node++) {
+        find_order(node);
+    }
+
+    reverse(order.begin(), order.end());
+    int count = 0;
+    component.resize(n + 1);
+    nodes.resize(n + 1);
+    total_coins.resize(n + 1);
+    for (auto node : order) {
+        if (component[node]) continue;
+        count++;
+        find_component(node, count);
+    }
+
+    vector&lt;ll&gt; max_sum(count + 1);
+    ll result = 0;
+    for (int id = count; id &gt;= 1; id--) {
+        ll best_sum = 0;
+        for (auto node : nodes[id]) {
+            for (auto next_node : graph[node]) {
+                if (component[next_node] != id) {
+                    best_sum = max(best_sum, max_sum[component[next_node]]);
+                }
+            }
+        }
+        max_sum[id] = total_coins[id] + best_sum;
+        result = max(result, max_sum[id]);
+    }
+    cout &lt;&lt; result &lt;&lt; "\n";
+}
+</pre></section></article><article class="analysis" id="task-1195"><h2 class="task-title">1195 · Flight Discount</h2><p class="meta"><a href="https://cses.fi/problemset/task/1195/">Task</a> · source analysis length 1,501 characters</p><section class="statement"><h3 class="statement-title">Problem statement</h3><p>Your task is to find a minimum-price flight route from Syrjälä to Metsälä. You have one discount coupon, using which you can halve the price of any single flight during the route. However, you can only use the coupon once.</p>
+<p>When you use the discount coupon for a flight whose price is <span class="math math-inline">x</span>, its price becomes <span class="math math-inline">\lfloor x/2 \rfloor</span> (it is rounded down to an integer).</p>
+<h1 id="input">Input</h1>
+<p>The first input line has two integers <span class="math math-inline">n</span> and <span class="math math-inline">m</span>: the number of cities and flight connections. The cities are numbered <span class="math math-inline">1,2,\ldots,n</span>. City 1 is Syrjälä, and city <span class="math math-inline">n</span> is Metsälä.</p>
+<p>After this there are <span class="math math-inline">m</span> lines describing the flights. Each line has three integers <span class="math math-inline">a</span>, <span class="math math-inline">b</span>, and <span class="math math-inline">c</span>: a flight begins at city <span class="math math-inline">a</span>, ends at city <span class="math math-inline">b</span>, and its price is <span class="math math-inline">c</span>. Each flight is unidirectional.</p>
+<p>You can assume that it is always possible to get from Syrjälä to Metsälä.</p>
+<h1 id="output">Output</h1>
+<p>Print one integer: the price of the cheapest route from Syrjälä to Metsälä.</p>
+<h1 id="constraints">Constraints</h1>
+<ul>
+<li><span class="math math-inline">2 \le n \le 10^5</span></li>
+<li><span class="math math-inline">1 \le m \le 2 \cdot 10^5</span></li>
+<li><span class="math math-inline">1 \le a,b \le n</span></li>
+<li><span class="math math-inline">1 \le c \le 10^9</span></li>
+</ul>
+
+
+
+
+</section><section class="explanation"><p>We create a graph that consists of <span class="math math-inline">2n</span> nodes arranged in two layers.</p>
+<p>Each city is represented by two nodes.
+Node <span class="math math-inline">i</span> corresponds to city <span class="math math-inline">i</span> before using the coupon,
+and node <span class="math math-inline">n+i</span> corresponds to city <span class="math math-inline">i</span> after using the coupon.</p>
+<p>For each flight, we create three edges.
+When there is a flight from city <span class="math math-inline">a</span> to city <span class="math math-inline">b</span> with weight <span class="math math-inline">x</span>,
+we create the edges <span class="math math-inline">(a,b,x)</span>, <span class="math math-inline">(a,n+b,\lfloor x/2 \rfloor)</span> and <span class="math math-inline">(n+a,n+b,x)</span>.
+The second edge allows us to use the coupon once.</p>
+<p>In the above graph, the length of the shortest path from node <span class="math math-inline">1</span> to node <span class="math math-inline">2n</span>
+represents the shortest route with the flight discount.</p>
+<pre class="resize-horizontal prettyprint lang-cpp">#include &lt;iostream&gt;
+#include &lt;queue&gt;
+#include &lt;vector&gt;
+using namespace std;
+using ll = long long;
+
+const ll INF = 1e18;
+
+int main() {
+    int n, m;
+    cin &gt;&gt; n &gt;&gt; m;
+
+    vector&lt;vector&lt;pair&lt;int, int&gt;&gt;&gt; graph(2 * n + 1);
+
+    for (int i = 1; i &lt;= m; i++) {
+        int a, b, c;
+        cin &gt;&gt; a &gt;&gt; b &gt;&gt; c;
+        graph[a].emplace_back(b, c);
+        graph[n + a].emplace_back(n + b, c);
+        graph[a].emplace_back(n + b, c / 2);
+    }
+
+    vector&lt;ll&gt; distance(2 * n + 1, INF);
+    vector&lt;bool&gt; visited(2 * n + 1);
+
+    priority_queue&lt;pair&lt;ll, int&gt;&gt; queue;
+    queue.emplace(0, 1);
+    distance[1] = 0;
+
+    while (!queue.empty()) {
+        int node = queue.top().second;
+        queue.pop();
+
+        if (visited[node]) continue;
+        visited[node] = true;
+
+        for (auto [next_node, weight] : graph[node]) {
+            ll new_distance = distance[node] + weight;
+            if (new_distance &lt; distance[next_node]) {
+                distance[next_node] = new_distance;
+                queue.emplace(-new_distance, next_node);
+            }
+        }
+    }
+
+    cout &lt;&lt; distance[2 * n] &lt;&lt; "\n";
+}
+</pre></section></article><article class="analysis" id="task-1136"><h2 class="task-title">1136 · Counting Paths</h2><p class="meta"><a href="https://cses.fi/problemset/task/1136/">Task</a> · source analysis length 2,569 characters</p><section class="statement"><h3 class="statement-title">Problem statement</h3><p>You are given a tree consisting of <span class="math math-inline">n</span> nodes, and <span class="math math-inline">m</span> paths in the tree.</p>
+<p>Your task is to calculate for each node the number of paths containing that node.</p>
+<h1 id="input">Input</h1>
+<p>The first input line contains integers <span class="math math-inline">n</span> and <span class="math math-inline">m</span>: the number of nodes and paths. The nodes are numbered <span class="math math-inline">1,2,\ldots,n</span>.</p>
+<p>Then there are <span class="math math-inline">n-1</span> lines describing the edges. Each line contains two integers <span class="math math-inline">a</span> and <span class="math math-inline">b</span>: there is an edge between nodes <span class="math math-inline">a</span> and <span class="math math-inline">b</span>.</p>
+<p>Finally, there are <span class="math math-inline">m</span> lines describing the paths. Each line contains two integers <span class="math math-inline">a</span> and <span class="math math-inline">b</span>: there is a path between nodes <span class="math math-inline">a</span> and <span class="math math-inline">b</span>.</p>
+<h1 id="output">Output</h1>
+<p>Print <span class="math math-inline">n</span> integers: for each node <span class="math math-inline">1,2,\ldots,n</span>, the number of paths containing that node.</p>
+<h1 id="constraints">Constraints</h1>
+<ul>
+<li><span class="math math-inline">1 \le n, m \le 2 \cdot 10^5</span></li>
+<li><span class="math math-inline">1 \le a,b \le n</span></li>
+</ul>
+
+
+
+
+</section><section class="explanation"><p>Let us root the tree arbitrarily.
+Notice that, in a rooted tree, any path between
+some nodes <span class="math math-inline">a</span> and <span class="math math-inline">b</span> can be split into two paths:</p>
+<ol>
+<li>the part from <span class="math math-inline">a</span> to <span class="math math-inline">\textrm{lca}(a, b)</span>,</li>
+<li>the part from <span class="math math-inline">b</span> to <span class="math math-inline">\textrm{lca}(a, b)</span>.</li>
+</ol>
+<p>In this problem we will process these parts separately.
+Each node will have two values:</p>
+<ol>
+<li>the number of paths starting at that node (going up),</li>
+<li>the number of paths ending at this node.</li>
+</ol>
+<p>We will use a dynamic programming approach.
+The paths through this node can be calculated by
+adding up the amount of paths that come from the children
+and the amount of paths starting at this node.</p>
+<p>We have to make sure to remove the paths that end
+at this node from our counter.
+Note that each path is counted twice at
+its highest node (the LCA node). Fortunately, the number
+of doubly counted paths at any node is simply the number
+of paths ending at that node.</p>
+<pre class="resize-horizontal prettyprint lang-cpp">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+const int N = 200000;
+int jmp[N][20];
+int depth[N];
+vector&lt;int&gt; g[N];
+
+void dfs(int node, int parent) {
+    jmp[node][0] = parent;
+    for (int child : g[node]) {
+        if (child == parent) continue;
+        depth[child] = depth[node] + 1;
+        dfs(child, node);
+    }
+}
+
+int lca(int a, int b) {
+    if (depth[a] &lt; depth[b]) {
+        swap(a, b);
+    }
+    int depth_difference = depth[a] - depth[b];
+    for (int j = 19; j &gt;= 0; --j) {
+        if ((1 &lt;&lt; j) &amp; depth_difference) {
+            a = jmp[a][j];
+        }
+    }
+    if (a == b) {
+        return a;
+    } else {
+        for (int j = 19; j &gt;= 0; --j) {
+            if (jmp[a][j] != jmp[b][j]) {
+                a = jmp[a][j];
+                b = jmp[b][j];
+            }
+        }
+        return jmp[a][0];
+    }
+}
+
+int paths_starting[N];
+int paths_ending[N];
+int answer[N];
+
+int dfs_paths(int node, int parent) {
+    int current_paths = paths_starting[node];
+    for (int child : g[node]) {
+        if (child == parent) continue;
+        current_paths += dfs_paths(child, node);
+    }
+    // Paths ending at the current node are counted twice.
+    current_paths -= paths_ending[node];
+    answer[node] = current_paths;
+    current_paths -= paths_ending[node];
+    return current_paths;
+}
+
+int main() {
+    int n, m;
+
+    cin &gt;&gt; n &gt;&gt; m;
+
+    for (int i = 0; i &lt; n - 1; ++i) {
+        int a, b;
+        cin &gt;&gt; a &gt;&gt; b;
+        a--;
+        b--;
+        g[a].push_back(b);
+        g[b].push_back(a);
+    }
+
+    dfs(0, 0);
+
+    for (int j = 0; (1 &lt;&lt; j) &lt;= n; ++j) {
+        for (int i = 0; i &lt; n; ++i) {
+            jmp[i][j + 1] = jmp[jmp[i][j]][j];
+        }
+    }
+
+    for (int i = 0; i &lt; m; ++i) {
+        int a, b;
+        cin &gt;&gt; a &gt;&gt; b;
+        a--;
+        b--;
+        int c = lca(a, b);
+        paths_starting[a]++;
+        paths_starting[b]++;
+        paths_ending[c]++;
+    }
+
+    dfs_paths(0, 0);
+
+    for (int i = 0; i &lt; n; ++i) {
+        cout &lt;&lt; answer[i] &lt;&lt; ' ';
+    }
+    cout &lt;&lt; '\n';
+}
+</pre><h3 id="references">References</h3>
+<ul>
+<li><a href="http://cses.fi/book">CPHB (Competitive Programmer's Handbook)</a>, Chapter 18</li>
+</ul>
+</section></article><article class="analysis" id="task-3397"><p class="chapter-title">Math</p><h2 class="task-title">3397 · Permutation Order</h2><p class="meta"><a href="https://cses.fi/problemset/task/3397/">Task</a> · source analysis length 1,763 characters</p><section class="statement"><h3 class="statement-title">Problem statement</h3><p>Let <span class="math math-inline">p(n,k)</span> denote the <span class="math math-inline">k</span>th permutation (in lexicographical order) of <span class="math math-inline">1 \dots n</span>. For example, <span class="math math-inline">p(4,1)=[1,2,3,4]</span> and <span class="math math-inline">p(4,2)=[1,2,4,3]</span>.</p>
+<p>Your task is to process two types of tests:</p>
+<ol>
+<li>Given <span class="math math-inline">n</span> and <span class="math math-inline">k</span>, find <span class="math math-inline">p(n,k)</span></li>
+<li>Given <span class="math math-inline">n</span> and <span class="math math-inline">p(n,k)</span>, find <span class="math math-inline">k</span></li>
+</ol>
+<h1 id="input">Input</h1>
+<p>The first line has an integer <span class="math math-inline">t</span>: the number of tests.</p>
+<p>Each test is either "1 <span class="math math-inline">n</span> <span class="math math-inline">k</span>" or "2 <span class="math math-inline">n</span> <span class="math math-inline">p(n,k)</span>".</p>
+<h1 id="output">Output</h1>
+<p>For each test, print the answer according to the example.</p>
+<h1 id="constraints">Constraints</h1>
+<ul>
+<li><span class="math math-inline">1 \le t \le 1000</span></li>
+<li><span class="math math-inline">1 \le n \le 20</span></li>
+<li><span class="math math-inline">1 \le k \le n!</span></li>
+</ul>
+
+
+
+
+</section><section class="explanation"><h1 id="firsttask">First task</h1>
+<p>We are given <span class="math math-inline">n</span> and <span class="math math-inline">k</span>, and our task is to find <span class="math math-inline">p(n,k)</span>, i.e., the <span class="math math-inline">k</span>th permutation (in lexicographical order) of <span class="math math-inline">1 \dots n</span>.</p>
+<p>If <span class="math math-inline">k</span> is between <span class="math math-inline">1</span> and <span class="math math-inline">(n-1)!</span>, the first number is <span class="math math-inline">1</span>. If <span class="math math-inline">k</span> is between <span class="math math-inline">(n-1)!+1</span> and <span class="math math-inline">2(n-1)!</span>, the first number is <span class="math math-inline">2</span>. In general, the first number is
+<span class="math math-display">\left\lfloor \frac{k-1}{(n-1)!} \right\rfloor + 1.</span></p>
+<p>We can find the numbers one by one using the same idea. After every step, we remove the chosen number from the list of possible numbers.</p>
+<h1 id="secondtask">Second task</h1>
+<p>We are given <span class="math math-inline">n</span> and <span class="math math-inline">p(n,k)</span> and our task is to find <span class="math math-inline">k</span>.</p>
+<p>Initially <span class="math math-inline">k=1</span>. If the first number is <span class="math math-inline">1</span>, we don't change <span class="math math-inline">k</span>. If the first number is <span class="math math-inline">2</span>, we increase <span class="math math-inline">k</span> by <span class="math math-inline">(n-1)!</span>. If the first number is <span class="math math-inline">3</span>, we increase <span class="math math-inline">k</span> by <span class="math math-inline">2(n-1)!</span>. In general, if the first number is <span class="math math-inline">x</span>, we increase <span class="math math-inline">k</span> by
+<span class="math math-display">(x-1)(n-1)!.</span></p>
+<p>We can process the numbers one by one and increase the value of <span class="math math-inline">k</span> using the same idea. After every step, we remove <span class="math math-inline">x</span> from the list of numbers.</p>
+<pre class="resize-horizontal prettyprint lang-cpp">#include &lt;algorithm&gt;
+#include &lt;iostream&gt;
+#include &lt;numeric&gt;
+#include &lt;vector&gt;
+using namespace std;
+using ll = long long;
+const int N = 20;
+
+int main() {
+    int t;
+    cin &gt;&gt; t;
+
+    vector&lt;ll&gt; fact(N + 1);
+    fact[0] = 1;
+    for (int i = 1; i &lt;= N; i++) {
+        fact[i] = fact[i - 1] * i;
+    }
+
+    while (t--) {
+        int op;
+        cin &gt;&gt; op;
+
+        int n;
+        cin &gt;&gt; n;
+
+        ll f = fact[n];
+        vector&lt;int&gt; numbers(n);
+        iota(numbers.begin(), numbers.end(), 1);
+
+        if (op == 1) {
+            ll k;
+            cin &gt;&gt; k;
+            k--;
+            for (int i = 0; i &lt; n; i++) {
+                f /= n - i;
+                cout &lt;&lt; numbers[k / f] &lt;&lt; " ";
+                numbers.erase(numbers.begin() + (k / f));
+                k %= f;
+            }
+            cout &lt;&lt; "\n";
+        }
+
+        if (op == 2) {
+            ll k = 1;
+            for (int i = 0; i &lt; n; i++) {
+                int x;
+                cin &gt;&gt; x;
+                f /= n - i;
+                auto it = find(numbers.begin(), numbers.end(), x);
+                k += (it - numbers.begin()) * f;
+                numbers.erase(it);
+            }
+            cout &lt;&lt; k &lt;&lt; "\n";
+        }
+    }
+}
+</pre></section></article><article class="analysis" id="task-3355"><h2 class="task-title">3355 · Sum of Four Squares</h2><p class="meta"><a href="https://cses.fi/problemset/task/3355/">Task</a> · source analysis length 1,057 characters</p><section class="statement"><h3 class="statement-title">Problem statement</h3><p>A well known result in number theory is that every non-negative integer can be represented as the sum of four squares of non-negative integers.</p>
+<p>You are given a non-negative integer <span class="math math-inline">n</span>. Your task is to find four non-negative integers <span class="math math-inline">a</span>, <span class="math math-inline">b</span>, <span class="math math-inline">c</span> and <span class="math math-inline">d</span> such that <span class="math math-inline">n = a^2 + b^2 + c^2 + d^2</span>.</p>
+<h1 id="input">Input</h1>
+<p>The first line has an integer <span class="math math-inline">t</span>: the number of test cases.</p>
+<p>Each of the next <span class="math math-inline">t</span> lines has an integer <span class="math math-inline">n</span>.</p>
+<h1 id="output">Output</h1>
+<p>For each test case, print four non-negative integers <span class="math math-inline">a</span>, <span class="math math-inline">b</span>, <span class="math math-inline">c</span> and <span class="math math-inline">d</span> that satisfy <span class="math math-inline">n = a^2 + b^2 + c^2 + d^2</span>.</p>
+<h1 id="constraints">Constraints</h1>
+<ul>
+<li><span class="math math-inline">1 \le t \le 1000</span></li>
+<li><span class="math math-inline">0 \le n \le 10^7</span></li>
+<li>the sum of all <span class="math math-inline">n</span> is at most <span class="math math-inline">10^7</span></li>
+</ul>
+
+
+
+
+</section><section class="explanation"><p>Let <span class="math math-inline">N=10^7</span> denote the maximum value of <span class="math math-inline">n</span>.</p>
+<p>We first find all integers between <span class="math math-inline">0</span> and <span class="math math-inline">N</span> that can be expressed as a sum of two squares. This can be done in <span class="math math-inline">O(N)</span> time. For each such integer <span class="math math-inline">x=a^2+b^2</span>, we store the first number <span class="math math-inline">a</span> and the second number <span class="math math-inline">b</span>.</p>
+<p>After that, we can find a solution for any <span class="math math-inline">n</span> in <span class="math math-inline">O(n)</span> time by finding a number <span class="math math-inline">x</span> such that both <span class="math math-inline">x</span> and <span class="math math-inline">n-x</span> can be expressed as a sum of two squares. It can be shown that there is always a solution.</p>
+<pre class="resize-horizontal prettyprint lang-cpp">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+const int N = 1e7;
+
+int main() {
+    int t;
+    cin &gt;&gt; t;
+
+    vector&lt;bool&gt; can(N + 1);
+    vector&lt;int&gt; first(N + 1), second(N + 1);
+    for (int a = 0; a * a &lt;= N; a++) {
+        for (int b = 0; a * a + b * b &lt;= N; b++) {
+            int x = a * a + b * b;
+            can[x] = true;
+            first[x] = a;
+            second[x] = b;
+        }
+    }
+
+    while (t--) {
+        int n;
+        cin &gt;&gt; n;
+        for (int x = 0; x &lt;= n; x++) {
+            if (can[x] &amp;&amp; can[n - x]) {
+                cout &lt;&lt; first[x] &lt;&lt; " " &lt;&lt; second[x] &lt;&lt; " ";
+                cout &lt;&lt; first[n - x] &lt;&lt; " " &lt;&lt; second[n - x] &lt;&lt; "\n";
+                break;
+            }
+        }
+    }
+}
+</pre><h2 id="references">References</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Lagrange%27s_four-square_theorem">Lagrange's four-square theorem (Wikipedia)</a></li>
+</ul>
+</section></article><article class="analysis" id="task-2214"><h2 class="task-title">2214 · Inverse Inversions</h2><p class="meta"><a href="https://cses.fi/problemset/task/2214/">Task</a> · source analysis length 1,877 characters</p><section class="statement"><h3 class="statement-title">Problem statement</h3><p>Your task is to create a permutation of numbers <span class="math math-inline">1,2,\dots,n</span> that has exactly <span class="math math-inline">k</span> inversions.</p>
+<p>An inversion is a pair <span class="math math-inline">(a,b)</span> where <span class="math math-inline">a&lt;b</span> and <span class="math math-inline">p_a&gt;p_b</span> where <span class="math math-inline">p_i</span> denotes the number at position <span class="math math-inline">i</span> in the permutation.</p>
+<h1 id="input">Input</h1>
+<p>The only input line has two integers <span class="math math-inline">n</span> and <span class="math math-inline">k</span>.</p>
+<h1 id="output">Output</h1>
+<p>Print a line that contains the permutation. You can print any valid solution.</p>
+<h1 id="constraints">Constraints</h1>
+<ul>
+<li><span class="math math-inline">1 \le n \le 10^6</span></li>
+<li><span class="math math-inline">0 \le k \le \frac{n(n-1)}{2}</span></li>
+</ul>
+
+
+
+
+</section><section class="explanation"><p>There is a straightforward greedy approach to this problem. However, it is not
+immediately clear that it works.</p>
+<p>Let us construct the answer from the beginning, one element at a time. We will
+maintain two pointers: the lowest and highest numbers that have not been used,
+and at each point, append either of them to the answer and update the
+corresponding pointer.</p>
+<p>Adding the lowest number yet will not form new inversions with any number
+following it as all of them will be larger. Adding the highest number yet, on
+the other hand, forms inversions with all of the numbers following it.</p>
+<p>The greedy idea is to always pick the larger number while the inversion count
+remains under <span class="math math-inline">k</span>. Now, we have to prove that the algorithm always finds a
+solution with exactly <span class="math math-inline">k</span> inversions. In total, we have <span class="math math-inline">n-1</span> choices: during
+the first step, we are offered <span class="math math-inline">n-1</span> inversions, then <span class="math math-inline">n-2</span> and so on until we
+are offered to take 1 inversion during the second-to-last step. The sum of the
+amounts is <span class="math math-inline">1+2+\dots+(n-1)=\frac{n(n-1)}2</span>, which means there are always enough
+inversions to form <span class="math math-inline">k</span>.</p>
+<p>It can be proven that because we take the inversions greedily, the amount of
+inversions needed is at all times at most <span class="math math-inline">\frac {n(n-1)} 2</span>, where <span class="math math-inline">n</span>
+represents the number of elements remaining. It follows that when <span class="math math-inline">n=1</span>, the
+number of inversions needed is at most 0, thus equal to 0. The algorithm always
+finds a solution whose inversion count is never larger <span class="math math-inline">k</span> nor is it lower than
+<span class="math math-inline">k</span>.</p>
+<pre class="resize-horizontal prettyprint lang-cpp">#include &lt;iostream&gt;
+using namespace std;
+using ll = long long;
+
+int main() {
+    int n;
+    ll k;
+    cin &gt;&gt; n &gt;&gt; k;
+
+    int l = 1, r = n;
+    for (int i = 1; i &lt;= n; ++i) {
+        int left = n - i;  // The amount of numbers left.
+        // As r is larger than all remaining numbers,
+        // adding it will form inversions with each one of them.
+        if (left &lt;= k) {
+            k -= left;
+            cout &lt;&lt; r-- &lt;&lt; ' ';
+        } else {
+            cout &lt;&lt; l++ &lt;&lt; ' ';
+        }
+    }
+    cout &lt;&lt; '\n';
+}
+</pre></section></article><article class="analysis" id="task-2210"><h2 class="task-title">2210 · Counting Grids</h2><p class="meta"><a href="https://cses.fi/problemset/task/2210/">Task</a> · source analysis length 1,710 characters</p><section class="statement"><h3 class="statement-title">Problem statement</h3><p>Your task is to count the number of different <span class="math math-inline">n \times n</span> grids whose each square is black or white.</p>
+<p>Two grids are considered to be different if it is not possible to rotate one of them so that they look the same.</p>
+<h1 id="input">Input</h1>
+<p>The only input line has an integer <span class="math math-inline">n</span>: the size of the grid.</p>
+<h1 id="output">Output</h1>
+<p>Print one integer: the number of grids modulo <span class="math math-inline">10^9+7</span>.</p>
+<h1 id="constraints">Constraints</h1>
+<ul>
+<li><span class="math math-inline">1 \le n \le 10^9</span></li>
+</ul>
+
+
+
+
+</section><section class="explanation"><p>We solve the problem using Burnside's lemma which states that the number of
+distinct combinations is</p>
+<p><span class="math math-display">
+\frac{1}{n} \sum_{i=1}^n c(i)
+</span></p>
+<p>when there are <span class="math math-inline">n</span> ways to change the position of a combination and there are
+<span class="math math-inline">c(i)</span> combinations that remain the same when the <span class="math math-inline">i</span>th way is applied.</p>
+<p>In this problem there are <span class="math math-inline">4</span> ways to rotate the grid: <span class="math math-inline">0^{\circ}</span>,
+<span class="math math-inline">90^{\circ}</span>, <span class="math math-inline">180^{\circ}</span>, and <span class="math math-inline">270^{\circ}</span>. Our task is to count the
+combinations that remain the same after each rotation. In each case we count the
+number of squares whose color we can choose.</p>
+<p>When <span class="math math-inline">n</span> is even, the numbers are as follows:</p>
+<ul>
+<li><span class="math math-inline">0^{\circ}</span>: <span class="math math-inline">n^2</span></li>
+<li><span class="math math-inline">90^{\circ}</span>: <span class="math math-inline">\frac{n^2}{4}</span></li>
+<li><span class="math math-inline">180^{\circ}</span>: <span class="math math-inline">\frac{n^2}{2}</span></li>
+<li><span class="math math-inline">270^{\circ}</span>: <span class="math math-inline">\frac{n^2}{4}</span></li>
+</ul>
+<p>When <span class="math math-inline">n</span> is odd, the numbers are as follows:</p>
+<ul>
+<li><span class="math math-inline">0^{\circ}</span>: <span class="math math-inline">n^2</span></li>
+<li><span class="math math-inline">90^{\circ}</span>: <span class="math math-inline">\lfloor \frac{n}{2} \rfloor \lfloor \frac{n}{2} + 1 \rfloor + 1</span></li>
+<li><span class="math math-inline">180^{\circ}</span>: <span class="math math-inline">n \lfloor \frac{n}{2} \rfloor + \lfloor \frac{n}{2} + 1 \rfloor</span></li>
+<li><span class="math math-inline">270^{\circ}</span>: <span class="math math-inline">\lfloor \frac{n}{2} \rfloor \lfloor \frac{n}{2} + 1 \rfloor + 1</span></li>
+</ul>
+<pre class="resize-horizontal prettyprint lang-cpp">#include &lt;iostream&gt;
+using namespace std;
+using ll = long long;
+const int M = 1000000007;
+
+int power(int a, ll b) {
+    if (b == 0) return 1;
+    ll p = power(a, b / 2);
+    p = p * p % M;
+    if (b % 2 == 1) p = p * a % M;
+    return p;
+}
+
+int inv(int x) {
+    return power(x, M - 2);
+}
+
+int main() {
+    ll n;
+    cin &gt;&gt; n;
+
+    ll sum = 0;
+    if (n % 2 == 0) {
+        sum += power(2, n * n);
+        sum += power(2, n * n / 4);
+        sum += power(2, n * n / 2);
+        sum += power(2, n * n / 4);
+    } else {
+        sum += power(2, n * n);
+        sum += power(2, (n / 2) * (n / 2 + 1) + 1);
+        sum += power(2, n * (n / 2) + (n / 2 + 1));
+        sum += power(2, (n / 2) * (n / 2 + 1) + 1);
+    }
+    ll answer = sum * inv(4) % M;
+    cout &lt;&lt; answer &lt;&lt; "\n";
+}
+</pre><h2 id="references">References</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Burnside%27s_lemma">Burnside's lemma (Wikipedia)</a></li>
+</ul>
+</section></article><article class="analysis" id="task-2209"><h2 class="task-title">2209 · Counting Necklaces</h2><p class="meta"><a href="https://cses.fi/problemset/task/2209/">Task</a> · source analysis length 1,138 characters</p><section class="statement"><h3 class="statement-title">Problem statement</h3><p>Your task is to count the number of different necklaces that consist of <span class="math math-inline">n</span> pearls and each pearl has <span class="math math-inline">m</span> possible colors.</p>
+<p>Two necklaces are considered to be different if it is not possible to rotate one of them so that they look the same.</p>
+<h1 id="input">Input</h1>
+<p>The only input line has two numbers <span class="math math-inline">n</span> and <span class="math math-inline">m</span>: the number of pearls and colors.</p>
+<h1 id="output">Output</h1>
+<p>Print one integer: the number of different necklaces modulo <span class="math math-inline">10^9+7</span>.</p>
+<h1 id="constraints">Constraints</h1>
+<ul>
+<li><span class="math math-inline">1 \le n,m \le 10^6</span></li>
+</ul>
+
+
+
+
+</section><section class="explanation"><p>We solve the problem using Burnside's lemma which states that the number of
+distinct combinations is</p>
+<p><span class="math math-display">
+\frac{1}{n} \sum_{i=1}^n c(i)
+</span></p>
+<p>when there are <span class="math math-inline">n</span> ways to change the position of a combination and there are
+<span class="math math-inline">c(i)</span> combinations that remain the same when the <span class="math math-inline">i</span>th way is applied.</p>
+<p>In this problem there are <span class="math math-inline">n</span> ways to rotate the necklace: we can rotate it
+<span class="math math-inline">0,1,\dots,n-1</span> steps. The number of combinations that remain the same is</p>
+<p><span class="math math-display">
+m^{\gcd(i,n)}
+</span></p>
+<p>because there is a repeating block of <span class="math math-inline">\gcd(i,n)</span> pearls and there are <span class="math math-inline">m</span> ways
+to choose the color of each pearl inside the block.</p>
+<pre class="resize-horizontal prettyprint lang-cpp">#include &lt;iostream&gt;
+using namespace std;
+using ll = long long;
+const int M = 1000000007;
+
+int gcd(int a, int b) {
+    if (b == 0) return a;
+    return gcd(b, a % b);
+}
+
+int power(int a, int b) {
+    if (b == 0) return 1;
+    ll p = power(a, b / 2);
+    p = p * p % M;
+    if (b % 2 == 1) p = p * a % M;
+    return p;
+}
+
+int inv(int x) {
+    return power(x, M - 2);
+}
+
+int main() {
+    int n, m;
+    cin &gt;&gt; n &gt;&gt; m;
+
+    ll sum = 0;
+    for (int i = 1; i &lt;= n; i++) {
+        sum += power(m, gcd(i, n));
+        sum %= M;
+    }
+    ll answer = sum * inv(n) % M;
+    cout &lt;&lt; answer &lt;&lt; "\n";
+}
+</pre><h2 id="references">References</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Burnside%27s_lemma">Burnside's lemma (Wikipedia)</a></li>
+</ul>
+</section></article><article class="analysis" id="task-2182"><h2 class="task-title">2182 · Divisor Analysis</h2><p class="meta"><a href="https://cses.fi/problemset/task/2182/">Task</a> · source analysis length 4,783 characters</p><section class="statement"><h3 class="statement-title">Problem statement</h3><p>Given an integer, your task is to find the number, sum and product of its divisors. As an example, let us consider the number <span class="math math-inline">12</span>:</p>
+<ul>
+<li>the number of divisors is <span class="math math-inline">6</span> (they are <span class="math math-inline">1</span>, <span class="math math-inline">2</span>, <span class="math math-inline">3</span>, <span class="math math-inline">4</span>, <span class="math math-inline">6</span>, <span class="math math-inline">12</span>)</li>
+<li>the sum of divisors is <span class="math math-inline">1+2+3+4+6+12=28</span></li>
+<li>the product of divisors is <span class="math math-inline">1 \cdot 2 \cdot 3 \cdot 4 \cdot 6 \cdot 12 = 1728</span></li>
+</ul>
+<p>Since the input number may be large, it is given as a prime factorization.</p>
+<h1 id="input">Input</h1>
+<p>The first line has an integer <span class="math math-inline">n</span>: the number of parts in the prime factorization.</p>
+<p>After this, there are <span class="math math-inline">n</span> lines that describe the factorization. Each line has two numbers <span class="math math-inline">x</span> and <span class="math math-inline">k</span> where <span class="math math-inline">x</span> is a prime and <span class="math math-inline">k</span> is its power.</p>
+<h1 id="output">Output</h1>
+<p>Print three integers modulo <span class="math math-inline">10^9+7</span>: the number, sum and product of the divisors.</p>
+<h1 id="constraints">Constraints</h1>
+<ul>
+<li><span class="math math-inline">1 \le n \le 10^5</span></li>
+<li><span class="math math-inline">2 \le x \le 10^6</span></li>
+<li>each <span class="math math-inline">x</span> is a distinct prime</li>
+<li><span class="math math-inline">1 \le k \le 10^9</span></li>
+</ul>
+
+
+
+
+</section><section class="explanation"><p>We are given a number</p>
+<p><span class="math math-display">
+N=\prod_{i=1}^n x_i^{k_i}
+</span></p>
+<p>and our task is to calculate the number, sum and product of its divisors.</p>
+<h2 id="solution1">Solution 1</h2>
+<p>We calculate the number of divisors as follows:</p>
+<p><span class="math math-display">
+d(N) = \prod_{i=1}^n (k_i + 1)
+</span></p>
+<p>The formula works because there are <span class="math math-inline">k_i+1</span> ways to choose a factor <span class="math math-inline">x_i</span>.</p>
+<p>We calculate the sum of divisors as follows:</p>
+<p><span class="math math-display">
+s(N) = \prod_{i=1}^n (1 + x_i + x_i^2 + \dots + x_i^{k_i})
+     = \prod_{i=1}^n \frac{x_i^{k_i+1}-1}{x_i-1}
+</span></p>
+<p>This formula corresponds to a sum where each divisor appears exactly once. Since
+each part of the product is a geometric sum, we can calculate the answer more
+efficiently using the geometric sum formula.</p>
+<p>We calculate the product of divisors as follows:</p>
+<p><span class="math math-display">
+p(N) = \prod_{i=1}^n (x_i^{k_i(k_i+1)/2})^{d(N)/(k_i+1)}
+</span></p>
+<p>This formula works because if a factor <span class="math math-inline">x_i</span> appears in a divisor, it can appear
+between <span class="math math-inline">1</span> and <span class="math math-inline">k_i</span> times, so we can use the sum formula <span class="math math-inline">k_i(k_i+1)/2</span> to
+count the total number of factor appearances. Moreover, there are <span class="math math-inline">d(N)/(k_i+1)</span>
+ways to choose the other factors.</p>
+<p>Note that since we want to calculate the answer modulo <span class="math math-inline">M</span>, we have to calculate
+<span class="math math-inline">d(N)/(k_i+1)</span> modulo <span class="math math-inline">M-1</span>. We can't use modular multiplicative inverses here
+because <span class="math math-inline">k_i+1</span> and <span class="math math-inline">M-1</span> are not necessarily coprime. Instead, we create two
+additional vectors that store prefix and suffix products of <span class="math math-inline">k_i+1</span> values and
+use them in the last loop.</p>
+<pre class="resize-horizontal prettyprint lang-cpp">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+using ll = long long;
+const int M = 1000000007;
+
+ll power(ll a, ll b) {
+    if (b == 0) return 1;
+    ll u = power(a, b / 2);
+    u = u * u % M;
+    if (b % 2 == 1) u = u * a % M;
+    return u;
+}
+
+ll inv(ll x) {
+    return power(x, M - 2);
+}
+
+int main() {
+    int n;
+    cin &gt;&gt; n;
+
+    vector&lt;ll&gt; x(n), k(n);
+    for (int i = 0; i &lt; n; i++) {
+        cin &gt;&gt; x[i] &gt;&gt; k[i];
+    }
+
+    ll count = 1;
+    for (int i = 0; i &lt; n; i++) {
+        count = count * (k[i] + 1) % M;
+    }
+
+    ll sum = 1;
+    for (int i = 0; i &lt; n; i++) {
+        sum = sum * (power(x[i], k[i] + 1) - 1) % M;
+        sum = sum * inv(x[i] - 1) % M;
+    }
+
+    vector&lt;ll&gt; prefix(n + 1);
+    prefix[0] = 1;
+    for (int i = 0; i &lt; n; i++) {
+        prefix[i + 1] = prefix[i] * (k[i] + 1) % (M - 1);
+    }
+
+    vector&lt;ll&gt; suffix(n);
+    suffix[n - 1] = 1;
+    for (int i = n - 1; i &gt; 0; i--) {
+        suffix[i - 1] = suffix[i] * (k[i] + 1) % (M - 1);
+    }
+
+    ll prod = 1;
+    for (int i = 0; i &lt; n; i++) {
+        ll ways = prefix[i] * suffix[i] % (M - 1);
+        prod *= power(power(x[i], k[i] * (k[i] + 1) / 2), ways);
+        prod %= M;
+    }
+
+    cout &lt;&lt; count &lt;&lt; " " &lt;&lt; sum &lt;&lt; " " &lt;&lt; prod &lt;&lt; "\n";
+}
+</pre><h2 id="solution2">Solution 2</h2>
+<p>A more elegant way to calculate the product of divisors is as follows:</p>
+<p><span class="math math-display">
+p(N) = N^{d(N)/2}
+</span></p>
+<p>We can derive this formula from the previous formula by simplifying the
+exponents:</p>
+<p><span class="math math-display">
+p(N) = \prod_{i=1}^n (x_i^{k_i(k_i+1)/2})^{d(N)/(k_i+1)}
+     = \prod_{i=1}^n (x_i^{k_i})^{d(N)/2}
+     = N^{d(N)/2}
+</span></p>
+<p>The following solution calculates the product of divisors using this formula
+and does not require additional vectors.</p>
+<p>We need to calculate <span class="math math-inline">d(N)/2</span> modulo <span class="math math-inline">M-1</span> and we can't use modular
+multiplicative inverses because <span class="math math-inline">M-1</span> and <span class="math math-inline">2</span> are not coprime. We handle two
+cases in the code:</p>
+<p>Case 1: <span class="math math-inline">N</span> is not square. There is an even value <span class="math math-inline">k_i+1</span> and we divide the
+first such value by two to calculate the exponent <span class="math math-inline">d(N)/2</span>.</p>
+<p>Case 2: <span class="math math-inline">N</span> is square. Now <span class="math math-inline">d(N)</span> is odd and <span class="math math-inline">d(N)/2</span> is not an integer.
+However, <span class="math math-inline">\sqrt{N}</span> is an integer so we can use the formula
+<span class="math math-inline">N^{d(N)/2}=\sqrt{N}^{d(N)}</span> to calculate the answer. In this case all <span class="math math-inline">k_i</span>
+values are even and we divide each of them by two in the last loop.</p>
+<p>Another way to explain the formula <span class="math math-inline">N^{d(N)/2}</span> is to consider divisor pairs of
+the form <span class="math math-inline">(k,N/k)</span> where <span class="math math-inline">k&lt;N/k</span>. When <span class="math math-inline">N</span> is not square, there are <span class="math math-inline">d(N)/2</span>
+pairs and the product of each pair is <span class="math math-inline">N</span>. When <span class="math math-inline">N</span> is square, there are
+<span class="math math-inline">(d(N)-1)/2</span> pairs with product <span class="math math-inline">N</span> and then an additional divisor
+<span class="math math-inline">\sqrt{N}=N^{1/2}</span>. The formula holds also in this case because</p>
+<p><span class="math math-display">
+N^{(d(N)-1)/2} N^{1/2} = N^{d(N)/2}.
+</span></p>
+<pre class="resize-horizontal prettyprint lang-cpp">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+using ll = long long;
+const int M = 1000000007;
+
+ll power(ll a, ll b) {
+    if (b == 0) return 1;
+    ll u = power(a, b / 2);
+    u = u * u % M;
+    if (b % 2 == 1) u = u * a % M;
+    return u;
+}
+
+ll inv(ll x) {
+    return power(x, M - 2);
+}
+
+int main() {
+    int n;
+    cin &gt;&gt; n;
+
+    vector&lt;ll&gt; x(n), k(n);
+    for (int i = 0; i &lt; n; i++) {
+        cin &gt;&gt; x[i] &gt;&gt; k[i];
+    }
+
+    ll count = 1;
+    for (int i = 0; i &lt; n; i++) {
+        count = count * (k[i] + 1) % M;
+    }
+
+    ll sum = 1;
+    for (int i = 0; i &lt; n; i++) {
+        sum = sum * (power(x[i], k[i] + 1) - 1) % M;
+        sum = sum * inv(x[i] - 1) % M;
+    }
+
+    ll count2 = 1;
+    bool is_square = true;
+    for (int i = 0; i &lt; n; i++) {
+        if (is_square &amp;&amp; k[i] % 2 == 1) {
+            count2 *= (k[i] + 1) / 2;
+            is_square = false;
+        } else {
+            count2 *= (k[i] + 1);
+        }
+        count2 %= M - 1;
+    }
+
+    ll prod = 1;
+    for (int i = 0; i &lt; n; i++) {
+        if (is_square) k[i] /= 2;
+        prod *= power(power(x[i], k[i]), count2);
+        prod %= M;
+    }
+
+    cout &lt;&lt; count &lt;&lt; " " &lt;&lt; sum &lt;&lt; " " &lt;&lt; prod &lt;&lt; "\n";
+}
+</pre></section></article><article class="analysis" id="task-2164"><h2 class="task-title">2164 · Josephus Queries</h2><p class="meta"><a href="https://cses.fi/problemset/task/2164/">Task</a> · source analysis length 1,788 characters</p><section class="statement"><h3 class="statement-title">Problem statement</h3><p>Consider a game where there are <span class="math math-inline">n</span> children (numbered <span class="math math-inline">1,2,\dots,n</span>) in a circle. During the game, every second child is removed from the circle, until there are no children left.</p>
+<p>Your task is to process <span class="math math-inline">q</span> queries of the form: "when there are <span class="math math-inline">n</span> children, who is the <span class="math math-inline">k</span>th child that will be removed?"</p>
+<h1 id="input">Input</h1>
+<p>The first input line has an integer <span class="math math-inline">q</span>: the number of queries.</p>
+<p>After this, there are <span class="math math-inline">q</span> lines that describe the queries. Each line has two integers <span class="math math-inline">n</span> and <span class="math math-inline">k</span>: the number of children and the position of the child.</p>
+<h1 id="output">Output</h1>
+<p>Print <span class="math math-inline">q</span> integers: the answer for each query.</p>
+<h1 id="constraints">Constraints</h1>
+<ul>
+<li><span class="math math-inline">1 \le q \le 10^5</span></li>
+<li><span class="math math-inline">1 \le k \le n \le 10^9</span></li>
+</ul>
+
+
+
+
+</section><section class="explanation"><p>We can divide the process of removing children into rounds where we go through
+the children in increasing order and remove every second of them. For example,
+when <span class="math math-inline">n=7</span>, the rounds are as follows:</p>
+<ul>
+<li>Round <span class="math math-inline">1</span>: <span class="math math-inline">[1,\underline{2},3,\underline{4},5,\underline{6},7]</span></li>
+<li>Round <span class="math math-inline">2</span>: <span class="math math-inline">[\underline{1},3,\underline{5},7]</span></li>
+<li>Round <span class="math math-inline">3</span>: <span class="math math-inline">[\underline{3},7]</span></li>
+<li>Round <span class="math math-inline">4</span>: <span class="math math-inline">[\underline{7}]</span></li>
+</ul>
+<p>To efficiently find the <span class="math math-inline">k</span>th removed child, we simulate the rounds using a
+recursive function whose each call corresponds to a round.</p>
+<p>Let <span class="math math-inline">\textrm{child}(n,k,p)</span> denote the <span class="math math-inline">k</span>th child who will be removed when
+there are <span class="math math-inline">n</span> children and the parity of the first child to be removed is <span class="math math-inline">p</span>
+(<span class="math math-inline">0</span> means we first remove child <span class="math math-inline">2</span>, and <span class="math math-inline">1</span> means we first remove child <span class="math math-inline">1</span>).</p>
+<p>The number of children removed on the first round is
+<span class="math math-inline">r = \lfloor n + p \rfloor / 2</span>. If <span class="math math-inline">k \le r</span>, we remove the <span class="math math-inline">k</span>th child on
+the first round and just return the number of the child which is <span class="math math-inline">2k - p</span>.</p>
+<p>Otherwise we call the function recursively: we have <span class="math math-inline">n-r</span> children left and we
+should find the <span class="math math-inline">(k-r)</span>th child who will be removed. Here <span class="math math-inline">u</span> denotes the new
+parity: if <span class="math math-inline">n</span> is even, the parity remains the same, and if <span class="math math-inline">n</span> is odd, the
+parity changes. Since the numbering of the children changes in the subproblem,
+we have to convert it after the recursive call.</p>
+<p>Since we remove half of the children on each round, the number of rounds is
+<span class="math math-inline">O(\log n)</span> and the function works in <span class="math math-inline">O(\log n)</span> time.</p>
+<pre class="resize-horizontal prettyprint lang-cpp">#include &lt;iostream&gt;
+using namespace std;
+
+int child(int n, int k, int p) {
+    int r = (n + p) / 2;
+    if (k &lt;= r) return k * 2 - p;
+    int u = n % 2 == 0 ? p : 1 - p;
+    return child(n - r, k - r, u) * 2 - 1 + p;
+}
+
+int main() {
+    int q;
+    cin &gt;&gt; q;
+
+    for (int qi = 1; qi &lt;= q; qi++) {
+        int n, k;
+        cin &gt;&gt; n &gt;&gt; k;
+        cout &lt;&lt; child(n, k, 0) &lt;&lt; "\n";
+    }
+}
+</pre><h2 id="references">References</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Josephus_problem">Josephus problem (Wikipedia)</a></li>
+</ul>
+</section></article><article class="analysis" id="task-2137"><h2 class="task-title">2137 · Corner Subgrid Count</h2><p class="meta"><a href="https://cses.fi/problemset/task/2137/">Task</a> · source analysis length 2,437 characters</p><section class="statement"><h3 class="statement-title">Problem statement</h3><p>You are given an <span class="math math-inline">n \times n</span> grid whose each square is either black or white. A subgrid is called <em>beautiful</em> if its height and width is at least two and all of its corners are black. How many beautiful subgrids are there within the given grid?</p>
+<h1 id="input">Input</h1>
+<p>The first input line has an integer <span class="math math-inline">n</span>: the size of the grid.</p>
+<p>Then there are <span class="math math-inline">n</span> lines describing the grid: <code>1</code> means that a square is black and <code>0</code> means it is white.</p>
+<h1 id="output">Output</h1>
+<p>Print the number of beautiful subgrids.</p>
+<h1 id="constraints">Constraints</h1>
+<ul>
+<li><span class="math math-inline">1 \le n \le 3000</span></li>
+</ul>
+
+
+
+
+</section><section class="explanation"><p>Going through all possible corners of a subgrid would run in <span class="math math-inline">O(n^4)</span> and thus,
+be too slow. There is, however, a way to calculate the number of subgrids by
+only going through each pair of rows.</p>
+<p>Let us go through each pair of rows and find each subgrid which spans from one
+of the selected rows to another. For a pair of rows to form a subgrid, the rows
+need to share two distinct positions which have black squares in both of the
+rows. If we know the number of such positions is <span class="math math-inline">c</span>, the number of subgrids the
+rows form, is <span class="math math-inline">{c \choose 2} = \frac{c(c-1)}{2}</span>, as we may choose any two of
+them as the borders of the subgrid. This algorithm runs in <span class="math math-inline">O(n^3)</span> as we go
+through each pair of rows in <span class="math math-inline">O(n)</span> time and there are in total <span class="math math-inline">O(n^2)</span> pairs
+of rows.</p>
+<p>With <span class="math math-inline">n=3000</span>, the solution would perform roughly <span class="math math-inline">3000^3\approx3\cdot10^{10}</span>
+operations and would still be too slow. We may, however, use bitsets to improve
+the constant factor of the solution. Bitsets allow us to check multiple
+positions at once. On a Linux system, bitsets usually contain 64-bit integers.
+This means that, with constant time bit operations, we can check 64 positions at
+once. Thus, the number of operations becomes <span class="math math-inline">3000^3\cdot\frac 1
+{64}\approx4\cdot10^8</span>.</p>
+<p>To find the positions where the two rows both have a black square, we will use
+the bitwise AND operation as it discards the positions where only one or neither
+of the squares are black. Finally, we will count the number of bits set in the
+bitset using the method <code>.count()</code>. Note that even with the bitset optimization
+the solution will turn out too slow without the line</p>
+<pre class="resize-horizontal prettyprint lang-cpp">#pragma GCC target("popcnt")
+</pre>
+<p>which tells the compiler that our machine has an instruction for calculating the
+popcount of an integer, that is, our processor is able to count the number of
+bits set in an integer efficiently. The popcount instruction is available on
+CSES judges and has been included in most of Intel's x86-64 processors since
+2008.</p>
+<pre class="resize-horizontal prettyprint lang-cpp">#pragma GCC target("popcnt")
+#include &lt;bitset&gt;
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+using ll = long long;
+using B = bitset&lt;3000&gt;;
+
+int main() {
+    int n;
+    cin &gt;&gt; n;
+
+    vector&lt;B&gt; b(n);
+    for (int i = 0; i &lt; n; ++i) {
+        string s;
+        cin &gt;&gt; s;
+        for (int j = 0; j &lt; n; ++j) {
+            if (s[j] == '1') {
+                b[i][j] = true;
+            }
+        }
+    }
+
+    ll r = 0;
+    for (int i = 0; i &lt; n; ++i) {
+        for (int j = i + 1; j &lt; n; ++j) {
+            int c = (b[i] &amp; b[j]).count();
+            r += c * (c - 1) / 2;
+        }
+    }
+
+    cout &lt;&lt; r &lt;&lt; '\n';
+}
+</pre></section></article><article class="analysis" id="task-1728"><h2 class="task-title">1728 · Inversion Probability</h2><p class="meta"><a href="https://cses.fi/problemset/task/1728/">Task</a> · source analysis length 1,784 characters</p><section class="statement"><h3 class="statement-title">Problem statement</h3><p>An array has <span class="math math-inline">n</span> integers <span class="math math-inline">x_1,x_2,\dots,x_n</span>, and each of them has been randomly chosen between <span class="math math-inline">1</span> and <span class="math math-inline">r_i</span>. An inversion is a pair <span class="math math-inline">(a,b)</span> where <span class="math math-inline">a&lt;b</span> and <span class="math math-inline">x_a&gt;x_b</span>.</p>
+<p>What is the expected number of inversions in the array?</p>
+<h1 id="input">Input</h1>
+<p>The first input line contains an integer <span class="math math-inline">n</span>: the size of the array.</p>
+<p>The second line contains <span class="math math-inline">n</span> integers <span class="math math-inline">r_1,r_2,\dots,r_n</span>: the range of possible values for each array position.</p>
+<h1 id="output">Output</h1>
+<p>Print the expected number of inversions rounded to six decimal places (rounding half to even).</p>
+<h1 id="constraints">Constraints</h1>
+<ul>
+<li><span class="math math-inline">1 \le n \le 100</span></li>
+<li><span class="math math-inline">1 \le r_i \le 100</span></li>
+</ul>
+
+
+
+
+</section><section class="explanation"><p>We consider each index pair <span class="math math-inline">(a,b)</span> where <span class="math math-inline">a&lt;b</span> and calculate the probability
+that <span class="math math-inline">x_a &gt; x_b</span> which corresponds to an inversion.</p>
+<p>Using linearity of expectation, the sum of the probabilities equals the expected
+number of inversions.</p>
+<h1 id="csolution">C++ solution</h1>
+<p>Here is a C++ solution for the problem:</p>
+<pre class="resize-horizontal prettyprint lang-cpp">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+int main() {
+    int n;
+    cin &gt;&gt; n;
+    vector&lt;int&gt; r(n);
+    for (int i = 0; i &lt; n; i++) {
+        cin &gt;&gt; r[i];
+    }
+
+    double answer = 0;
+    for (int a = 0; a &lt; n; a++) {
+        for (int b = a + 1; b &lt; n; b++) {
+            for (int x_a = 1; x_a &lt;= r[a]; x_a++) {
+                for (int x_b = 1; x_b &lt;= min(x_a - 1, r[b]); x_b++) {
+                    answer += 1.0 / (r[a] * r[b]);
+                }
+            }
+        }
+    }
+    cout.precision(6);
+    cout &lt;&lt; fixed &lt;&lt; answer &lt;&lt; "\n";
+}
+</pre>
+<p>Unfortunately, there are test cases where this solution fails due to precision issues.
+In general, it is difficult to create a correct solution in C++.</p>
+<h1 id="pythonsolution">Python solution</h1>
+<p>In Python, we can use the <code>Fraction</code> class to avoid precision issues:</p>
+<pre class="resize-horizontal prettyprint lang-py">from fractions import Fraction
+
+n = int(input())
+r = [int(x) for x in input().split(" ")]
+
+answer = Fraction(0, 1)
+for a in range(n):
+    for b in range(a + 1, n):
+        for x_a in range(1, r[a] + 1):
+            for x_b in range(1, min(x_a, r[b] + 1)):
+                answer += Fraction(1, r[a] * r[b])
+
+answer = float(round(answer, 6))
+print(f"{answer:06f}")
+</pre>
+<p>The above solution works correctly but it is too slow.
+However, we can optimize the solution as follows:</p>
+<pre class="resize-horizontal prettyprint lang-py">from fractions import Fraction
+
+n = int(input())
+r = [int(x) for x in input().split(" ")]
+
+answer = Fraction(0, 1)
+for a in range(n):
+    for b in range(a + 1, n):
+        count = 0
+        for x_a in range(1, r[a] + 1):
+            count += min(x_a - 1, r[b])
+        answer += Fraction(count, r[a] * r[b])
+
+answer = float(round(answer, 6))
+print(f"{answer:06f}")
+</pre>
+<p>This solution works both correctly and efficiently enough.</p>
+</section></article><article class="analysis" id="task-1726"><h2 class="task-title">1726 · Moving Robots</h2><p class="meta"><a href="https://cses.fi/problemset/task/1726/">Task</a> · source analysis length 2,067 characters</p><section class="statement"><h3 class="statement-title">Problem statement</h3><p>Each square of an <span class="math math-inline">8 \times 8</span> chessboard has a robot. Each robot independently moves <span class="math math-inline">k</span> steps, and there can be many robots on the same square.</p>
+<p>On each turn, a robot moves one step left, right, up or down, but not outside the board. It randomly chooses a direction among those where it can move.</p>
+<p>Your task is to calculate the expected number of <em>empty</em> squares after <span class="math math-inline">k</span> turns.</p>
+<h1 id="input">Input</h1>
+<p>The only input line has an integer <span class="math math-inline">k</span>.</p>
+<h1 id="output">Output</h1>
+<p>Print the expected number of empty squares rounded to six decimal places (rounding half to even).</p>
+<h1 id="constraints">Constraints</h1>
+<ul>
+<li><span class="math math-inline">1 \le k \le 100</span></li>
+</ul>
+
+
+
+
+</section><section class="explanation"><p>We assume that the rows and columns are numbered from <span class="math math-inline">0</span> to <span class="math math-inline">N-1</span> and the
+robots are numbered from <span class="math math-inline">0</span> to <span class="math math-inline">N^2-1</span>. The robot that starts at square <span class="math math-inline">(i,j)</span>
+has number <span class="math math-inline">i \cdot N+j</span>. In this problem <span class="math math-inline">N=8</span> in each test.</p>
+<p>We solve the problem using dynamic programming: <span class="math math-inline">p[m][r][i][j]</span> denotes the
+probability that robot <span class="math math-inline">r</span> is in square <span class="math math-inline">(i,j)</span> after <span class="math math-inline">m</span> turns.</p>
+<p>As base cases, <span class="math math-inline">p[0][i \cdot N+j][i][j]=1</span> for each square <span class="math math-inline">(i,j)</span>. Then, when
+we know the value of <span class="math math-inline">p[m][r][i][j]</span>, we find the squares where robot <span class="math math-inline">r</span> can
+move from square <span class="math math-inline">(i,j)</span>. For each such square <span class="math math-inline">(i',j')</span>, we increase the value
+of <span class="math math-inline">p[m+1][r][i'][j']</span> by <span class="math math-inline">p[m][r][i][j]/c</span> where <span class="math math-inline">c</span> is the total number of
+squares where the robot can move.</p>
+<p>After that, we go through the grid and calculate, for each square <span class="math math-inline">(i,j)</span>, the
+probability that the square is empty after <span class="math math-inline">k</span> turns. We calculate the
+probability using the formula</p>
+<p><span class="math math-display">
+\prod_{r=0}^{N^2-1} (1-p[k][r][i][j])
+</span></p>
+<p>which requires that no robot is in the square after <span class="math math-inline">k</span> turns. Due to linearity
+of expectation, the sum of all such probabilities equals the expected number of
+empty squares after <span class="math math-inline">k</span> turns.</p>
+<p>The solution works in <span class="math math-inline">O(k N^4)</span> time.</p>
+<pre class="resize-horizontal prettyprint lang-cpp">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+const int N = 8;
+const int K = 100;
+double p[K + 1][N * N][N][N];
+
+int main() {
+    int k;
+    cin &gt;&gt; k;
+
+    for (int i = 0; i &lt; N; i++) {
+        for (int j = 0; j &lt; N; j++) {
+            p[0][i * N + j][i][j] = 1;
+        }
+    }
+
+    for (int m = 0; m &lt; k; m++) {
+        for (int r = 0; r &lt; N * N; r++) {
+            for (int i = 0; i &lt; N; i++) {
+                for (int j = 0; j &lt; N; j++) {
+                    vector&lt;pair&lt;int, int&gt;&gt; moves;
+                    if (i &gt; 0) moves.emplace_back(i - 1, j);
+                    if (j &gt; 0) moves.emplace_back(i, j - 1);
+                    if (i + 1 &lt; N) moves.emplace_back(i + 1, j);
+                    if (j + 1 &lt; N) moves.emplace_back(i, j + 1);
+                    double add = p[m][r][i][j] / moves.size();
+                    for (auto d : moves) {
+                        p[m + 1][r][d.first][d.second] += add;
+                    }
+                }
+            }
+        }
+    }
+
+    double answer = 0;
+    for (int i = 0; i &lt; N; i++) {
+        for (int j = 0; j &lt; N; j++) {
+            double e = 1;
+            for (int r = 0; r &lt; N * N; r++) {
+                e *= (1 - p[k][r][i][j]);
+            }
+            answer += e;
+        }
+    }
+    cout.precision(6);
+    cout &lt;&lt; fixed &lt;&lt; answer &lt;&lt; "\n";
+}
+</pre></section></article><article class="analysis" id="task-1725"><h2 class="task-title">1725 · Dice Probability</h2><p class="meta"><a href="https://cses.fi/problemset/task/1725/">Task</a> · source analysis length 923 characters</p><section class="statement"><h3 class="statement-title">Problem statement</h3><p>You throw a dice <span class="math math-inline">n</span> times, and every throw produces an outcome between <span class="math math-inline">1</span> and <span class="math math-inline">6</span>. What is the probability that the sum of outcomes is between <span class="math math-inline">a</span> and <span class="math math-inline">b</span>?</p>
+<h1 id="input">Input</h1>
+<p>The only input line contains three integers <span class="math math-inline">n</span>, <span class="math math-inline">a</span> and <span class="math math-inline">b</span>.</p>
+<h1 id="output">Output</h1>
+<p>Print the probability rounded to six decimal places (rounding half to even).</p>
+<h1 id="constraints">Constraints</h1>
+<ul>
+<li><span class="math math-inline">1 \le n \le 100</span></li>
+<li><span class="math math-inline">1 \le a \le b \le 6n</span></li>
+</ul>
+
+
+
+
+</section><section class="explanation"><p>We solve the problem using dynamic programming: <span class="math math-inline">p[i][j]</span> denotes the
+probability of having sum <span class="math math-inline">j</span> after throwing a dice <span class="math math-inline">i</span> times.</p>
+<p>As a base case <span class="math math-inline">p[0][0]=1</span>, because the sum is certainly <span class="math math-inline">0</span> if there are no
+throws. Then, when we know a value of <span class="math math-inline">p[i][j]</span>, we go through the possible
+throws whose outcomes are <span class="math math-inline">k=1,2,\dots,6</span>. For each such throw, we increase
+<span class="math math-inline">p[i+1][j+k]</span> by <span class="math math-inline">p[i][j]/6</span>. Finally, we calculate the sum of probabilities
+<span class="math math-inline">p[n][i]</span> where <span class="math math-inline">i</span> is between <span class="math math-inline">a</span> and <span class="math math-inline">b</span>.</p>
+<p>The solution works in <span class="math math-inline">O(n^2)</span> time.</p>
+<pre class="resize-horizontal prettyprint lang-cpp">#include &lt;iostream&gt;
+using namespace std;
+
+const int N = 100;
+double p[N + 1][6 * N + 1];
+
+int main() {
+    int n, a, b;
+    cin &gt;&gt; n &gt;&gt; a &gt;&gt; b;
+
+    p[0][0] = 1;
+    for (int i = 0; i &lt; n; i++) {
+        for (int j = i; j &lt;= 6 * i; j++) {
+            for (int k = 1; k &lt;= 6; k++) {
+                p[i + 1][j + k] += p[i][j] / 6;
+            }
+        }
+    }
+
+    double answer = 0;
+    for (int i = a; i &lt;= b; i++) {
+        answer += p[n][i];
+    }
+    cout.precision(6);
+    cout &lt;&lt; fixed &lt;&lt; answer &lt;&lt; "\n";
+}
+</pre></section></article><article class="analysis" id="task-1082"><h2 class="task-title">1082 · Sum of Divisors</h2><p class="meta"><a href="https://cses.fi/problemset/task/1082/">Task</a> · source analysis length 1,924 characters</p><section class="statement"><h3 class="statement-title">Problem statement</h3><p>Let <span class="math math-inline">\sigma(n)</span> denote the sum of divisors of an integer <span class="math math-inline">n</span>. For example, <span class="math math-inline">\sigma(12)=1+2+3+4+6+12=28</span>.</p>
+<p>Your task is to calculate the sum <span class="math math-inline">\sum_{i=1}^n \sigma(i)</span> modulo <span class="math math-inline">10^9+7</span>.</p>
+<h1 id="input">Input</h1>
+<p>The only input line has an integer <span class="math math-inline">n</span>.</p>
+<h1 id="output">Output</h1>
+<p>Print <span class="math math-inline">\sum_{i=1}^n \sigma(i)</span> modulo <span class="math math-inline">10^9+7</span>.</p>
+<h1 id="constraints">Constraints</h1>
+<ul>
+<li><span class="math math-inline">1 \le n \le 10^{12}</span></li>
+</ul>
+
+
+
+
+</section><section class="explanation"><h2 id="solution1">Solution 1</h2>
+<p>Since a divisor <span class="math math-inline">k</span> appears in <span class="math math-inline">\lfloor n / k \rfloor</span> numbers between <span class="math math-inline">1</span> and
+<span class="math math-inline">n</span>, the problem can be restated as calculating the sum</p>
+<p><span class="math math-display">
+\sum_{k=1}^n \lfloor n / k \rfloor k.
+</span></p>
+<p>The following solution calculates the sum in <span class="math math-inline">O(n)</span> time. It is a good start but
+it is too slow when <span class="math math-inline">n=10^{12}</span>.</p>
+<pre class="resize-horizontal prettyprint lang-cpp">#include &lt;iostream&gt;
+using namespace std;
+using ll = long long;
+const int M = 1000000007;
+
+int main() {
+    ll n;
+    cin &gt;&gt; n;
+
+    ll s = 0;
+    for (ll k = 1; k &lt;= n; k++) {
+        s += (n / k) * k;
+        s %= M;
+    }
+    cout &lt;&lt; s &lt;&lt; "\n";
+}
+</pre><h2 id="solution2">Solution 2</h2>
+<p>We can improve the first solution by calculating the sum in two parts.</p>
+<p>First, we use the original formula for small divisors between <span class="math math-inline">1</span> and
+<span class="math math-inline">\lfloor \sqrt n \rfloor</span>. Then, we calculate the rest of the sum by considering
+blocks of large divisors where each divisor appears the same number of times.</p>
+<p>For example, we know that the divisors between <span class="math math-inline">\lfloor n / 2 \rfloor + 1</span> and
+<span class="math math-inline">n</span> appear once, the divisors between <span class="math math-inline">\lfloor n / 3 \rfloor + 1</span> and
+<span class="math math-inline">\lfloor n / 2 \rfloor</span> appear twice, and so on. More generally, the divisors
+between <span class="math math-inline">\lfloor n / (k + 1) \rfloor + 1</span> and <span class="math math-inline">\lfloor n / k \rfloor</span> appear
+<span class="math math-inline">k</span> times.</p>
+<p>We calculate the sum of divisors in a block using the sum formula</p>
+<p><span class="math math-display">
+a+(a+1)+\dots+b = \frac{(a + b) (b - a + 1)}{2}.
+</span></p>
+<p>Note that since the sum may be large, we use the multiplicative inverse of <span class="math math-inline">2</span>
+modulo <span class="math math-inline">M</span> to divide the product by <span class="math math-inline">2</span>.</p>
+<p>We calculate both parts of the sum in <span class="math math-inline">O(\sqrt n)</span> time, so the algorithm works
+in <span class="math math-inline">O(\sqrt n)</span> time which is enough when <span class="math math-inline">n=10^{12}</span>.</p>
+<pre class="resize-horizontal prettyprint lang-cpp">#include &lt;iostream&gt;
+using namespace std;
+using ll = long long;
+const int M = 1000000007;
+const int INV2 = 500000004;
+
+// a + (a+1) + ... + b
+ll sum(ll a, ll b) {
+    return (a + b) % M * ((b - a + 1) % M) % M * INV2 % M;
+}
+
+int main() {
+    ll n;
+    cin &gt;&gt; n;
+
+    ll s = 0;
+    for (ll k = 1; k * k &lt;= n; k++) {
+        s += (n / k) * k;
+        s %= M;
+    }
+    for (ll k = 1; n / k &gt; k; k++) {
+        s += sum(n / (k + 1) + 1, n / k) * k;
+        s %= M;
+    }
+    cout &lt;&lt; s &lt;&lt; "\n";
+}
+</pre></section></article><article class="analysis" id="task-2229"><p class="chapter-title">Dynamic Programming</p><h2 class="task-title">2229 · Permutation Inversions</h2><p class="meta"><a href="https://cses.fi/problemset/task/2229/">Task</a> · source analysis length 1,992 characters</p><section class="statement"><h3 class="statement-title">Problem statement</h3><p>Your task is to count the number of permutations of <span class="math math-inline">1,2,\dots,n</span> that have exactly <span class="math math-inline">k</span> inversions (i.e., pairs of elements in the wrong order).</p>
+<p>For example, when <span class="math math-inline">n=4</span> and <span class="math math-inline">k=3</span>, there are <span class="math math-inline">6</span> such permutations:</p>
+<ul>
+<li><span class="math math-inline">[1,4,3,2]</span></li>
+<li><span class="math math-inline">[2,3,4,1]</span></li>
+<li><span class="math math-inline">[2,4,1,3]</span></li>
+<li><span class="math math-inline">[3,1,4,2]</span></li>
+<li><span class="math math-inline">[3,2,1,4]</span></li>
+<li><span class="math math-inline">[4,1,2,3]</span></li>
+</ul>
+<h1 id="input">Input</h1>
+<p>The only input line has two integers <span class="math math-inline">n</span> and <span class="math math-inline">k</span>.</p>
+<h1 id="output">Output</h1>
+<p>Print the answer modulo <span class="math math-inline">10^9+7</span>.</p>
+<h1 id="constraints">Constraints</h1>
+<ul>
+<li><span class="math math-inline">1 \le n \le 500</span></li>
+<li><span class="math math-inline">0 \le k \le \frac{n(n-1)}{2}</span></li>
+</ul>
+
+
+
+
+</section><section class="explanation"><h2 id="solution1on4approach">Solution 1: <span class="math math-inline">O(n ^ 4)</span> approach</h2>
+<p>We will first present a <span class="math math-inline">O(n^4)</span> approach. The approach is a bit too
+slow, but it can be easily sped up. Let us use dynamic programming to compute
+the answer. Let <span class="math math-inline">\mathrm{dp}[i][j]</span> represent the number of permutations of the
+numbers <span class="math math-inline">1\ldots i</span> with exactly <span class="math math-inline">j</span> inversions.</p>
+<p>Now, when we are placing the number <span class="math math-inline">i+1</span>, we have <span class="math math-inline">i+1</span> places for it. If we
+place the number at the end of the permutation, no new inversion will be formed.
+Each place to the left of this will add a new inversion as all numbers are smaller
+than the new one.</p>
+<p>These observations lead to a solution where we loop through the numbers, the
+place for each number and the number of previous inversions. This leads to the
+recurrence</p>
+<p><span class="math math-display">
+\mathrm{dp}[i+1][j]=
+\sum_{0 \le \mathrm{pos} \le i}
+\mathrm{dp}[i][j-\mathrm{pos}].
+</span></p>
+<p>The table may be filled with this recurrence in <span class="math math-inline">O(n^4)</span> time.</p>
+<pre class="resize-horizontal prettyprint lang-cpp">#include &lt;iostream&gt;
+using namespace std;
+
+const int M = 1e9 + 7;
+const int N = 501;
+const int K = 124751;
+int dp[N][K];
+
+int main() {
+    int n, k;
+    cin &gt;&gt; n &gt;&gt; k;
+
+    dp[0][0] = 1;
+    for (int i = 1; i &lt;= n; ++i) {
+        for (int h = 0; h &lt;= k; ++h) {
+            for (int j = 0; j &lt;= min(h, i - 1); ++j) {
+                dp[i][h] += dp[i - 1][h - j];
+                dp[i][h] %= M;
+            }
+        }
+    }
+
+    cout &lt;&lt; dp[n][k] &lt;&lt; '\n';
+}
+</pre><h2 id="solution2on3approach">Solution 2: <span class="math math-inline">O(n ^ 3)</span> approach</h2>
+<p>Note that the value of each dp position corresponds to a sum of a range of
+values from the previous layer. Further, the ranges are all the same length and
+their starting positions differ by one. We can, thus, maintain the sum while
+filling the dp layer. This leads to a solution with a time complexity of
+<span class="math math-inline">O(n^3)</span>.</p>
+<pre class="resize-horizontal prettyprint lang-cpp">#include &lt;iostream&gt;
+using namespace std;
+
+const int M = 1e9 + 7;
+const int N = 501;
+const int K = 124751;
+int dp[N][K];
+
+int main() {
+    int n, k;
+    cin &gt;&gt; n &gt;&gt; k;
+
+    dp[0][0] = 1;
+    for (int i = 1; i &lt;= n; ++i) {
+        int sum = 0;
+        for (int h = 0; h &lt;= k; ++h) {
+            sum += dp[i - 1][h];
+            sum %= M;
+            if (h &gt;= i) {
+                sum -= dp[i - 1][h - i];
+                sum += M;
+                sum %= M;
+            }
+            dp[i][h] = sum;
+        }
+    }
+
+    cout &lt;&lt; dp[n][k] &lt;&lt; '\n';
+}
+</pre></section></article><article class="analysis" id="task-2181"><h2 class="task-title">2181 · Counting Tilings</h2><p class="meta"><a href="https://cses.fi/problemset/task/2181/">Task</a> · source analysis length 4,023 characters</p><section class="statement"><h3 class="statement-title">Problem statement</h3><p>Your task is to count the number of ways you can fill an <span class="math math-inline">n \times m</span> grid using <span class="math math-inline">1 \times 2</span> and <span class="math math-inline">2 \times 1</span> tiles.</p>
+<h1 id="input">Input</h1>
+<p>The only input line has two integers <span class="math math-inline">n</span> and <span class="math math-inline">m</span>.</p>
+<h1 id="output">Output</h1>
+<p>Print one integer: the number of ways modulo <span class="math math-inline">10^9+7</span>.</p>
+<h1 id="constraints">Constraints</h1>
+<ul>
+<li><span class="math math-inline">1 \le n \le 10</span></li>
+<li><span class="math math-inline">1 \le m \le 1000</span></li>
+</ul>
+
+
+
+
+</section><section class="explanation"><p>We use dynamic programming to solve the problem.
+We represent each column pattern as a bitmask that indicates the rows
+where a horizontal tile begins.
+For example, consider the following tiling:</p>
+<p><center><img alt="" class="invertible" src="/file/52b7df287c1d834e6a6fb882365984029570257a76f27f9b3e42e612fbf303c9"/></center></p>
+<p>Here the bitmasks <span class="math math-inline">0011</span>, <span class="math math-inline">1100</span>, <span class="math math-inline">0011</span>, <span class="math math-inline">0000</span>, <span class="math math-inline">1001</span>, <span class="math math-inline">0000</span> and <span class="math math-inline">0000</span>
+correspond to the column patterns from left to right.</p>
+<p>A pair of bitmasks <span class="math math-inline">(a,b)</span> is valid if patterns <span class="math math-inline">a</span> and <span class="math math-inline">b</span> can occur
+next to each other in the tiling. For example, <span class="math math-inline">(0011,1100)</span> is a valid
+pair which corresponds to the first two columns in the example.
+The pair <span class="math math-inline">(0011,1101)</span> is not valid, because a horizontal tile begins
+in the last row in both bitmasks.</p>
+<p>A simple solution would be to iterate over all pairs of bitmasks in every column.
+There are <span class="math math-inline">4^n</span> bitmask pairs and checking if a pair is valid
+takes <span class="math math-inline">O(n)</span> time, so such a solution would require <span class="math math-inline">O(mn4^n)</span> time.
+This can be optimized by only checking pairs of bitmasks which share no bits.
+There are exactly <span class="math math-inline">3^n</span> such bitmasks, which would result in an <span class="math math-inline">O(mn3^n)</span> solution.</p>
+<p>An <span class="math math-inline">O(mn3^n)</span> solution can be made fast enough, but since in practice there are
+much less valid transitions than <span class="math math-inline">3^n</span>, and the same transitions are used for
+each column, it makes sense to precompute them.</p>
+<h2 id="solution1precomputedtransitions">Solution 1: Precomputed transitions</h2>
+<p>In this solution, the transitions are computed recursively before
+performing dynamic programming, one or two bits at a time.
+The bitmask <code>left</code> represents which rows have a horizontal tile going left,
+and <code>right</code> represents which rows have a horizontal tile going right.
+Other rows are occupied by vertical tiles, which have a height of two.</p>
+<p>Dynamic programming values from only the previous column need to be known,
+so two vectors are used and swapped between columns.</p>
+<p>It can be shown [<a href="#references">2</a>] that the number of transitions is
+<span class="math math-inline">O((1 + \sqrt 2)^n)</span>. Therefore the time complexity of this solution is <span class="math math-inline">O(m(1 +
+\sqrt 2)^n)</span>, or approximately <span class="math math-inline">O(m2.42^n)</span>.</p>
+<pre class="resize-horizontal prettyprint lang-cpp">#include &lt;algorithm&gt;
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+const int M = 1000000007;
+
+int n;
+vector&lt;pair&lt;int, int&gt;&gt; transitions;
+
+void generate(int i, int left, int right) {
+    if (i &gt; n) return;
+    if (i == n) {
+        transitions.emplace_back(left, right);
+        return;
+    }
+    generate(i + 1, left | 1 &lt;&lt; i, right);
+    generate(i + 1, left, right | 1 &lt;&lt; i);
+    generate(i + 2, left, right);
+}
+
+int main() {
+    int m;
+    cin &gt;&gt; n &gt;&gt; m;
+
+    generate(0, 0, 0);
+
+    vector&lt;int&gt; cur(1 &lt;&lt; n), prev(1 &lt;&lt; n);
+    prev[0] = 1;
+
+    for (int i = 0; i &lt; m; ++i) {
+        fill(cur.begin(), cur.end(), 0);
+
+        for (auto [x, y] : transitions) {
+            cur[y] += prev[x];
+            cur[y] %= M;
+        }
+
+        swap(cur, prev);
+    }
+
+    cout &lt;&lt; prev[0] &lt;&lt; endl;
+}
+</pre><h2 id="solution2sumoversubsets">Solution 2: Sum over subsets</h2>
+<p>Let us take a closer look at the transitions.</p>
+<p>One transition that is always valid is from the bitmask <span class="math math-inline">s</span> to the complement of
+<span class="math math-inline">s</span>. At every position where there is not a tile going to the left, we choose a
+tile going to the right. Complementing the bitmasks is equivalent to reversing
+the dynamic programming array.</p>
+<p>The other transitions from <span class="math math-inline">s</span> are formed by replacing some adjacent pairs of
+tiles going to the right with vertical pieces.</p>
+<p>The sum over subsets technique can be used to compute the desired sum of valid
+transitions. More precisely, as the value associated with the bitmask <span class="math math-inline">s</span> we sum
+all values of supersets of <span class="math math-inline">s</span> that may have some added adjacent pairs of
+1-bits. The technique works similarly even with this added restriction.</p>
+<p>The time complexity of this solution is <span class="math math-inline">O(mn2^n)</span>. For <span class="math math-inline">n=10</span> it is very
+similar in performance to the first solution.</p>
+<pre class="resize-horizontal prettyprint lang-cpp">#include &lt;algorithm&gt;
+#include &lt;iostream&gt;
+using namespace std;
+const int M = 1000000007;
+
+int tilings[1 &lt;&lt; 10];
+
+int main() {
+    int n, m;
+    cin &gt;&gt; n &gt;&gt; m;
+
+    tilings[0] = 1;
+
+    for (int i = 0; i &lt; m; ++i) {
+        reverse(tilings, tilings + (1 &lt;&lt; n));
+
+        for (int j = 0; j &lt; n - 1; ++j) {
+            for (int s = 0; s &lt; (1 &lt;&lt; n); ++s) {
+                if ((s &amp; 0b11 &lt;&lt; j) == 0) {
+                    tilings[s] += tilings[s | 0b11 &lt;&lt; j];
+                    tilings[s] %= M;
+                }
+            }
+        }
+    }
+
+    cout &lt;&lt; tilings[0] &lt;&lt; endl;
+}
+</pre><h2 id="references">References</h2>
+<ol>
+<li><a href="https://cses.fi/book/">CPHB (Competitive Programmer's Handbook)</a>, Chapters 7.6 and
+10.6, Counting subsets.</li>
+<li><a href="https://en.wikipedia.org/wiki/Pell_number">Pell number (Wikipedia)</a></li>
+</ol>
+</section></article><article class="analysis" id="task-1653"><h2 class="task-title">1653 · Elevator Rides</h2><p class="meta"><a href="https://cses.fi/problemset/task/1653/">Task</a> · source analysis length 3,731 characters</p><section class="statement"><h3 class="statement-title">Problem statement</h3><p>There are <span class="math math-inline">n</span> people who want to get to the top of a building which has only one elevator. You know the weight of each person and the maximum allowed weight in the elevator. What is the minimum number of elevator rides?</p>
+<h1 id="input">Input</h1>
+<p>The first input line has two integers <span class="math math-inline">n</span> and <span class="math math-inline">x</span>: the number of people and the maximum allowed weight in the elevator.</p>
+<p>The second line has <span class="math math-inline">n</span> integers <span class="math math-inline">w_1,w_2,\dots,w_n</span>: the weight of each person.</p>
+<h1 id="output">Output</h1>
+<p>Print one integer: the minimum number of rides.</p>
+<h1 id="constraints">Constraints</h1>
+<ul>
+<li><span class="math math-inline">1 \le n \le 20</span></li>
+<li><span class="math math-inline">1 \le x \le 10^9</span></li>
+<li><span class="math math-inline">1 \le w_i \le x</span></li>
+</ul>
+
+
+
+
+</section><section class="explanation"><h2 id="faultygreedyapproaches">Faulty greedy approaches</h2>
+<p>Initially it might seem that a greedy approach could solve the problem: choose
+people into one elevator ride as long as someone fits. However, no simple way
+of choosing the next person is known that would work optimally in all cases.</p>
+<p>For example, consider the input</p>
+<p><span class="math math-display">
+\begin{align*}
+x &amp;= 8 \\
+w &amp;= 4, 3, 3, 2, 2, 2.
+\end{align*}
+</span></p>
+<p>Neither a strategy which always chooses the heaviest person that still fits in
+the elevator, nor one that chooses the lightest, are able to find the optimal
+solution, which is two full elevators:</p>
+<p><span class="math math-display">
+(4, 2, 2), (3, 3, 2)
+</span></p>
+<h2 id="permutations">Permutations</h2>
+<p>Iterating through all permutations of people suffices to solve the problem. The
+idea is to add people to the elevator one by one as long as the next person
+fits, and starting a new ride otherwise. Any elevator assignment will correspond
+to some permutation from which the solution can be reconstructed.</p>
+<p>There are at most <span class="math math-inline">20! \approx 10^{18}</span> different permutations, so each one of
+them cannot be checked individually. The idea can be optimized by instead
+doing dynamic programming over subsets of people, also called bitmask dynamic
+programming.</p>
+<h2 id="permutationstosubsets">Permutations to subsets</h2>
+<p>When choosing people one by one, the only information that needs to be
+considered is the <em>subset</em> of people that have already been assigned elevator
+rides. The order in which the previous people were chosen does not matter as
+long as it is optimal.</p>
+<p>Let the function <span class="math math-inline">\mathrm{best}</span> have values of the form <span class="math math-inline">\mathrm{best}(S) =
+(r, l)</span> where the pair <span class="math math-inline">(r, l)</span> describes the optimal number of elevator rides
+<span class="math math-inline">r</span> and weight already used from the last ride <span class="math math-inline">l</span> for any subset <span class="math math-inline">S</span> of
+people. Among solutions with the same amount of rides, the one with the least
+<span class="math math-inline">l</span> is considered better.</p>
+<p>The function can be computed recursively by individually trying each person
+in the subset as the last person to be considered.</p>
+<p><span class="math math-display">
+\mathrm{best}(S) = \min_{p\in S} \mathrm{add}(\mathrm{best}(S \setminus \{p\}), w_p)
+</span></p>
+<p>Here, <span class="math math-inline">\mathrm{add}((r, l), w_p)</span> tries to add the person <span class="math math-inline">p</span> into the last
+elevator ride as <span class="math math-inline">(r, l + w_p)</span>, or establishes a new one as <span class="math math-inline">(r+1, w_p)</span>
+if <span class="math math-inline">l + w_p &gt; x</span>.</p>
+<p>We set <span class="math math-inline">\mathrm{best}(\emptyset)=(1, 0)</span> as the base case to make the rest of
+the values correct even though zero rides are technically needed.</p>
+<p>It would be possible to make the amount of elevator rides a variable of the
+function, as <span class="math math-inline">\mathrm{best}(S, r) = l</span>, and minimize only the total weight of
+the last elevator ride. However, this is not necessary because there is never
+any ambiguity comparing pairs <span class="math math-inline">(r, l)</span>. That is, a pair with less rides is
+always strictly better than one with more. This allows us to find the optimal
+pair much like a single number can be optimized with dynamic programming. In
+fact, the default comparison operators for <code>std::pair</code> work in the correct way.</p>
+<p>The subset <span class="math math-inline">S</span> is conveniently represented as a bitmask in the solution below.
+Iterating over the bitmasks in the order corresponding to their numeric values
+guarantees that all smaller subsets are computed before the current one. The
+solution has a time complexity of <span class="math math-inline">O(n 2^n)</span>.</p>
+<pre class="resize-horizontal prettyprint lang-cpp">#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+
+const int N = 20;
+pair&lt;int, int&gt; best[1 &lt;&lt; N];
+
+int main() {
+    int n, x;
+    cin &gt;&gt; n &gt;&gt; x;
+
+    vector&lt;int&gt; w(n);
+    for (int i = 0; i &lt; n; ++i) cin &gt;&gt; w[i];
+
+    best[0] = {1, 0};
+    for (int s = 1; s &lt; (1 &lt;&lt; n); ++s) {
+        best[s] = {n + 1, 0};
+
+        for (int p = 0; p &lt; n; ++p) {
+            if (s &amp; (1 &lt;&lt; p)) {
+                auto [r, l] = best[s ^ (1 &lt;&lt; p)];
+                pair&lt;int, int&gt; added;
+                if (l + w[p] &lt;= x) {
+                    added = {r, l + w[p]};
+                } else {
+                    added = {r + 1, w[p]};
+                }
+                best[s] = min(best[s], added);
+            }
+        }
+    }
+
+    cout &lt;&lt; best[(1 &lt;&lt; n) - 1].first &lt;&lt; endl;
+}
+</pre><h2 id="references">References</h2>
+<ul>
+<li><a href="https://cses.fi/book">CPHB (Competitive Programmer's Handbook)</a>, Chapter 10,
+From permutations to subsets</li>
+</ul>
+</section></article>
+<script>
+document.querySelectorAll('.math').forEach((node) => {
+  const display = node.classList.contains('math-display');
+  node.textContent = (display ? '\\[' : '\\(') + node.textContent + (display ? '\\]' : '\\)');
+});
+</script></body></html>

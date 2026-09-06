@@ -1,0 +1,2259 @@
+CSES Analysis Notebook
+Clear additions: non-overlapping, non-trivial techniques · tasks 3397 through 1728
+Mechanical filter: at least 900 source characters.
+Short introductory analyses are omitted.
+
+Contents
+3397 · Permutation Order
+
+2210 · Counting Grids
+
+2138 · Reachable Nodes
+
+3359 · Minimal Grid Path
+
+2186 · Special Substrings
+
+2143 · Reachability Queries
+
+3355 · Sum of Four Squares
+
+2184 · Missing Coin Sum Queries
+
+2137 · Corner Subgrid Count
+
+3314 · Mountain Range
+
+2182 · Divisor Analysis
+
+1743 · String Reorder
+
+2229 · Permutation Inversions
+
+2181 · Counting Tilings
+
+1725 · Dice Probability
+
+2214 · Inverse Inversions
+
+2177 · Strongly Connected Edges
+
+1726 · Moving Robots
+
+2209 · Counting Necklaces
+
+2164 · Josephus Queries
+
+1728 · Inversion Probability
+
+3397 · Permutation Order
+Task · source analysis length 1,763 characters
+
+Problem statement
+Let
+
+) denote the th permutation
+
+) and
+
+of
+
+. For example,
+
+=
+
+=
+
+).
+Your task is to process two types of tests:
+1. Given
+2. Given
+
+and , find
+)
+and
+), find
+
+Input
+The first line has an integer : the number of tests.
+Each test is either "1
+
+" or "2
+
+)".
+
+Output
+For each test, print the answer according to the example.
+
+Constraints
+
+First task
+We are given
+
+and , and our task is to find
+
+), i.e., the th permutation
+
+If is between and
+!), the first number is . If
+. In general, the first number is
+
+is between
+
+!+1) and
+
+of
+!), the first number is
+
+We can find the numbers one by one using the same idea. After every step, we remove the chosen number from
+the list of possible numbers.
+
+Second task
+We are given
+
+and
+
+) and our task is to find .
+
+Initially
+. If the first number is , we don't change . If the first number is , we increase by
+first number is , we increase by
+!). In general, if the first number is , we increase by
+
+We can process the numbers one by one and increase the value of
+remove from the list of numbers.
+#include <algorithm>
+#include <iostream>
+#include <numeric>
+#include <vector>
+using namespace std;
+using ll = long long;
+const int N = 20;
+
+!). If the
+
+using the same idea. After every step, we
+
+.
+
+int main() {
+int t;
+cin >> t;
+vector<ll> fact(N + 1);
+fact[0] = 1;
+for (int i = 1; i <= N; i++) {
+fact[i] = fact[i - 1] * i;
+}
+while (t--) {
+int op;
+cin >> op;
+int n;
+cin >> n;
+ll f = fact[n];
+vector<int> numbers(n);
+iota(numbers.begin(), numbers.end(), 1);
+if (op == 1) {
+ll k;
+cin >> k;
+k--;
+for (int i = 0; i < n; i++) {
+f /= n - i;
+cout << numbers[k / f] << " ";
+numbers.erase(numbers.begin() + (k / f));
+k %= f;
+}
+cout << "\n";
+}
+if (op == 2) {
+ll k = 1;
+for (int i = 0; i < n; i++) {
+int x;
+cin >> x;
+f /= n - i;
+auto it = find(numbers.begin(), numbers.end(), x);
+k += (it - numbers.begin()) * f;
+numbers.erase(it);
+}
+cout << k << "\n";
+}
+}
+}
+
+3359 · Minimal Grid Path
+Task · source analysis length 1,549 characters
+
+Problem statement
+You are given an
+
+grid whose each square contains a letter.
+
+You should move from the upper-left square to the lower-right square. You can only move right or down.
+What is the lexicographically minimal string you can construct?
+
+Input
+The first line has an integer : the size of the grid.
+After this, there are
+
+lines that describe the grid. Each line has
+
+letters between A and Z.
+
+Output
+Print the lexicographically minimal string.
+
+Constraints
+
+The algorithm consists of
+rounds that construct the minimal string corresponding to a path from the topleft square to the bottom-right square. It maintains a prefix of this minimal string throughout the process.
+In each round, we examine all possible ending positions of paths that correspond to the current prefix. The prefix
+is extended by adding a new letter. From each ending position, we consider moving one step to the right and one
+step down to determine the next letter to add to the path.
+It is important to ensure that the list of ending positions contains only distinct positions after each round.
+Otherwise, the algorithm could process the same ending positions multiple times, making it inefficient.
+#include <algorithm>
+#include <iostream>
+#include <vector>
+using namespace std;
+int main() {
+int n;
+cin >> n;
+vector<string> grid(n);
+for (int i = 0; i < n; i++) {
+cin >> grid[i];
+}
+cout << grid[0][0];
+vector<pair<int, int>> level;
+level.emplace_back(0, 0);
+for (int i = 0; i < 2 * n - 2; i++) {
+vector<pair<int, int>> next_level;
+char min_letter = 'Z' + 1;
+auto update_next_level = [&](int y, int x) {
+if (y < n && x < n) {
+char letter = grid[y][x];
+if (letter < min_letter) {
+next_level.clear();
+min_letter = letter;
+}
+if (letter == min_letter) {
+next_level.emplace_back(y, x);
+}
+}
+};
+for (auto [y, x] : level) {
+update_next_level(y + 1, x);
+update_next_level(y, x + 1);
+}
+cout << min_letter;
+
+level = next_level;
+level.erase(unique(level.begin(), level.end()), level.end());
+}
+cout << "\n";
+}
+
+3355 · Sum of Four Squares
+Task · source analysis length 1,057 characters
+
+Problem statement
+A well known result in number theory is that every non-negative integer can be represented as the sum of
+four squares of non-negative integers.
+You are given a non-negative integer . Your task is to find four non-negative integers , ,
+.
+
+and
+
+such that
+
+Input
+The first line has an integer : the number of test cases.
+Each of the next lines has an integer .
+
+Output
+For each test case, print four non-negative integers , ,
+
+and
+
+that satisfy
+
+.
+
+Constraints
+
+the sum of all
+
+Let
+
+is at most
+
+denote the maximum value of .
+
+We first find all integers between and
+) time. For each such integer
+
+that can be expressed as a sum of two squares. This can be done in
+, we store the first number and the second number .
+
+After that, we can find a solution for any in
+) time by finding a number such that both
+expressed as a sum of two squares. It can be shown that there is always a solution.
+#include <iostream>
+#include <vector>
+using namespace std;
+const int N = 1e7;
+int main() {
+int t;
+cin >> t;
+vector<bool> can(N + 1);
+vector<int> first(N + 1), second(N + 1);
+for (int a = 0; a * a <= N; a++) {
+for (int b = 0; a * a + b * b <= N; b++) {
+int x = a * a + b * b;
+can[x] = true;
+first[x] = a;
+second[x] = b;
+}
+}
+while (t--) {
+int n;
+cin >> n;
+for (int x = 0; x <= n; x++) {
+if (can[x] && can[n - x]) {
+cout << first[x] << " " << second[x] << " ";
+cout << first[n - x] << " " << second[n - x] << "\n";
+break;
+}
+}
+}
+}
+
+References
+Lagrange's four-square theorem
+
+and
+
+can be
+
+3314 · Mountain Range
+Task · source analysis length 3,364 characters
+
+Problem statement
+There are mountains in a row, each with a specific height. You begin your hang gliding route from some
+mountain.
+You can glide from mountain
+between and .
+
+to mountain
+
+if mountain
+
+is taller than mountain
+
+and all mountains
+
+What is the maximum number of mountains you can visit on your route?
+
+Input
+The first line has an integer : the number of mountains.
+The next line has
+
+integers
+
+: the heights of the mountains.
+
+Output:
+Print one integer: the maximum number of mountains.
+
+Constraints
+
+Solution 1
+
+)
+
+We process the mountains in order of decreasing height and calculate the maximum length of a route that ends at
+each mountain.
+For each mountain, we find the nearest higher mountain to the left and to the right. Since the mountains are
+processed in order of decreasing height, the maximum route length has already been calculated for both of these
+mountains. The longest route to the current mountain can be created by choosing the longest route to the left or
+right mountain and adding the current mountain to it.
+There may be several mountains with the same height which makes the situation more complex. For this reason,
+we maintain an additional list of updates and apply the updates whenever the current height differs from the
+previous height.
+#include <algorithm>
+#include <iostream>
+#include <map>
+#include <vector>
+using namespace std;
+int main() {
+int n;
+cin >> n;
+vector<pair<int, int>> heights;
+for (int i = 1; i <= n; i++) {
+int h;
+cin >> h;
+heights.emplace_back(h, i);
+}
+sort(heights.rbegin(), heights.rend());
+map<int, int> counts;
+counts[0] = 0;
+counts[n + 1] = 0;
+int prev_height = 0;
+vector<pair<int, int>> updates;
+int result = 0;
+for (auto [height, pos] : heights) {
+if (height != prev_height) {
+for (auto [pos, count] : updates) {
+counts[pos] = count;
+}
+updates.clear();
+
+prev_height = height;
+}
+auto it = counts.upper_bound(pos);
+int next_pos = it->first;
+it--;
+int prev_pos = it->first;
+int new_count = max(counts[prev_pos], counts[next_pos]) + 1;
+updates.emplace_back(pos, new_count);
+result = max(result, new_count);
+}
+cout << result << "\n";
+}
+
+Solution 2
+
+)
+
+It is also possible to solve the problem in linear time by using a different method for processing the mountains.
+First, we find the nearest higher mountain to the left and to the right for each mountain, which can be done in
+linear time using stacks. We then create a graph that determines the order in which the mountains should be
+processed.
+Next, we process the graph using topological sorting and calculate the maximum route length for each mountain,
+applying the same idea as in the previous solution.
+#include <iostream>
+#include <vector>
+using namespace std;
+const int INF = 1000000001;
+int main() {
+int n;
+cin >> n;
+vector<int> heights(n + 2);
+heights[0] = INF;
+heights[n + 1] = INF;
+for (int i = 1; i <= n; i++) {
+cin >> heights[i];
+}
+vector<vector<int>> after(n + 2);
+vector<int> left_stack;
+left_stack.push_back(0);
+for (int i = 1; i <= n; i++) {
+while (heights[i] >= heights[left_stack.back()]) {
+left_stack.pop_back();
+}
+after[left_stack.back()].push_back(i);
+left_stack.push_back(i);
+}
+vector<int> right_stack;
+right_stack.push_back(n + 1);
+for (int i = n; i >= 1; i--) {
+while (heights[i] >= heights[right_stack.back()]) {
+right_stack.pop_back();
+}
+after[right_stack.back()].push_back(i);
+right_stack.push_back(i);
+}
+vector<int> count(n + 2);
+vector<int> result(n + 2);
+vector<int> queue;
+queue.push_back(0);
+queue.push_back(n + 1);
+int answer = 0;
+for (int i = 0; i < queue.size(); i++) {
+int pos = queue[i];
+for (auto next_pos : after[pos]) {
+result[next_pos] = max(result[next_pos], result[pos] + 1);
+answer = max(answer, result[next_pos]);
+count[next_pos]++;
+if (count[next_pos] == 2) {
+queue.push_back(next_pos);
+}
+
+}
+}
+cout << answer << "\n";
+}
+
+2229 · Permutation Inversions
+Task · source analysis length 1,992 characters
+
+Problem statement
+Your task is to count the number of permutations of
+.
+For example, when
+
+and
+
+, there are
+
+that have exactly
+
+inversions
+
+such permutations:
+
+Input
+The only input line has two integers
+
+and .
+
+Output
+Print the answer modulo
+
+.
+
+Constraints
+
+Solution 1:
+
+) approach
+
+) approach. The approach is a bit too slow, but it can be easily sped up. Let us use
+We will first present a
+dynamic programming to compute the answer. Let
+represent the number of permutations of the numbers
+with exactly inversions.
+Now, when we are placing the number
+, we have
+places for it. If we place the number at the end of the
+permutation, no new inversion will be formed. Each place to the left of this will add a new inversion as all numbers
+are smaller than the new one.
+These observations lead to a solution where we loop through the numbers, the place for each number and the
+number of previous inversions. This leads to the recurrence
+
+= \sum_{0 \le \mathrm{pos} \le i} \mathrm{dp}
+
+.]
+The table may be filled with this recurrence in
+#include <iostream>
+using namespace std;
+const int M = 1e9 + 7;
+const int N = 501;
+const int K = 124751;
+int dp[N][K];
+int main() {
+int n, k;
+
+) time.
+
+cin >> n >> k;
+dp[0][0] = 1;
+for (int i = 1; i <= n; ++i) {
+for (int h = 0; h <= k; ++h) {
+for (int j = 0; j <= min(h, i - 1); ++j) {
+dp[i][h] += dp[i - 1][h - j];
+dp[i][h] %= M;
+}
+}
+}
+cout << dp[n][k] << '\n';
+}
+
+Solution 2:
+
+) approach
+
+Note that the value of each dp position corresponds to a sum of a range of values from the previous layer. Further,
+the ranges are all the same length and their starting positions differ by one. We can, thus, maintain the sum while
+filling the dp layer. This leads to a solution with a time complexity of
+).
+#include <iostream>
+using namespace std;
+const int M = 1e9 + 7;
+const int N = 501;
+const int K = 124751;
+int dp[N][K];
+int main() {
+int n, k;
+cin >> n >> k;
+dp[0][0] = 1;
+for (int i = 1; i <= n; ++i) {
+int sum = 0;
+for (int h = 0; h <= k; ++h) {
+sum += dp[i - 1][h];
+sum %= M;
+if (h >= i) {
+sum -= dp[i - 1][h - i];
+sum += M;
+sum %= M;
+}
+dp[i][h] = sum;
+}
+}
+cout << dp[n][k] << '\n';
+}
+
+2214 · Inverse Inversions
+Task · source analysis length 1,877 characters
+
+Problem statement
+Your task is to create a permutation of numbers
+An inversion is a pair
+permutation.
+
+) where
+
+and
+
+that has exactly
+where
+
+inversions.
+
+denotes the number at position in the
+
+Input
+The only input line has two integers
+
+and .
+
+Output
+Print a line that contains the permutation. You can print any valid solution.
+
+Constraints
+
+There is a straightforward greedy approach to this problem. However, it is not immediately clear that it works.
+Let us construct the answer from the beginning, one element at a time. We will maintain two pointers: the lowest
+and highest numbers that have not been used, and at each point, append either of them to the answer and
+update the corresponding pointer.
+Adding the lowest number yet will not form new inversions with any number following it as all of them will be
+larger. Adding the highest number yet, on the other hand, forms inversions with all of the numbers following it.
+The greedy idea is to always pick the larger number while the inversion count remains under . Now, we have to
+prove that the algorithm always finds a solution with exactly inversions. In total, we have
+choices: during
+the first step, we are offered
+inversions, then
+and so on until we are offered to take 1 inversion
+during the second-to-last step. The sum of the amounts is
+=\frac{n
+}2), which means
+there are always enough inversions to form .
+It can be proven that because we take the inversions greedily, the amount of inversions needed is at all times at
+most
+, where represents the number of elements remaining. It follows that when
+, the number of
+inversions needed is at most 0, thus equal to 0. The algorithm always finds a solution whose inversion count is
+never larger nor is it lower than .
+#include <iostream>
+using namespace std;
+using ll = long long;
+int main() {
+int n;
+ll k;
+cin >> n >> k;
+int l = 1, r = n;
+for (int i = 1; i <= n; ++i) {
+int left = n - i; // The amount of numbers left.
+// As r is larger than all remaining numbers,
+// adding it will form inversions with each one of them.
+if (left <= k) {
+k -= left;
+cout << r-- << ' ';
+} else {
+cout << l++ << ' ';
+}
+}
+cout << '\n';
+}
+
+2209 · Counting Necklaces
+Task · source analysis length 1,138 characters
+
+Problem statement
+Your task is to count the number of different necklaces that consist of
+colors.
+
+pearls and each pearl has
+
+possible
+
+Two necklaces are considered to be different if it is not possible to rotate one of them so that they look the
+same.
+
+Input
+The only input line has two numbers
+
+and
+
+: the number of pearls and colors.
+
+Output
+Print one integer: the number of different necklaces modulo
+
+.
+
+Constraints
+
+We solve the problem using Burnside's lemma which states that the number of distinct combinations is
+
+when there are ways to change the position of a combination and there are
+same when the th way is applied.
+In this problem there are ways to rotate the necklace: we can rotate it
+combinations that remain the same is
+
+because there is a repeating block of
+inside the block.
+#include <iostream>
+using namespace std;
+using ll = long long;
+const int M = 1000000007;
+int gcd(int a, int b) {
+if (b == 0) return a;
+return gcd(b, a % b);
+}
+int power(int a, int b) {
+if (b == 0) return 1;
+ll p = power(a, b / 2);
+p = p * p % M;
+if (b % 2 == 1) p = p * a % M;
+return p;
+}
+int inv(int x) {
+return power(x, M - 2);
+}
+int main() {
+int n, m;
+cin >> n >> m;
+ll sum = 0;
+for (int i = 1; i <= n; i++) {
+sum += power(m, gcd(i, n));
+sum %= M;
+}
+ll answer = sum * inv(n) % M;
+
+) pearls and there are
+
+) combinations that remain the
+steps. The number of
+
+ways to choose the color of each pearl
+
+cout << answer << "\n";
+}
+
+References
+Burnside's lemma
+
+2210 · Counting Grids
+Task · source analysis length 1,710 characters
+
+Problem statement
+Your task is to count the number of different
+
+grids whose each square is black or white.
+
+Two grids are considered to be different if it is not possible to rotate one of them so that they look the same.
+
+Input
+The only input line has an integer : the size of the grid.
+
+Output
+Print one integer: the number of grids modulo
+
+.
+
+Constraints
+
+We solve the problem using Burnside's lemma which states that the number of distinct combinations is
+
+when there are ways to change the position of a combination and there are
+same when the th way is applied.
+
+) combinations that remain the
+
+In this problem there are ways to rotate the grid: ,
+,
+, and
+. Our task is to count the combinations
+that remain the same after each rotation. In each case we count the number of squares whose color we can
+choose.
+When
+
+is even, the numbers are as follows:
+:
+:
+:
+:
+
+When
+
+is odd, the numbers are as follows:
+:
+:
+:
+:
+
+#include <iostream>
+using namespace std;
+using ll = long long;
+const int M = 1000000007;
+int power(int a, ll b) {
+if (b == 0) return 1;
+ll p = power(a, b / 2);
+p = p * p % M;
+if (b % 2 == 1) p = p * a % M;
+return p;
+}
+int inv(int x) {
+return power(x, M - 2);
+}
+int main() {
+ll n;
+cin >> n;
+ll sum = 0;
+if (n % 2 == 0) {
+
+}
+
+sum += power(2, n * n);
+sum += power(2, n * n / 4);
+sum += power(2, n * n / 2);
+sum += power(2, n * n / 4);
+} else {
+sum += power(2, n * n);
+sum += power(2, (n / 2) * (n / 2 + 1) + 1);
+sum += power(2, n * (n / 2) + (n / 2 + 1));
+sum += power(2, (n / 2) * (n / 2 + 1) + 1);
+}
+ll answer = sum * inv(4) % M;
+cout << answer << "\n";
+
+References
+Burnside's lemma
+
+2186 · Special Substrings
+Task · source analysis length 1,822 characters
+
+Problem statement
+A substring is called special if every character that appears in the string appears the same number of times in
+the substring.
+Your task is to count the number of special substrings in a given string.
+
+Input
+The only input line has a string of length . Every character is between a...z.
+
+Output
+Print one integer: the number of special substrings.
+
+Constraints
+
+In this analysis, we assume that each character from
+work is required to ignore the missing characters.
+Let
+be the number of occurrences of character
+substring of characters at indices
+) exactly
+
+to
+
+appears in the string. If this is not the case, some extra
+
+among the first characters. Now, character
+times.
+
+appears in the
+
+For a substring to be special, every character needs to appear a constant amount of times. We're not interested in
+the specific constant, which means we can keep a state of character occurrences relative to some reference
+character, say :
+
+Let us look at any character . Note that if we add a constant amount of occurrences of both and the reference
+character , the relative count stays constant, which means it suffices to count the number of previous
+occurrences of the same state.
+We will store the current state in an array<int, 26> and previous states to a map. The time complexity of a map
+operation is
+), where represents the alphabet size. The time complexity of the complete solution is
+).
+#include <array>
+#include <iostream>
+#include <map>
+using namespace std;
+using ll = long long;
+using A = array<int, 26>;
+int main() {
+string s;
+cin >> s;
+bool seen[26]{};
+char reference_char = s[0];
+for (char c : s) seen[c - 'a'] = true;
+map<A, int> m;
+A cur{};
+m[cur] = 1;
+ll ans = 0;
+for (char c : s) {
+if (c == reference_char) {
+for (int i = 0; i < 26; ++i) {
+
+if (seen[i]) cur[i]--;
+}
+
+}
+}
+
+}
+cur[c - 'a']++;
+ans += m[cur];
+m[cur]++;
+
+cout << ans << '\n';
+
+2184 · Missing Coin Sum Queries
+Task · source analysis length 2,388 characters
+
+Problem statement
+You have
+
+coins with positive integer values. The coins are numbered
+
+Your task is to process
+produce?"
+
+queries of the form: "if you can use coins
+
+.
+, what is the smallest sum you cannot
+
+Input
+The first input line has two integers
+The second line has
+Finally, there are
+
+and : the number of coins and queries.
+
+integers
+
+: the value of each coin.
+
+lines that describe the queries. Each line has two values
+
+and : you can use coins
+
+.
+
+Output
+Print the answer for each query.
+
+Constraints
+
+We process each query in steps where
+. In each step,
+coins in the query range such that the most significant bit of the coin value is in position .
+For each query , we maintain a value
+using the coins. Initially
+
+, we consider all
+
+, which indicates that we can produce all coin sums between
+for each
+.
+
+and
+
+In each step, we update the result for each query. Let
+) and
+) denote the sum and minimum of
+coin values in the range of query whose most significant bit is in position . Always when
+\le
+\textrm{result}
+
++1), we can extend the range of possible sums by adding
+smallest missing coin sum.
+
+) to
+
+. Finally,
+
+is the
+
+We use data structures for efficient range sum and range minimum queries. Using these data structures, we can
+process range sum queries in
+) time after
+) time preprocessing and range minimum queries in
+) time
+after
+) time preprocessing.
+The resulting algorithm works in
+#include <iostream>
+#include <vector>
+using namespace std;
+using ll = long long;
+const int INF = 1e9 + 1;
+const int B = 30;
+const int K = 18;
+int main() {
+int n, q;
+cin >> n >> q;
+vector<int> x(n + 1);
+vector<int> bit(n + 1);
+for (int i = 1; i <= n; i++) {
+cin >> x[i];
+bit[i] = 31 - __builtin_clz(x[i]);
+}
+vector<pair<int, int>> query(q + 1);
+for (int i = 1; i <= q; i++) {
+cin >> query[i].first >> query[i].second;
+
+)) time.
+
+}
+vector<ll> result(q + 1);
+vector<ll> sumq(n + 1);
+vector<vector<int>> minq(K, vector<int>(n + 1));
+for (int b = 0; b < B; b++) {
+for (int i = 1; i <= n; i++) {
+sumq[i] = sumq[i - 1];
+if (bit[i] == b) {
+sumq[i] += x[i];
+}
+}
+for (int i = 1; i <= n; i++) {
+minq[0][i] = bit[i] == b ? x[i] : INF;
+}
+for (int k = 1; k < K; k++) {
+for (int i = 1; i <= n - (1 << (k - 1)); i++) {
+minq[k][i] =
+min(minq[k - 1][i], minq[k - 1][i + (1 << (k - 1))]);
+}
+}
+for (int i = 1; i <= q; i++) {
+auto [a, b] = query[i];
+int level = 31 - __builtin_clz(b - a + 1);
+int min_x = min(minq[level][a], minq[level][b - (1 << level) + 1]);
+if (min_x <= result[i] + 1) {
+result[i] += sumq[b] - sumq[a - 1];
+}
+}
+}
+for (int i = 1; i <= q; i++) {
+cout << result[i] + 1 << "\n";
+}
+}
+
+2182 · Divisor Analysis
+Task · source analysis length 4,783 characters
+
+Problem statement
+Given an integer, your task is to find the number, sum and product of its divisors. As an example, let us
+consider the number :
+the number of divisors is
+the sum of divisors is
+the product of divisors is
+
+(they are , , , , ,
+
+)
+
+Since the input number may be large, it is given as a prime factorization.
+
+Input
+The first line has an integer : the number of parts in the prime factorization.
+After this, there are lines that describe the factorization. Each line has two numbers
+prime and is its power.
+
+and
+
+where
+
+is a
+
+Output
+Print three integers modulo
+
+: the number, sum and product of the divisors.
+
+Constraints
+
+each
+
+is a distinct prime
+
+We are given a number
+
+and our task is to calculate the number, sum and product of its divisors.
+
+Solution 1
+We calculate the number of divisors as follows:
+
+The formula works because there are
+
+ways to choose a factor
+
+.
+
+We calculate the sum of divisors as follows:
+
+This formula corresponds to a sum where each divisor appears exactly once. Since each part of the product is a
+geometric sum, we can calculate the answer more efficiently using the geometric sum formula.
+We calculate the product of divisors as follows:
+
+This formula works because if a factor
+appears in a divisor, it can appear between and
+times, so we can use
+the sum formula
+/2) to count the total number of factor appearances. Moreover, there are
+/
+)
+
+ways to choose the other factors.
+Note that since we want to calculate the answer modulo
+, we have to calculate
+/
+) modulo
+. We
+can't use modular multiplicative inverses here because
+and
+are not necessarily coprime. Instead,
+we create two additional vectors that store prefix and suffix products of
+values and use them in the last
+loop.
+#include <iostream>
+#include <vector>
+using namespace std;
+using ll = long long;
+const int M = 1000000007;
+ll power(ll a, ll b) {
+if (b == 0) return 1;
+ll u = power(a, b / 2);
+u = u * u % M;
+if (b % 2 == 1) u = u * a % M;
+return u;
+}
+ll inv(ll x) {
+return power(x, M - 2);
+}
+int main() {
+int n;
+cin >> n;
+vector<ll> x(n), k(n);
+for (int i = 0; i < n; i++) {
+cin >> x[i] >> k[i];
+}
+ll count = 1;
+for (int i = 0; i < n; i++) {
+count = count * (k[i] + 1) % M;
+}
+ll sum = 1;
+for (int i = 0; i < n; i++) {
+sum = sum * (power(x[i], k[i] + 1) - 1) % M;
+sum = sum * inv(x[i] - 1) % M;
+}
+vector<ll> prefix(n + 1);
+prefix[0] = 1;
+for (int i = 0; i < n; i++) {
+prefix[i + 1] = prefix[i] * (k[i] + 1) % (M - 1);
+}
+vector<ll> suffix(n);
+suffix[n - 1] = 1;
+for (int i = n - 1; i > 0; i--) {
+suffix[i - 1] = suffix[i] * (k[i] + 1) % (M - 1);
+}
+ll prod = 1;
+for (int i = 0; i < n; i++) {
+ll ways = prefix[i] * suffix[i] % (M - 1);
+prod *= power(power(x[i], k[i] * (k[i] + 1) / 2), ways);
+prod %= M;
+}
+}
+
+cout << count << " " << sum << " " << prod << "\n";
+
+Solution 2
+A more elegant way to calculate the product of divisors is as follows:
+
+We can derive this formula from the previous formula by simplifying the exponents:
+
+The following solution calculates the product of divisors using this formula and does not require additional
+vectors.
+We need to calculate
+/2) modulo
+and we can't use modular multiplicative inverses because
+and are not coprime. We handle two cases in the code:
+Case 1:
+is not square. There is an even value
+exponent
+/2).
+Case 2:
+
+is square. Now
+
+formula
+by two in the last loop.
+
+) is odd and
+
+/2) is not an integer. However,
+
+to calculate the answer. In this case all
+
+Another way to explain the formula
+When
+is not square, there are
+-1)/2) pairs with product
+because
+
+and we divide the first such value by two to calculate the
+is an integer so we can use the
+
+values are even and we divide each of them
+
+is to consider divisor pairs of the form
+/2) pairs and the product of each pair is . When
+
+and then an additional divisor
+
+#include <iostream>
+#include <vector>
+using namespace std;
+using ll = long long;
+const int M = 1000000007;
+ll power(ll a, ll b) {
+if (b == 0) return 1;
+ll u = power(a, b / 2);
+u = u * u % M;
+if (b % 2 == 1) u = u * a % M;
+return u;
+}
+ll inv(ll x) {
+return power(x, M - 2);
+}
+int main() {
+int n;
+cin >> n;
+vector<ll> x(n), k(n);
+for (int i = 0; i < n; i++) {
+cin >> x[i] >> k[i];
+}
+ll count = 1;
+for (int i = 0; i < n; i++) {
+count = count * (k[i] + 1) % M;
+}
+ll sum = 1;
+for (int i = 0; i < n; i++) {
+sum = sum * (power(x[i], k[i] + 1) - 1) % M;
+sum = sum * inv(x[i] - 1) % M;
+}
+ll count2 = 1;
+bool is_square = true;
+for (int i = 0; i < n; i++) {
+if (is_square && k[i] % 2 == 1) {
+count2 *= (k[i] + 1) / 2;
+is_square = false;
+} else {
+count2 *= (k[i] + 1);
+}
+count2 %= M - 1;
+}
+ll prod = 1;
+for (int i = 0; i < n; i++) {
+if (is_square) k[i] /= 2;
+prod *= power(power(x[i], k[i]), count2);
+prod %= M;
+}
+
+) where
+.
+is square, there are
+
+. The formula holds also in this case
+
+cout << count << " " << sum << " " << prod << "\n";
+}
+
+2181 · Counting Tilings
+Task · source analysis length 4,023 characters
+
+Problem statement
+Your task is to count the number of ways you can fill an
+
+grid using
+
+and
+
+tiles.
+
+Input
+The only input line has two integers
+
+and
+
+.
+
+Output
+Print one integer: the number of ways modulo
+
+.
+
+Constraints
+
+We use dynamic programming to solve the problem. We represent each column pattern as a bitmask that
+indicates the rows where a horizontal tile begins. For example, consider the following tiling:
+
+Here the bitmasks
+right.
+
+,
+
+,
+
+,
+
+,
+
+,
+
+and
+
+correspond to the column patterns from left to
+
+A pair of bitmasks
+) is valid if patterns and can occur next to each other in the tiling. For example,
+) is a valid pair which corresponds to the first two columns in the example. The pair
+not valid, because a horizontal tile begins in the last row in both bitmasks.
+
+) is
+
+A simple solution would be to iterate over all pairs of bitmasks in every column. There are
+bitmask pairs and
+checking if a pair is valid takes
+) time, so such a solution would require
+) time. This can be optimized
+by only checking pairs of bitmasks which share no bits. There are exactly
+such bitmasks, which would result in
+an
+) solution.
+An
+) solution can be made fast enough, but since in practice there are much less valid transitions than
+and the same transitions are used for each column, it makes sense to precompute them.
+
+Solution 1: Precomputed transitions
+In this solution, the transitions are computed recursively before performing dynamic programming, one or two
+bits at a time. The bitmask left represents which rows have a horizontal tile going left, and right represents
+which rows have a horizontal tile going right. Other rows are occupied by vertical tiles, which have a height of two.
+Dynamic programming values from only the previous column need to be known, so two vectors are used and
+swapped between columns.
+It can be shown [2] that the number of transitions is
+solution is
+
+^n)), or approximately
+
+#include <algorithm>
+#include <iostream>
+#include <vector>
+using namespace std;
+const int M = 1000000007;
+int n;
+
+^n)). Therefore the time complexity of this
+).
+
+,
+
+vector<pair<int, int>> transitions;
+void generate(int i, int left, int right) {
+if (i > n) return;
+if (i == n) {
+transitions.emplace_back(left, right);
+return;
+}
+generate(i + 1, left | 1 << i, right);
+generate(i + 1, left, right | 1 << i);
+generate(i + 2, left, right);
+}
+int main() {
+int m;
+cin >> n >> m;
+generate(0, 0, 0);
+vector<int> cur(1 << n), prev(1 << n);
+prev[0] = 1;
+for (int i = 0; i < m; ++i) {
+fill(cur.begin(), cur.end(), 0);
+for (auto [x, y] : transitions) {
+cur[y] += prev[x];
+cur[y] %= M;
+}
+swap(cur, prev);
+}
+cout << prev[0] << endl;
+}
+
+Solution 2: Sum over subsets
+Let us take a closer look at the transitions.
+One transition that is always valid is from the bitmask to the complement of . At every position where there is
+not a tile going to the left, we choose a tile going to the right. Complementing the bitmasks is equivalent to
+reversing the dynamic programming array.
+The other transitions from
+pieces.
+
+are formed by replacing some adjacent pairs of tiles going to the right with vertical
+
+The sum over subsets technique can be used to compute the desired sum of valid transitions. More precisely, as
+the value associated with the bitmask we sum all values of supersets of that may have some added adjacent
+pairs of 1-bits. The technique works similarly even with this added restriction.
+The time complexity of this solution is
+
+). For
+
+#include <algorithm>
+#include <iostream>
+using namespace std;
+const int M = 1000000007;
+int tilings[1 << 10];
+int main() {
+int n, m;
+cin >> n >> m;
+tilings[0] = 1;
+for (int i = 0; i < m; ++i) {
+reverse(tilings, tilings + (1 << n));
+
+}
+
+for (int j = 0; j < n - 1; ++j) {
+for (int s = 0; s < (1 << n); ++s) {
+if ((s & 0b11 << j) == 0) {
+tilings[s] += tilings[s | 0b11 << j];
+tilings[s] %= M;
+}
+}
+}
+
+it is very similar in performance to the first solution.
+
+cout << tilings[0] << endl;
+}
+
+References
+1. CPHB
+2. Pell number
+
+, Chapters 7.6 and 10.6, Counting subsets.
+
+2177 · Strongly Connected Edges
+Task · source analysis length 1,665 characters
+
+Problem statement
+Given an undirected graph, your task is to choose a direction for each edge so that the resulting directed
+graph is strongly connected.
+
+Input
+The first input line has two integers
+.
+
+and
+
+: the number of nodes and edges. The nodes are numbered
+
+After this, there are
+lines describing the edges. Each line has two integers
+between nodes and .
+
+and : there is an edge
+
+You may assume that the graph is simple, i.e., there are at most one edge between two nodes and every edge
+connects two distinct nodes.
+
+Output
+Print
+node
+
+lines describing the directions of the edges. Each line has two integers
+to node . You can print any valid solution.
+
+and : there is an edge from
+
+If there are no solutions, only print IMPOSSIBLE.
+
+Constraints
+
+It is useful to approach this problem by focusing on a DFS tree of the undirected graph. The DFS contains tree
+edges and back edges.
+We will direct each tree edge from the parent to the child. Further, let each back edge run upwards towards the
+root. Turns out this construction always works if it is possible to make the graph strongly connected overall.
+There are two cases in which it is not possible to make the graph strongly connected. Firstly, it is not possible if the
+given graph is not connected. Secondly, if there is a subtree in the DFS tree from which there is not a single backedge going outside of it, it is also not possible, because there is no way to reach other nodes from the subtree.
+#include <iostream>
+#include <vector>
+using namespace std;
+void fail() {
+cout << "IMPOSSIBLE" << '\n';
+exit(0);
+}
+const int N = 100001;
+vector<int> g[N];
+vector<pair<int, int>> ans;
+bool visited[N];
+int depth[N], min_depth[N];
+void dfs(int node, int prev) {
+visited[node] = true;
+min_depth[node] = depth[node];
+for (int nxt : g[node]) {
+if (nxt == prev) continue;
+if (visited[nxt]) {
+if (depth[nxt] < depth[node]) {
+ans.emplace_back(node, nxt);
+}
+min_depth[node] = min(min_depth[node], depth[nxt]);
+} else {
+depth[nxt] = depth[node] + 1;
+dfs(nxt, node);
+min_depth[node] = min(min_depth[node], min_depth[nxt]);
+ans.emplace_back(node, nxt);
+if (min_depth[nxt] > depth[node]) fail();
+
+}
+}
+
+}
+
+int main() {
+int n, m;
+cin >> n >> m;
+for (int i = 0; i < m; ++i) {
+int a, b;
+cin >> a >> b;
+g[a].push_back(b);
+g[b].push_back(a);
+}
+dfs(1, -1);
+if (ans.size() != m) fail();
+
+}
+
+for (auto [a, b] : ans) {
+cout << a << ' ' << b << '\n';
+}
+
+2164 · Josephus Queries
+Task · source analysis length 1,788 characters
+
+Problem statement
+Consider a game where there are children (numbered
+) in a circle. During the game, every
+second child is removed from the circle, until there are no children left.
+Your task is to process
+removed?"
+
+queries of the form: "when there are
+
+children, who is the th child that will be
+
+Input
+The first input line has an integer : the number of queries.
+After this, there are lines that describe the queries. Each line has two integers
+children and the position of the child.
+
+and : the number of
+
+Output
+Print
+
+integers: the answer for each query.
+
+Constraints
+
+We can divide the process of removing children into rounds where we go through the children in increasing order
+and remove every second of them. For example, when
+, the rounds are as follows:
+Round
+Round
+Round
+Round
+
+:
+:
+:
+:
+
+To efficiently find the th removed child, we simulate the rounds using a recursive function whose each call
+corresponds to a round.
+Let
+) denote the th child who will be removed when there are children and the parity of the first
+child to be removed is ( means we first remove child , and means we first remove child ).
+The number of children removed on the first round is
+first round and just return the number of the child which is
+
+.
+
+. If
+
+, we remove the th child on the
+
+Otherwise we call the function recursively: we have
+children left and we should find the
+)th child who
+will be removed. Here denotes the new parity: if is even, the parity remains the same, and if is odd, the
+parity changes. Since the numbering of the children changes in the subproblem, we have to convert it after the
+recursive call.
+Since we remove half of the children on each round, the number of rounds is
+) time.
+#include <iostream>
+using namespace std;
+int child(int n, int k, int p) {
+int r = (n + p) / 2;
+if (k <= r) return k * 2 - p;
+int u = n % 2 == 0 ? p : 1 - p;
+return child(n - r, k - r, u) * 2 - 1 + p;
+}
+int main() {
+int q;
+cin >> q;
+for (int qi = 1; qi <= q; qi++) {
+int n, k;
+cin >> n >> k;
+cout << child(n, k, 0) << "\n";
+
+) and the function works in
+
+}
+}
+
+References
+Josephus problem
+
+2138 · Reachable Nodes
+Task · source analysis length 1,376 characters
+
+Problem statement
+A directed acyclic graph consists of
+
+nodes and
+
+edges. The nodes are numbered
+
+Calculate for each node the number of nodes you can reach from that node
+
+.
+.
+
+Input
+The first input line has two integers
+
+and
+
+: the number of nodes and edges.
+
+Then there are
+lines describing the edges. Each line has two distinct integers
+node to node .
+
+and : there is an edge from
+
+Output
+Print
+
+integers: for each node the number of reachable nodes.
+
+Constraints
+
+A directed acyclic graph does not contain cycles which means that we may use a dynamic programming approach
+to solve the problem. Let us store a boolean array for each node, which tells us which nodes are reachable from
+the node. A straightforward solution would perform a DFS from each node and update the arrays after each edge.
+Each edge would correspond to
+) operations and thus, the solution would result in a time complexity of
+) and would perform roughly
+operations, which makes the solution a bit too slow.
+Fortunately, the approach can be sped up using bitsets. Bitsets allow us to update 64 positions of the array at once
+and thus, provide a factor of
+to the number of operations, bringing the total down to the order of
+.
+#include <bitset>
+#include <iostream>
+#include <vector>
+using namespace std;
+const int N = 5e4 + 1;
+vector<int> g[N];
+bitset<N> reach[N];
+bool visited[N];
+void dfs(int node) {
+if (visited[node]) return;
+visited[node] = true;
+reach[node][node] = true;
+for (int nxt : g[node]) {
+dfs(nxt);
+reach[node] |= reach[nxt];
+}
+}
+int main() {
+int n, m;
+cin >> n >> m;
+for (int i = 1; i <= m; ++i) {
+int a, b;
+cin >> a >> b;
+g[a].push_back(b);
+}
+for (int i = 1; i <= n; ++i) {
+dfs(i);
+cout << reach[i].count() << ' ';
+}
+cout << '\n';
+}
+
+2143 · Reachability Queries
+Task · source analysis length 2,671 characters
+
+Problem statement
+A directed graph consists of
+Your task is to answer
+
+nodes and
+
+edges. The edges are numbered
+
+queries of the form "can you reach node
+
+.
+
+from node ?"
+
+Input
+The first input line has three integers ,
+
+and : the number of nodes, edges and queries.
+
+Then there are
+lines describing the edges. Each line has two distinct integers
+node to node .
+
+and : there is an edge from
+
+Finally there are
+from node ?"
+
+and : "can you reach node
+
+lines describing the queries. Each line consists of two integers
+
+Output
+Print the answer for each query: either "YES" or "NO".
+
+Constraints
+
+It is useful to think of the problem in terms of strongly connected components. In particular, if two nodes are in
+the same in the same component, they are both reachable from each other.
+The strongly connected components of the graph also form a directed acyclic graph
+of their own. There
+cannot be cycles in the graph condensed from the components because if it contained a cycle of multiple
+components, the nodes of the cycle would, by definition, form only a single component.
+Once we have found the strongly connected components using Tarjan's algorithm, we have reduced the problem
+to a DAG. Because there are no cycles in a DAG, we can make a dynamic programming solution. In particular, we
+may store, for each node, information about which other nodes are reachable from it. The reachability information
+can be copied to each parent of a node, once all the children of the node have been fully processed.
+If we were to store the reachability information in a boolean array, the solution would turn out too slow. We may,
+however, use bitsets to speed up the transformation of the information as bitsets allow us to update 64 elements
+at once.
+#include <bitset>
+#include <iostream>
+#include <vector>
+using namespace std;
+const int N = 5e4 + 1;
+vector<int> g[N];
+int cur_depth, comp_cnt;
+int comp[N], depth[N], low[N];
+vector<int> stack;
+bool in_stack[N];
+// Tarjan's strongly connected components algorithm
+void scc_dfs(int node) {
+low[node] = depth[node] = ++cur_depth;
+stack.push_back(node);
+in_stack[node] = true;
+for (int nxt : g[node]) {
+if (!depth[nxt]) {
+scc_dfs(nxt);
+low[node] = min(low[node], low[nxt]);
+} else if (in_stack[nxt]) {
+low[node] = min(low[node], depth[nxt]);
+}
+}
+if (depth[node] == low[node]) {
+int i = -1;
+++comp_cnt;
+while (i != node) {
+
+i = stack.back();
+stack.pop_back();
+in_stack[i] = false;
+comp[i] = comp_cnt;
+}
+}
+
+}
+
+using B = bitset<N>;
+// `cg` is a condensed graph constructed from the SCC's.
+vector<int> cg[N];
+B reach[N];
+bool visited[N];
+void dfs(int node) {
+if (visited[node]) return;
+visited[node] = true;
+reach[node][node] = true;
+for (int nxt : cg[node]) {
+dfs(nxt);
+reach[node] |= reach[nxt];
+}
+}
+int main() {
+int n, m, q;
+cin >> n >> m >> q;
+for (int i = 1; i <= m; ++i) {
+int a, b;
+cin >> a >> b;
+g[a].push_back(b);
+}
+for (int i = 1; i <= n; ++i) {
+if (!depth[i]) scc_dfs(i);
+}
+for (int i = 1; i <= n; ++i) {
+for (int j : g[i]) {
+if (comp[i] != comp[j]) {
+cg[comp[i]].push_back(comp[j]);
+}
+}
+}
+for (int i = 1; i <= comp_cnt; ++i) {
+dfs(i);
+}
+for (int qi = 1; qi <= q; ++qi) {
+int a, b;
+cin >> a >> b;
+cout << (reach[comp[a]][comp[b]] ? "YES" : "NO") << '\n';
+}
+}
+
+2137 · Corner Subgrid Count
+Task · source analysis length 2,437 characters
+
+Problem statement
+You are given an
+grid whose each square is either black or white. A subgrid is called beautiful if its
+height and width is at least two and all of its corners are black. How many beautiful subgrids are there within
+the given grid?
+
+Input
+The first input line has an integer : the size of the grid.
+Then there are
+
+lines describing the grid: 1 means that a square is black and 0 means it is white.
+
+Output
+Print the number of beautiful subgrids.
+
+Constraints
+
+) and thus, be too slow. There is, however, a way
+Going through all possible corners of a subgrid would run in
+to calculate the number of subgrids by only going through each pair of rows.
+Let us go through each pair of rows and find each subgrid which spans from one of the selected rows to another.
+For a pair of rows to form a subgrid, the rows need to share two distinct positions which have black squares in
+both of the rows. If we know the number of such positions is , the number of subgrids the rows form, is
+, as we may choose any two of them as the borders of the subgrid. This algorithm runs in
+we go through each pair of rows in
+) time and there are in total
+) pairs of rows.
+
+) as
+
+With
+, the solution would perform roughly
+operations and would still be too slow. We
+may, however, use bitsets to improve the constant factor of the solution. Bitsets allow us to check multiple
+positions at once. On a Linux system, bitsets usually contain 64-bit integers. This means that, with constant time
+bit operations, we can check 64 positions at once. Thus, the number of operations becomes
+.
+To find the positions where the two rows both have a black square, we will use the bitwise AND operation as it
+discards the positions where only one or neither of the squares are black. Finally, we will count the number of bits
+set in the bitset using the method .count(). Note that even with the bitset optimization the solution will turn out
+too slow without the line
+#pragma GCC target("popcnt")
+
+which tells the compiler that our machine has an instruction for calculating the popcount of an integer, that is, our
+processor is able to count the number of bits set in an integer efficiently. The popcount instruction is available on
+CSES judges and has been included in most of Intel's x86-64 processors since 2008.
+#pragma GCC target("popcnt")
+#include <bitset>
+#include <iostream>
+#include <vector>
+using namespace std;
+using ll = long long;
+using B = bitset<3000>;
+int main() {
+int n;
+cin >> n;
+vector<B> b(n);
+for (int i = 0; i < n; ++i) {
+string s;
+cin >> s;
+for (int j = 0; j < n; ++j) {
+if (s[j] == '1') {
+b[i][j] = true;
+}
+
+}
+}
+ll r = 0;
+for (int i = 0; i < n; ++i) {
+for (int j = i + 1; j < n; ++j) {
+int c = (b[i] & b[j]).count();
+r += c * (c - 1) / 2;
+}
+}
+}
+
+cout << r << '\n';
+
+1743 · String Reorder
+Task · source analysis length 1,351 characters
+
+Problem statement
+Your task is to reorder the characters of a string so that no two adjacent characters are the same. What is the
+lexicographically minimal such string?
+
+Input
+The only line has a string of length
+
+consisting of characters A–Z.
+
+Output
+Print the lexicographically minimal reordered string where no two adjacent characters are the same. If it is not
+possible to create such a string, print
+.
+
+Constraints
+
+Let us first analyze when is it possible construct a string such that no two adjacent characters are the same. The
+maximum amount of occurrences for a single character is reached when it appears in every other position,
+including the first and the last. This leads to the inequality
+, where is the number of occurrences of
+the most common character and is the length of the string. The construction is possible if and only if the above
+inequality holds.
+Now, we may construct the answer, one character at a time. To get the lexicographically smallest string, we will, at
+each step, choose the smallest character greedily. The above condition is used to check if the string can be
+completed by choosing a specific character.
+#include <iostream>
+using namespace std;
+int count[128];
+int main() {
+string s;
+cin >> s;
+int n = s.size();
+for (auto c : s) {
+count[(int)c]++;
+}
+auto check = [&](int length) {
+for (int i = 'A'; i <= 'Z'; ++i) {
+if (count[i] * 2 > length + 1) {
+return false;
+}
+}
+return true;
+};
+if (!check(n)) {
+cout << -1 << '\n';
+return 0;
+}
+char prev = '$';
+for (int i = 1; i <= n; ++i) {
+for (int nxt = 'A'; nxt <= 'Z'; ++nxt) {
+if (!count[nxt]) continue;
+if (nxt == prev) continue;
+count[nxt]--;
+if (check(n - i)) {
+cout << (char)nxt;
+prev = nxt;
+break;
+}
+count[nxt]++;
+}
+}
+
+cout << '\n';
+}
+
+1725 · Dice Probability
+Task · source analysis length 923 characters
+
+Problem statement
+You throw a dice times, and every throw produces an outcome between
+the sum of outcomes is between and ?
+
+and . What is the probability that
+
+Input
+The only input line contains three integers ,
+
+and .
+
+Output
+Print the probability rounded to six decimal places
+
+.
+
+Constraints
+
+We solve the problem using dynamic programming:
+a dice times.
+
+denotes the probability of having sum
+
+after throwing
+
+As a base case
+, because the sum is certainly if there are no throws. Then, when we know a value of
+, we go through the possible throws whose outcomes are
+. For each such throw, we increase
+by
+. Finally, we calculate the sum of probabilities
+where is between and .
+The solution works in
+
+) time.
+
+#include <iostream>
+using namespace std;
+const int N = 100;
+double p[N + 1][6 * N + 1];
+int main() {
+int n, a, b;
+cin >> n >> a >> b;
+p[0][0] = 1;
+for (int i = 0; i < n; i++) {
+for (int j = i; j <= 6 * i; j++) {
+for (int k = 1; k <= 6; k++) {
+p[i + 1][j + k] += p[i][j] / 6;
+}
+}
+}
+double answer = 0;
+for (int i = a; i <= b; i++) {
+answer += p[n][i];
+}
+cout.precision(6);
+cout << fixed << answer << "\n";
+}
+
+1726 · Moving Robots
+Task · source analysis length 2,067 characters
+
+Problem statement
+Each square of an
+chessboard has a robot. Each robot independently moves
+many robots on the same square.
+
+steps, and there can be
+
+On each turn, a robot moves one step left, right, up or down, but not outside the board. It randomly chooses a
+direction among those where it can move.
+Your task is to calculate the expected number of empty squares after
+
+turns.
+
+Input
+The only input line has an integer .
+
+Output
+Print the expected number of empty squares rounded to six decimal places
+
+.
+
+Constraints
+
+We assume that the rows and columns are numbered from
+. The robot that starts at square
+) has number
+
+to
+
+We solve the problem using dynamic programming:
+) after
+turns.
+As base cases,
+find the squares where robot
+by
+
+and the robots are numbered from
+. In this problem
+in each test.
+denotes the probability that robot
+
+to
+
+is in square
+
+for each square
+). Then, when we know the value of
+, we
+can move from square
+). For each such square
+), we increase the value of
+where is the total number of squares where the robot can move.
+
+After that, we go through the grid and calculate, for each square
+after turns. We calculate the probability using the formula
+
+), the probability that the square is empty
+
+)]
+which requires that no robot is in the square after turns. Due to linearity of expectation, the sum of all such
+probabilities equals the expected number of empty squares after turns.
+The solution works in
+
+) time.
+
+#include <iostream>
+#include <vector>
+using namespace std;
+const int N = 8;
+const int K = 100;
+double p[K + 1][N * N][N][N];
+int main() {
+int k;
+cin >> k;
+for (int i = 0; i < N; i++) {
+for (int j = 0; j < N; j++) {
+p[0][i * N + j][i][j] = 1;
+}
+
+}
+for (int m = 0; m < k; m++) {
+for (int r = 0; r < N * N; r++) {
+for (int i = 0; i < N; i++) {
+for (int j = 0; j < N; j++) {
+vector<pair<int, int>> moves;
+if (i > 0) moves.emplace_back(i - 1, j);
+if (j > 0) moves.emplace_back(i, j - 1);
+if (i + 1 < N) moves.emplace_back(i + 1, j);
+if (j + 1 < N) moves.emplace_back(i, j + 1);
+double add = p[m][r][i][j] / moves.size();
+for (auto d : moves) {
+p[m + 1][r][d.first][d.second] += add;
+}
+}
+}
+}
+}
+double answer = 0;
+for (int i = 0; i < N; i++) {
+for (int j = 0; j < N; j++) {
+double e = 1;
+for (int r = 0; r < N * N; r++) {
+e *= (1 - p[k][r][i][j]);
+}
+answer += e;
+}
+}
+cout.precision(6);
+cout << fixed << answer << "\n";
+}
+
+1728 · Inversion Probability
+Task · source analysis length 1,784 characters
+
+Problem statement
+An array has integers
+inversion is a pair
+) where
+
+, and each of them has been randomly chosen between
+and
+.
+
+and
+
+. An
+
+What is the expected number of inversions in the array?
+
+Input
+The first input line contains an integer : the size of the array.
+The second line contains
+
+integers
+
+: the range of possible values for each array position.
+
+Output
+Print the expected number of inversions rounded to six decimal places
+
+.
+
+Constraints
+
+We consider each index pair
+an inversion.
+
+) where
+
+and calculate the probability that
+
+which corresponds to
+
+Using linearity of expectation, the sum of the probabilities equals the expected number of inversions.
+
+C++ solution
+Here is a C++ solution for the problem:
+#include <iostream>
+#include <vector>
+using namespace std;
+int main() {
+int n;
+cin >> n;
+vector<int> r(n);
+for (int i = 0; i < n; i++) {
+cin >> r[i];
+}
+double answer = 0;
+for (int a = 0; a < n; a++) {
+for (int b = a + 1; b < n; b++) {
+for (int x_a = 1; x_a <= r[a]; x_a++) {
+for (int x_b = 1; x_b <= min(x_a - 1, r[b]); x_b++) {
+answer += 1.0 / (r[a] * r[b]);
+}
+}
+}
+}
+cout.precision(6);
+cout << fixed << answer << "\n";
+}
+
+Unfortunately, there are test cases where this solution fails due to precision issues. In general, it is difficult to
+create a correct solution in C++.
+
+Python solution
+In Python, we can use the Fraction class to avoid precision issues:
+from fractions import Fraction
+n = int(input())
+r = [int(x) for x in input().split(" ")]
+
+answer = Fraction(0, 1)
+for a in range(n):
+for b in range(a + 1, n):
+for x_a in range(1, r[a] + 1):
+for x_b in range(1, min(x_a, r[b] + 1)):
+answer += Fraction(1, r[a] * r[b])
+answer = float(round(answer, 6))
+print(f"{answer:06f}")
+
+The above solution works correctly but it is too slow. However, we can optimize the solution as follows:
+from fractions import Fraction
+n = int(input())
+r = [int(x) for x in input().split(" ")]
+answer = Fraction(0, 1)
+for a in range(n):
+for b in range(a + 1, n):
+count = 0
+for x_a in range(1, r[a] + 1):
+count += min(x_a - 1, r[b])
+answer += Fraction(count, r[a] * r[b])
+answer = float(round(answer, 6))
+print(f"{answer:06f}")
+
+This solution works both correctly and efficiently enough.
+
+
