@@ -17,6 +17,18 @@ the Markdown converter runs without shell escape:
 latexmk -lualatex -interaction=nonstopmode -halt-on-error notebook.tex
 ```
 
+## Focused practical-tricks notebook
+
+[hack_notebook.md](hack_notebook.md) is a separate C++17 companion covering nine
+practical algorithms, two Lagrange interpolation variants, and the supplied
+connected-subset centroid-counting solution. It includes
+contracts, pitfalls, examples, references, and tests; heuristic failures are
+explicitly distinguished from exact negative answers.
+
+Run `bash tools/test_hack_notebook.sh` (or prefix with `SANITIZE=1`). Build the
+13-page PDF with `python3 tools/build_hack_notebook.py` after installing
+`reportlab`; the result is `output/pdf/icpc_hack_notebook.pdf`.
+
 ## Technique gap inventory
 
 The technique dataset was compared with the notebook taxonomy. The resulting
