@@ -105,3 +105,32 @@ Useful discovered collections:
 - <https://github.com/khalwsh/Competitive-Programming> (`CSES-solutions/`)
 - <https://github.com/Jonathan-Uy/CSES-Solutions>
 - <https://github.com/TamimEhsan/CSES-Solutions>
+
+# Download CSES's shortest accepted C++ sources
+
+The submission queue supports language, status, and sorting filters. The relevant
+parameters are `lang=3` (C++), `status=2` (accepted), `by=2` (code size), and
+`order=0` (ascending). `by=0` sorts by submission time instead.
+
+```sh
+python3 tools/cses_shortest.py 1076 --cookie-file /private/session
+python3 tools/cses_shortest.py --all --cookie-file /private/session
+```
+
+The default task list is `tmp/cses-all.json`, prepared by `read_cses.py`. Files go
+to `tmp/cses-shortest/`: `<id>.cpp` is the exact extracted source, `<id>.json`
+contains author, compiler version, submission and queue URLs, reported character
+count, timestamp and SHA-256. `<id>.evidence.json` preserves the first page's
+ranking metadata. `manifest.json` records successes and explicit per-task errors.
+Downloads are cached; rerun to resume, or use `--refresh` to update rankings.
+Use `--workers 1` for sequential reads (default 4, maximum 8).
+
+This selects the first-ranked C++ entry as reported by the live queue when
+fetched. Ties retain CSES's order. C++11/17/20/23 entries share the C++ filter;
+the actual standard is recorded without claiming C++17 compatibility. CSES's
+reported character metric is preserved separately from UTF-8 file size. Code is
+not reformatted, shortened further, or added to the printed notebook. Sources
+can use code-golf tricks; acceptance alone does not establish notebook suitability.
+No submissions or hacks are sent. Cookies and authentication forms are never
+saved in the output. Preserve author attribution and source links when reusing
+entries. The tool does not grant a redistribution license for third-party code.
