@@ -17,6 +17,8 @@ class RunnerTests(unittest.TestCase):
             self.assertEqual(cses.verdict(f'<table><tr><td>Result:</td><td><span>{verdict}</span></td></tr></table>'),verdict)
         self.assertIsNone(cses.verdict('<td>ACCEPTED</td>'))
         self.assertIsNone(cses.verdict('<table><tr><td>Result:</td><td>TESTING</td></tr></table>'))
+    def test_compile_error_status(self):
+        self.assertEqual(cses.verdict('<span id="status">COMPILE ERROR</span>'),'COMPILATION ERROR')
     def test_matching_and_deduplication(self):
         with tempfile.TemporaryDirectory() as directory:
             p=Path(directory)

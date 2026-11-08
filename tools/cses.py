@@ -53,6 +53,9 @@ def index_sources(tasks, roots):
 
 def verdict(source):
     soup = BeautifulSoup(source, 'html.parser')
+    status = soup.select_one('#status')
+    if status and status.get_text(strip=True) in ('COMPILE ERROR', 'COMPILATION ERROR'):
+        return 'COMPILATION ERROR'
     for row in soup.select('tr'):
         cells = row.find_all(['td', 'th'], recursive=False)
         if len(cells) >= 2 and cells[0].get_text(strip=True) == 'Result:':
