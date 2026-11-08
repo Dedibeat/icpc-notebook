@@ -1,0 +1,18 @@
+{
+  "entry_id": "10504690",
+  "entry_url": "https://cses.fi/problemset/hack/1730/entry/10504690/",
+  "author": "hugsehbd",
+  "submitted_at": "2024-09-14 02:03:06",
+  "reported_characters": 105,
+  "max_time": "0.03 s",
+  "task": "1730",
+  "title": "Nim Game I",
+  "queue_url": "https://cses.fi/problemset/queue/1730/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:38.618075+00:00",
+  "sha256": "209737d99fac7ec72634ac8df0577f60806e135ad960350972cd3a386531dca0",
+  "source_bytes": 151,
+  "source_file": "cache/cses-shortest/1730.cpp"
+}

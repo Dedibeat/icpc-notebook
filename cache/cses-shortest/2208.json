@@ -1,0 +1,18 @@
+{
+  "entry_id": "7450732",
+  "entry_url": "https://cses.fi/problemset/hack/2208/entry/7450732/",
+  "author": "hugsehbd",
+  "submitted_at": "2023-10-20 23:32:41",
+  "reported_characters": 106,
+  "max_time": "0.03 s",
+  "task": "2208",
+  "title": "Another Game",
+  "queue_url": "https://cses.fi/problemset/queue/2208/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:39.979402+00:00",
+  "sha256": "e93b30dbb856bd88da1d727817c53646be161540e898f5386cca4a87c23d01de",
+  "source_bytes": 152,
+  "source_file": "cache/cses-shortest/2208.cpp"
+}

@@ -1,0 +1,18 @@
+{
+  "entry_id": "2429948",
+  "entry_url": "https://cses.fi/problemset/hack/1734/entry/2429948/",
+  "author": "ritul_kr_singh",
+  "submitted_at": "2021-06-29 15:03:00",
+  "reported_characters": 382,
+  "max_time": "0.43 s",
+  "task": "1734",
+  "title": "Distinct Values Queries",
+  "queue_url": "https://cses.fi/problemset/queue/1734/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:15.522074+00:00",
+  "sha256": "075ab6e725912312711799c1be1a52d26a53c89171396c691c26509ae1bff36d",
+  "source_bytes": 533,
+  "source_file": "cache/cses-shortest/1734.cpp"
+}

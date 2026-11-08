@@ -1,0 +1,18 @@
+{
+  "entry_id": "7436282",
+  "entry_url": "https://cses.fi/problemset/hack/1666/entry/7436282/",
+  "author": "eyalzus",
+  "submitted_at": "2023-10-19 14:27:58",
+  "reported_characters": 191,
+  "max_time": "0.14 s",
+  "task": "1666",
+  "title": "Building Roads",
+  "queue_url": "https://cses.fi/problemset/queue/1666/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:20:36.528490+00:00",
+  "sha256": "56f31b048db09aeea07bd2eedfd1179af60c3b6b71e1ec1b247762f22533e595",
+  "source_bytes": 231,
+  "source_file": "cache/cses-shortest/1666.cpp"
+}

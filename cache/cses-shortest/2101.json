@@ -1,0 +1,18 @@
+{
+  "entry_id": "7970373",
+  "entry_url": "https://cses.fi/problemset/hack/2101/entry/7970373/",
+  "author": "eyalzus",
+  "submitted_at": "2023-12-19 13:01:24",
+  "reported_characters": 221,
+  "max_time": "0.61 s",
+  "task": "2101",
+  "title": "New Roads Queries",
+  "queue_url": "https://cses.fi/problemset/queue/2101/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:55.083780+00:00",
+  "sha256": "c62ff5425a6ddf3a3b77c2d8eb6149ca16544445da4049af7d876ea96a8c4fc4",
+  "source_bytes": 274,
+  "source_file": "cache/cses-shortest/2101.cpp"
+}

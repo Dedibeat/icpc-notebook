@@ -1,0 +1,18 @@
+{
+  "entry_id": "14798689",
+  "entry_url": "https://cses.fi/problemset/hack/3221/entry/14798689/",
+  "author": "Maezra6",
+  "submitted_at": "2025-10-05 03:57:23",
+  "reported_characters": 228,
+  "max_time": "0.84 s",
+  "task": "3221",
+  "title": "Sliding Window Minimum",
+  "queue_url": "https://cses.fi/problemset/queue/3221/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:56.374765+00:00",
+  "sha256": "79e9327fa9ce842725412dae85d7cf0d00119672330dd351f0f4faae836936d8",
+  "source_bytes": 336,
+  "source_file": "cache/cses-shortest/3221.cpp"
+}

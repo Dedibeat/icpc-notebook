@@ -1,0 +1,18 @@
+{
+  "entry_id": "202070",
+  "entry_url": "https://cses.fi/problemset/hack/1724/entry/202070/",
+  "author": "JamsRamen",
+  "submitted_at": "2019-08-06 09:47:55",
+  "reported_characters": 461,
+  "max_time": "0.15 s",
+  "task": "1724",
+  "title": "Graph Paths II",
+  "queue_url": "https://cses.fi/problemset/queue/1724/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++11",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:36.285118+00:00",
+  "sha256": "342cae498dd39799b16b2f9309d8bbe7de13c531e67412117067400e7bbcd911",
+  "source_bytes": 672,
+  "source_file": "cache/cses-shortest/1724.cpp"
+}

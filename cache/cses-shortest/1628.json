@@ -1,0 +1,18 @@
+{
+  "entry_id": "8596795",
+  "entry_url": "https://cses.fi/problemset/hack/1628/entry/8596795/",
+  "author": "cefe_origol",
+  "submitted_at": "2024-02-29 16:08:05",
+  "reported_characters": 280,
+  "max_time": "0.56 s",
+  "task": "1628",
+  "title": "Meet in the Middle",
+  "queue_url": "https://cses.fi/problemset/queue/1628/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:50.056903+00:00",
+  "sha256": "b36e5019769c0f7a38819f88a91c7bcc88e36ffa333901f22c5632d071bcd5c1",
+  "source_bytes": 358,
+  "source_file": "cache/cses-shortest/1628.cpp"
+}

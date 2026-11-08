@@ -1,0 +1,18 @@
+{
+  "entry_id": "6428490",
+  "entry_url": "https://cses.fi/problemset/hack/1709/entry/6428490/",
+  "author": "MuntherCarrot",
+  "submitted_at": "2023-07-04 15:03:29",
+  "reported_characters": 302,
+  "max_time": "0.02 s",
+  "task": "1709",
+  "title": "Coin Grid",
+  "queue_url": "https://cses.fi/problemset/queue/1709/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:27.502779+00:00",
+  "sha256": "8a4fca4f97500789986dd19bf9fe05249bd8d332600ac4563c59b01db79ce7ca",
+  "source_bytes": 420,
+  "source_file": "cache/cses-shortest/1709.cpp"
+}

@@ -1,0 +1,18 @@
+{
+  "entry_id": "8274427",
+  "entry_url": "https://cses.fi/problemset/hack/2431/entry/8274427/",
+  "author": "bash_basher",
+  "submitted_at": "2024-01-24 13:01:41",
+  "reported_characters": 72,
+  "max_time": "0.04 s",
+  "task": "2431",
+  "title": "Digit Queries",
+  "queue_url": "https://cses.fi/problemset/queue/2431/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:19:34.560470+00:00",
+  "sha256": "9b54797b68bd4d5b604b60c08b99cab5893a06c2346d72cf835a3aec9ff670c7",
+  "source_bytes": 33635,
+  "source_file": "cache/cses-shortest/2431.cpp"
+}

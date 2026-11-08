@@ -1,0 +1,18 @@
+{
+  "entry_id": "5237497",
+  "entry_url": "https://cses.fi/problemset/hack/1643/entry/5237497/",
+  "author": "eyalzus",
+  "submitted_at": "2023-01-05 15:13:13",
+  "reported_characters": 100,
+  "max_time": "0.09 s",
+  "task": "1643",
+  "title": "Maximum Subarray Sum",
+  "queue_url": "https://cses.fi/problemset/queue/1643/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++11",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:19:45.736737+00:00",
+  "sha256": "a69ead9bb21b52ec34f29a8b478058c0ae7dba84d677d0f59e2aabb2cb5c40d0",
+  "source_bytes": 122,
+  "source_file": "cache/cses-shortest/1643.cpp"
+}

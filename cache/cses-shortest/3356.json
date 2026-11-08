@@ -1,0 +1,18 @@
+{
+  "entry_id": "19072312",
+  "entry_url": "https://cses.fi/problemset/hack/3356/entry/19072312/",
+  "author": "metr_evals",
+  "submitted_at": "2026-10-14 15:38:01",
+  "reported_characters": 825,
+  "max_time": "0.75 s",
+  "task": "3356",
+  "title": "Distinct Values Queries II",
+  "queue_url": "https://cses.fi/problemset/queue/3356/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:15.437985+00:00",
+  "sha256": "e7b828eb8c9f0e6bd548e4a7b6a4dc935b50c5e87730af3598319b3e05409858",
+  "source_bytes": 1320,
+  "source_file": "cache/cses-shortest/3356.cpp"
+}

@@ -1,0 +1,18 @@
+{
+  "entry_id": "3962864",
+  "entry_url": "https://cses.fi/problemset/hack/2190/entry/3962864/",
+  "author": "taulant",
+  "submitted_at": "2022-05-20 03:36:27",
+  "reported_characters": 358,
+  "max_time": "0.62 s",
+  "task": "2190",
+  "title": "Line Segment Intersection",
+  "queue_url": "https://cses.fi/problemset/queue/2190/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:45.762576+00:00",
+  "sha256": "67736766dd6551ce55c29f80206cc747b96497b704aaacdd2f02c30a14f363d5",
+  "source_bytes": 455,
+  "source_file": "cache/cses-shortest/2190.cpp"
+}

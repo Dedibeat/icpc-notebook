@@ -1,0 +1,18 @@
+{
+  "entry_id": "6155619",
+  "entry_url": "https://cses.fi/problemset/hack/1623/entry/6155619/",
+  "author": "bruce0421",
+  "submitted_at": "2023-05-29 05:09:10",
+  "reported_characters": 157,
+  "max_time": "0.02 s",
+  "task": "1623",
+  "title": "Apple Division",
+  "queue_url": "https://cses.fi/problemset/queue/1623/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:19:30.783056+00:00",
+  "sha256": "84b7ff24e749e951e3fbf5b42bd25f17d3c22944cfc3c47f4168163c93c883de",
+  "source_bytes": 189,
+  "source_file": "cache/cses-shortest/1623.cpp"
+}

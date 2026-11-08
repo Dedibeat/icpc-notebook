@@ -1,0 +1,18 @@
+{
+  "entry_id": "7260258",
+  "entry_url": "https://cses.fi/problemset/hack/1653/entry/7260258/",
+  "author": "wlz",
+  "submitted_at": "2023-10-01 20:24:15",
+  "reported_characters": 271,
+  "max_time": "0.78 s",
+  "task": "1653",
+  "title": "Elevator Rides",
+  "queue_url": "https://cses.fi/problemset/queue/1653/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:20:30.295967+00:00",
+  "sha256": "7e95e59cafcab205e45e39711b8a1639853e97268d3ae05bce4d174c13b151b6",
+  "source_bytes": 278,
+  "source_file": "cache/cses-shortest/1653.cpp"
+}

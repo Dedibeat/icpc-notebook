@@ -1,0 +1,18 @@
+{
+  "entry_id": "17836773",
+  "entry_url": "https://cses.fi/problemset/hack/2080/entry/17836773/",
+  "author": "Madamadam",
+  "submitted_at": "2026-07-06 16:45:35",
+  "reported_characters": 326,
+  "max_time": "0.64 s",
+  "task": "2080",
+  "title": "Fixed-Length Paths I",
+  "queue_url": "https://cses.fi/problemset/queue/2080/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++23",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:27.049034+00:00",
+  "sha256": "af0e4041529510418db60e82a5bfb6616064b34adb49aac2e1935d2da26574cf",
+  "source_bytes": 520,
+  "source_file": "cache/cses-shortest/2080.cpp"
+}

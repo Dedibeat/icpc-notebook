@@ -1,0 +1,18 @@
+{
+  "entry_id": "14419084",
+  "entry_url": "https://cses.fi/problemset/hack/1674/entry/14419084/",
+  "author": "hugsehbd",
+  "submitted_at": "2025-09-04 13:45:05",
+  "reported_characters": 169,
+  "max_time": "0.42 s",
+  "task": "1674",
+  "title": "Subordinates",
+  "queue_url": "https://cses.fi/problemset/queue/1674/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:23.333901+00:00",
+  "sha256": "6652d5e3f84d9d177f3b767c67bd7b381ce85a15ecc2a861f5411d9aedc17bad",
+  "source_bytes": 212,
+  "source_file": "cache/cses-shortest/1674.cpp"
+}

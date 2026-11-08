@@ -1,0 +1,18 @@
+{
+  "entry_id": "14984733",
+  "entry_url": "https://cses.fi/problemset/hack/2164/entry/14984733/",
+  "author": "farhan2004",
+  "submitted_at": "2025-10-19 12:06:22",
+  "reported_characters": 110,
+  "max_time": "0.24 s",
+  "task": "2164",
+  "title": "Josephus Queries",
+  "queue_url": "https://cses.fi/problemset/queue/2164/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:28.733694+00:00",
+  "sha256": "054eb4dda66d08f1bebab6946c47325daca12027a8fa5996cee54c7d1d92ecde",
+  "source_bytes": 163,
+  "source_file": "cache/cses-shortest/2164.cpp"
+}

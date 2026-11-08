@@ -1,0 +1,18 @@
+{
+  "entry_id": "5171358",
+  "entry_url": "https://cses.fi/problemset/hack/2228/entry/5171358/",
+  "author": "Genius3435",
+  "submitted_at": "2022-12-24 23:13:53",
+  "reported_characters": 194,
+  "max_time": "0.75 s",
+  "task": "2228",
+  "title": "Counting Sequences",
+  "queue_url": "https://cses.fi/problemset/queue/2228/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:15.531191+00:00",
+  "sha256": "5ec84e1b283d2e11ce24d3e086cd77eb76ed12516d12d1121e2ef7cc62c74db1",
+  "source_bytes": 290,
+  "source_file": "cache/cses-shortest/2228.cpp"
+}

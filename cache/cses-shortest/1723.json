@@ -1,0 +1,18 @@
+{
+  "entry_id": "410991",
+  "entry_url": "https://cses.fi/problemset/hack/1723/entry/410991/",
+  "author": "vetusware",
+  "submitted_at": "2020-04-28 09:59:46",
+  "reported_characters": 388,
+  "max_time": "0.31 s",
+  "task": "1723",
+  "title": "Graph Paths I",
+  "queue_url": "https://cses.fi/problemset/queue/1723/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++11",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:36.387840+00:00",
+  "sha256": "4b206fcebe16778f86a2a7676096673aa07295dfc99b5e4b7a88a96aab0fff2a",
+  "source_bytes": 408,
+  "source_file": "cache/cses-shortest/1723.cpp"
+}

@@ -1,0 +1,18 @@
+{
+  "entry_id": "16425441",
+  "entry_url": "https://cses.fi/problemset/hack/1668/entry/16425441/",
+  "author": "hugsehbd",
+  "submitted_at": "2026-03-03 01:58:41",
+  "reported_characters": 249,
+  "max_time": "0.90 s",
+  "task": "1668",
+  "title": "Building Teams",
+  "queue_url": "https://cses.fi/problemset/queue/1668/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:20:38.399985+00:00",
+  "sha256": "735095b0a82d7998b6407f843885477b211d64092e7dfd795e10fa096ef30fa7",
+  "source_bytes": 288,
+  "source_file": "cache/cses-shortest/1668.cpp"
+}

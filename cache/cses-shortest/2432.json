@@ -1,0 +1,18 @@
+{
+  "entry_id": "12990969",
+  "entry_url": "https://cses.fi/problemset/hack/2432/entry/12990969/",
+  "author": "@Muaath_5",
+  "submitted_at": "2025-05-21 16:29:31",
+  "reported_characters": 345,
+  "max_time": "0.00 s",
+  "task": "2432",
+  "title": "Grid Puzzle I",
+  "queue_url": "https://cses.fi/problemset/queue/2432/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:29.849104+00:00",
+  "sha256": "87dcad33f1a588d85e81270eb7cc9c2335d0e1d7a33d72a659d4eda8151e4007",
+  "source_bytes": 439,
+  "source_file": "cache/cses-shortest/2432.cpp"
+}

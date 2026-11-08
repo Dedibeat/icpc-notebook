@@ -1,0 +1,18 @@
+{
+  "entry_id": "3533245",
+  "entry_url": "https://cses.fi/problemset/hack/1148/entry/3533245/",
+  "author": "Hegdahl",
+  "submitted_at": "2022-02-13 03:34:51",
+  "reported_characters": 452,
+  "max_time": "0.85 s",
+  "task": "1148",
+  "title": "Maximum Building II",
+  "queue_url": "https://cses.fi/problemset/queue/1148/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:32.244591+00:00",
+  "sha256": "aac93aa778c4e17bb035cf9ed46ff160b1e67cfe6d91b91e93eed90a86f20b5f",
+  "source_bytes": 678,
+  "source_file": "cache/cses-shortest/1148.cpp"
+}

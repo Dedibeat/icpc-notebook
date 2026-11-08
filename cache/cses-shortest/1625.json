@@ -1,0 +1,18 @@
+{
+  "entry_id": "8493747",
+  "entry_url": "https://cses.fi/problemset/hack/1625/entry/8493747/",
+  "author": "NickSouth",
+  "submitted_at": "2024-02-17 07:05:23",
+  "reported_characters": 277,
+  "max_time": "0.99 s",
+  "task": "1625",
+  "title": "Grid Path Description",
+  "queue_url": "https://cses.fi/problemset/queue/1625/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++11",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:19:35.786605+00:00",
+  "sha256": "10637a2627f1a4a05edb3a1b6a5508557aa4437aca33ccf9a20710229f64e0ef",
+  "source_bytes": 321,
+  "source_file": "cache/cses-shortest/1625.cpp"
+}

@@ -1,0 +1,18 @@
+{
+  "entry_id": "6981897",
+  "entry_url": "https://cses.fi/problemset/hack/2108/entry/6981897/",
+  "author": "neuronz",
+  "submitted_at": "2023-09-03 15:43:54",
+  "reported_characters": 719,
+  "max_time": "0.10 s",
+  "task": "2108",
+  "title": "Substring Order I",
+  "queue_url": "https://cses.fi/problemset/queue/2108/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:45.120835+00:00",
+  "sha256": "3f8e1eebd1b110347be9b01f9c61f76c97f81b676b502eab3eac41c4e6b59137",
+  "source_bytes": 1072,
+  "source_file": "cache/cses-shortest/2108.cpp"
+}

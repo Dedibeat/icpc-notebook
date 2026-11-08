@@ -1,0 +1,18 @@
+{
+  "entry_id": "3495521",
+  "entry_url": "https://cses.fi/problemset/hack/1648/entry/3495521/",
+  "author": "SUNGOD",
+  "submitted_at": "2022-02-05 12:26:40",
+  "reported_characters": 251,
+  "max_time": "0.38 s",
+  "task": "1648",
+  "title": "Dynamic Range Sum Queries",
+  "queue_url": "https://cses.fi/problemset/queue/1648/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:11.340004+00:00",
+  "sha256": "c2ad230b5068c299fd0a52fb0be13e01b377ea942a5ab73c93ed93b28d72c5a1",
+  "source_bytes": 318,
+  "source_file": "cache/cses-shortest/1648.cpp"
+}

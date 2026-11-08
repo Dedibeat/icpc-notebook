@@ -1,0 +1,18 @@
+{
+  "entry_id": "3558839",
+  "entry_url": "https://cses.fi/problemset/hack/1630/entry/3558839/",
+  "author": "SUNGOD",
+  "submitted_at": "2022-02-17 20:09:59",
+  "reported_characters": 143,
+  "max_time": "0.15 s",
+  "task": "1630",
+  "title": "Tasks and Deadlines",
+  "queue_url": "https://cses.fi/problemset/queue/1630/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:19:57.493017+00:00",
+  "sha256": "30fda0713ba6a6094157557f375e1f44b2e2b49f34e2925925ea18e9e81808b8",
+  "source_bytes": 177,
+  "source_file": "cache/cses-shortest/1630.cpp"
+}

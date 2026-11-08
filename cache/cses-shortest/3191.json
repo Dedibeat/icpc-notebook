@@ -1,0 +1,18 @@
+{
+  "entry_id": "13778541",
+  "entry_url": "https://cses.fi/problemset/hack/3191/entry/13778541/",
+  "author": "NadavIsraeli",
+  "submitted_at": "2025-07-19 22:09:13",
+  "reported_characters": 163,
+  "max_time": "0.16 s",
+  "task": "3191",
+  "title": "Maximum Xor Subset",
+  "queue_url": "https://cses.fi/problemset/queue/3191/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:01.047542+00:00",
+  "sha256": "22dde6f5690aadaad4c5be12eb3d73b2b6b0325206a95429ef69bede0a096f52",
+  "source_bytes": 246,
+  "source_file": "cache/cses-shortest/3191.cpp"
+}

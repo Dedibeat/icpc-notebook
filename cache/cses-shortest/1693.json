@@ -1,0 +1,18 @@
+{
+  "entry_id": "8551094",
+  "entry_url": "https://cses.fi/problemset/hack/1693/entry/8551094/",
+  "author": "yoyorap",
+  "submitted_at": "2024-02-24 10:51:57",
+  "reported_characters": 317,
+  "max_time": "0.26 s",
+  "task": "1693",
+  "title": "Teleporters Path",
+  "queue_url": "https://cses.fi/problemset/queue/1693/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++11",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:20:56.431199+00:00",
+  "sha256": "d81c3c8b8d4dd28eb56aa6e46221142581004c15aa5d6a82301ac5af055c244d",
+  "source_bytes": 453,
+  "source_file": "cache/cses-shortest/1693.cpp"
+}

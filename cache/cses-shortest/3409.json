@@ -1,0 +1,18 @@
+{
+  "entry_id": "12987280",
+  "entry_url": "https://cses.fi/problemset/hack/3409/entry/12987280/",
+  "author": "not_amir",
+  "submitted_at": "2025-05-21 11:29:27",
+  "reported_characters": 568,
+  "max_time": "0.28 s",
+  "task": "3409",
+  "title": "MST Edge Cost",
+  "queue_url": "https://cses.fi/problemset/queue/3409/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:09.173648+00:00",
+  "sha256": "57faa49490d3dc2794c88bc6870fbea1139753bea1b4e05b893ab92a318c41f4",
+  "source_bytes": 1025,
+  "source_file": "cache/cses-shortest/3409.cpp"
+}

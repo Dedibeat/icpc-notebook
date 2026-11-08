@@ -1,0 +1,18 @@
+{
+  "entry_id": "8629667",
+  "entry_url": "https://cses.fi/problemset/hack/1190/entry/8629667/",
+  "author": "Naser_md",
+  "submitted_at": "2024-03-04 11:35:18",
+  "reported_characters": 336,
+  "max_time": "0.66 s",
+  "task": "1190",
+  "title": "Subarray Sum Queries",
+  "queue_url": "https://cses.fi/problemset/queue/1190/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:15.405274+00:00",
+  "sha256": "11df9d46543206e0f73e31f2c41a35f60b82ff22c1d3504b875230c51606dc49",
+  "source_bytes": 570,
+  "source_file": "cache/cses-shortest/1190.cpp"
+}

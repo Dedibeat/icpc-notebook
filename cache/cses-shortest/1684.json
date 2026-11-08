@@ -1,0 +1,18 @@
+{
+  "entry_id": "9146127",
+  "entry_url": "https://cses.fi/problemset/hack/1684/entry/9146127/",
+  "author": "eyalzus",
+  "submitted_at": "2024-04-30 15:57:38",
+  "reported_characters": 337,
+  "max_time": "0.80 s",
+  "task": "1684",
+  "title": "Giant Pizza",
+  "queue_url": "https://cses.fi/problemset/queue/1684/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:20:56.338533+00:00",
+  "sha256": "b85831c0465b63413fef3cc76718cc287f595301966b29fcf0e6a0bda78090c5",
+  "source_bytes": 436,
+  "source_file": "cache/cses-shortest/1684.cpp"
+}

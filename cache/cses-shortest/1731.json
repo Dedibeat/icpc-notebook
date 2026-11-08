@@ -1,0 +1,18 @@
+{
+  "entry_id": "10157400",
+  "entry_url": "https://cses.fi/problemset/hack/1731/entry/10157400/",
+  "author": "not_amir",
+  "submitted_at": "2024-08-11 16:05:11",
+  "reported_characters": 235,
+  "max_time": "0.27 s",
+  "task": "1731",
+  "title": "Word Combinations",
+  "queue_url": "https://cses.fi/problemset/queue/1731/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:40.772192+00:00",
+  "sha256": "19f1c8911f7dee2f66ac0578a5ba7ec43f0eb86733d45a0121c1028c25eb367a",
+  "source_bytes": 305,
+  "source_file": "cache/cses-shortest/1731.cpp"
+}

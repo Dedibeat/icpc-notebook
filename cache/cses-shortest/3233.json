@@ -1,0 +1,18 @@
+{
+  "entry_id": "12871769",
+  "entry_url": "https://cses.fi/problemset/hack/3233/entry/12871769/",
+  "author": "Ahmed57",
+  "submitted_at": "2025-05-12 22:58:13",
+  "reported_characters": 395,
+  "max_time": "0.23 s",
+  "task": "3233",
+  "title": "All Subarray Xors",
+  "queue_url": "https://cses.fi/problemset/queue/3233/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:01.953636+00:00",
+  "sha256": "c28c084492046c591af2d66a683791f2c93db9fa4f4338fabfffa4d0a03a5850",
+  "source_bytes": 536,
+  "source_file": "cache/cses-shortest/3233.cpp"
+}

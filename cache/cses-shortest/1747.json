@@ -1,0 +1,18 @@
+{
+  "entry_id": "6219833",
+  "entry_url": "https://cses.fi/problemset/hack/1747/entry/6219833/",
+  "author": "SashaT9",
+  "submitted_at": "2023-06-06 23:40:23",
+  "reported_characters": 385,
+  "max_time": "0.57 s",
+  "task": "1747",
+  "title": "Pyramid Array",
+  "queue_url": "https://cses.fi/problemset/queue/1747/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:23.158409+00:00",
+  "sha256": "0e866f34489351882086492a5684ed0094f0fde03c123851afa605ee7b2672e5",
+  "source_bytes": 526,
+  "source_file": "cache/cses-shortest/1747.cpp"
+}

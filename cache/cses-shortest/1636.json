@@ -1,0 +1,18 @@
+{
+  "entry_id": "9159098",
+  "entry_url": "https://cses.fi/problemset/hack/1636/entry/9159098/",
+  "author": "rayated",
+  "submitted_at": "2024-05-02 15:44:03",
+  "reported_characters": 136,
+  "max_time": "0.36 s",
+  "task": "1636",
+  "title": "Coin Combinations II",
+  "queue_url": "https://cses.fi/problemset/queue/1636/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:20:13.291717+00:00",
+  "sha256": "a1b03d1f53c9fe1deb61c9030b12e560e6844d494f8e8b5d7478fd187188243e",
+  "source_bytes": 199,
+  "source_file": "cache/cses-shortest/1636.cpp"
+}

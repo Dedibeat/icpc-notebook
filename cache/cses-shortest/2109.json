@@ -1,0 +1,18 @@
+{
+  "entry_id": "5281782",
+  "entry_url": "https://cses.fi/problemset/hack/2109/entry/5281782/",
+  "author": "Gii2000",
+  "submitted_at": "2023-01-14 02:40:32",
+  "reported_characters": 741,
+  "max_time": "0.09 s",
+  "task": "2109",
+  "title": "Substring Order II",
+  "queue_url": "https://cses.fi/problemset/queue/2109/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:45.322107+00:00",
+  "sha256": "ae7f1f2493663f02b377dbb07f300b7da99ab2ef48c85f84de9e7154d42137df",
+  "source_bytes": 1259,
+  "source_file": "cache/cses-shortest/2109.cpp"
+}

@@ -1,0 +1,18 @@
+{
+  "entry_id": "2661235",
+  "entry_url": "https://cses.fi/problemset/hack/2130/entry/2661235/",
+  "author": "lovro_nidogon1",
+  "submitted_at": "2021-08-10 12:57:46",
+  "reported_characters": 841,
+  "max_time": "0.63 s",
+  "task": "2130",
+  "title": "Distinct Routes II",
+  "queue_url": "https://cses.fi/problemset/queue/2130/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++11",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:55.895188+00:00",
+  "sha256": "7decf4effb500ef296f92ea4e847d14a09686522f58cdb2a7b1f28287136796b",
+  "source_bytes": 1294,
+  "source_file": "cache/cses-shortest/2130.cpp"
+}

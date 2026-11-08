@@ -1,0 +1,18 @@
+{
+  "entry_id": "2451599",
+  "entry_url": "https://cses.fi/problemset/hack/1137/entry/2451599/",
+  "author": "ritul_kr_singh",
+  "submitted_at": "2021-07-02 22:55:27",
+  "reported_characters": 458,
+  "max_time": "0.66 s",
+  "task": "1137",
+  "title": "Subtree Queries",
+  "queue_url": "https://cses.fi/problemset/queue/1137/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:26.224029+00:00",
+  "sha256": "1eaa2103c029cf49422fb05064aaf0e4badb61e9d95fc48bd8fee4a600042d1b",
+  "source_bytes": 645,
+  "source_file": "cache/cses-shortest/1137.cpp"
+}

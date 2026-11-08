@@ -1,0 +1,18 @@
+{
+  "entry_id": "15034959",
+  "entry_url": "https://cses.fi/problemset/hack/3114/entry/15034959/",
+  "author": "ericshen19555",
+  "submitted_at": "2025-10-23 15:36:56",
+  "reported_characters": 1030,
+  "max_time": "0.33 s",
+  "task": "3114",
+  "title": "Tree Coin Collecting I",
+  "queue_url": "https://cses.fi/problemset/queue/3114/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:09.739654+00:00",
+  "sha256": "0295f7b5372a3432a61a8ff0184b5a98ec0c07f2a909a257911eb44ca3d6da6d",
+  "source_bytes": 1195,
+  "source_file": "cache/cses-shortest/3114.cpp"
+}

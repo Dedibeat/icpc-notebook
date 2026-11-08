@@ -1,0 +1,18 @@
+{
+  "entry_id": "12881500",
+  "entry_url": "https://cses.fi/problemset/hack/3152/entry/12881500/",
+  "author": "babin74",
+  "submitted_at": "2025-05-13 17:25:33",
+  "reported_characters": 167,
+  "max_time": "0.38 s",
+  "task": "3152",
+  "title": "Bubble Sort Rounds II",
+  "queue_url": "https://cses.fi/problemset/queue/3152/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:19.262962+00:00",
+  "sha256": "96263333d59fd69479b82cfde36c31fa60137ac23d44b063634e8e2c70c9d805",
+  "source_bytes": 233,
+  "source_file": "cache/cses-shortest/3152.cpp"
+}

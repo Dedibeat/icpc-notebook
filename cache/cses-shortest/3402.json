@@ -1,0 +1,18 @@
+{
+  "entry_id": "15734726",
+  "entry_url": "https://cses.fi/problemset/hack/3402/entry/15734726/",
+  "author": "sukhoeing",
+  "submitted_at": "2025-12-26 16:32:26",
+  "reported_characters": 433,
+  "max_time": "0.14 s",
+  "task": "3402",
+  "title": "Minimum Cost Pairs",
+  "queue_url": "https://cses.fi/problemset/queue/3402/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:31.623082+00:00",
+  "sha256": "b3338b3095c8713aed9aec6fc937a1b8ff9e4363624dc748b1f4432cbb8fa5e6",
+  "source_bytes": 599,
+  "source_file": "cache/cses-shortest/3402.cpp"
+}

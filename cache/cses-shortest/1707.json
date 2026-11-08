@@ -1,0 +1,18 @@
+{
+  "entry_id": "18731674",
+  "entry_url": "https://cses.fi/problemset/hack/1707/entry/18731674/",
+  "author": "kunnan9999",
+  "submitted_at": "2026-09-13 17:56:09",
+  "reported_characters": 320,
+  "max_time": "0.16 s",
+  "task": "1707",
+  "title": "Graph Girth",
+  "queue_url": "https://cses.fi/problemset/queue/1707/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:07.807042+00:00",
+  "sha256": "632b25ffe692aed575154e6c8043f5ac70b87d4c317331e852ce5c5c6d119a0c",
+  "source_bytes": 397,
+  "source_file": "cache/cses-shortest/1707.cpp"
+}

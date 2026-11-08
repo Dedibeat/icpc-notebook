@@ -1,0 +1,18 @@
+{
+  "entry_id": "13009071",
+  "entry_url": "https://cses.fi/problemset/hack/3427/entry/13009071/",
+  "author": "nadav_yehuda",
+  "submitted_at": "2025-05-23 00:46:15",
+  "reported_characters": 400,
+  "max_time": "0.13 s",
+  "task": "3427",
+  "title": "Line Segments Trace I",
+  "queue_url": "https://cses.fi/problemset/queue/3427/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:48.054008+00:00",
+  "sha256": "5a1798a1c7a3b3e401a29ac03f7ff81dabb3a94345ba1e1c341638ab426de905",
+  "source_bytes": 609,
+  "source_file": "cache/cses-shortest/3427.cpp"
+}

@@ -1,0 +1,18 @@
+{
+  "entry_id": "8161265",
+  "entry_url": "https://cses.fi/problemset/hack/1135/entry/8161265/",
+  "author": "dorijanko",
+  "submitted_at": "2024-01-11 02:29:42",
+  "reported_characters": 479,
+  "max_time": "0.77 s",
+  "task": "1135",
+  "title": "Distance Queries",
+  "queue_url": "https://cses.fi/problemset/queue/1135/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:24.552689+00:00",
+  "sha256": "d41cda7e3cdca25389cd616495e19a0a61f911168dd2dbeba8857af9502f76cf",
+  "source_bytes": 629,
+  "source_file": "cache/cses-shortest/1135.cpp"
+}

@@ -1,0 +1,18 @@
+{
+  "entry_id": "12541868",
+  "entry_url": "https://cses.fi/problemset/hack/1680/entry/12541868/",
+  "author": "NadavIsraeli",
+  "submitted_at": "2025-04-04 21:27:15",
+  "reported_characters": 265,
+  "max_time": "0.30 s",
+  "task": "1680",
+  "title": "Longest Flight Route",
+  "queue_url": "https://cses.fi/problemset/queue/1680/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:20:45.729693+00:00",
+  "sha256": "55628eb25ed41723f32cfc72e004b5dc2e9203f1425ec57e695f39d3d9fa2da7",
+  "source_bytes": 411,
+  "source_file": "cache/cses-shortest/1680.cpp"
+}

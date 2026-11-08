@@ -1,0 +1,18 @@
+{
+  "entry_id": "14073488",
+  "entry_url": "https://cses.fi/problemset/hack/3109/entry/14073488/",
+  "author": "8XmyDzvdjc5@",
+  "submitted_at": "2025-08-10 14:49:29",
+  "reported_characters": 368,
+  "max_time": "0.18 s",
+  "task": "3109",
+  "title": "K Subset Sums II",
+  "queue_url": "https://cses.fi/problemset/queue/3109/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:26.680357+00:00",
+  "sha256": "db7ac299d93f2f14f32ee44ad543be7b204ad5ead6377765fa00f5d0d6d4006a",
+  "source_bytes": 455,
+  "source_file": "cache/cses-shortest/3109.cpp"
+}

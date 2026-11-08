@@ -1,0 +1,18 @@
+{
+  "entry_id": "2676490",
+  "entry_url": "https://cses.fi/problemset/hack/1073/entry/2676490/",
+  "author": "SUNGOD",
+  "submitted_at": "2021-08-12 20:48:08",
+  "reported_characters": 129,
+  "max_time": "0.10 s",
+  "task": "1073",
+  "title": "Towers",
+  "queue_url": "https://cses.fi/problemset/queue/1073/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:19:50.220995+00:00",
+  "sha256": "f6c7de26b00e2860b73b853ae9dd47dd32fe8416dfd36a8a298360b5f05b524c",
+  "source_bytes": 185,
+  "source_file": "cache/cses-shortest/1073.cpp"
+}

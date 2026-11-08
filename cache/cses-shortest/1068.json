@@ -1,0 +1,18 @@
+{
+  "entry_id": "14965366",
+  "entry_url": "https://cses.fi/problemset/hack/1068/entry/14965366/",
+  "author": "hugsehbd",
+  "submitted_at": "2025-10-17 15:48:25",
+  "reported_characters": 79,
+  "max_time": "0.00 s",
+  "task": "1068",
+  "title": "Weird Algorithm",
+  "queue_url": "https://cses.fi/problemset/queue/1068/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:19:13.441402+00:00",
+  "sha256": "f335a03135dba570695085d3b53452a03860beb1d3fc97e67278e9c83c913855",
+  "source_bytes": 88,
+  "source_file": "cache/cses-shortest/1068.cpp"
+}

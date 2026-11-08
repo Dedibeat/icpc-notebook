@@ -1,0 +1,18 @@
+{
+  "entry_id": "15711807",
+  "entry_url": "https://cses.fi/problemset/hack/1751/entry/15711807/",
+  "author": "hugsehbd",
+  "submitted_at": "2025-12-24 18:11:38",
+  "reported_characters": 167,
+  "max_time": "0.07 s",
+  "task": "1751",
+  "title": "Planets Cycles",
+  "queue_url": "https://cses.fi/problemset/queue/1751/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:20:50.023359+00:00",
+  "sha256": "1be6df6b28e5a771b19e68df7b229ff8ef31b086f85910be27eb40ab263bb164",
+  "source_bytes": 200,
+  "source_file": "cache/cses-shortest/1751.cpp"
+}

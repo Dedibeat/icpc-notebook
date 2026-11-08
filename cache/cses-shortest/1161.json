@@ -1,0 +1,18 @@
+{
+  "entry_id": "6048225",
+  "entry_url": "https://cses.fi/problemset/hack/1161/entry/6048225/",
+  "author": "Berryw",
+  "submitted_at": "2023-05-12 11:29:16",
+  "reported_characters": 183,
+  "max_time": "0.11 s",
+  "task": "1161",
+  "title": "Stick Divisions",
+  "queue_url": "https://cses.fi/problemset/queue/1161/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:32.652020+00:00",
+  "sha256": "0fa8d1ec94c5d3e2e20a02cae6424351da7d3456fe65a3de98f751e378413910",
+  "source_bytes": 255,
+  "source_file": "cache/cses-shortest/1161.cpp"
+}

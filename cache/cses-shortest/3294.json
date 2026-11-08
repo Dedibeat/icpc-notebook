@@ -1,0 +1,18 @@
+{
+  "entry_id": "14883171",
+  "entry_url": "https://cses.fi/problemset/hack/3294/entry/14883171/",
+  "author": "Sapihahaha",
+  "submitted_at": "2025-10-11 09:38:08",
+  "reported_characters": 459,
+  "max_time": "0.23 s",
+  "task": "3294",
+  "title": "Subarray Sum Constraints",
+  "queue_url": "https://cses.fi/problemset/queue/3294/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:21.263416+00:00",
+  "sha256": "c37acfa50af885be4934a6f8593c2c450a16682035c5ef21a2da82d2c46f805b",
+  "source_bytes": 890,
+  "source_file": "cache/cses-shortest/3294.cpp"
+}

@@ -1,0 +1,18 @@
+{
+  "entry_id": "16568629",
+  "entry_url": "https://cses.fi/problemset/hack/3224/entry/16568629/",
+  "author": "Maezra6",
+  "submitted_at": "2026-03-15 23:18:59",
+  "reported_characters": 224,
+  "max_time": "0.65 s",
+  "task": "3224",
+  "title": "Sliding Window Mode",
+  "queue_url": "https://cses.fi/problemset/queue/3224/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:57.596199+00:00",
+  "sha256": "e7b032a48acbc00bee372ff0dfb06d1354e8d7b91c0bdb41de4adc3ea1c79fd2",
+  "source_bytes": 331,
+  "source_file": "cache/cses-shortest/3224.cpp"
+}

@@ -1,0 +1,18 @@
+{
+  "entry_id": "9440090",
+  "entry_url": "https://cses.fi/problemset/hack/1661/entry/9440090/",
+  "author": "eyalzus",
+  "submitted_at": "2024-06-03 17:01:21",
+  "reported_characters": 123,
+  "max_time": "0.21 s",
+  "task": "1661",
+  "title": "Subarray Sums II",
+  "queue_url": "https://cses.fi/problemset/queue/1661/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:20:01.531017+00:00",
+  "sha256": "5ae9842618262ed204f3fa93ea995c2da65335453a8f9a0b5b720e93408f55d5",
+  "source_bytes": 155,
+  "source_file": "cache/cses-shortest/1661.cpp"
+}

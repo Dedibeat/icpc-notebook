@@ -1,0 +1,18 @@
+{
+  "entry_id": "5783456",
+  "entry_url": "https://cses.fi/problemset/hack/2136/entry/5783456/",
+  "author": "Lost Arrow",
+  "submitted_at": "2023-03-31 09:51:04",
+  "reported_characters": 153,
+  "max_time": "0.80 s",
+  "task": "2136",
+  "title": "Hamming Distance",
+  "queue_url": "https://cses.fi/problemset/queue/2136/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:50.343776+00:00",
+  "sha256": "b30f56bc1f73aabf126ca331de79e95b6e9cb1bfadbdc787d352c641ab819555",
+  "source_bytes": 232,
+  "source_file": "cache/cses-shortest/2136.cpp"
+}

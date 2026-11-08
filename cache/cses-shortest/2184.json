@@ -1,0 +1,18 @@
+{
+  "entry_id": "8277196",
+  "entry_url": "https://cses.fi/problemset/hack/2184/entry/8277196/",
+  "author": "Shrimb",
+  "submitted_at": "2024-01-24 18:42:06",
+  "reported_characters": 518,
+  "max_time": "0.99 s",
+  "task": "2184",
+  "title": "Missing Coin Sum Queries",
+  "queue_url": "https://cses.fi/problemset/queue/2184/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:17.828094+00:00",
+  "sha256": "4f92858fdea9a74973a751d06ee17da5886adf06b43b7d3df75f14d1edfa09b2",
+  "source_bytes": 951,
+  "source_file": "cache/cses-shortest/2184.cpp"
+}

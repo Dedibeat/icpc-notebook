@@ -1,0 +1,18 @@
+{
+  "entry_id": "18307862",
+  "entry_url": "https://cses.fi/problemset/hack/2416/entry/18307862/",
+  "author": "Dvir1232024",
+  "submitted_at": "2026-08-11 10:53:16",
+  "reported_characters": 493,
+  "max_time": "0.85 s",
+  "task": "2416",
+  "title": "Increasing Array Queries",
+  "queue_url": "https://cses.fi/problemset/queue/2416/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:15.299231+00:00",
+  "sha256": "875d6e57103cbe62de6b0433e83da8d4b7480ef84e365a1d1187264830db8e66",
+  "source_bytes": 811,
+  "source_file": "cache/cses-shortest/2416.cpp"
+}

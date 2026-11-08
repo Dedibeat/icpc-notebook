@@ -1,0 +1,18 @@
+{
+  "entry_id": "3496674",
+  "entry_url": "https://cses.fi/problemset/hack/1754/entry/3496674/",
+  "author": "SUNGOD",
+  "submitted_at": "2022-02-05 16:44:38",
+  "reported_characters": 100,
+  "max_time": "0.19 s",
+  "task": "1754",
+  "title": "Coin Piles",
+  "queue_url": "https://cses.fi/problemset/queue/1754/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:19:25.257177+00:00",
+  "sha256": "cb9ab0ddc45a9266f708e7a190a2c4c3f3fe1223b3c4a3dc5d8760dc782dac95",
+  "source_bytes": 136,
+  "source_file": "cache/cses-shortest/1754.cpp"
+}

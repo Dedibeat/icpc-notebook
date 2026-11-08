@@ -1,0 +1,18 @@
+{
+  "entry_id": "2690881",
+  "entry_url": "https://cses.fi/problemset/hack/1641/entry/2690881/",
+  "author": "SUNGOD",
+  "submitted_at": "2021-08-15 09:58:31",
+  "reported_characters": 222,
+  "max_time": "0.36 s",
+  "task": "1641",
+  "title": "Sum of Three Values",
+  "queue_url": "https://cses.fi/problemset/queue/1641/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:19:58.557552+00:00",
+  "sha256": "83eb34e734ea50e5f137efa277aba41886c64c905850fb5de312c7335bd8d9d3",
+  "source_bytes": 332,
+  "source_file": "cache/cses-shortest/1641.cpp"
+}

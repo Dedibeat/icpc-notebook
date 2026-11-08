@@ -1,0 +1,18 @@
+{
+  "entry_id": "8384474",
+  "entry_url": "https://cses.fi/problemset/hack/2074/entry/8384474/",
+  "author": "hugsehbd",
+  "submitted_at": "2024-02-04 23:20:18",
+  "reported_characters": 499,
+  "max_time": "0.57 s",
+  "task": "2074",
+  "title": "Reversals and Sums",
+  "queue_url": "https://cses.fi/problemset/queue/2074/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:51.950585+00:00",
+  "sha256": "8d5b1b8d7c68b1e20d7954866071ed7658b0a5cf8af27441f7377f0f3ad78b40",
+  "source_bytes": 765,
+  "source_file": "cache/cses-shortest/2074.cpp"
+}

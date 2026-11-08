@@ -1,0 +1,18 @@
+{
+  "entry_id": "15773034",
+  "entry_url": "https://cses.fi/problemset/hack/3216/entry/15773034/",
+  "author": "BalintR",
+  "submitted_at": "2025-12-30 02:41:33",
+  "reported_characters": 145,
+  "max_time": "0.01 s",
+  "task": "3216",
+  "title": "Bouncing Ball Cycle",
+  "queue_url": "https://cses.fi/problemset/queue/3216/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:25.331179+00:00",
+  "sha256": "d4dedba98fa7ce1319f8f5f9d5274a404fddd009479bfa0ceee661f74ba1f0e4",
+  "source_bytes": 233,
+  "source_file": "cache/cses-shortest/3216.cpp"
+}

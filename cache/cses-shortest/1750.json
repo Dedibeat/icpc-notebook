@@ -1,0 +1,18 @@
+{
+  "entry_id": "5503544",
+  "entry_url": "https://cses.fi/problemset/hack/1750/entry/5503544/",
+  "author": "eyalzus",
+  "submitted_at": "2023-02-18 16:37:42",
+  "reported_characters": 204,
+  "max_time": "0.56 s",
+  "task": "1750",
+  "title": "Planets Queries I",
+  "queue_url": "https://cses.fi/problemset/queue/1750/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:20:48.312998+00:00",
+  "sha256": "9b609eefc60cbbc09fc4a113f7a6f38dbe3fed1b49a22e9eb1bc2d0664a90571",
+  "source_bytes": 247,
+  "source_file": "cache/cses-shortest/1750.cpp"
+}

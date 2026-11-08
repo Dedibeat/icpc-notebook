@@ -1,0 +1,18 @@
+{
+  "entry_id": "8961030",
+  "entry_url": "https://cses.fi/problemset/hack/2229/entry/8961030/",
+  "author": "@Muaath_5",
+  "submitted_at": "2024-04-09 02:10:25",
+  "reported_characters": 176,
+  "max_time": "0.39 s",
+  "task": "2229",
+  "title": "Permutation Inversions",
+  "queue_url": "https://cses.fi/problemset/queue/2229/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:15.176941+00:00",
+  "sha256": "2e4cd3f1cc3fe0180949c88dbe5677cfb32614bd4de52fdb9f554756b72f33ce",
+  "source_bytes": 258,
+  "source_file": "cache/cses-shortest/2229.cpp"
+}

@@ -1,0 +1,18 @@
+{
+  "entry_id": "15191230",
+  "entry_url": "https://cses.fi/problemset/hack/1074/entry/15191230/",
+  "author": "Uoopy",
+  "submitted_at": "2025-11-05 01:37:37",
+  "reported_characters": 123,
+  "max_time": "0.05 s",
+  "task": "1074",
+  "title": "Stick Lengths",
+  "queue_url": "https://cses.fi/problemset/queue/1074/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:19:45.789440+00:00",
+  "sha256": "90145a8333243f5ab3bfb9975ba0fb501af358027290267d8fa7fe7fe26dd2b1",
+  "source_bytes": 176,
+  "source_file": "cache/cses-shortest/1074.cpp"
+}

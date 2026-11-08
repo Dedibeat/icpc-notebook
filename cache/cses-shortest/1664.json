@@ -1,0 +1,18 @@
+{
+  "entry_id": "13418791",
+  "entry_url": "https://cses.fi/problemset/hack/1664/entry/13418791/",
+  "author": "Sacharlemagne",
+  "submitted_at": "2025-06-23 17:41:07",
+  "reported_characters": 274,
+  "max_time": "0.99 s",
+  "task": "1664",
+  "title": "Movie Festival Queries",
+  "queue_url": "https://cses.fi/problemset/queue/1664/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:15.475566+00:00",
+  "sha256": "c6d67588b9405440e96f9ed5f4a79d0f1fc122a08173099f685e97f624083eea",
+  "source_bytes": 346,
+  "source_file": "cache/cses-shortest/1664.cpp"
+}

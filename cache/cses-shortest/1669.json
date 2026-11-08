@@ -1,0 +1,18 @@
+{
+  "entry_id": "405847",
+  "entry_url": "https://cses.fi/problemset/hack/1669/entry/405847/",
+  "author": "neko_nyaa",
+  "submitted_at": "2020-04-24 14:07:06",
+  "reported_characters": 345,
+  "max_time": "0.20 s",
+  "task": "1669",
+  "title": "Round Trip",
+  "queue_url": "https://cses.fi/problemset/queue/1669/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:20:38.316405+00:00",
+  "sha256": "68994b005a4651e6284ecf396850ac4f43a8abc35faab587565377c3d228c9e5",
+  "source_bytes": 710,
+  "source_file": "cache/cses-shortest/1669.cpp"
+}

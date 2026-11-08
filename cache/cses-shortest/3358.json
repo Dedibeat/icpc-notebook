@@ -1,0 +1,18 @@
+{
+  "entry_id": "15673053",
+  "entry_url": "https://cses.fi/problemset/hack/3358/entry/15673053/",
+  "author": "tsunnami",
+  "submitted_at": "2025-12-21 05:08:27",
+  "reported_characters": 741,
+  "max_time": "0.68 s",
+  "task": "3358",
+  "title": "Split into Two Paths",
+  "queue_url": "https://cses.fi/problemset/queue/3358/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:11.640718+00:00",
+  "sha256": "f90c4f4cfeb35cd42a17d6eec1d7cbe68e290cb4fe708c78f92c0044b96a7994",
+  "source_bytes": 749,
+  "source_file": "cache/cses-shortest/3358.cpp"
+}

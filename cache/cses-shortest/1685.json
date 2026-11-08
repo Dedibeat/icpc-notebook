@@ -1,0 +1,18 @@
+{
+  "entry_id": "11770514",
+  "entry_url": "https://cses.fi/problemset/hack/1685/entry/11770514/",
+  "author": "BalintR",
+  "submitted_at": "2025-01-17 03:43:59",
+  "reported_characters": 668,
+  "max_time": "0.39 s",
+  "task": "1685",
+  "title": "New Flight Routes",
+  "queue_url": "https://cses.fi/problemset/queue/1685/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:12.894070+00:00",
+  "sha256": "149adbc9e2820277f24da2f5424b508026c9656d92e267a52b99572a2f0a75fc",
+  "source_bytes": 1104,
+  "source_file": "cache/cses-shortest/1685.cpp"
+}

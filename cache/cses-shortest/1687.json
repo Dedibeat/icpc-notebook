@@ -1,0 +1,18 @@
+{
+  "entry_id": "12853986",
+  "entry_url": "https://cses.fi/problemset/hack/1687/entry/12853986/",
+  "author": "Madamadam",
+  "submitted_at": "2025-05-11 19:16:45",
+  "reported_characters": 190,
+  "max_time": "0.64 s",
+  "task": "1687",
+  "title": "Company Queries I",
+  "queue_url": "https://cses.fi/problemset/queue/1687/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:24.224147+00:00",
+  "sha256": "8658d6b27c58f912fe6bef94a34d0d188b747ef89be262dfc543e59cba28d7e3",
+  "source_bytes": 305,
+  "source_file": "cache/cses-shortest/1687.cpp"
+}

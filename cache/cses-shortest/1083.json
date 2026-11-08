@@ -1,0 +1,18 @@
+{
+  "entry_id": "14671663",
+  "entry_url": "https://cses.fi/problemset/hack/1083/entry/14671663/",
+  "author": "ericg",
+  "submitted_at": "2025-09-25 22:45:14",
+  "reported_characters": 74,
+  "max_time": "0.07 s",
+  "task": "1083",
+  "title": "Missing Number",
+  "queue_url": "https://cses.fi/problemset/queue/1083/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:19:15.353117+00:00",
+  "sha256": "04183d59affff2ca570c781a7d8bf27f041de9fbc1115df16aba03be8900455a",
+  "source_bytes": 95,
+  "source_file": "cache/cses-shortest/1083.cpp"
+}

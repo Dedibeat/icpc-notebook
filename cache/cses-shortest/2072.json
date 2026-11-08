@@ -1,0 +1,18 @@
+{
+  "entry_id": "8654746",
+  "entry_url": "https://cses.fi/problemset/hack/2072/entry/8654746/",
+  "author": "MuntherCarrot",
+  "submitted_at": "2024-03-06 19:41:35",
+  "reported_characters": 496,
+  "max_time": "0.73 s",
+  "task": "2072",
+  "title": "Cut and Paste",
+  "queue_url": "https://cses.fi/problemset/queue/2072/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:51.556885+00:00",
+  "sha256": "dd5212aa54ebcc45baba763eeb882d5f1e3c11eeba123fba8c07fec17b9fa8d5",
+  "source_bytes": 665,
+  "source_file": "cache/cses-shortest/2072.cpp"
+}

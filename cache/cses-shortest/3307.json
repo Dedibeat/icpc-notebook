@@ -1,0 +1,18 @@
+{
+  "entry_id": "13146248",
+  "entry_url": "https://cses.fi/problemset/hack/3307/entry/13146248/",
+  "author": "ronr",
+  "submitted_at": "2025-06-02 15:52:10",
+  "reported_characters": 601,
+  "max_time": "0.14 s",
+  "task": "3307",
+  "title": "Nearest Campsites II",
+  "queue_url": "https://cses.fi/problemset/queue/3307/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:19.926346+00:00",
+  "sha256": "44fc16e5c52eedfbf4010ff287da16af23daf56fa4681d665a8e6611523a57b5",
+  "source_bytes": 1104,
+  "source_file": "cache/cses-shortest/3307.cpp"
+}

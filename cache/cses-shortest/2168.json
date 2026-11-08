@@ -1,0 +1,18 @@
+{
+  "entry_id": "10844377",
+  "entry_url": "https://cses.fi/problemset/hack/2168/entry/10844377/",
+  "author": "JJCUBER",
+  "submitted_at": "2024-10-14 06:28:20",
+  "reported_characters": 371,
+  "max_time": "0.28 s",
+  "task": "2168",
+  "title": "Nested Ranges Check",
+  "queue_url": "https://cses.fi/problemset/queue/2168/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:19:54.128212+00:00",
+  "sha256": "58157b3a3e5e31978dd65bb573387ca029e1f527796380c1ca38a8eeef3abd20",
+  "source_bytes": 699,
+  "source_file": "cache/cses-shortest/2168.cpp"
+}

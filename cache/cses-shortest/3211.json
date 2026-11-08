@@ -1,0 +1,18 @@
+{
+  "entry_id": "14627501",
+  "entry_url": "https://cses.fi/problemset/hack/3211/entry/14627501/",
+  "author": "ericg",
+  "submitted_at": "2025-09-22 02:42:20",
+  "reported_characters": 153,
+  "max_time": "0.13 s",
+  "task": "3211",
+  "title": "Number of Subset Xors",
+  "queue_url": "https://cses.fi/problemset/queue/3211/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:01.800516+00:00",
+  "sha256": "da4d70ba45d830ff9efdcfd3cbc462f3c5b2a88419b0907d89713c0faec7c55a",
+  "source_bytes": 289,
+  "source_file": "cache/cses-shortest/3211.cpp"
+}

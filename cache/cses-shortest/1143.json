@@ -1,0 +1,18 @@
+{
+  "entry_id": "153542",
+  "entry_url": "https://cses.fi/problemset/hack/1143/entry/153542/",
+  "author": "pikmike",
+  "submitted_at": "2019-04-24 16:50:13",
+  "reported_characters": 249,
+  "max_time": "1.00 s",
+  "task": "1143",
+  "title": "Hotel Queries",
+  "queue_url": "https://cses.fi/problemset/queue/1143/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:09.995914+00:00",
+  "sha256": "2856b885c7a3a71b2e431272353387deef3eedeb8741cd41d5741f8bd8f9d5bb",
+  "source_bytes": 366,
+  "source_file": "cache/cses-shortest/1143.cpp"
+}

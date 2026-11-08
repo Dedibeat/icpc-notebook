@@ -1,0 +1,18 @@
+{
+  "entry_id": "17083934",
+  "entry_url": "https://cses.fi/problemset/hack/2084/entry/17083934/",
+  "author": "AidenCode",
+  "submitted_at": "2026-05-05 11:15:03",
+  "reported_characters": 449,
+  "max_time": "0.34 s",
+  "task": "2084",
+  "title": "Monster Game I",
+  "queue_url": "https://cses.fi/problemset/queue/2084/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:52.999851+00:00",
+  "sha256": "28f67c8514f7bd27491034d7a8797313a18112a2b4c6909dd0f650e4edd4b3c2",
+  "source_bytes": 807,
+  "source_file": "cache/cses-shortest/2084.cpp"
+}

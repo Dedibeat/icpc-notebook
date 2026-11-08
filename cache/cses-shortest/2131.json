@@ -1,0 +1,18 @@
+{
+  "entry_id": "3592899",
+  "entry_url": "https://cses.fi/problemset/hack/2131/entry/3592899/",
+  "author": "nghiass001",
+  "submitted_at": "2022-02-24 12:30:20",
+  "reported_characters": 884,
+  "max_time": "0.08 s",
+  "task": "2131",
+  "title": "Grid Puzzle II",
+  "queue_url": "https://cses.fi/problemset/queue/2131/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++11",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:29.803555+00:00",
+  "sha256": "004ef809d8f943b460bc2b1d604ff90d558aba6e00264015a6c77d017af9d7d3",
+  "source_bytes": 1781,
+  "source_file": "cache/cses-shortest/2131.cpp"
+}

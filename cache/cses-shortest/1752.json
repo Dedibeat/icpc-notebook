@@ -1,0 +1,18 @@
+{
+  "entry_id": "5905381",
+  "entry_url": "https://cses.fi/problemset/hack/1752/entry/5905381/",
+  "author": "neko_nyaa",
+  "submitted_at": "2023-04-17 11:53:33",
+  "reported_characters": 405,
+  "max_time": "0.26 s",
+  "task": "1752",
+  "title": "Creating Offices",
+  "queue_url": "https://cses.fi/problemset/queue/1752/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:12.668082+00:00",
+  "sha256": "43f2faba57ff0972c6eb13031551968837c13051bb75f51994dfe0483364c9d3",
+  "source_bytes": 608,
+  "source_file": "cache/cses-shortest/1752.cpp"
+}

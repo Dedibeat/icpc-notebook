@@ -1,0 +1,18 @@
+{
+  "entry_id": "12946696",
+  "entry_url": "https://cses.fi/problemset/hack/3426/entry/12946696/",
+  "author": "roeiei",
+  "submitted_at": "2025-05-18 11:39:57",
+  "reported_characters": 134,
+  "max_time": "0.19 s",
+  "task": "3426",
+  "title": "Sliding Window Xor",
+  "queue_url": "https://cses.fi/problemset/queue/3426/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:56.713545+00:00",
+  "sha256": "0f481d76d89c2458ea072c71e35ae3fa12d9980c9988881f1496c3521aeac71a",
+  "source_bytes": 205,
+  "source_file": "cache/cses-shortest/3426.cpp"
+}

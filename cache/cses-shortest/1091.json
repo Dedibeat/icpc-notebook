@@ -1,0 +1,18 @@
+{
+  "entry_id": "2573554",
+  "entry_url": "https://cses.fi/problemset/hack/1091/entry/2573554/",
+  "author": "SUNGOD",
+  "submitted_at": "2021-07-26 04:28:53",
+  "reported_characters": 183,
+  "max_time": "0.86 s",
+  "task": "1091",
+  "title": "Concert Tickets",
+  "queue_url": "https://cses.fi/problemset/queue/1091/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:19:41.157455+00:00",
+  "sha256": "d3246aeb67f0cf284838eca27428aff14436b0e481ba8535a4fa165784353494",
+  "source_bytes": 241,
+  "source_file": "cache/cses-shortest/1091.cpp"
+}

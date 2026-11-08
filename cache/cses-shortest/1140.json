@@ -1,0 +1,18 @@
+{
+  "entry_id": "6255376",
+  "entry_url": "https://cses.fi/problemset/hack/1140/entry/6255376/",
+  "author": "MrM7mD",
+  "submitted_at": "2023-06-12 00:59:13",
+  "reported_characters": 270,
+  "max_time": "0.46 s",
+  "task": "1140",
+  "title": "Projects",
+  "queue_url": "https://cses.fi/problemset/queue/1140/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:20:30.283247+00:00",
+  "sha256": "a06b7f1c1a23fbc3395f0af2d9f0d2bfc35cf12cb8ce26886e21604f5361ec0b",
+  "source_bytes": 290,
+  "source_file": "cache/cses-shortest/1140.cpp"
+}

@@ -1,0 +1,18 @@
+{
+  "entry_id": "11011776",
+  "entry_url": "https://cses.fi/problemset/hack/2081/entry/11011776/",
+  "author": "minhtrinh22ti",
+  "submitted_at": "2024-10-29 19:10:47",
+  "reported_characters": 406,
+  "max_time": "0.51 s",
+  "task": "2081",
+  "title": "Fixed-Length Paths II",
+  "queue_url": "https://cses.fi/problemset/queue/2081/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:27.004866+00:00",
+  "sha256": "5fc53c4ab39a0c5eb1160971511e0bf1d37f928e09072d0b08936abd11fe4d2e",
+  "source_bytes": 533,
+  "source_file": "cache/cses-shortest/2081.cpp"
+}

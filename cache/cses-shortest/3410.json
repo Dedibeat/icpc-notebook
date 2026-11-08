@@ -1,0 +1,18 @@
+{
+  "entry_id": "13007314",
+  "entry_url": "https://cses.fi/problemset/hack/3410/entry/13007314/",
+  "author": "nadav_yehuda",
+  "submitted_at": "2025-05-22 21:16:47",
+  "reported_characters": 172,
+  "max_time": "0.48 s",
+  "task": "3410",
+  "title": "Maximum Manhattan Distances",
+  "queue_url": "https://cses.fi/problemset/queue/3410/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++11",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:47.268401+00:00",
+  "sha256": "27f53615c68e3c01dddae84e12740cf24f29f11f67363a6636b2f2b71a1514a9",
+  "source_bytes": 207,
+  "source_file": "cache/cses-shortest/3410.cpp"
+}

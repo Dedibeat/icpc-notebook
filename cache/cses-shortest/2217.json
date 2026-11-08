@@ -1,0 +1,18 @@
+{
+  "entry_id": "8747921",
+  "entry_url": "https://cses.fi/problemset/hack/2217/entry/8747921/",
+  "author": "@Muaath_5",
+  "submitted_at": "2024-03-16 19:12:22",
+  "reported_characters": 317,
+  "max_time": "0.50 s",
+  "task": "2217",
+  "title": "Collecting Numbers II",
+  "queue_url": "https://cses.fi/problemset/queue/2217/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:19:49.222010+00:00",
+  "sha256": "f2079740adb256d7fe96a987f08f2ab472ac8bb18311fa4e23ba22a6e90ba1b6",
+  "source_bytes": 450,
+  "source_file": "cache/cses-shortest/2217.cpp"
+}

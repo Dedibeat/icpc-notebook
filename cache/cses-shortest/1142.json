@@ -1,0 +1,18 @@
+{
+  "entry_id": "14801936",
+  "entry_url": "https://cses.fi/problemset/hack/1142/entry/14801936/",
+  "author": "dabper13",
+  "submitted_at": "2025-10-05 11:18:33",
+  "reported_characters": 252,
+  "max_time": "0.10 s",
+  "task": "1142",
+  "title": "Advertisement",
+  "queue_url": "https://cses.fi/problemset/queue/1142/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++11",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:21.077155+00:00",
+  "sha256": "5dc0107eadc1412e84bd7ecfddd60f2641a4ca5d5d884bd99336f596b11c987b",
+  "source_bytes": 334,
+  "source_file": "cache/cses-shortest/1142.cpp"
+}

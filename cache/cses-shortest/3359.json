@@ -1,0 +1,18 @@
+{
+  "entry_id": "19074551",
+  "entry_url": "https://cses.fi/problemset/hack/3359/entry/19074551/",
+  "author": "roeiei",
+  "submitted_at": "2026-10-14 19:05:10",
+  "reported_characters": 298,
+  "max_time": "0.29 s",
+  "task": "3359",
+  "title": "Minimal Grid Path",
+  "queue_url": "https://cses.fi/problemset/queue/3359/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:20:23.609587+00:00",
+  "sha256": "3dd291dc7575dcf0b12ceecd796e01e73b60122ac596f206e8eb0fe355dad49e",
+  "source_bytes": 487,
+  "source_file": "cache/cses-shortest/3359.cpp"
+}

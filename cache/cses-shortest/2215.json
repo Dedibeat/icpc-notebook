@@ -1,0 +1,18 @@
+{
+  "entry_id": "7481496",
+  "entry_url": "https://cses.fi/problemset/hack/2215/entry/7481496/",
+  "author": "thanhniencuanam",
+  "submitted_at": "2023-10-24 06:29:59",
+  "reported_characters": 152,
+  "max_time": "0.01 s",
+  "task": "2215",
+  "title": "Monotone Subsequences",
+  "queue_url": "https://cses.fi/problemset/queue/2215/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++11",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:04.395374+00:00",
+  "sha256": "9526e799dbd0f0b5c47b22387e3a377c29881aee0e113d7e2581e0e13567dfea",
+  "source_bytes": 247,
+  "source_file": "cache/cses-shortest/2215.cpp"
+}

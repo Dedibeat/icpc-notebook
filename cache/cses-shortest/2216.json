@@ -1,0 +1,18 @@
+{
+  "entry_id": "2727642",
+  "entry_url": "https://cses.fi/problemset/hack/2216/entry/2727642/",
+  "author": "SUNGOD",
+  "submitted_at": "2021-08-21 20:46:42",
+  "reported_characters": 87,
+  "max_time": "0.07 s",
+  "task": "2216",
+  "title": "Collecting Numbers",
+  "queue_url": "https://cses.fi/problemset/queue/2216/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:19:48.924904+00:00",
+  "sha256": "6fbb60626f06e09d7d43a040e9bf23416758da3dc168d2ad12c02b5d88829a3d",
+  "source_bytes": 120,
+  "source_file": "cache/cses-shortest/2216.cpp"
+}

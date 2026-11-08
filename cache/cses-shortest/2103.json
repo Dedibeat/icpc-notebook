@@ -1,0 +1,18 @@
+{
+  "entry_id": "3091145",
+  "entry_url": "https://cses.fi/problemset/hack/2103/entry/3091145/",
+  "author": "becaido",
+  "submitted_at": "2021-11-06 18:04:18",
+  "reported_characters": 489,
+  "max_time": "0.80 s",
+  "task": "2103",
+  "title": "Counting Patterns",
+  "queue_url": "https://cses.fi/problemset/queue/2103/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:43.223164+00:00",
+  "sha256": "7950a83b9f39de4839c890b082fc45aed3824f4a4de63e71161b0edbb1bdaecd",
+  "source_bytes": 980,
+  "source_file": "cache/cses-shortest/2103.cpp"
+}

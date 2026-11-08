@@ -1,0 +1,18 @@
+{
+  "entry_id": "10074517",
+  "entry_url": "https://cses.fi/problemset/hack/1732/entry/10074517/",
+  "author": "not_amir",
+  "submitted_at": "2024-08-04 15:18:06",
+  "reported_characters": 178,
+  "max_time": "0.16 s",
+  "task": "1732",
+  "title": "Finding Borders",
+  "queue_url": "https://cses.fi/problemset/queue/1732/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:41.272502+00:00",
+  "sha256": "99b4bb0cafe4025fd0f018958d88e0cd6b8ace691de95f5f30ff3283384fcf66",
+  "source_bytes": 321,
+  "source_file": "cache/cses-shortest/1732.cpp"
+}

@@ -1,0 +1,3 @@
+#include<bits/stdc++.h>
+#define v return
+using namespace std;using w=long;struct F{w l,r,o,m=0,c=-1e17;F*p=0,*q=0;F(w L=0,w R=1e6){l=L;r=R;o=(l+r)/2;if(l!=r){p=new F(l,o);q=new F(o+1,r);}}w e(w x){v m*x+c;}void A(w a,w b,w M,w C){if(l>b||r<a)v;if(a<=l&&r<=b){w E=M*o+C;if(E>e(o)){swap(M,m);swap(C,c);}if(l!=r){if(M<m)p->A(a,b,M,C);else q->A(a,b,M,C);}v;}p->A(a,b,M,C);q->A(a,b,M,C);}w Q(w x){if(l>x||r<x)v-1e17;if(l==r)v e(x);v max({p->Q(x),q->Q(x),e(x)});}};F f;int main(){w n,a,b,l,o;cin>>n;for(w i=1;i<=n;i++){cin>>o;if(2-o){cin>>a>>b>>l>>o;f.A(l,o,a,b);}else{cin>>o;a=f.Q(o);cout<<(a<-1e16?"NO":to_string(a))+'\n';}}}

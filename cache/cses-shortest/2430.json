@@ -1,0 +1,18 @@
+{
+  "entry_id": "6700107",
+  "entry_url": "https://cses.fi/problemset/hack/2430/entry/6700107/",
+  "author": "eitanelbaum",
+  "submitted_at": "2023-08-06 00:23:13",
+  "reported_characters": 215,
+  "max_time": "0.07 s",
+  "task": "2430",
+  "title": "Binary Subsequences",
+  "queue_url": "https://cses.fi/problemset/queue/2430/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++11",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:27.456034+00:00",
+  "sha256": "6f4f8118dff9ee0a062208feef84170b0479e0ef6a276d431165a6754b34ccf6",
+  "source_bytes": 292,
+  "source_file": "cache/cses-shortest/2430.cpp"
+}

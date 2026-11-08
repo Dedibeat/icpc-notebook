@@ -1,0 +1,18 @@
+{
+  "entry_id": "10419454",
+  "entry_url": "https://cses.fi/problemset/hack/1644/entry/10419454/",
+  "author": "Shrimb",
+  "submitted_at": "2024-09-06 03:37:09",
+  "reported_characters": 217,
+  "max_time": "0.19 s",
+  "task": "1644",
+  "title": "Maximum Subarray Sum II",
+  "queue_url": "https://cses.fi/problemset/queue/1644/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:20:06.502220+00:00",
+  "sha256": "bc470d87da8165ab450ed79c14b19cded1c966411adbfc631070bdb619d4cf54",
+  "source_bytes": 268,
+  "source_file": "cache/cses-shortest/1644.cpp"
+}

@@ -1,0 +1,18 @@
+{
+  "entry_id": "12912924",
+  "entry_url": "https://cses.fi/problemset/hack/3138/entry/12912924/",
+  "author": "adamant",
+  "submitted_at": "2025-05-15 19:41:58",
+  "reported_characters": 267,
+  "max_time": "0.12 s",
+  "task": "3138",
+  "title": "All Palindromes",
+  "queue_url": "https://cses.fi/problemset/queue/3138/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:41.743702+00:00",
+  "sha256": "566d6639a598b465edfd0a6cbc810e0af2daf3df69abe346985174ecd4e3ea23",
+  "source_bytes": 406,
+  "source_file": "cache/cses-shortest/3138.cpp"
+}

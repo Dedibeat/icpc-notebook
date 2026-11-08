@@ -1,0 +1,18 @@
+{
+  "entry_id": "13727375",
+  "entry_url": "https://cses.fi/problemset/hack/3361/entry/13727375/",
+  "author": "nadav_yehuda",
+  "submitted_at": "2025-07-16 02:25:50",
+  "reported_characters": 322,
+  "max_time": "0.14 s",
+  "task": "3361",
+  "title": "Two Array Average",
+  "queue_url": "https://cses.fi/problemset/queue/3361/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:23.111810+00:00",
+  "sha256": "c695bbb5a0a525e285cf6bc204ecb7c47bfa2851d93bcf40276ce06ec5000b3e",
+  "source_bytes": 431,
+  "source_file": "cache/cses-shortest/3361.cpp"
+}

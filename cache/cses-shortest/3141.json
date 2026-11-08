@@ -1,0 +1,18 @@
+{
+  "entry_id": "18242902",
+  "entry_url": "https://cses.fi/problemset/hack/3141/entry/18242902/",
+  "author": "Dvir1232024",
+  "submitted_at": "2026-08-06 10:06:36",
+  "reported_characters": 328,
+  "max_time": "0.07 s",
+  "task": "3141",
+  "title": "And Subset Count",
+  "queue_url": "https://cses.fi/problemset/queue/3141/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:03.362816+00:00",
+  "sha256": "01081ee13a4ad1d5af16dda7e2488040f6f82c293a42221ba2c5db1d0bd1b2ce",
+  "source_bytes": 423,
+  "source_file": "cache/cses-shortest/3141.cpp"
+}

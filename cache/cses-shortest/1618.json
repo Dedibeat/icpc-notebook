@@ -1,0 +1,18 @@
+{
+  "entry_id": "3496724",
+  "entry_url": "https://cses.fi/problemset/hack/1618/entry/3496724/",
+  "author": "SUNGOD",
+  "submitted_at": "2022-02-05 16:53:25",
+  "reported_characters": 72,
+  "max_time": "0.01 s",
+  "task": "1618",
+  "title": "Trailing Zeros",
+  "queue_url": "https://cses.fi/problemset/queue/1618/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:19:24.672341+00:00",
+  "sha256": "aff307a63fba4e6ec1b67dbbb401a6dd7ec13d12f00cc20b26a7836575fe5120",
+  "source_bytes": 95,
+  "source_file": "cache/cses-shortest/1618.cpp"
+}

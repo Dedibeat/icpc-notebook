@@ -1,0 +1,18 @@
+{
+  "entry_id": "18897560",
+  "entry_url": "https://cses.fi/problemset/hack/1624/entry/18897560/",
+  "author": "eyalzus",
+  "submitted_at": "2026-09-28 22:57:26",
+  "reported_characters": 185,
+  "max_time": "0.00 s",
+  "task": "1624",
+  "title": "Chessboard and Queens",
+  "queue_url": "https://cses.fi/problemset/queue/1624/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++23",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:19:32.447055+00:00",
+  "sha256": "ad725e538667eb851bbcaa1f1ecc0682a37ff98547ac9c427e4f5c7fb4d1f039",
+  "source_bytes": 216,
+  "source_file": "cache/cses-shortest/1624.cpp"
+}

@@ -1,0 +1,18 @@
+{
+  "entry_id": "3198222",
+  "entry_url": "https://cses.fi/problemset/hack/1164/entry/3198222/",
+  "author": "SUNGOD",
+  "submitted_at": "2021-12-04 20:27:12",
+  "reported_characters": 312,
+  "max_time": "0.43 s",
+  "task": "1164",
+  "title": "Room Allocation",
+  "queue_url": "https://cses.fi/problemset/queue/1164/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:19:55.382920+00:00",
+  "sha256": "5b91435ac518dafbc6c5227f04eeb26c18d2c2a86c160d06970bb83f1b42dfdc",
+  "source_bytes": 401,
+  "source_file": "cache/cses-shortest/1164.cpp"
+}

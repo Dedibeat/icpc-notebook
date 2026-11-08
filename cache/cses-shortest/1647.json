@@ -1,0 +1,18 @@
+{
+  "entry_id": "8884393",
+  "entry_url": "https://cses.fi/problemset/hack/1647/entry/8884393/",
+  "author": "eyalzus",
+  "submitted_at": "2024-03-31 12:18:25",
+  "reported_characters": 242,
+  "max_time": "0.55 s",
+  "task": "1647",
+  "title": "Static Range Minimum Queries",
+  "queue_url": "https://cses.fi/problemset/queue/1647/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:07.309243+00:00",
+  "sha256": "c326cbc10ecac38df11c143a4fd480e61d4b16fd5fdc51374a05ec056c182df8",
+  "source_bytes": 270,
+  "source_file": "cache/cses-shortest/1647.cpp"
+}

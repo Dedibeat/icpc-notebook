@@ -1,0 +1,18 @@
+{
+  "entry_id": "2720315",
+  "entry_url": "https://cses.fi/problemset/hack/1134/entry/2720315/",
+  "author": "practiceguy101",
+  "submitted_at": "2021-08-20 16:22:07",
+  "reported_characters": 258,
+  "max_time": "0.11 s",
+  "task": "1134",
+  "title": "Prüfer Code",
+  "queue_url": "https://cses.fi/problemset/queue/1134/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:06.702835+00:00",
+  "sha256": "1a7be03dbc6ab3a35e43bd23fbdce95ae2204ec70e7fe892787909f961f078d8",
+  "source_bytes": 440,
+  "source_file": "cache/cses-shortest/1134.cpp"
+}

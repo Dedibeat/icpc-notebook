@@ -1,0 +1,18 @@
+{
+  "entry_id": "16836327",
+  "entry_url": "https://cses.fi/problemset/hack/3303/entry/16836327/",
+  "author": "morgulveil",
+  "submitted_at": "2026-04-07 22:27:07",
+  "reported_characters": 444,
+  "max_time": "0.32 s",
+  "task": "3303",
+  "title": "Nearest Shops",
+  "queue_url": "https://cses.fi/problemset/queue/3303/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:06.558080+00:00",
+  "sha256": "feae9094f89f696c0b963991259dac901ac673f72d2b4f0ff0806ca215b71543",
+  "source_bytes": 643,
+  "source_file": "cache/cses-shortest/3303.cpp"
+}

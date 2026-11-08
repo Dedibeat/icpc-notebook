@@ -1,0 +1,18 @@
+{
+  "entry_id": "1903373",
+  "entry_url": "https://cses.fi/problemset/hack/1726/entry/1903373/",
+  "author": "paulll",
+  "submitted_at": "2021-03-29 04:24:58",
+  "reported_characters": 343,
+  "max_time": "0.01 s",
+  "task": "1726",
+  "title": "Moving Robots",
+  "queue_url": "https://cses.fi/problemset/queue/1726/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:38.049582+00:00",
+  "sha256": "04093fd3a85955dc54bc3f2c6668e841432a153114968e5d3b26ac24bf564c65",
+  "source_bytes": 494,
+  "source_file": "cache/cses-shortest/1726.cpp"
+}

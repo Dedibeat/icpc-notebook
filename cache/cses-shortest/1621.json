@@ -1,0 +1,18 @@
+{
+  "entry_id": "15187871",
+  "entry_url": "https://cses.fi/problemset/hack/1621/entry/15187871/",
+  "author": "hugsehbd",
+  "submitted_at": "2025-11-04 19:06:33",
+  "reported_characters": 101,
+  "max_time": "0.16 s",
+  "task": "1621",
+  "title": "Distinct Numbers",
+  "queue_url": "https://cses.fi/problemset/queue/1621/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:19:37.017282+00:00",
+  "sha256": "70e2821b2bf7c31257fd7cbea6d5482eb8ac631912e21355291194f4cd26d0f4",
+  "source_bytes": 115,
+  "source_file": "cache/cses-shortest/1621.cpp"
+}

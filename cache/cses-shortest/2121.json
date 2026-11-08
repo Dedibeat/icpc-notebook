@@ -1,0 +1,18 @@
+{
+  "entry_id": "2482865",
+  "entry_url": "https://cses.fi/problemset/hack/2121/entry/2482865/",
+  "author": "Tomx",
+  "submitted_at": "2021-07-08 20:35:23",
+  "reported_characters": 718,
+  "max_time": "0.25 s",
+  "task": "2121",
+  "title": "Parcel Delivery",
+  "queue_url": "https://cses.fi/problemset/queue/2121/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:55.409802+00:00",
+  "sha256": "658342437c0bd5c7138730dea6ddd23f87a819f6293a78120891bc7e86ae0cb3",
+  "source_bytes": 1309,
+  "source_file": "cache/cses-shortest/2121.cpp"
+}

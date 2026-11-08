@@ -1,0 +1,18 @@
+{
+  "entry_id": "9536483",
+  "entry_url": "https://cses.fi/problemset/hack/1646/entry/9536483/",
+  "author": "hugsehbd",
+  "submitted_at": "2024-06-13 18:59:24",
+  "reported_characters": 125,
+  "max_time": "0.52 s",
+  "task": "1646",
+  "title": "Static Range Sum Queries",
+  "queue_url": "https://cses.fi/problemset/queue/1646/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:08.736218+00:00",
+  "sha256": "8e31c88ac91978b4af96581b56597cf5bc0286dba13f7bdeed491b265e9f2158",
+  "source_bytes": 170,
+  "source_file": "cache/cses-shortest/1646.cpp"
+}

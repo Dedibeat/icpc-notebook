@@ -1,0 +1,18 @@
+{
+  "entry_id": "12882610",
+  "entry_url": "https://cses.fi/problemset/hack/3399/entry/12882610/",
+  "author": "Sacharlemagne",
+  "submitted_at": "2025-05-13 18:36:00",
+  "reported_characters": 181,
+  "max_time": "0.01 s",
+  "task": "3399",
+  "title": "Raab Game I",
+  "queue_url": "https://cses.fi/problemset/queue/3399/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++11",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:19:30.812082+00:00",
+  "sha256": "d6139d1943065846716b5e79488fbe596c07ec805a14d04e07abc149e2bf0ad4",
+  "source_bytes": 276,
+  "source_file": "cache/cses-shortest/3399.cpp"
+}

@@ -1,0 +1,18 @@
+{
+  "entry_id": "3584907",
+  "entry_url": "https://cses.fi/problemset/hack/1131/entry/3584907/",
+  "author": "SUNGOD",
+  "submitted_at": "2022-02-22 16:29:21",
+  "reported_characters": 199,
+  "max_time": "0.43 s",
+  "task": "1131",
+  "title": "Tree Diameter",
+  "queue_url": "https://cses.fi/problemset/queue/1131/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:22.828044+00:00",
+  "sha256": "08a61920e1bd67f2926b61f5b5c64b75c83e55b6264a9a792b38796aee8980ba",
+  "source_bytes": 287,
+  "source_file": "cache/cses-shortest/1131.cpp"
+}

@@ -1,0 +1,18 @@
+{
+  "entry_id": "16235589",
+  "entry_url": "https://cses.fi/problemset/hack/3151/entry/16235589/",
+  "author": "Dvir1232024",
+  "submitted_at": "2026-02-11 15:31:37",
+  "reported_characters": 173,
+  "max_time": "0.12 s",
+  "task": "3151",
+  "title": "Bubble Sort Rounds I",
+  "queue_url": "https://cses.fi/problemset/queue/3151/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:19.192831+00:00",
+  "sha256": "95d0406b3f6da1a586ae8e5c00182748c6e5d21b3f1361054d70060aac0188b6",
+  "source_bytes": 246,
+  "source_file": "cache/cses-shortest/3151.cpp"
+}

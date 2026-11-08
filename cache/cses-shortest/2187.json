@@ -1,0 +1,18 @@
+{
+  "entry_id": "8404927",
+  "entry_url": "https://cses.fi/problemset/hack/2187/entry/8404927/",
+  "author": "yoyorap",
+  "submitted_at": "2024-02-07 06:21:05",
+  "reported_characters": 292,
+  "max_time": "0.34 s",
+  "task": "2187",
+  "title": "Bracket Sequences II",
+  "queue_url": "https://cses.fi/problemset/queue/2187/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++11",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:35.055302+00:00",
+  "sha256": "cc02a71a639d6cc9b0f39ed32247fb0a5f02e732bf7df91bf509f7947d1c4cb4",
+  "source_bytes": 508,
+  "source_file": "cache/cses-shortest/2187.cpp"
+}

@@ -1,0 +1,18 @@
+{
+  "entry_id": "12074744",
+  "entry_url": "https://cses.fi/problemset/hack/1737/entry/12074744/",
+  "author": "MuntherCarrot",
+  "submitted_at": "2025-02-14 16:36:08",
+  "reported_characters": 413,
+  "max_time": "0.62 s",
+  "task": "1737",
+  "title": "Range Queries and Copies",
+  "queue_url": "https://cses.fi/problemset/queue/1737/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:18.393437+00:00",
+  "sha256": "cd7425a163b6e9504eae8c668bd02a39f0adb88f6cdb13034e6b615c72522ff0",
+  "source_bytes": 664,
+  "source_file": "cache/cses-shortest/1737.cpp"
+}

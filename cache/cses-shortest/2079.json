@@ -1,0 +1,18 @@
+{
+  "entry_id": "16042081",
+  "entry_url": "https://cses.fi/problemset/hack/2079/entry/16042081/",
+  "author": "Dvir1232024",
+  "submitted_at": "2026-01-24 20:55:44",
+  "reported_characters": 202,
+  "max_time": "0.24 s",
+  "task": "2079",
+  "title": "Finding a Centroid",
+  "queue_url": "https://cses.fi/problemset/queue/2079/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:26.787749+00:00",
+  "sha256": "75f7f0e86cd136069d90607c416a11702a0b027cce9ed6047ef3b6dd40c637d4",
+  "source_bytes": 241,
+  "source_file": "cache/cses-shortest/2079.cpp"
+}

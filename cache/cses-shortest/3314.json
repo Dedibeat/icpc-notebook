@@ -1,0 +1,18 @@
+{
+  "entry_id": "14127075",
+  "entry_url": "https://cses.fi/problemset/hack/3314/entry/14127075/",
+  "author": "Genius3435",
+  "submitted_at": "2025-08-14 00:12:57",
+  "reported_characters": 184,
+  "max_time": "0.10 s",
+  "task": "3314",
+  "title": "Mountain Range",
+  "queue_url": "https://cses.fi/problemset/queue/3314/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:20:26.625477+00:00",
+  "sha256": "da0581ef9525cc37eb77a09af08a2a3af83fc7cf4b77867f189adf3980ec05f4",
+  "source_bytes": 313,
+  "source_file": "cache/cses-shortest/3314.cpp"
+}

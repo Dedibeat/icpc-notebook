@@ -1,0 +1,18 @@
+{
+  "entry_id": "3845584",
+  "entry_url": "https://cses.fi/problemset/hack/1195/entry/3845584/",
+  "author": "Shrimb",
+  "submitted_at": "2022-04-20 00:54:26",
+  "reported_characters": 284,
+  "max_time": "0.41 s",
+  "task": "1195",
+  "title": "Flight Discount",
+  "queue_url": "https://cses.fi/problemset/queue/1195/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:20:43.158150+00:00",
+  "sha256": "c14eff69956a516ca4376cec79f140df0e92885e43377fd9689e4b5151969166",
+  "source_bytes": 421,
+  "source_file": "cache/cses-shortest/1195.cpp"
+}

@@ -1,0 +1,18 @@
+{
+  "entry_id": "14419267",
+  "entry_url": "https://cses.fi/problemset/hack/1681/entry/14419267/",
+  "author": "hugsehbd",
+  "submitted_at": "2025-09-04 13:58:35",
+  "reported_characters": 193,
+  "max_time": "0.37 s",
+  "task": "1681",
+  "title": "Game Routes",
+  "queue_url": "https://cses.fi/problemset/queue/1681/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:20:47.997266+00:00",
+  "sha256": "7c572f2d5f4ec4bd57991058a025b8db136f06e9f8fee3dc9d081de2033bfa81",
+  "source_bytes": 251,
+  "source_file": "cache/cses-shortest/1681.cpp"
+}

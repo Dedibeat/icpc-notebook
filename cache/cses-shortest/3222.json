@@ -1,0 +1,18 @@
+{
+  "entry_id": "15349138",
+  "entry_url": "https://cses.fi/problemset/hack/3222/entry/15349138/",
+  "author": "yonalen",
+  "submitted_at": "2025-11-19 22:51:16",
+  "reported_characters": 161,
+  "max_time": "0.41 s",
+  "task": "3222",
+  "title": "Sliding Window Distinct Values",
+  "queue_url": "https://cses.fi/problemset/queue/3222/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++11",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:57.538785+00:00",
+  "sha256": "16f2e963d6a2951e5418b4b9a4ca7477e8a25c2770c3f159bfa321359c4848f0",
+  "source_bytes": 173,
+  "source_file": "cache/cses-shortest/3222.cpp"
+}

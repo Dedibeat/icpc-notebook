@@ -1,0 +1,18 @@
+{
+  "entry_id": "8960956",
+  "entry_url": "https://cses.fi/problemset/hack/1740/entry/8960956/",
+  "author": "@Muaath_5",
+  "submitted_at": "2024-04-09 01:48:08",
+  "reported_characters": 288,
+  "max_time": "0.33 s",
+  "task": "1740",
+  "title": "Intersection Points",
+  "queue_url": "https://cses.fi/problemset/queue/1740/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:47.984454+00:00",
+  "sha256": "80d10b5f191013e2511bc9b5052129e03f0cc0a1e57e88cedb27d3a8c6d71952",
+  "source_bytes": 461,
+  "source_file": "cache/cses-shortest/1740.cpp"
+}

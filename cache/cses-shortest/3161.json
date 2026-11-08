@@ -1,0 +1,18 @@
+{
+  "entry_id": "13363409",
+  "entry_url": "https://cses.fi/problemset/hack/3161/entry/13363409/",
+  "author": "Uoopy",
+  "submitted_at": "2025-06-19 17:05:38",
+  "reported_characters": 233,
+  "max_time": "0.11 s",
+  "task": "3161",
+  "title": "GCD Subsets",
+  "queue_url": "https://cses.fi/problemset/queue/3161/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:31.293422+00:00",
+  "sha256": "5eb2459dc5ecf556942ae4ff1212c4de8b40f53646101f430b8abbe3cd06d81c",
+  "source_bytes": 336,
+  "source_file": "cache/cses-shortest/3161.cpp"
+}

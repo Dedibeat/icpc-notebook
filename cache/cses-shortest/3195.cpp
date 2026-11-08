@@ -1,0 +1,2 @@
+#include <iostream>
+using namespace std;int v[1<<19],n,k,i,j;main(){cin>>n>>k;for(k=n-k;i<n;)cin>>v[i++];for(i=-1;1<<i++<k;)if(k>>i&1)for(j=0;j<n-i;++j)v[j]^=v[(1<<i)+j];for(j=0;j<n-k;)cout<<v[j++]<<" ";}

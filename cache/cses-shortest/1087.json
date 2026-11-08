@@ -1,0 +1,18 @@
+{
+  "entry_id": "6038305",
+  "entry_url": "https://cses.fi/problemset/hack/1087/entry/6038305/",
+  "author": "Berryw",
+  "submitted_at": "2023-05-10 17:42:09",
+  "reported_characters": 150,
+  "max_time": "0.01 s",
+  "task": "1087",
+  "title": "Shortest Subsequence",
+  "queue_url": "https://cses.fi/problemset/queue/1087/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:17.456935+00:00",
+  "sha256": "0d6174dd50649f5db6133ce886b987f2220614397888ba8efe44d58b6202abd4",
+  "source_bytes": 222,
+  "source_file": "cache/cses-shortest/1087.cpp"
+}

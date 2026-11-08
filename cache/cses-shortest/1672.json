@@ -1,0 +1,18 @@
+{
+  "entry_id": "16941766",
+  "entry_url": "https://cses.fi/problemset/hack/1672/entry/16941766/",
+  "author": "Shrimb",
+  "submitted_at": "2026-04-18 14:54:57",
+  "reported_characters": 247,
+  "max_time": "0.61 s",
+  "task": "1672",
+  "title": "Shortest Routes II",
+  "queue_url": "https://cses.fi/problemset/queue/1672/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:20:41.943337+00:00",
+  "sha256": "5693d52a2ef56501e1c95c01a16b67cd0e2060b448fd23498799d4771aad08c3",
+  "source_bytes": 261,
+  "source_file": "cache/cses-shortest/1672.cpp"
+}

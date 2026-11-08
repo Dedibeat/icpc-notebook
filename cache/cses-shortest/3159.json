@@ -1,0 +1,18 @@
+{
+  "entry_id": "14913711",
+  "entry_url": "https://cses.fi/problemset/hack/3159/entry/14913711/",
+  "author": "vjudge2",
+  "submitted_at": "2025-10-13 16:04:40",
+  "reported_characters": 530,
+  "max_time": "0.08 s",
+  "task": "3159",
+  "title": "Replace with Difference",
+  "queue_url": "https://cses.fi/problemset/queue/3159/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:29.577324+00:00",
+  "sha256": "c8b9ee6bfe0ed754107a1f49d36c014426007a282b4fd6a9cf495f8456848b60",
+  "source_bytes": 602,
+  "source_file": "cache/cses-shortest/3159.cpp"
+}

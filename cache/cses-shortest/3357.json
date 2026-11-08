@@ -1,0 +1,18 @@
+{
+  "entry_id": "16838495",
+  "entry_url": "https://cses.fi/problemset/hack/3357/entry/16838495/",
+  "author": "desh",
+  "submitted_at": "2026-04-08 07:29:20",
+  "reported_characters": 549,
+  "max_time": "0.72 s",
+  "task": "3357",
+  "title": "Fixed Length Walk Queries",
+  "queue_url": "https://cses.fi/problemset/queue/3357/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:08.661690+00:00",
+  "sha256": "d658f0fa9bd7d21cef38f2bdbcb1593d668bb180a461c905f57f2b1f1bee7e17",
+  "source_bytes": 986,
+  "source_file": "cache/cses-shortest/3357.cpp"
+}

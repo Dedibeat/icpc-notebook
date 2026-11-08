@@ -1,0 +1,18 @@
+{
+  "entry_id": "9624660",
+  "entry_url": "https://cses.fi/problemset/hack/1645/entry/9624660/",
+  "author": "hugsehbd",
+  "submitted_at": "2024-06-22 13:03:15",
+  "reported_characters": 120,
+  "max_time": "0.06 s",
+  "task": "1645",
+  "title": "Nearest Smaller Values",
+  "queue_url": "https://cses.fi/problemset/queue/1645/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:19:59.828483+00:00",
+  "sha256": "eb3b15a65a28c99a4d59ff66df60730699fe4cfc03ba5d09544998521feb0fd3",
+  "source_bytes": 157,
+  "source_file": "cache/cses-shortest/1645.cpp"
+}

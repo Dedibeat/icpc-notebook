@@ -1,0 +1,18 @@
+{
+  "entry_id": "8611321",
+  "entry_url": "https://cses.fi/problemset/hack/1655/entry/8611321/",
+  "author": "@Muaath_5",
+  "submitted_at": "2024-03-02 12:12:19",
+  "reported_characters": 221,
+  "max_time": "0.96 s",
+  "task": "1655",
+  "title": "Maximum Xor Subarray",
+  "queue_url": "https://cses.fi/problemset/queue/1655/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:01.140375+00:00",
+  "sha256": "e7c1d641cf0fd55316d9dbb1457fd338dcbccf35324996f9fe2fe210076ab5e0",
+  "source_bytes": 322,
+  "source_file": "cache/cses-shortest/1655.cpp"
+}

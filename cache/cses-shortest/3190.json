@@ -1,0 +1,18 @@
+{
+  "entry_id": "13554486",
+  "entry_url": "https://cses.fi/problemset/hack/3190/entry/13554486/",
+  "author": "Y3",
+  "submitted_at": "2025-07-03 12:28:02",
+  "reported_characters": 226,
+  "max_time": "0.27 s",
+  "task": "3190",
+  "title": "Distinct Values Splits",
+  "queue_url": "https://cses.fi/problemset/queue/3190/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:18.785081+00:00",
+  "sha256": "036a5dcbd33237fc491ecdf10ed6cbdfef5edc6c3712478e793a2b8961c0dfbc",
+  "source_bytes": 434,
+  "source_file": "cache/cses-shortest/3190.cpp"
+}

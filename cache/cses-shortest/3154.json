@@ -1,0 +1,18 @@
+{
+  "entry_id": "17459439",
+  "entry_url": "https://cses.fi/problemset/hack/3154/entry/17459439/",
+  "author": "Gii2000",
+  "submitted_at": "2026-06-07 07:09:46",
+  "reported_characters": 665,
+  "max_time": "0.78 s",
+  "task": "3154",
+  "title": "System of Linear Equations",
+  "queue_url": "https://cses.fi/problemset/queue/3154/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:36.149116+00:00",
+  "sha256": "68ba66f4b4d5bb2b9da89b34b993e1d999fab08d93eeb45399399cd1f99ba2a8",
+  "source_bytes": 1340,
+  "source_file": "cache/cses-shortest/3154.cpp"
+}

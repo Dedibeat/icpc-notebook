@@ -1,0 +1,18 @@
+{
+  "entry_id": "15317525",
+  "entry_url": "https://cses.fi/problemset/hack/1617/entry/15317525/",
+  "author": "hugsehbd",
+  "submitted_at": "2025-11-16 23:03:15",
+  "reported_characters": 80,
+  "max_time": "0.09 s",
+  "task": "1617",
+  "title": "Bit Strings",
+  "queue_url": "https://cses.fi/problemset/queue/1617/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:19:23.282731+00:00",
+  "sha256": "5d9633ef3c736f6a696c3e2d254983b7cf84fea470fce66086fb65c8a0d90c71",
+  "source_bytes": 100,
+  "source_file": "cache/cses-shortest/1617.cpp"
+}

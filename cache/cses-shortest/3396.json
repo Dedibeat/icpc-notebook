@@ -1,0 +1,18 @@
+{
+  "entry_id": "12854972",
+  "entry_url": "https://cses.fi/problemset/hack/3396/entry/12854972/",
+  "author": "eyalzus",
+  "submitted_at": "2025-05-11 20:44:06",
+  "reported_characters": 125,
+  "max_time": "0.59 s",
+  "task": "3396",
+  "title": "Next Prime",
+  "queue_url": "https://cses.fi/problemset/queue/3396/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:32.860010+00:00",
+  "sha256": "63aa8567485ec64c2732281095fd6b3ca139f8064044cf2de7e6dea301adbbfe",
+  "source_bytes": 133,
+  "source_file": "cache/cses-shortest/3396.cpp"
+}

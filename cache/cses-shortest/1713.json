@@ -1,0 +1,18 @@
+{
+  "entry_id": "4354451",
+  "entry_url": "https://cses.fi/problemset/hack/1713/entry/4354451/",
+  "author": "SUNGOD",
+  "submitted_at": "2022-08-03 05:52:35",
+  "reported_characters": 121,
+  "max_time": "0.39 s",
+  "task": "1713",
+  "title": "Counting Divisors",
+  "queue_url": "https://cses.fi/problemset/queue/1713/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:31.458738+00:00",
+  "sha256": "c65ec27b4414985eb8f24c2caef4a097bd385ae0066bc5c066e07fb6b067322e",
+  "source_bytes": 156,
+  "source_file": "cache/cses-shortest/1713.cpp"
+}

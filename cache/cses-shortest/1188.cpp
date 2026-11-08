@@ -1,0 +1,2 @@
+#include<bits/stdc++.h>
+using namespace std;int T[1<<19],L[1<<19],R[1<<19],n,x;string S;void U(int i){if(i+1){i+=1<<18;L[i]=R[i]=T[i]^=1;for(int s=1,l,r;i/=2;s*=2)l=i*2,r=l|1,T[i]=max({T[l],T[r],R[l]+L[r]}),L[i]=L[l]==s?s+L[r]:L[l],R[i]=R[r]==s?s+R[l]:R[r];}}int main(){for(cin>>S>>n,n=S.size();x<n-1;x++)if(S[x]==S[x+1])U(x);while(cin>>x)U(--x-1),U(x),cout<<T[1]+1<<' ';}

@@ -1,0 +1,18 @@
+{
+  "entry_id": "9974924",
+  "entry_url": "https://cses.fi/problemset/hack/1679/entry/9974924/",
+  "author": "eyalzus",
+  "submitted_at": "2024-07-25 22:48:49",
+  "reported_characters": 254,
+  "max_time": "0.41 s",
+  "task": "1679",
+  "title": "Course Schedule",
+  "queue_url": "https://cses.fi/problemset/queue/1679/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:20:46.091898+00:00",
+  "sha256": "1afea60a0e47bcc8b90092a914c271622ce6becc1c2582251ebb2f68ed32b444",
+  "source_bytes": 335,
+  "source_file": "cache/cses-shortest/1679.cpp"
+}

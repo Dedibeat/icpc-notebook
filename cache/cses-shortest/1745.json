@@ -1,0 +1,18 @@
+{
+  "entry_id": "2770525",
+  "entry_url": "https://cses.fi/problemset/hack/1745/entry/2770525/",
+  "author": "SUNGOD",
+  "submitted_at": "2021-08-31 05:57:11",
+  "reported_characters": 150,
+  "max_time": "0.03 s",
+  "task": "1745",
+  "title": "Money Sums",
+  "queue_url": "https://cses.fi/problemset/queue/1745/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:20:25.705686+00:00",
+  "sha256": "4ccef1cf254063f470e8bfda0a232bf12e264d08eec3fa9f39ee701b5aea62bd",
+  "source_bytes": 222,
+  "source_file": "cache/cses-shortest/1745.cpp"
+}

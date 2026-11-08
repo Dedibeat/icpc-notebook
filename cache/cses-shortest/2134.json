@@ -1,0 +1,18 @@
+{
+  "entry_id": "11197760",
+  "entry_url": "https://cses.fi/problemset/hack/2134/entry/11197760/",
+  "author": "minhtrinh22ti",
+  "submitted_at": "2024-11-19 15:44:39",
+  "reported_characters": 709,
+  "max_time": "0.92 s",
+  "task": "2134",
+  "title": "Path Queries II",
+  "queue_url": "https://cses.fi/problemset/queue/2134/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++11",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:25.927884+00:00",
+  "sha256": "e7358ffaa86b773625eef664731c0f62aed3b16a4602e1755e17e404e07e3288",
+  "source_bytes": 901,
+  "source_file": "cache/cses-shortest/2134.cpp"
+}

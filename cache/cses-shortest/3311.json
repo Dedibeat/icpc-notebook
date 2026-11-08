@@ -1,0 +1,18 @@
+{
+  "entry_id": "14712618",
+  "entry_url": "https://cses.fi/problemset/hack/3311/entry/14712618/",
+  "author": "wjliangtpe",
+  "submitted_at": "2025-09-29 08:42:56",
+  "reported_characters": 118,
+  "max_time": "0.01 s",
+  "task": "3311",
+  "title": "Grid Coloring I",
+  "queue_url": "https://cses.fi/problemset/queue/3311/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:19:33.066703+00:00",
+  "sha256": "46d348beb44846c7ad7ffa5a24de57d453623ab20e38c06636c6a022d0c893da",
+  "source_bytes": 143,
+  "source_file": "cache/cses-shortest/3311.cpp"
+}

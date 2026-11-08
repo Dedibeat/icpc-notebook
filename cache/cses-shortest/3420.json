@@ -1,0 +1,18 @@
+{
+  "entry_id": "13440004",
+  "entry_url": "https://cses.fi/problemset/hack/3420/entry/13440004/",
+  "author": "hugsehbd",
+  "submitted_at": "2025-06-25 07:30:32",
+  "reported_characters": 125,
+  "max_time": "0.20 s",
+  "task": "3420",
+  "title": "Distinct Values Subarrays",
+  "queue_url": "https://cses.fi/problemset/queue/3420/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:19:51.717982+00:00",
+  "sha256": "41602e1af3a059a6c40cf3b5445701bc96e89738c776cfb43761357a7dc315bf",
+  "source_bytes": 150,
+  "source_file": "cache/cses-shortest/3420.cpp"
+}

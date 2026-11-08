@@ -1,0 +1,18 @@
+{
+  "entry_id": "17968218",
+  "entry_url": "https://cses.fi/problemset/hack/1702/entry/17968218/",
+  "author": "Madamadam",
+  "submitted_at": "2026-07-17 13:03:25",
+  "reported_characters": 173,
+  "max_time": "0.09 s",
+  "task": "1702",
+  "title": "Tree Traversals",
+  "queue_url": "https://cses.fi/problemset/queue/1702/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++23",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:06.535062+00:00",
+  "sha256": "11e2e879c86e215c02afce9a42f9572a065bded3a6d814a19e69bde765da28f8",
+  "source_bytes": 259,
+  "source_file": "cache/cses-shortest/1702.cpp"
+}

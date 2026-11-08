@@ -1,0 +1,18 @@
+{
+  "entry_id": "2882240",
+  "entry_url": "https://cses.fi/problemset/hack/1744/entry/2882240/",
+  "author": "SUNGOD",
+  "submitted_at": "2021-09-21 23:34:49",
+  "reported_characters": 230,
+  "max_time": "0.16 s",
+  "task": "1744",
+  "title": "Rectangle Cutting",
+  "queue_url": "https://cses.fi/problemset/queue/1744/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:20:21.786241+00:00",
+  "sha256": "04e4572c06af71e2999d67cce6ce8bc24c22c6af0103eaa5e240ef78277147c4",
+  "source_bytes": 307,
+  "source_file": "cache/cses-shortest/1744.cpp"
+}

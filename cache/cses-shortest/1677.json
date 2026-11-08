@@ -1,0 +1,18 @@
+{
+  "entry_id": "10520951",
+  "entry_url": "https://cses.fi/problemset/hack/1677/entry/10520951/",
+  "author": "eyalzus",
+  "submitted_at": "2024-09-15 19:27:33",
+  "reported_characters": 328,
+  "max_time": "0.42 s",
+  "task": "1677",
+  "title": "Network Breakdown",
+  "queue_url": "https://cses.fi/problemset/queue/1677/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:09.252381+00:00",
+  "sha256": "abef4ae0524891034661a72ab02d50c2b67ddafc88a7dd319333237a16342a99",
+  "source_bytes": 415,
+  "source_file": "cache/cses-shortest/1677.cpp"
+}

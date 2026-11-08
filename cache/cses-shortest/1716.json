@@ -1,0 +1,18 @@
+{
+  "entry_id": "5555005",
+  "entry_url": "https://cses.fi/problemset/hack/1716/entry/5555005/",
+  "author": "eyalzus",
+  "submitted_at": "2023-02-26 16:02:40",
+  "reported_characters": 144,
+  "max_time": "0.03 s",
+  "task": "1716",
+  "title": "Distributing Apples",
+  "queue_url": "https://cses.fi/problemset/queue/1716/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:34.184071+00:00",
+  "sha256": "52574b12343f91463e9036d6dcb52348b32bd4129fa62b8bf19d4198f8a6abed",
+  "source_bytes": 173,
+  "source_file": "cache/cses-shortest/1716.cpp"
+}

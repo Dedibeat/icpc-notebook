@@ -1,0 +1,18 @@
+{
+  "entry_id": "15095097",
+  "entry_url": "https://cses.fi/problemset/hack/3149/entry/15095097/",
+  "author": "sukhoeing",
+  "submitted_at": "2025-10-28 10:37:04",
+  "reported_characters": 937,
+  "max_time": "0.40 s",
+  "task": "3149",
+  "title": "Tree Coin Collecting II",
+  "queue_url": "https://cses.fi/problemset/queue/3149/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:09.803435+00:00",
+  "sha256": "9844ad7a402fdd09ef6d9374d5d92e8e23825d93950ba5cf9d1189975920b0c5",
+  "source_bytes": 1357,
+  "source_file": "cache/cses-shortest/3149.cpp"
+}

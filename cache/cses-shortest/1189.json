@@ -1,0 +1,18 @@
+{
+  "entry_id": "343620",
+  "entry_url": "https://cses.fi/problemset/hack/1189/entry/343620/",
+  "author": "JamsRamen",
+  "submitted_at": "2020-03-04 00:44:10",
+  "reported_characters": 192,
+  "max_time": "0.15 s",
+  "task": "1189",
+  "title": "Food Division",
+  "queue_url": "https://cses.fi/problemset/queue/1189/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:27.069727+00:00",
+  "sha256": "15de1b7efa3351b97f81a66102dc63c8f1aa231d6006106a99a0392ef847e001",
+  "source_bytes": 297,
+  "source_file": "cache/cses-shortest/1189.cpp"
+}

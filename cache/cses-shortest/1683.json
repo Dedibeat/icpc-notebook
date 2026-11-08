@@ -1,0 +1,18 @@
+{
+  "entry_id": "9969801",
+  "entry_url": "https://cses.fi/problemset/hack/1683/entry/9969801/",
+  "author": "eyalzus",
+  "submitted_at": "2024-07-25 14:43:00",
+  "reported_characters": 295,
+  "max_time": "0.81 s",
+  "task": "1683",
+  "title": "Planets and Kingdoms",
+  "queue_url": "https://cses.fi/problemset/queue/1683/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:20:56.386198+00:00",
+  "sha256": "d0855c900d0c34676eab164d907247328b5e9b91cc3752b818908ed9a38688b2",
+  "source_bytes": 379,
+  "source_file": "cache/cses-shortest/1683.cpp"
+}

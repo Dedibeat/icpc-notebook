@@ -1,0 +1,18 @@
+{
+  "entry_id": "16329372",
+  "entry_url": "https://cses.fi/problemset/hack/2086/entry/16329372/",
+  "author": "benjaminkleyn",
+  "submitted_at": "2026-02-20 21:41:45",
+  "reported_characters": 279,
+  "max_time": "0.43 s",
+  "task": "2086",
+  "title": "Subarray Squares",
+  "queue_url": "https://cses.fi/problemset/queue/2086/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:53.414641+00:00",
+  "sha256": "95fb3974c18bbcd6143129c6c9080c7c3fbdf41f45bc8fc5ced5e093c460060d",
+  "source_bytes": 542,
+  "source_file": "cache/cses-shortest/2086.cpp"
+}

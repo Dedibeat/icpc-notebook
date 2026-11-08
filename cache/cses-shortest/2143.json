@@ -1,0 +1,18 @@
+{
+  "entry_id": "15985600",
+  "entry_url": "https://cses.fi/problemset/hack/2143/entry/15985600/",
+  "author": "Dvir1232024",
+  "submitted_at": "2026-01-19 20:34:45",
+  "reported_characters": 393,
+  "max_time": "0.69 s",
+  "task": "2143",
+  "title": "Reachability Queries",
+  "queue_url": "https://cses.fi/problemset/queue/2143/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:51.476475+00:00",
+  "sha256": "3c7c85f46f72db3c245bb9aab09e49214c3457f791068ddae270502a2329253f",
+  "source_bytes": 621,
+  "source_file": "cache/cses-shortest/2143.cpp"
+}

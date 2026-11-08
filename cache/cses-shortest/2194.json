@@ -1,0 +1,18 @@
+{
+  "entry_id": "16362785",
+  "entry_url": "https://cses.fi/problemset/hack/2194/entry/16362785/",
+  "author": "Jayyhk",
+  "submitted_at": "2026-02-24 06:46:37",
+  "reported_characters": 261,
+  "max_time": "0.24 s",
+  "task": "2194",
+  "title": "Minimum Euclidean Distance",
+  "queue_url": "https://cses.fi/problemset/queue/2194/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:47.092477+00:00",
+  "sha256": "eab1cea58e95c34068f9a9a9bb8c523b77a6bd497f3ba1d57b2b0024ad8810b9",
+  "source_bytes": 297,
+  "source_file": "cache/cses-shortest/2194.cpp"
+}

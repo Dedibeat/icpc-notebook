@@ -1,0 +1,18 @@
+{
+  "entry_id": "10913873",
+  "entry_url": "https://cses.fi/problemset/hack/1620/entry/10913873/",
+  "author": "hugsehbd",
+  "submitted_at": "2024-10-19 23:52:36",
+  "reported_characters": 150,
+  "max_time": "0.20 s",
+  "task": "1620",
+  "title": "Factory Machines",
+  "queue_url": "https://cses.fi/problemset/queue/1620/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:19:56.657266+00:00",
+  "sha256": "23e0d90f2a60ff65671322a5a7f654b75c3c5ea4781c16389f6c64aede32c9c9",
+  "source_bytes": 243,
+  "source_file": "cache/cses-shortest/1620.cpp"
+}

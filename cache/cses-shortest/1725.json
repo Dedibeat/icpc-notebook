@@ -1,0 +1,18 @@
+{
+  "entry_id": "227673",
+  "entry_url": "https://cses.fi/problemset/hack/1725/entry/227673/",
+  "author": "JamsRamen",
+  "submitted_at": "2019-09-18 21:47:53",
+  "reported_characters": 238,
+  "max_time": "0.01 s",
+  "task": "1725",
+  "title": "Dice Probability",
+  "queue_url": "https://cses.fi/problemset/queue/1725/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:37.783206+00:00",
+  "sha256": "c072a15a6294c854bfa8949e9864c4d10c88dc11159734ed60033de137199302",
+  "source_bytes": 377,
+  "source_file": "cache/cses-shortest/1725.cpp"
+}

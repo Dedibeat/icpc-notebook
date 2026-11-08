@@ -1,0 +1,18 @@
+{
+  "entry_id": "5368581",
+  "entry_url": "https://cses.fi/problemset/hack/1130/entry/5368581/",
+  "author": "tekichan",
+  "submitted_at": "2023-01-28 15:57:15",
+  "reported_characters": 246,
+  "max_time": "0.32 s",
+  "task": "1130",
+  "title": "Tree Matching",
+  "queue_url": "https://cses.fi/problemset/queue/1130/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:22.187931+00:00",
+  "sha256": "6659fae07705e38a974905dfae0cdc653002690be5732d774a4f83470e019af8",
+  "source_bytes": 338,
+  "source_file": "cache/cses-shortest/1130.cpp"
+}

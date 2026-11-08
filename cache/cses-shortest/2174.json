@@ -1,0 +1,18 @@
+{
+  "entry_id": "2678058",
+  "entry_url": "https://cses.fi/problemset/hack/2174/entry/2678058/",
+  "author": "nghiass001",
+  "submitted_at": "2021-08-13 05:29:43",
+  "reported_characters": 422,
+  "max_time": "0.01 s",
+  "task": "2174",
+  "title": "Removing Digits II",
+  "queue_url": "https://cses.fi/problemset/queue/2174/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++11",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:28.807896+00:00",
+  "sha256": "27b6ec9c505f6df0621563f557950823843653268739ab2d351801922395901d",
+  "source_bytes": 582,
+  "source_file": "cache/cses-shortest/2174.cpp"
+}

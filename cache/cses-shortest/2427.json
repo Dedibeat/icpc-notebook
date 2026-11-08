@@ -1,0 +1,18 @@
+{
+  "entry_id": "4829821",
+  "entry_url": "https://cses.fi/problemset/hack/2427/entry/4829821/",
+  "author": "Altak.exe",
+  "submitted_at": "2022-10-18 15:07:24",
+  "reported_characters": 512,
+  "max_time": "0.00 s",
+  "task": "2427",
+  "title": "Letter Pair Move Game",
+  "queue_url": "https://cses.fi/problemset/queue/2427/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:23.735802+00:00",
+  "sha256": "9cfd24d006f918dce056a6b7dd9ddc74d762e25ae32e2f49cc8ce49b7e8dffa7",
+  "source_bytes": 784,
+  "source_file": "cache/cses-shortest/2427.cpp"
+}

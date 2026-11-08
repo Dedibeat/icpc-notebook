@@ -1,0 +1,18 @@
+{
+  "entry_id": "1521300",
+  "entry_url": "https://cses.fi/problemset/hack/2413/entry/1521300/",
+  "author": "maksim1744",
+  "submitted_at": "2021-01-12 12:22:37",
+  "reported_characters": 149,
+  "max_time": "0.03 s",
+  "task": "2413",
+  "title": "Counting Towers",
+  "queue_url": "https://cses.fi/problemset/queue/2413/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:20:21.200017+00:00",
+  "sha256": "b4b60bb3615dac20c73ce46ba0d1c55863c4f3e33cc84769e5346094b1d910a3",
+  "source_bytes": 155,
+  "source_file": "cache/cses-shortest/2413.cpp"
+}

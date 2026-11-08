@@ -1,0 +1,18 @@
+{
+  "entry_id": "13383293",
+  "entry_url": "https://cses.fi/problemset/hack/3157/entry/13383293/",
+  "author": "Uoopy",
+  "submitted_at": "2025-06-21 00:02:10",
+  "reported_characters": 153,
+  "max_time": "0.15 s",
+  "task": "3157",
+  "title": "Collecting Numbers Distribution",
+  "queue_url": "https://cses.fi/problemset/queue/3157/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:17.172112+00:00",
+  "sha256": "02a1e91449dabc9c5e3e02cba3aa5f3e08b5886455eb255df92221ceb5a5acb5",
+  "source_bytes": 220,
+  "source_file": "cache/cses-shortest/3157.cpp"
+}

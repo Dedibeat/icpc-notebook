@@ -1,0 +1,18 @@
+{
+  "entry_id": "4611924",
+  "entry_url": "https://cses.fi/problemset/hack/2402/entry/4611924/",
+  "author": "BalintR",
+  "submitted_at": "2022-09-12 02:40:03",
+  "reported_characters": 566,
+  "max_time": "0.22 s",
+  "task": "2402",
+  "title": "Two Stacks Sorting",
+  "queue_url": "https://cses.fi/problemset/queue/2402/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:33.644523+00:00",
+  "sha256": "50a9635681219f979aff1d5be86283c3042069ea329aad818c5c74db6d8a78b1",
+  "source_bytes": 1028,
+  "source_file": "cache/cses-shortest/2402.cpp"
+}

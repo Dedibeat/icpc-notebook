@@ -1,0 +1,18 @@
+{
+  "entry_id": "10662392",
+  "entry_url": "https://cses.fi/problemset/hack/2415/entry/10662392/",
+  "author": "Uoopy",
+  "submitted_at": "2024-09-29 01:41:23",
+  "reported_characters": 284,
+  "max_time": "0.67 s",
+  "task": "2415",
+  "title": "Functional Graph Distribution",
+  "queue_url": "https://cses.fi/problemset/queue/2415/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:17.232439+00:00",
+  "sha256": "e03d663b2af847a64b639b7eced39867106118e801dec2783a831a1e2022df20",
+  "source_bytes": 379,
+  "source_file": "cache/cses-shortest/2415.cpp"
+}

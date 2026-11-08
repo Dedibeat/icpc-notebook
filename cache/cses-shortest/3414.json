@@ -1,0 +1,18 @@
+{
+  "entry_id": "14864425",
+  "entry_url": "https://cses.fi/problemset/hack/3414/entry/14864425/",
+  "author": "26akanshkh",
+  "submitted_at": "2025-10-09 20:06:26",
+  "reported_characters": 359,
+  "max_time": "0.30 s",
+  "task": "3414",
+  "title": "Filled Subgrid Count II",
+  "queue_url": "https://cses.fi/problemset/queue/3414/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:13.089200+00:00",
+  "sha256": "3f39bef59a35617a80f5af3e785f0e1283d310f8bc33aafa4350493c7caf1d0d",
+  "source_bytes": 638,
+  "source_file": "cache/cses-shortest/3414.cpp"
+}

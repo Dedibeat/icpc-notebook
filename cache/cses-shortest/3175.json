@@ -1,0 +1,18 @@
+{
+  "entry_id": "15809975",
+  "entry_url": "https://cses.fi/problemset/hack/3175/entry/15809975/",
+  "author": "roger2025",
+  "submitted_at": "2026-01-02 17:44:26",
+  "reported_characters": 298,
+  "max_time": "0.73 s",
+  "task": "3175",
+  "title": "Beautiful Permutation II",
+  "queue_url": "https://cses.fi/problemset/queue/3175/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:19.028445+00:00",
+  "sha256": "9fe82ed1a15c7da5373ea1f38f64705c339e55f61687281fddfae57a9583d43a",
+  "source_bytes": 410,
+  "source_file": "cache/cses-shortest/3175.cpp"
+}

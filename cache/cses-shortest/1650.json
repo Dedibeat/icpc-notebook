@@ -1,0 +1,18 @@
+{
+  "entry_id": "5238083",
+  "entry_url": "https://cses.fi/problemset/hack/1650/entry/5238083/",
+  "author": "eyalzus",
+  "submitted_at": "2023-01-05 17:26:04",
+  "reported_characters": 126,
+  "max_time": "0.51 s",
+  "task": "1650",
+  "title": "Range Xor Queries",
+  "queue_url": "https://cses.fi/problemset/queue/1650/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++11",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:08.852248+00:00",
+  "sha256": "e577df82987b6b29d1372afa9068b3496953da04562016fb462887bf1bc4d1df",
+  "source_bytes": 158,
+  "source_file": "cache/cses-shortest/1650.cpp"
+}

@@ -1,0 +1,18 @@
+{
+  "entry_id": "16898377",
+  "entry_url": "https://cses.fi/problemset/hack/2419/entry/16898377/",
+  "author": "Maezra6",
+  "submitted_at": "2026-04-13 23:53:01",
+  "reported_characters": 95,
+  "max_time": "0.12 s",
+  "task": "2419",
+  "title": "Xor Pyramid Peak",
+  "queue_url": "https://cses.fi/problemset/queue/2419/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:02.724212+00:00",
+  "sha256": "e6ab84211a58f7296866acc9aa86b6359f489f529351ee72be636987255b7a7c",
+  "source_bytes": 130,
+  "source_file": "cache/cses-shortest/2419.cpp"
+}

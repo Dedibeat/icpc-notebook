@@ -1,0 +1,18 @@
+{
+  "entry_id": "15986723",
+  "entry_url": "https://cses.fi/problemset/hack/1682/entry/15986723/",
+  "author": "Dvir1232024",
+  "submitted_at": "2026-01-19 23:05:52",
+  "reported_characters": 361,
+  "max_time": "0.25 s",
+  "task": "1682",
+  "title": "Flight Routes Check",
+  "queue_url": "https://cses.fi/problemset/queue/1682/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:20:57.532647+00:00",
+  "sha256": "db2dd8bdb8a09807eb439832f0274bc4faf6893987e825aaca05c25ac3e9370e",
+  "source_bytes": 546,
+  "source_file": "cache/cses-shortest/1682.cpp"
+}

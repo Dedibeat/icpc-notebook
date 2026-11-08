@@ -1,0 +1,18 @@
+{
+  "entry_id": "15033597",
+  "entry_url": "https://cses.fi/problemset/hack/3193/entry/15033597/",
+  "author": "peti1234",
+  "submitted_at": "2025-10-23 13:42:49",
+  "reported_characters": 507,
+  "max_time": "0.04 s",
+  "task": "3193",
+  "title": "Square Subsets",
+  "queue_url": "https://cses.fi/problemset/queue/3193/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:21.121165+00:00",
+  "sha256": "95bedf9704e038f2b76bf248119ab64db10b3545666d34cc4e4f77eff23392d4",
+  "source_bytes": 1036,
+  "source_file": "cache/cses-shortest/3193.cpp"
+}

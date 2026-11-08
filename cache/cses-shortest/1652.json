@@ -1,0 +1,18 @@
+{
+  "entry_id": "6956581",
+  "entry_url": "https://cses.fi/problemset/hack/1652/entry/6956581/",
+  "author": "Hostek",
+  "submitted_at": "2023-08-31 19:55:09",
+  "reported_characters": 228,
+  "max_time": "0.55 s",
+  "task": "1652",
+  "title": "Forest Queries",
+  "queue_url": "https://cses.fi/problemset/queue/1652/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:11.213244+00:00",
+  "sha256": "26370811dde0ff079cba32e33c16b75206ce42b9987ea336b082b24c570d1a20",
+  "source_bytes": 328,
+  "source_file": "cache/cses-shortest/1652.cpp"
+}

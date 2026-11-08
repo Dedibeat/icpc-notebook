@@ -1,0 +1,18 @@
+{
+  "entry_id": "6283070",
+  "entry_url": "https://cses.fi/problemset/hack/2104/entry/6283070/",
+  "author": "SashaT9",
+  "submitted_at": "2023-06-15 20:04:47",
+  "reported_characters": 575,
+  "max_time": "0.76 s",
+  "task": "2104",
+  "title": "Pattern Positions",
+  "queue_url": "https://cses.fi/problemset/queue/2104/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:43.342371+00:00",
+  "sha256": "344910e186217961459beaa9a002e77fde6ab191c4b6f279e601b1af54b7a6c1",
+  "source_bytes": 799,
+  "source_file": "cache/cses-shortest/2104.cpp"
+}

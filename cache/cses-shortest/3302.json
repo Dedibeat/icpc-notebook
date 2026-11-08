@@ -1,0 +1,18 @@
+{
+  "entry_id": "13863606",
+  "entry_url": "https://cses.fi/problemset/hack/3302/entry/13863606/",
+  "author": "c0deTiger",
+  "submitted_at": "2025-07-25 23:13:05",
+  "reported_characters": 230,
+  "max_time": "0.60 s",
+  "task": "3302",
+  "title": "Subsets with Fixed Average",
+  "queue_url": "https://cses.fi/problemset/queue/3302/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:22.931948+00:00",
+  "sha256": "daa256a6cd24343e710fa23e4e23caa55f080764584e2f5cf2a607828af3f28d",
+  "source_bytes": 356,
+  "source_file": "cache/cses-shortest/3302.cpp"
+}

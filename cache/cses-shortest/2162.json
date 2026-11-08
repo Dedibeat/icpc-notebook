@@ -1,0 +1,18 @@
+{
+  "entry_id": "7852129",
+  "entry_url": "https://cses.fi/problemset/hack/2162/entry/7852129/",
+  "author": "Honyopnyot",
+  "submitted_at": "2023-12-06 10:25:00",
+  "reported_characters": 104,
+  "max_time": "0.02 s",
+  "task": "2162",
+  "title": "Josephus Problem I",
+  "queue_url": "https://cses.fi/problemset/queue/2162/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++11",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:19:52.760463+00:00",
+  "sha256": "3bb95da008f1d9e1183ea062062196ab06acf3c6236d83599825512f288c6459",
+  "source_bytes": 107,
+  "source_file": "cache/cses-shortest/2162.cpp"
+}

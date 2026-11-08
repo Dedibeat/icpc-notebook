@@ -1,0 +1,18 @@
+{
+  "entry_id": "17442958",
+  "entry_url": "https://cses.fi/problemset/hack/1149/entry/17442958/",
+  "author": "Dvir1232024",
+  "submitted_at": "2026-06-05 18:34:57",
+  "reported_characters": 110,
+  "max_time": "0.01 s",
+  "task": "1149",
+  "title": "Distinct Subsequences",
+  "queue_url": "https://cses.fi/problemset/queue/1149/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:43.471315+00:00",
+  "sha256": "aeeebd541dca9eea8e0ac386b63f7fde48963e01350176b3ed4abec60d1f9958",
+  "source_bytes": 156,
+  "source_file": "cache/cses-shortest/1149.cpp"
+}

@@ -1,0 +1,18 @@
+{
+  "entry_id": "2569351",
+  "entry_url": "https://cses.fi/problemset/hack/1084/entry/2569351/",
+  "author": "SUNGOD",
+  "submitted_at": "2021-07-25 06:00:32",
+  "reported_characters": 232,
+  "max_time": "0.21 s",
+  "task": "1084",
+  "title": "Apartments",
+  "queue_url": "https://cses.fi/problemset/queue/1084/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:19:39.915957+00:00",
+  "sha256": "6ab839c078173d8f63cee96edca1cbd987418c16ccee6a89371c96ad1b9ab44e",
+  "source_bytes": 296,
+  "source_file": "cache/cses-shortest/1084.cpp"
+}

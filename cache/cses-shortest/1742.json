@@ -1,0 +1,18 @@
+{
+  "entry_id": "15639829",
+  "entry_url": "https://cses.fi/problemset/hack/1742/entry/15639829/",
+  "author": "legkamran",
+  "submitted_at": "2025-12-17 21:58:42",
+  "reported_characters": 1284,
+  "max_time": "0.53 s",
+  "task": "1742",
+  "title": "Robot Path",
+  "queue_url": "https://cses.fi/problemset/queue/1742/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++11",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:49.233932+00:00",
+  "sha256": "a86b4da12e4c46a0a237b4e3697eeaf0369c324e81d40b64469f3a265fa856b3",
+  "source_bytes": 1453,
+  "source_file": "cache/cses-shortest/1742.cpp"
+}

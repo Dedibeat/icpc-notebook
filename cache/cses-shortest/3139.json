@@ -1,0 +1,18 @@
+{
+  "entry_id": "16752821",
+  "entry_url": "https://cses.fi/problemset/hack/3139/entry/16752821/",
+  "author": "hugsehbd",
+  "submitted_at": "2026-04-01 00:02:18",
+  "reported_characters": 222,
+  "max_time": "0.28 s",
+  "task": "3139",
+  "title": "Hidden Permutation",
+  "queue_url": "https://cses.fi/problemset/queue/3139/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:59.963011+00:00",
+  "sha256": "4612eaf843e53e8764f08f792bc19507eb314aa34f9a97c0bed0fcb17b1bee90",
+  "source_bytes": 269,
+  "source_file": "cache/cses-shortest/3139.cpp"
+}

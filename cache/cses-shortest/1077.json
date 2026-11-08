@@ -1,0 +1,18 @@
+{
+  "entry_id": "6547074",
+  "entry_url": "https://cses.fi/problemset/hack/1077/entry/6547074/",
+  "author": "Sacharlemagne",
+  "submitted_at": "2023-07-18 19:35:38",
+  "reported_characters": 346,
+  "max_time": "0.23 s",
+  "task": "1077",
+  "title": "Sliding Window Cost",
+  "queue_url": "https://cses.fi/problemset/queue/1077/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:58.902007+00:00",
+  "sha256": "fbd1a761b71e35b24cb82a8910f456c798d4ca6f569c09fb87f0ab6c9d166bae",
+  "source_bytes": 408,
+  "source_file": "cache/cses-shortest/1077.cpp"
+}

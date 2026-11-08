@@ -1,0 +1,18 @@
+{
+  "entry_id": "14627434",
+  "entry_url": "https://cses.fi/problemset/hack/3112/entry/14627434/",
+  "author": "ericg",
+  "submitted_at": "2025-09-22 02:16:27",
+  "reported_characters": 116,
+  "max_time": "0.02 s",
+  "task": "3112",
+  "title": "Hidden Integer",
+  "queue_url": "https://cses.fi/problemset/queue/3112/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:59.057939+00:00",
+  "sha256": "915e4cdd8f710a3c71974b034d382430b3e1f91b6fbe624a5adc4e9e1305b44d",
+  "source_bytes": 142,
+  "source_file": "cache/cses-shortest/3112.cpp"
+}

@@ -1,0 +1,18 @@
+{
+  "entry_id": "13021625",
+  "entry_url": "https://cses.fi/problemset/hack/3192/entry/13021625/",
+  "author": "ronr",
+  "submitted_at": "2025-05-23 22:07:11",
+  "reported_characters": 398,
+  "max_time": "0.08 s",
+  "task": "3192",
+  "title": "K Subset Xors",
+  "queue_url": "https://cses.fi/problemset/queue/3192/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:01.875037+00:00",
+  "sha256": "d9d16cb5fc6b9d9e3592578468a6597dae3e4e4880cdcd828de856685ce9c54d",
+  "source_bytes": 749,
+  "source_file": "cache/cses-shortest/3192.cpp"
+}

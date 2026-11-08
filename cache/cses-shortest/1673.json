@@ -1,0 +1,18 @@
+{
+  "entry_id": "9903195",
+  "entry_url": "https://cses.fi/problemset/hack/1673/entry/9903195/",
+  "author": "eyalzus",
+  "submitted_at": "2024-07-19 00:41:07",
+  "reported_characters": 237,
+  "max_time": "0.14 s",
+  "task": "1673",
+  "title": "High Score",
+  "queue_url": "https://cses.fi/problemset/queue/1673/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:20:41.764060+00:00",
+  "sha256": "31e2da0d45618cd3aaae338d61538a8ac211f09b5d3ae8c9626241613ca750ac",
+  "source_bytes": 285,
+  "source_file": "cache/cses-shortest/1673.cpp"
+}

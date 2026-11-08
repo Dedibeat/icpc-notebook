@@ -1,0 +1,18 @@
+{
+  "entry_id": "15936494",
+  "entry_url": "https://cses.fi/problemset/hack/1080/entry/15936494/",
+  "author": "Maezra6",
+  "submitted_at": "2026-01-15 01:28:22",
+  "reported_characters": 355,
+  "max_time": "0.98 s",
+  "task": "1080",
+  "title": "Empty String",
+  "queue_url": "https://cses.fi/problemset/queue/1080/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:14.882437+00:00",
+  "sha256": "38e4d6929b134a5337f582bbab0c63ca64e794d337f6d691aad0c2b23f52ac3c",
+  "source_bytes": 521,
+  "source_file": "cache/cses-shortest/1080.cpp"
+}

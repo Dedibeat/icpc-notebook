@@ -1,0 +1,18 @@
+{
+  "entry_id": "17244780",
+  "entry_url": "https://cses.fi/problemset/hack/1188/entry/17244780/",
+  "author": "bub",
+  "submitted_at": "2026-05-21 10:37:44",
+  "reported_characters": 362,
+  "max_time": "0.46 s",
+  "task": "1188",
+  "title": "Bit Inversions",
+  "queue_url": "https://cses.fi/problemset/queue/1188/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:23.302669+00:00",
+  "sha256": "b41037ff7fd54b22956ba8596255d66f732d357eb97e5ffbc2dc7af392f42088",
+  "source_bytes": 373,
+  "source_file": "cache/cses-shortest/1188.cpp"
+}

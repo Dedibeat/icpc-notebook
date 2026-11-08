@@ -1,0 +1,18 @@
+{
+  "entry_id": "2576936",
+  "entry_url": "https://cses.fi/problemset/hack/1112/entry/2576936/",
+  "author": "painterloy",
+  "submitted_at": "2021-07-26 18:09:51",
+  "reported_characters": 446,
+  "max_time": "0.02 s",
+  "task": "1112",
+  "title": "Required Substring",
+  "queue_url": "https://cses.fi/problemset/queue/1112/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++11",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:41.871262+00:00",
+  "sha256": "76a5f34ecbb159537144381634d8b0c78ccb5ccdef703a62c964743368082ac7",
+  "source_bytes": 885,
+  "source_file": "cache/cses-shortest/1112.cpp"
+}

@@ -1,0 +1,18 @@
+{
+  "entry_id": "16235084",
+  "entry_url": "https://cses.fi/problemset/hack/2422/entry/16235084/",
+  "author": "Dvir1232024",
+  "submitted_at": "2026-02-11 14:58:09",
+  "reported_characters": 138,
+  "max_time": "0.46 s",
+  "task": "2422",
+  "title": "Multiplication Table",
+  "queue_url": "https://cses.fi/problemset/queue/2422/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:19.613756+00:00",
+  "sha256": "a82c087a5762416fe225ce95632df30000b665d8af68430c18bfa53745a3d8c8",
+  "source_bytes": 194,
+  "source_file": "cache/cses-shortest/2422.cpp"
+}

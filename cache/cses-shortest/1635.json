@@ -1,0 +1,18 @@
+{
+  "entry_id": "2790198",
+  "entry_url": "https://cses.fi/problemset/hack/1635/entry/2790198/",
+  "author": "SUNGOD",
+  "submitted_at": "2021-09-03 19:00:27",
+  "reported_characters": 175,
+  "max_time": "0.47 s",
+  "task": "1635",
+  "title": "Coin Combinations I",
+  "queue_url": "https://cses.fi/problemset/queue/1635/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:20:12.602777+00:00",
+  "sha256": "c8b4ddf1eafbc7958c0dc99f7f241466aac5755e9115935828fd03a12610fdbb",
+  "source_bytes": 212,
+  "source_file": "cache/cses-shortest/1635.cpp"
+}

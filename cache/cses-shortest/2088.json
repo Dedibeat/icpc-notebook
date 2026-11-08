@@ -1,0 +1,18 @@
+{
+  "entry_id": "8611428",
+  "entry_url": "https://cses.fi/problemset/hack/2088/entry/8611428/",
+  "author": "@Muaath_5",
+  "submitted_at": "2024-03-02 12:25:10",
+  "reported_characters": 257,
+  "max_time": "0.02 s",
+  "task": "2088",
+  "title": "Knuth Division",
+  "queue_url": "https://cses.fi/problemset/queue/2088/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:53.978210+00:00",
+  "sha256": "35d8d00cd2072b8502e86bd1e3bbc1854f72cf4e5be88938658a068a636d72fb",
+  "source_bytes": 397,
+  "source_file": "cache/cses-shortest/2088.cpp"
+}

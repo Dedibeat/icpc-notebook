@@ -1,0 +1,18 @@
+{
+  "entry_id": "12017764",
+  "entry_url": "https://cses.fi/problemset/hack/2428/entry/12017764/",
+  "author": "farhan2004",
+  "submitted_at": "2025-02-08 14:39:54",
+  "reported_characters": 181,
+  "max_time": "0.27 s",
+  "task": "2428",
+  "title": "Distinct Values Subarrays II",
+  "queue_url": "https://cses.fi/problemset/queue/2428/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:20:04.017508+00:00",
+  "sha256": "a9959b700b8c692e494fca187f9322e85f251b84ce40b22c842e20fb7189e371",
+  "source_bytes": 309,
+  "source_file": "cache/cses-shortest/2428.cpp"
+}

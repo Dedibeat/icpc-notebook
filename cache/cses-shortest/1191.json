@@ -1,0 +1,18 @@
+{
+  "entry_id": "8524054",
+  "entry_url": "https://cses.fi/problemset/hack/1191/entry/8524054/",
+  "author": "Edu175",
+  "submitted_at": "2024-02-21 01:04:21",
+  "reported_characters": 309,
+  "max_time": "0.25 s",
+  "task": "1191",
+  "title": "Cyclic Array",
+  "queue_url": "https://cses.fi/problemset/queue/1191/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:25.134183+00:00",
+  "sha256": "3282e1e60a47ff6810761a89a4f5b061ac1eef3f8ecb975c61c97213b296a2a3",
+  "source_bytes": 367,
+  "source_file": "cache/cses-shortest/1191.cpp"
+}

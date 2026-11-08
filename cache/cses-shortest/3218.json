@@ -1,0 +1,18 @@
+{
+  "entry_id": "17912612",
+  "entry_url": "https://cses.fi/problemset/hack/3218/entry/17912612/",
+  "author": "Dvir1232024",
+  "submitted_at": "2026-07-13 00:37:47",
+  "reported_characters": 166,
+  "max_time": "0.25 s",
+  "task": "3218",
+  "title": "Knight Moves Queries",
+  "queue_url": "https://cses.fi/problemset/queue/3218/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:25.406970+00:00",
+  "sha256": "fb32331a15eb43a6062c9a323bc5c0791d24be299241b20dd28106d760a6775a",
+  "source_bytes": 201,
+  "source_file": "cache/cses-shortest/3218.cpp"
+}

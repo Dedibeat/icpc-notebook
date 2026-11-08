@@ -1,0 +1,18 @@
+{
+  "entry_id": "15570312",
+  "entry_url": "https://cses.fi/problemset/hack/1197/entry/15570312/",
+  "author": "Dvir1232024",
+  "submitted_at": "2025-12-12 11:06:16",
+  "reported_characters": 394,
+  "max_time": "0.01 s",
+  "task": "1197",
+  "title": "Cycle Finding",
+  "queue_url": "https://cses.fi/problemset/queue/1197/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:20:43.061122+00:00",
+  "sha256": "5cb9a2adce48dc73b72269fba2f945cad726d730ba40d0bf604ba031c5eff176",
+  "source_bytes": 711,
+  "source_file": "cache/cses-shortest/1197.cpp"
+}

@@ -1,0 +1,18 @@
+{
+  "entry_id": "8688968",
+  "entry_url": "https://cses.fi/problemset/hack/2075/entry/8688968/",
+  "author": "Berryw",
+  "submitted_at": "2024-03-10 01:00:59",
+  "reported_characters": 835,
+  "max_time": "0.40 s",
+  "task": "2075",
+  "title": "Reversal Sorting",
+  "queue_url": "https://cses.fi/problemset/queue/2075/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:29.987982+00:00",
+  "sha256": "7a73513612fabc798efdfb6c1deb681c6a3399cc0e6fcf42bbd05451c732d1b5",
+  "source_bytes": 1241,
+  "source_file": "cache/cses-shortest/2075.cpp"
+}

@@ -1,0 +1,18 @@
+{
+  "entry_id": "13065410",
+  "entry_url": "https://cses.fi/problemset/hack/3312/entry/13065410/",
+  "author": "qusol",
+  "submitted_at": "2025-05-27 11:17:39",
+  "reported_characters": 990,
+  "max_time": "0.03 s",
+  "task": "3312",
+  "title": "Grid Coloring II",
+  "queue_url": "https://cses.fi/problemset/queue/3312/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:27.594298+00:00",
+  "sha256": "6ac9e4059fa616b795366a8e23cee6b6d0f7af4194f7cff35b7238168ccb9196",
+  "source_bytes": 1257,
+  "source_file": "cache/cses-shortest/3312.cpp"
+}

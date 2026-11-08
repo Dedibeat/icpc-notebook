@@ -1,0 +1,18 @@
+{
+  "entry_id": "13027622",
+  "entry_url": "https://cses.fi/problemset/hack/3140/entry/13027622/",
+  "author": "franfill",
+  "submitted_at": "2025-05-24 11:20:04",
+  "reported_characters": 172,
+  "max_time": "0.38 s",
+  "task": "3140",
+  "title": "Inversion Sorting",
+  "queue_url": "https://cses.fi/problemset/queue/3140/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:00.767895+00:00",
+  "sha256": "ce8697e3663d2d4dacea27254b3ca96d96d88e04035545bae0f7a8ca1b25bed9",
+  "source_bytes": 251,
+  "source_file": "cache/cses-shortest/3140.cpp"
+}

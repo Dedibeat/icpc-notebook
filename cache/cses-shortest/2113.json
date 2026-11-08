@@ -1,0 +1,18 @@
+{
+  "entry_id": "7865410",
+  "entry_url": "https://cses.fi/problemset/hack/2113/entry/7865410/",
+  "author": "fve5",
+  "submitted_at": "2023-12-07 21:02:20",
+  "reported_characters": 480,
+  "max_time": "0.99 s",
+  "task": "2113",
+  "title": "Signal Processing",
+  "queue_url": "https://cses.fi/problemset/queue/2113/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:54.655128+00:00",
+  "sha256": "bdf47f6d7829b9b6589febee463f70251ff1a030fcb0b7977e986bd80d6123e6",
+  "source_bytes": 782,
+  "source_file": "cache/cses-shortest/2113.cpp"
+}

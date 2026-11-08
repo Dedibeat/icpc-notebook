@@ -1,0 +1,18 @@
+{
+  "entry_id": "12539327",
+  "entry_url": "https://cses.fi/problemset/hack/2132/entry/12539327/",
+  "author": "SmilingBraniac",
+  "submitted_at": "2025-04-04 16:26:26",
+  "reported_characters": 144,
+  "max_time": "0.12 s",
+  "task": "2132",
+  "title": "Increasing Array II",
+  "queue_url": "https://cses.fi/problemset/queue/2132/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++11",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:26.781066+00:00",
+  "sha256": "f8e3c56ffb1f4d655bc29743f6f94bb8ad437e80a7fdfef466a5d9cad5c9a870",
+  "source_bytes": 209,
+  "source_file": "cache/cses-shortest/2132.cpp"
+}

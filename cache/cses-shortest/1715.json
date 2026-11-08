@@ -1,0 +1,18 @@
+{
+  "entry_id": "5554869",
+  "entry_url": "https://cses.fi/problemset/hack/1715/entry/5554869/",
+  "author": "eyalzus",
+  "submitted_at": "2023-02-26 15:44:31",
+  "reported_characters": 148,
+  "max_time": "0.03 s",
+  "task": "1715",
+  "title": "Creating Strings II",
+  "queue_url": "https://cses.fi/problemset/queue/1715/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:33.837980+00:00",
+  "sha256": "cad19e293147d5881ca22de10c69b6337533dbe198a99cc77842deac5a435117",
+  "source_bytes": 179,
+  "source_file": "cache/cses-shortest/1715.cpp"
+}

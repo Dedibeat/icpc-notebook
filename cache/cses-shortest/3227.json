@@ -1,0 +1,18 @@
+{
+  "entry_id": "17849579",
+  "entry_url": "https://cses.fi/problemset/hack/3227/entry/17849579/",
+  "author": "Madamadam",
+  "submitted_at": "2026-07-07 17:43:20",
+  "reported_characters": 1226,
+  "max_time": "0.29 s",
+  "task": "3227",
+  "title": "Sliding Window Advertisement",
+  "queue_url": "https://cses.fi/problemset/queue/3227/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++23",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:58.806988+00:00",
+  "sha256": "ab7aad474e82df3e8feb91fab5358702a13e4275f8829e5a7e6d038c0c3fba0d",
+  "source_bytes": 2008,
+  "source_file": "cache/cses-shortest/3227.cpp"
+}

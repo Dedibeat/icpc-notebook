@@ -1,0 +1,18 @@
+{
+  "entry_id": "9668235",
+  "entry_url": "https://cses.fi/problemset/hack/1637/entry/9668235/",
+  "author": "eyalzus",
+  "submitted_at": "2024-06-26 22:20:00",
+  "reported_characters": 107,
+  "max_time": "0.01 s",
+  "task": "1637",
+  "title": "Removing Digits",
+  "queue_url": "https://cses.fi/problemset/queue/1637/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:20:17.519913+00:00",
+  "sha256": "3c202511c1ef8a744bee96116776c620dc40ee58ad3825786305ce1ada90dd06",
+  "source_bytes": 122,
+  "source_file": "cache/cses-shortest/1637.cpp"
+}

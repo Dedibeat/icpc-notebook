@@ -1,0 +1,18 @@
+{
+  "entry_id": "13547307",
+  "entry_url": "https://cses.fi/problemset/hack/3163/entry/13547307/",
+  "author": "chrislaiisme",
+  "submitted_at": "2025-07-02 21:41:34",
+  "reported_characters": 478,
+  "max_time": "0.54 s",
+  "task": "3163",
+  "title": "Range Interval Queries",
+  "queue_url": "https://cses.fi/problemset/queue/3163/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:12.609094+00:00",
+  "sha256": "34187c66e6bbe05a69d157dcc55a8aa8ed9cc6b24019b6169f150ec54cc91d46",
+  "source_bytes": 639,
+  "source_file": "cache/cses-shortest/3163.cpp"
+}

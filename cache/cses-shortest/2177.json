@@ -1,0 +1,18 @@
+{
+  "entry_id": "16886061",
+  "entry_url": "https://cses.fi/problemset/hack/2177/entry/16886061/",
+  "author": "Zombiekriz",
+  "submitted_at": "2026-04-12 19:41:21",
+  "reported_characters": 485,
+  "max_time": "0.26 s",
+  "task": "2177",
+  "title": "Strongly Connected Edges",
+  "queue_url": "https://cses.fi/problemset/queue/2177/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:07.142818+00:00",
+  "sha256": "cd08d1a2072e801640b05e85cbf1dc76c13b10e1405b991e498c69e76c21bb02",
+  "source_bytes": 768,
+  "source_file": "cache/cses-shortest/2177.cpp"
+}

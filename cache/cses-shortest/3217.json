@@ -1,0 +1,18 @@
+{
+  "entry_id": "17229353",
+  "entry_url": "https://cses.fi/problemset/hack/3217/entry/17229353/",
+  "author": "eyalzus",
+  "submitted_at": "2026-05-20 00:08:25",
+  "reported_characters": 181,
+  "max_time": "0.10 s",
+  "task": "3217",
+  "title": "Knight Moves Grid",
+  "queue_url": "https://cses.fi/problemset/queue/3217/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++23",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:19:33.122731+00:00",
+  "sha256": "57e8519123a11ccbc34b0f195db89e2c6486dfedddf00f4d72c3797e9dff282a",
+  "source_bytes": 185,
+  "source_file": "cache/cses-shortest/3217.cpp"
+}

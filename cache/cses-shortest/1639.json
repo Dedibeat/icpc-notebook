@@ -1,0 +1,18 @@
+{
+  "entry_id": "13576077",
+  "entry_url": "https://cses.fi/problemset/hack/1639/entry/13576077/",
+  "author": "hugsehbd",
+  "submitted_at": "2025-07-04 21:21:59",
+  "reported_characters": 192,
+  "max_time": "0.30 s",
+  "task": "1639",
+  "title": "Edit Distance",
+  "queue_url": "https://cses.fi/problemset/queue/1639/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:20:22.173422+00:00",
+  "sha256": "675afdd892c19b5f9abe2af36d9058df700eb638f15f73ccbbfcebb146b122f5",
+  "source_bytes": 224,
+  "source_file": "cache/cses-shortest/1639.cpp"
+}

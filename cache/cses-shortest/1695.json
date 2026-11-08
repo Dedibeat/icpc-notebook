@@ -1,0 +1,18 @@
+{
+  "entry_id": "1612213",
+  "entry_url": "https://cses.fi/problemset/hack/1695/entry/1612213/",
+  "author": "peti1234",
+  "submitted_at": "2021-01-28 01:16:09",
+  "reported_characters": 516,
+  "max_time": "0.01 s",
+  "task": "1695",
+  "title": "Police Chase",
+  "queue_url": "https://cses.fi/problemset/queue/1695/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:20:59.743020+00:00",
+  "sha256": "6ba0793f40832a0877754c64831f2a77c992bda4837eb77020a05a2c9ce84e96",
+  "source_bytes": 942,
+  "source_file": "cache/cses-shortest/1695.cpp"
+}

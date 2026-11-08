@@ -1,0 +1,18 @@
+{
+  "entry_id": "227624",
+  "entry_url": "https://cses.fi/problemset/hack/1082/entry/227624/",
+  "author": "jamshidxon",
+  "submitted_at": "2019-09-18 19:07:08",
+  "reported_characters": 155,
+  "max_time": "0.02 s",
+  "task": "1082",
+  "title": "Sum of Divisors",
+  "queue_url": "https://cses.fi/problemset/queue/1082/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:31.095671+00:00",
+  "sha256": "5c9d68d554026ee10c2dc912e790109966a83075250c0d6b9caa9f368b5f6eb5",
+  "source_bytes": 234,
+  "source_file": "cache/cses-shortest/1082.cpp"
+}

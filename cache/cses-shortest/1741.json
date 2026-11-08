@@ -1,0 +1,18 @@
+{
+  "entry_id": "10767322",
+  "entry_url": "https://cses.fi/problemset/hack/1741/entry/10767322/",
+  "author": "maxrgby",
+  "submitted_at": "2024-10-08 06:30:51",
+  "reported_characters": 571,
+  "max_time": "0.55 s",
+  "task": "1741",
+  "title": "Area of Rectangles",
+  "queue_url": "https://cses.fi/problemset/queue/1741/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:49.183230+00:00",
+  "sha256": "715c9dd2e1fd56127ae8f60cf63262bb3c0ab77a739beaf671fedd9f7327bcf5",
+  "source_bytes": 787,
+  "source_file": "cache/cses-shortest/1741.cpp"
+}

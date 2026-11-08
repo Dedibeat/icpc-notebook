@@ -1,0 +1,18 @@
+{
+  "entry_id": "13347167",
+  "entry_url": "https://cses.fi/problemset/hack/3430/entry/13347167/",
+  "author": "user149",
+  "submitted_at": "2025-06-18 13:14:28",
+  "reported_characters": 590,
+  "max_time": "0.76 s",
+  "task": "3430",
+  "title": "Lines and Queries II",
+  "queue_url": "https://cses.fi/problemset/queue/3430/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++11",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:49.069475+00:00",
+  "sha256": "d82809a7e50d584fe181a0eb16a1d2ac1a0ed4ca8faf6004196613e12125492b",
+  "source_bytes": 623,
+  "source_file": "cache/cses-shortest/3430.cpp"
+}

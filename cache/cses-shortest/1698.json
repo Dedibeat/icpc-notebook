@@ -1,0 +1,18 @@
+{
+  "entry_id": "2203591",
+  "entry_url": "https://cses.fi/problemset/hack/1698/entry/2203591/",
+  "author": "Xylofo",
+  "submitted_at": "2021-05-24 11:39:57",
+  "reported_characters": 498,
+  "max_time": "0.12 s",
+  "task": "1698",
+  "title": "Swap Round Sorting",
+  "queue_url": "https://cses.fi/problemset/queue/1698/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:27.669604+00:00",
+  "sha256": "9f9dc94d3f99ac3cc82cb4f84e318567ed724a1fb8088d5cf7786bae390caf0d",
+  "source_bytes": 698,
+  "source_file": "cache/cses-shortest/1698.cpp"
+}

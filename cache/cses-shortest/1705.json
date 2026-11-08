@@ -1,0 +1,18 @@
+{
+  "entry_id": "554521",
+  "entry_url": "https://cses.fi/problemset/hack/1705/entry/554521/",
+  "author": "KonaeAkira",
+  "submitted_at": "2020-06-18 13:22:01",
+  "reported_characters": 530,
+  "max_time": "0.64 s",
+  "task": "1705",
+  "title": "Forbidden Cities",
+  "queue_url": "https://cses.fi/problemset/queue/1705/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:12.495313+00:00",
+  "sha256": "8b8aeab16bb5535c166e023698749408cc61e234515f89a4fb6f7ae56d4ed446",
+  "source_bytes": 553,
+  "source_file": "cache/cses-shortest/1705.cpp"
+}

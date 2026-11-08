@@ -1,0 +1,18 @@
+{
+  "entry_id": "14106242",
+  "entry_url": "https://cses.fi/problemset/hack/3406/entry/14106242/",
+  "author": "b8y",
+  "submitted_at": "2025-08-12 17:43:29",
+  "reported_characters": 222,
+  "max_time": "0.51 s",
+  "task": "3406",
+  "title": "Triangle Number Sums",
+  "queue_url": "https://cses.fi/problemset/queue/3406/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:37.409562+00:00",
+  "sha256": "337e79c5effb06082ef94a41bb272b4b250782f19df93500260543e2d7e3d564",
+  "source_bytes": 407,
+  "source_file": "cache/cses-shortest/3406.cpp"
+}

@@ -1,0 +1,18 @@
+{
+  "entry_id": "8390441",
+  "entry_url": "https://cses.fi/problemset/hack/2166/entry/8390441/",
+  "author": "cot",
+  "submitted_at": "2024-02-05 16:55:08",
+  "reported_characters": 343,
+  "max_time": "0.56 s",
+  "task": "2166",
+  "title": "Prefix Sum Queries",
+  "queue_url": "https://cses.fi/problemset/queue/2166/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:12.995974+00:00",
+  "sha256": "8b76b5dfc3ae44f44a03d752ed3e64a352d65d3606f9effa7c9a80667269ac4c",
+  "source_bytes": 583,
+  "source_file": "cache/cses-shortest/2166.cpp"
+}

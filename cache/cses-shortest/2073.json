@@ -1,0 +1,18 @@
+{
+  "entry_id": "8712286",
+  "entry_url": "https://cses.fi/problemset/hack/2073/entry/8712286/",
+  "author": "Naser_md",
+  "submitted_at": "2024-03-12 14:36:17",
+  "reported_characters": 694,
+  "max_time": "0.84 s",
+  "task": "2073",
+  "title": "Substring Reversals",
+  "queue_url": "https://cses.fi/problemset/queue/2073/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:51.431126+00:00",
+  "sha256": "122f9ddd36b5d8021bb103468d6478c2dda5b066ea530f2e6606d27c28a83eb0",
+  "source_bytes": 888,
+  "source_file": "cache/cses-shortest/2073.cpp"
+}

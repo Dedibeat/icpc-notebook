@@ -1,0 +1,18 @@
+{
+  "entry_id": "17067910",
+  "entry_url": "https://cses.fi/problemset/hack/1097/entry/17067910/",
+  "author": "coong",
+  "submitted_at": "2026-05-03 14:44:34",
+  "reported_characters": 225,
+  "max_time": "0.02 s",
+  "task": "1097",
+  "title": "Removal Game",
+  "queue_url": "https://cses.fi/problemset/queue/1097/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:20:25.566810+00:00",
+  "sha256": "21223524bb1ca7d8c79f959f27fcc399774457dab6f895bdc764ff66cc78e5b1",
+  "source_bytes": 379,
+  "source_file": "cache/cses-shortest/1097.cpp"
+}

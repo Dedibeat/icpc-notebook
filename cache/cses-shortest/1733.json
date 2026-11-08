@@ -1,0 +1,18 @@
+{
+  "entry_id": "409330",
+  "entry_url": "https://cses.fi/problemset/hack/1733/entry/409330/",
+  "author": "JamsRamen",
+  "submitted_at": "2020-04-27 00:06:13",
+  "reported_characters": 174,
+  "max_time": "0.13 s",
+  "task": "1733",
+  "title": "Finding Periods",
+  "queue_url": "https://cses.fi/problemset/queue/1733/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:41.339364+00:00",
+  "sha256": "12334b4f5b07dd998abc806685270a8287d2989c3471699d9c2dee8abcf6d6eb",
+  "source_bytes": 272,
+  "source_file": "cache/cses-shortest/1733.cpp"
+}

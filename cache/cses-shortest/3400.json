@@ -1,0 +1,18 @@
+{
+  "entry_id": "15640884",
+  "entry_url": "https://cses.fi/problemset/hack/3400/entry/15640884/",
+  "author": "birka0",
+  "submitted_at": "2025-12-18 02:20:30",
+  "reported_characters": 481,
+  "max_time": "0.52 s",
+  "task": "3400",
+  "title": "Raab Game II",
+  "queue_url": "https://cses.fi/problemset/queue/3400/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:14.828820+00:00",
+  "sha256": "bdbb1575fd0505106ab525a2e666c1dac2330ec752d65a70116a7b56a01636f2",
+  "source_bytes": 838,
+  "source_file": "cache/cses-shortest/3400.cpp"
+}

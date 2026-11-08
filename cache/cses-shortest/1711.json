@@ -1,0 +1,18 @@
+{
+  "entry_id": "2416382",
+  "entry_url": "https://cses.fi/problemset/hack/1711/entry/2416382/",
+  "author": "abeaumont",
+  "submitted_at": "2021-06-27 11:59:49",
+  "reported_characters": 622,
+  "max_time": "0.01 s",
+  "task": "1711",
+  "title": "Distinct Routes",
+  "queue_url": "https://cses.fi/problemset/queue/1711/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:00.538288+00:00",
+  "sha256": "743bb12b62f009b50720fd94f58119fd114eab2154fd07340626ef10b7dd7526",
+  "source_bytes": 946,
+  "source_file": "cache/cses-shortest/1711.cpp"
+}

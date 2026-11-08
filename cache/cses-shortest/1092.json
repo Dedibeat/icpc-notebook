@@ -1,0 +1,18 @@
+{
+  "entry_id": "2352390",
+  "entry_url": "https://cses.fi/problemset/hack/1092/entry/2352390/",
+  "author": "SchizoYoshi",
+  "submitted_at": "2021-06-17 01:37:36",
+  "reported_characters": 181,
+  "max_time": "0.10 s",
+  "task": "1092",
+  "title": "Two Sets",
+  "queue_url": "https://cses.fi/problemset/queue/1092/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:19:21.648254+00:00",
+  "sha256": "a748c87006fad00a1bf8eea6cf275c677ad492c9bc6a987b635415d563fa1b3f",
+  "source_bytes": 389,
+  "source_file": "cache/cses-shortest/1092.cpp"
+}

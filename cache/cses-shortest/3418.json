@@ -1,0 +1,18 @@
+{
+  "entry_id": "17089688",
+  "entry_url": "https://cses.fi/problemset/hack/3418/entry/17089688/",
+  "author": "Alg01",
+  "submitted_at": "2026-05-05 22:45:29",
+  "reported_characters": 378,
+  "max_time": "0.22 s",
+  "task": "3418",
+  "title": "Border Subgrid Count II",
+  "queue_url": "https://cses.fi/problemset/queue/3418/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:14.805246+00:00",
+  "sha256": "89b132c1d7a323a06449f575bd3f1e3c53c03bdf85379773f30f109a98bf1160",
+  "source_bytes": 651,
+  "source_file": "cache/cses-shortest/3418.cpp"
+}

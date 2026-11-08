@@ -1,0 +1,18 @@
+{
+  "entry_id": "12739926",
+  "entry_url": "https://cses.fi/problemset/hack/1638/entry/12739926/",
+  "author": "Madamadam",
+  "submitted_at": "2025-04-27 18:17:20",
+  "reported_characters": 153,
+  "max_time": "0.08 s",
+  "task": "1638",
+  "title": "Grid Paths I",
+  "queue_url": "https://cses.fi/problemset/queue/1638/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:20:17.841754+00:00",
+  "sha256": "de0e656bbceaf0aba5e4dbc94223755a19887570ac933f4f63f2e1efb692b6f8",
+  "source_bytes": 201,
+  "source_file": "cache/cses-shortest/1638.cpp"
+}

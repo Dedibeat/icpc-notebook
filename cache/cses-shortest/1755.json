@@ -1,0 +1,18 @@
+{
+  "entry_id": "10003851",
+  "entry_url": "https://cses.fi/problemset/hack/1755/entry/10003851/",
+  "author": "eyalzus",
+  "submitted_at": "2024-07-28 23:47:27",
+  "reported_characters": 186,
+  "max_time": "0.01 s",
+  "task": "1755",
+  "title": "Palindrome Reorder",
+  "queue_url": "https://cses.fi/problemset/queue/1755/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:19:27.913031+00:00",
+  "sha256": "9f46b23eecb0b672499127c56f1e40d7467214c9a90f4ec9453531ae72f37cde",
+  "source_bytes": 224,
+  "source_file": "cache/cses-shortest/1755.cpp"
+}

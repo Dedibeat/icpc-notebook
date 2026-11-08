@@ -1,0 +1,18 @@
+{
+  "entry_id": "17486519",
+  "entry_url": "https://cses.fi/problemset/hack/3428/entry/17486519/",
+  "author": "Gii2000",
+  "submitted_at": "2026-06-09 12:30:34",
+  "reported_characters": 665,
+  "max_time": "0.31 s",
+  "task": "3428",
+  "title": "Line Segments Trace II",
+  "queue_url": "https://cses.fi/problemset/queue/3428/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:48.728959+00:00",
+  "sha256": "f4c13a61fb22c5b4e63900666ef52a6f47a5e4f0cb05505dce0610b5b245a687",
+  "source_bytes": 1326,
+  "source_file": "cache/cses-shortest/3428.cpp"
+}

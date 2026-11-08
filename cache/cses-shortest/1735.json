@@ -1,0 +1,18 @@
+{
+  "entry_id": "465545",
+  "entry_url": "https://cses.fi/problemset/hack/1735/entry/465545/",
+  "author": "vetusware",
+  "submitted_at": "2020-05-23 10:34:29",
+  "reported_characters": 750,
+  "max_time": "0.51 s",
+  "task": "1735",
+  "title": "Range Updates and Sums",
+  "queue_url": "https://cses.fi/problemset/queue/1735/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++11",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:15.976148+00:00",
+  "sha256": "32aea11ea3c3d4e2fd2087fd8ba3728118e4bf7ee2be4c16f6f63d0dc519c0b7",
+  "source_bytes": 783,
+  "source_file": "cache/cses-shortest/1735.cpp"
+}

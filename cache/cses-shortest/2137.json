@@ -1,0 +1,18 @@
+{
+  "entry_id": "17787255",
+  "entry_url": "https://cses.fi/problemset/hack/2137/entry/17787255/",
+  "author": "Madamadam",
+  "submitted_at": "2026-07-02 17:07:33",
+  "reported_characters": 175,
+  "max_time": "0.46 s",
+  "task": "2137",
+  "title": "Corner Subgrid Count",
+  "queue_url": "https://cses.fi/problemset/queue/2137/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++23",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:50.883525+00:00",
+  "sha256": "a240bd80ba4a69266a9b0cb36bff1e91c472e2976c78914620e8eae0409f67ad",
+  "source_bytes": 251,
+  "source_file": "cache/cses-shortest/2137.cpp"
+}

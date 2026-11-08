@@ -1,0 +1,18 @@
+{
+  "entry_id": "2957315",
+  "entry_url": "https://cses.fi/problemset/hack/1162/entry/2957315/",
+  "author": "wwdd",
+  "submitted_at": "2021-10-07 05:16:39",
+  "reported_characters": 327,
+  "max_time": "0.10 s",
+  "task": "1162",
+  "title": "Sorting Methods",
+  "queue_url": "https://cses.fi/problemset/queue/1162/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:24.773778+00:00",
+  "sha256": "2a7f8458f31dada5bd86d0fee074f78f926a6645d22accb5a52a4eb28c520b0a",
+  "source_bytes": 351,
+  "source_file": "cache/cses-shortest/1162.cpp"
+}

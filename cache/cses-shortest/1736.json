@@ -1,0 +1,18 @@
+{
+  "entry_id": "8965228",
+  "entry_url": "https://cses.fi/problemset/hack/1736/entry/8965228/",
+  "author": "@Muaath_5",
+  "submitted_at": "2024-04-09 14:49:43",
+  "reported_characters": 376,
+  "max_time": "0.42 s",
+  "task": "1736",
+  "title": "Polynomial Queries",
+  "queue_url": "https://cses.fi/problemset/queue/1736/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:17.387664+00:00",
+  "sha256": "50cefd770414dec6ebd1c79f4aacd94088941a855dd81d2d5cd37d4787a51a7d",
+  "source_bytes": 465,
+  "source_file": "cache/cses-shortest/1736.cpp"
+}

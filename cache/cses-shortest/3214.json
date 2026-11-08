@@ -1,0 +1,18 @@
+{
+  "entry_id": "13531028",
+  "entry_url": "https://cses.fi/problemset/hack/3214/entry/13531028/",
+  "author": "nadav_yehuda",
+  "submitted_at": "2025-07-01 16:15:17",
+  "reported_characters": 115,
+  "max_time": "0.01 s",
+  "task": "3214",
+  "title": "Water Containers Queries",
+  "queue_url": "https://cses.fi/problemset/queue/3214/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:21.439176+00:00",
+  "sha256": "9bc03ff2d49af11c7216c410ddc6fd39951db2949cde77ee7db2f1e1fcbde914",
+  "source_bytes": 146,
+  "source_file": "cache/cses-shortest/3214.cpp"
+}

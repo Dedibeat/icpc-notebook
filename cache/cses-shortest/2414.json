@@ -1,0 +1,18 @@
+{
+  "entry_id": "4977537",
+  "entry_url": "https://cses.fi/problemset/hack/2414/entry/4977537/",
+  "author": "Gii2000",
+  "submitted_at": "2022-11-14 23:40:15",
+  "reported_characters": 360,
+  "max_time": "0.05 s",
+  "task": "2414",
+  "title": "List of Sums",
+  "queue_url": "https://cses.fi/problemset/queue/2414/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:25.440619+00:00",
+  "sha256": "dd3251c187623bd2925ae2e81b2f0af77a6a5a5627ccbc25c8308e729a78d737",
+  "source_bytes": 594,
+  "source_file": "cache/cses-shortest/2414.cpp"
+}

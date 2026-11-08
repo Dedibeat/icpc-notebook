@@ -1,0 +1,18 @@
+{
+  "entry_id": "7825991",
+  "entry_url": "https://cses.fi/problemset/hack/1193/entry/7825991/",
+  "author": "hugsehbd",
+  "submitted_at": "2023-12-02 13:26:56",
+  "reported_characters": 280,
+  "max_time": "0.04 s",
+  "task": "1193",
+  "title": "Labyrinth",
+  "queue_url": "https://cses.fi/problemset/queue/1193/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++11",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:20:34.778674+00:00",
+  "sha256": "ee6b5e5ac40cc7d2d47f06b6af807c306bc719165c523a010dbbc9f8a3f0a935",
+  "source_bytes": 421,
+  "source_file": "cache/cses-shortest/1193.cpp"
+}

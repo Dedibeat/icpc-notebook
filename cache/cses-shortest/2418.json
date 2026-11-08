@@ -1,0 +1,18 @@
+{
+  "entry_id": "16402615",
+  "entry_url": "https://cses.fi/problemset/hack/2418/entry/16402615/",
+  "author": "IchBin",
+  "submitted_at": "2026-02-28 15:23:13",
+  "reported_characters": 1252,
+  "max_time": "0.67 s",
+  "task": "2418",
+  "title": "Grid Path Construction",
+  "queue_url": "https://cses.fi/problemset/queue/2418/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:05.653361+00:00",
+  "sha256": "557a232484615625f6c096a96ec496546d8d0b3888217cf7d8da69c7e91aedd0",
+  "source_bytes": 1552,
+  "source_file": "cache/cses-shortest/2418.cpp"
+}

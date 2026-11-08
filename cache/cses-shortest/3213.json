@@ -1,0 +1,18 @@
+{
+  "entry_id": "15627636",
+  "entry_url": "https://cses.fi/problemset/hack/3213/entry/15627636/",
+  "author": "legkamran",
+  "submitted_at": "2025-12-17 00:23:34",
+  "reported_characters": 387,
+  "max_time": "0.00 s",
+  "task": "3213",
+  "title": "Water Containers Moves",
+  "queue_url": "https://cses.fi/problemset/queue/3213/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++11",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:21.308795+00:00",
+  "sha256": "677b8b28903fc2ebd3a694abff7a07c474eb27a7f12449454da17712c4ffe834",
+  "source_bytes": 583,
+  "source_file": "cache/cses-shortest/3213.cpp"
+}

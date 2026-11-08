@@ -1,0 +1,18 @@
+{
+  "entry_id": "14272443",
+  "entry_url": "https://cses.fi/problemset/hack/3169/entry/14272443/",
+  "author": "nadav_yehuda",
+  "submitted_at": "2025-08-24 04:49:20",
+  "reported_characters": 543,
+  "max_time": "0.60 s",
+  "task": "3169",
+  "title": "Counting LCM Arrays",
+  "queue_url": "https://cses.fi/problemset/queue/3169/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:21.034465+00:00",
+  "sha256": "41f6ca217a005e22bd031a5f8e1d526bd316a240dc4cf0229061c12844fd3448",
+  "source_bytes": 749,
+  "source_file": "cache/cses-shortest/3169.cpp"
+}

@@ -1,0 +1,18 @@
+{
+  "entry_id": "17457079",
+  "entry_url": "https://cses.fi/problemset/hack/3225/entry/17457079/",
+  "author": "Dvir1232024",
+  "submitted_at": "2026-06-06 22:00:32",
+  "reported_characters": 230,
+  "max_time": "0.04 s",
+  "task": "3225",
+  "title": "Inverse Suffix Array",
+  "queue_url": "https://cses.fi/problemset/queue/3225/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:44.772518+00:00",
+  "sha256": "0fb9587b1b0583ed50ec26fb2bd826d99c83c0da99f6d1e9f6a7ac7f9278ce31",
+  "source_bytes": 353,
+  "source_file": "cache/cses-shortest/3225.cpp"
+}

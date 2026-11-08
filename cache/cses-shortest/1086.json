@@ -1,0 +1,18 @@
+{
+  "entry_id": "19128884",
+  "entry_url": "https://cses.fi/problemset/hack/1086/entry/19128884/",
+  "author": "lce4113",
+  "submitted_at": "2026-10-20 04:00:18",
+  "reported_characters": 180,
+  "max_time": "0.00 s",
+  "task": "1086",
+  "title": "Writing Numbers",
+  "queue_url": "https://cses.fi/problemset/queue/1086/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++23",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:23.346932+00:00",
+  "sha256": "edad6569665bdd27b9d39438d728b634b3aea84207ddf2cc9f39bcd1713e1035",
+  "source_bytes": 187,
+  "source_file": "cache/cses-shortest/1086.cpp"
+}

@@ -1,0 +1,18 @@
+{
+  "entry_id": "14048064",
+  "entry_url": "https://cses.fi/problemset/hack/1634/entry/14048064/",
+  "author": "hugsehbd",
+  "submitted_at": "2025-08-08 18:49:50",
+  "reported_characters": 149,
+  "max_time": "0.76 s",
+  "task": "1634",
+  "title": "Minimizing Coins",
+  "queue_url": "https://cses.fi/problemset/queue/1634/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:20:12.689637+00:00",
+  "sha256": "5abeec805271a7c8a664abf0c6b0ab754804e6abb4c49ea41e00a4691ce53f73",
+  "source_bytes": 247,
+  "source_file": "cache/cses-shortest/1634.cpp"
+}

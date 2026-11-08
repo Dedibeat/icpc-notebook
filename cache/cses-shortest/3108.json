@@ -1,0 +1,18 @@
+{
+  "entry_id": "13897226",
+  "entry_url": "https://cses.fi/problemset/hack/3108/entry/13897226/",
+  "author": "8XmyDzvdjc5@",
+  "submitted_at": "2025-07-28 16:24:24",
+  "reported_characters": 317,
+  "max_time": "0.19 s",
+  "task": "3108",
+  "title": "K Subset Sums I",
+  "queue_url": "https://cses.fi/problemset/queue/3108/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:25.568633+00:00",
+  "sha256": "0c6201baf0f674b286282df949854662cba71f0518211bb06c73ca77cc93f618",
+  "source_bytes": 524,
+  "source_file": "cache/cses-shortest/3108.cpp"
+}

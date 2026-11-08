@@ -1,0 +1,18 @@
+{
+  "entry_id": "1995841",
+  "entry_url": "https://cses.fi/problemset/hack/1138/entry/1995841/",
+  "author": "ritul_kr_singh",
+  "submitted_at": "2021-04-16 16:56:59",
+  "reported_characters": 493,
+  "max_time": "0.62 s",
+  "task": "1138",
+  "title": "Path Queries",
+  "queue_url": "https://cses.fi/problemset/queue/1138/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:26.189818+00:00",
+  "sha256": "7d3832ecfa21754a73c61c573fe5b3cdb53316a34f861170d40a29f16567c9d4",
+  "source_bytes": 707,
+  "source_file": "cache/cses-shortest/1138.cpp"
+}

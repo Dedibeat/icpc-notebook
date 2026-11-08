@@ -1,0 +1,18 @@
+{
+  "entry_id": "11161098",
+  "entry_url": "https://cses.fi/problemset/hack/1703/entry/11161098/",
+  "author": "ryno",
+  "submitted_at": "2024-11-15 04:59:24",
+  "reported_characters": 361,
+  "max_time": "0.25 s",
+  "task": "1703",
+  "title": "Critical Cities",
+  "queue_url": "https://cses.fi/problemset/queue/1703/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:11.055984+00:00",
+  "sha256": "c4a11b95e99b79430c0d8daca9f3b0c96415c912ec039b1fe3dad5fa52515d57",
+  "source_bytes": 402,
+  "source_file": "cache/cses-shortest/1703.cpp"
+}

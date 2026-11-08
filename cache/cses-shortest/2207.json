@@ -1,0 +1,18 @@
+{
+  "entry_id": "10288479",
+  "entry_url": "https://cses.fi/problemset/hack/2207/entry/10288479/",
+  "author": "hugsehbd",
+  "submitted_at": "2024-08-24 01:58:02",
+  "reported_characters": 89,
+  "max_time": "0.02 s",
+  "task": "2207",
+  "title": "Grundy's Game",
+  "queue_url": "https://cses.fi/problemset/queue/2207/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:39.812305+00:00",
+  "sha256": "1b11c66d74ad7b2b792635ded43036aa6b3be64a9f1ee0bb6baf03cdc7770299",
+  "source_bytes": 2470,
+  "source_file": "cache/cses-shortest/2207.cpp"
+}

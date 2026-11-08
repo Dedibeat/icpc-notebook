@@ -1,0 +1,18 @@
+{
+  "entry_id": "5227197",
+  "entry_url": "https://cses.fi/problemset/hack/1072/entry/5227197/",
+  "author": "eyalzus",
+  "submitted_at": "2023-01-03 15:40:53",
+  "reported_characters": 88,
+  "max_time": "0.00 s",
+  "task": "1072",
+  "title": "Two Knights",
+  "queue_url": "https://cses.fi/problemset/queue/1072/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++11",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:19:20.140071+00:00",
+  "sha256": "f87a3fa22d544c32c907d5ca4152628fc3ef3ab6cdf1be72c5ecb9755cbed88f",
+  "source_bytes": 95,
+  "source_file": "cache/cses-shortest/1072.cpp"
+}

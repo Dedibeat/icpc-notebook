@@ -1,0 +1,18 @@
+{
+  "entry_id": "2304214",
+  "entry_url": "https://cses.fi/problemset/hack/1692/entry/2304214/",
+  "author": "Erystil",
+  "submitted_at": "2021-06-09 14:17:32",
+  "reported_characters": 138,
+  "max_time": "0.01 s",
+  "task": "1692",
+  "title": "De Bruijn Sequence",
+  "queue_url": "https://cses.fi/problemset/queue/1692/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:20:56.177283+00:00",
+  "sha256": "37dcbfadfe26785589e6ffc076b4a7542cb6324962a106a519ca982a4936caff",
+  "source_bytes": 208,
+  "source_file": "cache/cses-shortest/1692.cpp"
+}

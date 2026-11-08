@@ -1,0 +1,18 @@
+{
+  "entry_id": "5290410",
+  "entry_url": "https://cses.fi/problemset/hack/1722/entry/5290410/",
+  "author": "eyalzus",
+  "submitted_at": "2023-01-15 14:46:19",
+  "reported_characters": 141,
+  "max_time": "0.00 s",
+  "task": "1722",
+  "title": "Fibonacci Numbers",
+  "queue_url": "https://cses.fi/problemset/queue/1722/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:36.528263+00:00",
+  "sha256": "143e4227e8719461d84cebdb953a53237eabc621f228eef6ded0b7e0049aac4e",
+  "source_bytes": 162,
+  "source_file": "cache/cses-shortest/1722.cpp"
+}

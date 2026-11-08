@@ -1,0 +1,18 @@
+{
+  "entry_id": "18065335",
+  "entry_url": "https://cses.fi/problemset/hack/2107/entry/18065335/",
+  "author": "Maezra6",
+  "submitted_at": "2026-07-23 22:05:08",
+  "reported_characters": 350,
+  "max_time": "0.24 s",
+  "task": "2107",
+  "title": "String Functions",
+  "queue_url": "https://cses.fi/problemset/queue/2107/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:43.857105+00:00",
+  "sha256": "db6d69b28a5777fc8fc5853deb4e5722860278bb16bbe29dc890d8468e983f7c",
+  "source_bytes": 512,
+  "source_file": "cache/cses-shortest/2107.cpp"
+}

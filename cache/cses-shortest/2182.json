@@ -1,0 +1,18 @@
+{
+  "entry_id": "7487077",
+  "entry_url": "https://cses.fi/problemset/hack/2182/entry/7487077/",
+  "author": "eyalzus",
+  "submitted_at": "2023-10-24 16:41:51",
+  "reported_characters": 244,
+  "max_time": "0.52 s",
+  "task": "2182",
+  "title": "Divisor Analysis",
+  "queue_url": "https://cses.fi/problemset/queue/2182/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:30.776670+00:00",
+  "sha256": "62f75b2de55003b362c71c690313bdb287c7ee47ee3e309a5a81967c80aad623",
+  "source_bytes": 281,
+  "source_file": "cache/cses-shortest/2182.cpp"
+}

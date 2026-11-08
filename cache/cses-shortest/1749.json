@@ -1,0 +1,18 @@
+{
+  "entry_id": "12494911",
+  "entry_url": "https://cses.fi/problemset/hack/1749/entry/12494911/",
+  "author": "eyalzus",
+  "submitted_at": "2025-03-30 19:53:26",
+  "reported_characters": 197,
+  "max_time": "0.52 s",
+  "task": "1749",
+  "title": "List Removals",
+  "queue_url": "https://cses.fi/problemset/queue/1749/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:12.908114+00:00",
+  "sha256": "71aca8a443df37775ab4ea2c06ad811b73e2d02eed2527385c6ad369749d9fa4",
+  "source_bytes": 241,
+  "source_file": "cache/cses-shortest/1749.cpp"
+}

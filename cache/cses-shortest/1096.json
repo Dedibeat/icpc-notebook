@@ -1,0 +1,18 @@
+{
+  "entry_id": "151622",
+  "entry_url": "https://cses.fi/problemset/hack/1096/entry/151622/",
+  "author": "mblazev",
+  "submitted_at": "2019-04-16 02:04:09",
+  "reported_characters": 348,
+  "max_time": "0.03 s",
+  "task": "1096",
+  "title": "Throwing Dice",
+  "queue_url": "https://cses.fi/problemset/queue/1096/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:36.342016+00:00",
+  "sha256": "c8ffa92f7d1cf498d5ba3f2f88f8167d8caea44f37b31e1b9ccbed9a77b177e3",
+  "source_bytes": 493,
+  "source_file": "cache/cses-shortest/1096.cpp"
+}

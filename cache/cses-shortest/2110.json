@@ -1,0 +1,18 @@
+{
+  "entry_id": "5279811",
+  "entry_url": "https://cses.fi/problemset/hack/2110/entry/5279811/",
+  "author": "Register",
+  "submitted_at": "2023-01-13 17:02:30",
+  "reported_characters": 591,
+  "max_time": "0.03 s",
+  "task": "2110",
+  "title": "Substring Distribution",
+  "queue_url": "https://cses.fi/problemset/queue/2110/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:45.415309+00:00",
+  "sha256": "28ba532596252f6ebb97b6b7f5c2d41805152545f9a873b62fbbfe860a640d5f",
+  "source_bytes": 679,
+  "source_file": "cache/cses-shortest/2110.cpp"
+}

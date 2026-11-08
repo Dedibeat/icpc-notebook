@@ -1,0 +1,18 @@
+{
+  "entry_id": "13021546",
+  "entry_url": "https://cses.fi/problemset/hack/3424/entry/13021546/",
+  "author": "ronr",
+  "submitted_at": "2025-05-23 21:57:57",
+  "reported_characters": 360,
+  "max_time": "0.10 s",
+  "task": "3424",
+  "title": "Distinct Sums Grid",
+  "queue_url": "https://cses.fi/problemset/queue/3424/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:05.225731+00:00",
+  "sha256": "175f84ccd2961719bfa9e9fa521e608445722734979e3ee7eac7bd8624a20f80",
+  "source_bytes": 660,
+  "source_file": "cache/cses-shortest/3424.cpp"
+}

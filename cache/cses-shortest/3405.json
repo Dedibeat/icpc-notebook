@@ -1,0 +1,18 @@
+{
+  "entry_id": "13138829",
+  "entry_url": "https://cses.fi/problemset/hack/3405/entry/13138829/",
+  "author": "Edu175",
+  "submitted_at": "2025-06-02 01:34:11",
+  "reported_characters": 247,
+  "max_time": "0.50 s",
+  "task": "3405",
+  "title": "Sliding Window Or",
+  "queue_url": "https://cses.fi/problemset/queue/3405/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:57.090127+00:00",
+  "sha256": "fd656a8c68c497af43786c3b3f7c04e244a1e4195adfd2c66a023179c444d780",
+  "source_bytes": 275,
+  "source_file": "cache/cses-shortest/3405.cpp"
+}

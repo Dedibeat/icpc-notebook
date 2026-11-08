@@ -1,0 +1,18 @@
+{
+  "entry_id": "16910755",
+  "entry_url": "https://cses.fi/problemset/hack/2193/entry/16910755/",
+  "author": "Asarbardjarn",
+  "submitted_at": "2026-04-15 10:19:33",
+  "reported_characters": 252,
+  "max_time": "0.01 s",
+  "task": "2193",
+  "title": "Polygon Lattice Points",
+  "queue_url": "https://cses.fi/problemset/queue/2193/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++23",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:46.992728+00:00",
+  "sha256": "87882cce0e5d07d9eba585eb37410d467873991db3985dcb18a3584f9b9b01c5",
+  "source_bytes": 337,
+  "source_file": "cache/cses-shortest/2193.cpp"
+}

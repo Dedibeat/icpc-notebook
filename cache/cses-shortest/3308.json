@@ -1,0 +1,18 @@
+{
+  "entry_id": "18239695",
+  "entry_url": "https://cses.fi/problemset/hack/3308/entry/18239695/",
+  "author": "NikolaS009",
+  "submitted_at": "2026-08-06 01:55:37",
+  "reported_characters": 504,
+  "max_time": "0.12 s",
+  "task": "3308",
+  "title": "Graph Coloring",
+  "queue_url": "https://cses.fi/problemset/queue/3308/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++23",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:11.174606+00:00",
+  "sha256": "4827475a8fab6a7b6f9efa89118729bbbd5a53eb1bff860ac815c3221cfcc5f7",
+  "source_bytes": 684,
+  "source_file": "cache/cses-shortest/3308.cpp"
+}

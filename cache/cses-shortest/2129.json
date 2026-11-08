@@ -1,0 +1,18 @@
+{
+  "entry_id": "3820330",
+  "entry_url": "https://cses.fi/problemset/hack/2129/entry/3820330/",
+  "author": "eitanelbaum",
+  "submitted_at": "2022-04-14 00:18:40",
+  "reported_characters": 549,
+  "max_time": "0.02 s",
+  "task": "2129",
+  "title": "Task Assignment",
+  "queue_url": "https://cses.fi/problemset/queue/2129/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++11",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:55.440262+00:00",
+  "sha256": "8c884118b68d7a8c097156c25f428b7d79987cab0c8113c397d00423b1a44afc",
+  "source_bytes": 978,
+  "source_file": "cache/cses-shortest/2129.cpp"
+}

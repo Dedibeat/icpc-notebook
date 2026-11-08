@@ -1,0 +1,18 @@
+{
+  "entry_id": "8525808",
+  "entry_url": "https://cses.fi/problemset/hack/1651/entry/8525808/",
+  "author": "biank",
+  "submitted_at": "2024-02-21 08:26:22",
+  "reported_characters": 215,
+  "max_time": "0.51 s",
+  "task": "1651",
+  "title": "Range Update Queries",
+  "queue_url": "https://cses.fi/problemset/queue/1651/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:08.769046+00:00",
+  "sha256": "d51bf346bc6ca244e2aa7f3561a876cd8682be09c292f0e6d0abe8712785c052",
+  "source_bytes": 307,
+  "source_file": "cache/cses-shortest/1651.cpp"
+}

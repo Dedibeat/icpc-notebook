@@ -1,0 +1,18 @@
+{
+  "entry_id": "15177701",
+  "entry_url": "https://cses.fi/problemset/hack/2179/entry/15177701/",
+  "author": "ryno",
+  "submitted_at": "2025-11-04 05:59:12",
+  "reported_characters": 408,
+  "max_time": "0.47 s",
+  "task": "2179",
+  "title": "Even Outdegree Edges",
+  "queue_url": "https://cses.fi/problemset/queue/2179/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:07.608956+00:00",
+  "sha256": "0e9fee646ccd2e3617d716f173b9524e6b911b023115d36e8bf627cf337047d8",
+  "source_bytes": 475,
+  "source_file": "cache/cses-shortest/2179.cpp"
+}

@@ -1,0 +1,18 @@
+{
+  "entry_id": "14125495",
+  "entry_url": "https://cses.fi/problemset/hack/3403/entry/14125495/",
+  "author": "Genius3435",
+  "submitted_at": "2025-08-13 21:43:05",
+  "reported_characters": 306,
+  "max_time": "0.01 s",
+  "task": "3403",
+  "title": "Longest Common Subsequence",
+  "queue_url": "https://cses.fi/problemset/queue/3403/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:20:21.486801+00:00",
+  "sha256": "15525cd66348dc3e3bb66d1278bd19f0c47859af9c03480b4ba0c1685fa2a3d3",
+  "source_bytes": 507,
+  "source_file": "cache/cses-shortest/3403.cpp"
+}

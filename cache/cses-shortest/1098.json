@@ -1,0 +1,18 @@
+{
+  "entry_id": "10504810",
+  "entry_url": "https://cses.fi/problemset/hack/1098/entry/10504810/",
+  "author": "hugsehbd",
+  "submitted_at": "2024-09-14 02:49:12",
+  "reported_characters": 106,
+  "max_time": "0.03 s",
+  "task": "1098",
+  "title": "Nim Game II",
+  "queue_url": "https://cses.fi/problemset/queue/1098/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:38.913294+00:00",
+  "sha256": "b90a36aa3778b386d7bbf4378a14519ad71b2d2f15cd11c7b9cf042cb463a77f",
+  "source_bytes": 157,
+  "source_file": "cache/cses-shortest/1098.cpp"
+}

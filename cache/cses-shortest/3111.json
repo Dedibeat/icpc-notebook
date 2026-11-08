@@ -1,0 +1,18 @@
+{
+  "entry_id": "17229491",
+  "entry_url": "https://cses.fi/problemset/hack/3111/entry/17229491/",
+  "author": "eyalzus",
+  "submitted_at": "2026-05-20 00:40:42",
+  "reported_characters": 238,
+  "max_time": "0.40 s",
+  "task": "3111",
+  "title": "Transfer Speeds Sum",
+  "queue_url": "https://cses.fi/problemset/queue/3111/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++23",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:08.549057+00:00",
+  "sha256": "50d082324e7acb8b921e767907da9ad8a985dd66d6c6b2879a719f5f7837fec5",
+  "source_bytes": 309,
+  "source_file": "cache/cses-shortest/3111.cpp"
+}

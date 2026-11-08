@@ -1,0 +1,18 @@
+{
+  "entry_id": "18827123",
+  "entry_url": "https://cses.fi/problemset/hack/3223/entry/18827123/",
+  "author": "Maezra6",
+  "submitted_at": "2026-09-23 02:38:08",
+  "reported_characters": 359,
+  "max_time": "0.48 s",
+  "task": "3223",
+  "title": "Sliding Window Inversions",
+  "queue_url": "https://cses.fi/problemset/queue/3223/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:58.662495+00:00",
+  "sha256": "72508a83bddec564c1a3c2bfc26a8cf2b7e20094818f02596ab51c983624fb1c",
+  "source_bytes": 517,
+  "source_file": "cache/cses-shortest/3223.cpp"
+}

@@ -1,0 +1,18 @@
+{
+  "entry_id": "14537632",
+  "entry_url": "https://cses.fi/problemset/hack/3195/entry/14537632/",
+  "author": "164253",
+  "submitted_at": "2025-09-13 20:00:01",
+  "reported_characters": 198,
+  "max_time": "0.17 s",
+  "task": "3195",
+  "title": "Xor Pyramid Row",
+  "queue_url": "https://cses.fi/problemset/queue/3195/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++11",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:03.167807+00:00",
+  "sha256": "40db21b57b81373ff2d3b52f349ee4c2cff69f77458972459d4605a1870adf26",
+  "source_bytes": 204,
+  "source_file": "cache/cses-shortest/3195.cpp"
+}

@@ -1,0 +1,18 @@
+{
+  "entry_id": "10855424",
+  "entry_url": "https://cses.fi/problemset/hack/2105/entry/10855424/",
+  "author": "wwwwodddd",
+  "submitted_at": "2024-10-15 06:07:13",
+  "reported_characters": 516,
+  "max_time": "0.03 s",
+  "task": "2105",
+  "title": "Distinct Substrings",
+  "queue_url": "https://cses.fi/problemset/queue/2105/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:43.379727+00:00",
+  "sha256": "0334af332da4a9a630c6866b4321ffb61fa9c2ce665c710c98ee2e8675847452",
+  "source_bytes": 739,
+  "source_file": "cache/cses-shortest/2105.cpp"
+}

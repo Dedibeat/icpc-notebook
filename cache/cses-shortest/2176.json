@@ -1,0 +1,18 @@
+{
+  "entry_id": "7995881",
+  "entry_url": "https://cses.fi/problemset/hack/2176/entry/7995881/",
+  "author": "Berryw",
+  "submitted_at": "2023-12-22 12:50:50",
+  "reported_characters": 297,
+  "max_time": "0.02 s",
+  "task": "2176",
+  "title": "Counting Bishops",
+  "queue_url": "https://cses.fi/problemset/queue/2176/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:15.063403+00:00",
+  "sha256": "458d2f4d06117b3f39b632136015caff661426cb17e4d6e214aace5326ee14d4",
+  "source_bytes": 423,
+  "source_file": "cache/cses-shortest/2176.cpp"
+}

@@ -1,0 +1,18 @@
+{
+  "entry_id": "9588300",
+  "entry_url": "https://cses.fi/problemset/hack/1629/entry/9588300/",
+  "author": "hugsehbd",
+  "submitted_at": "2024-06-19 01:21:17",
+  "reported_characters": 145,
+  "max_time": "0.23 s",
+  "task": "1629",
+  "title": "Movie Festival",
+  "queue_url": "https://cses.fi/problemset/queue/1629/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:19:44.077623+00:00",
+  "sha256": "7568d99bf7a9671db5e6575fbc5fe28b6c1e47406815bfc9b020c019ea3d4d71",
+  "source_bytes": 196,
+  "source_file": "cache/cses-shortest/1629.cpp"
+}

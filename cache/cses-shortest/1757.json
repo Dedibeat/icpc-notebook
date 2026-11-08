@@ -1,0 +1,18 @@
+{
+  "entry_id": "13774945",
+  "entry_url": "https://cses.fi/problemset/hack/1757/entry/13774945/",
+  "author": "Madamadam",
+  "submitted_at": "2025-07-19 16:04:09",
+  "reported_characters": 300,
+  "max_time": "0.35 s",
+  "task": "1757",
+  "title": "Course Schedule II",
+  "queue_url": "https://cses.fi/problemset/queue/1757/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:06.976418+00:00",
+  "sha256": "a5debcff89e053f59764034a2dbc0868507c8230f5180e79b46404fd3ad7df92",
+  "source_bytes": 443,
+  "source_file": "cache/cses-shortest/1757.cpp"
+}

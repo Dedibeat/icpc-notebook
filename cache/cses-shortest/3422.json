@@ -1,0 +1,18 @@
+{
+  "entry_id": "13329384",
+  "entry_url": "https://cses.fi/problemset/hack/3422/entry/13329384/",
+  "author": "rad",
+  "submitted_at": "2025-06-17 03:32:02",
+  "reported_characters": 306,
+  "max_time": "0.13 s",
+  "task": "3422",
+  "title": "Third Permutation",
+  "queue_url": "https://cses.fi/problemset/queue/3422/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:04.301510+00:00",
+  "sha256": "178d555d67cb6967bdf2d5715c2c0b25ca1a16660e1f613a0d8908ef7944c3a1",
+  "source_bytes": 319,
+  "source_file": "cache/cses-shortest/3422.cpp"
+}

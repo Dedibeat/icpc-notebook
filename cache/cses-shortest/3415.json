@@ -1,0 +1,18 @@
+{
+  "entry_id": "13870750",
+  "entry_url": "https://cses.fi/problemset/hack/3415/entry/13870750/",
+  "author": "8XmyDzvdjc5@",
+  "submitted_at": "2025-07-26 14:29:28",
+  "reported_characters": 399,
+  "max_time": "0.81 s",
+  "task": "3415",
+  "title": "All Letter Subgrid Count I",
+  "queue_url": "https://cses.fi/problemset/queue/3415/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:13.541683+00:00",
+  "sha256": "815b63d44437c7bfc97c2156efe6457ff5b39d491a37c0dab4e0cb472041a888",
+  "source_bytes": 720,
+  "source_file": "cache/cses-shortest/3415.cpp"
+}

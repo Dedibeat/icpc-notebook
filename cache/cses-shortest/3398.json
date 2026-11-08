@@ -1,0 +1,18 @@
+{
+  "entry_id": "12982339",
+  "entry_url": "https://cses.fi/problemset/hack/3398/entry/12982339/",
+  "author": "Maezra6",
+  "submitted_at": "2025-05-20 22:42:56",
+  "reported_characters": 258,
+  "max_time": "0.08 s",
+  "task": "3398",
+  "title": "Permutation Rounds",
+  "queue_url": "https://cses.fi/problemset/queue/3398/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:33.933324+00:00",
+  "sha256": "decee0c8e37d63f5f82314c53c1a686d9cad64f37b2631cb3e211cd8e81c5f70",
+  "source_bytes": 417,
+  "source_file": "cache/cses-shortest/3398.cpp"
+}

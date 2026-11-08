@@ -1,0 +1,18 @@
+{
+  "entry_id": "12232452",
+  "entry_url": "https://cses.fi/problemset/hack/2220/entry/12232452/",
+  "author": "Sth",
+  "submitted_at": "2025-03-03 17:03:00",
+  "reported_characters": 183,
+  "max_time": "0.00 s",
+  "task": "2220",
+  "title": "Counting Numbers",
+  "queue_url": "https://cses.fi/problemset/queue/2220/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:20:32.506720+00:00",
+  "sha256": "83aae0cde23a2ce6ab7f362bf7a3b3900e887f7f5108159ffcf4c0bd6615c239",
+  "source_bytes": 214,
+  "source_file": "cache/cses-shortest/2220.cpp"
+}

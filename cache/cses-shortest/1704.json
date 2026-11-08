@@ -1,0 +1,18 @@
+{
+  "entry_id": "13500944",
+  "entry_url": "https://cses.fi/problemset/hack/1704/entry/13500944/",
+  "author": "Sacharlemagne",
+  "submitted_at": "2025-06-29 14:17:16",
+  "reported_characters": 301,
+  "max_time": "0.14 s",
+  "task": "1704",
+  "title": "Network Renovation",
+  "queue_url": "https://cses.fi/problemset/queue/1704/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:12.455607+00:00",
+  "sha256": "8da061aa4daa518ce72c74e68229d4ff84e9fa4248afe7b72b9bad50e33a1a0c",
+  "source_bytes": 410,
+  "source_file": "cache/cses-shortest/1704.cpp"
+}

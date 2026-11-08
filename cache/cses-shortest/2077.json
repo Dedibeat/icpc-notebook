@@ -1,0 +1,18 @@
+{
+  "entry_id": "11622043",
+  "entry_url": "https://cses.fi/problemset/hack/2077/entry/11622043/",
+  "author": "Maezra6",
+  "submitted_at": "2025-01-02 00:26:18",
+  "reported_characters": 352,
+  "max_time": "0.35 s",
+  "task": "2077",
+  "title": "Necessary Cities",
+  "queue_url": "https://cses.fi/problemset/queue/2077/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:52.286386+00:00",
+  "sha256": "49a047460f11e2463dc7d281e2d3ee1d3a06f80238d3d84edde81be364072908",
+  "source_bytes": 630,
+  "source_file": "cache/cses-shortest/2077.cpp"
+}

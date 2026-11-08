@@ -1,0 +1,18 @@
+{
+  "entry_id": "3962987",
+  "entry_url": "https://cses.fi/problemset/hack/1691/entry/3962987/",
+  "author": "anhkhue",
+  "submitted_at": "2022-05-20 05:08:46",
+  "reported_characters": 412,
+  "max_time": "0.38 s",
+  "task": "1691",
+  "title": "Mail Delivery",
+  "queue_url": "https://cses.fi/problemset/queue/1691/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++11",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:20:56.676097+00:00",
+  "sha256": "bcf032d13cf4a1976719f0ea67978c9dae88a92b4b1739d2a5d4fdca3e2432b1",
+  "source_bytes": 559,
+  "source_file": "cache/cses-shortest/1691.cpp"
+}

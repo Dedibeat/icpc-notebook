@@ -1,0 +1,18 @@
+{
+  "entry_id": "15704590",
+  "entry_url": "https://cses.fi/problemset/hack/3425/entry/15704590/",
+  "author": "birka0",
+  "submitted_at": "2025-12-24 02:46:29",
+  "reported_characters": 800,
+  "max_time": "0.89 s",
+  "task": "3425",
+  "title": "Same Sum Subsets",
+  "queue_url": "https://cses.fi/problemset/queue/3425/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:31.831104+00:00",
+  "sha256": "2eb6f2088cc5330bd45eb0e5846b92da0cbc28b4e4ab698029f5cdacc01b3c98",
+  "source_bytes": 1450,
+  "source_file": "cache/cses-shortest/3425.cpp"
+}

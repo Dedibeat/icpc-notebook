@@ -1,0 +1,18 @@
+{
+  "entry_id": "15421757",
+  "entry_url": "https://cses.fi/problemset/hack/3408/entry/15421757/",
+  "author": "Weipengbao",
+  "submitted_at": "2025-11-28 08:45:34",
+  "reported_characters": 729,
+  "max_time": "0.56 s",
+  "task": "3408",
+  "title": "MST Edge Set Check",
+  "queue_url": "https://cses.fi/problemset/queue/3408/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:09.116712+00:00",
+  "sha256": "9d74c2e36f1e911037b1cea7dcc9772dbc6180de9ff21ad0b375abb8b57b4842",
+  "source_bytes": 1025,
+  "source_file": "cache/cses-shortest/3408.cpp"
+}

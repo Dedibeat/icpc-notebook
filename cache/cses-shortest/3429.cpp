@@ -1,0 +1,2 @@
+#include<bits/stdc++.h>
+using namespace std;using ll=long long;struct F{ll l,r,o,m=0,c=-1e17;F*p=0,*q=0;F(ll L=0,ll R=1e6){l=L;r=R;o=(l+r)/2;if(l!=r){p=new F(l,o);q=new F(o+1,r);}}ll e(ll x){return m*x+c;}void A(ll M,ll C){ll E=M*o+C;if(E>e(o)){swap(M,m);swap(C,c);}if(l!=r){if(M<m)p->A(M,C);else q->A(M,C);}}ll Q(ll x){if(l>x||r<x)return -1e17;if(l==r)return e(x);return max({p->Q(x),q->Q(x),e(x)});}};F f;int main(){ll n;cin>>n;for(ll i=1;i<=n;i++){ll o;cin>>o;if(2-o){ll a,b;cin>>a>>b;f.A(a,b);}else{ll x;cin>>x;ll A=f.Q(x);cout<<(A==-1e17?"NO":to_string(A))<<'\n';}}}

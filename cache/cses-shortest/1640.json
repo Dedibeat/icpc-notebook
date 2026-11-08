@@ -1,0 +1,18 @@
+{
+  "entry_id": "13873915",
+  "entry_url": "https://cses.fi/problemset/hack/1640/entry/13873915/",
+  "author": "hugsehbd",
+  "submitted_at": "2025-07-26 18:14:27",
+  "reported_characters": 141,
+  "max_time": "0.15 s",
+  "task": "1640",
+  "title": "Sum of Two Values",
+  "queue_url": "https://cses.fi/problemset/queue/1640/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:19:45.812250+00:00",
+  "sha256": "5f4ef3dd8d789c8f0f32a006e30a8eea5ee1ebc42a8c0988c3c1f4f6e5cb59a1",
+  "source_bytes": 191,
+  "source_file": "cache/cses-shortest/1640.cpp"
+}

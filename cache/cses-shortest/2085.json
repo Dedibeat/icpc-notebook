@@ -1,0 +1,18 @@
+{
+  "entry_id": "12605347",
+  "entry_url": "https://cses.fi/problemset/hack/2085/entry/12605347/",
+  "author": "nadav_yehuda",
+  "submitted_at": "2025-04-11 18:20:31",
+  "reported_characters": 622,
+  "max_time": "0.21 s",
+  "task": "2085",
+  "title": "Monster Game II",
+  "queue_url": "https://cses.fi/problemset/queue/2085/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:53.351116+00:00",
+  "sha256": "d722a517ff8654c07e9d4ce00d08c3ebd874bdedd93ee9d5fbb1f4a8564528ba",
+  "source_bytes": 923,
+  "source_file": "cache/cses-shortest/2085.cpp"
+}

@@ -1,0 +1,18 @@
+{
+  "entry_id": "10648461",
+  "entry_url": "https://cses.fi/problemset/hack/1729/entry/10648461/",
+  "author": "hugsehbd",
+  "submitted_at": "2024-09-27 19:34:40",
+  "reported_characters": 123,
+  "max_time": "0.20 s",
+  "task": "1729",
+  "title": "Stick Game",
+  "queue_url": "https://cses.fi/problemset/queue/1729/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:38.415577+00:00",
+  "sha256": "1fecd39c330b14a9418faaaebe1f5054ebcc5e359eff7953fe341b0439cb919c",
+  "source_bytes": 197,
+  "source_file": "cache/cses-shortest/1729.cpp"
+}

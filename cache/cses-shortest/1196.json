@@ -1,0 +1,18 @@
+{
+  "entry_id": "15592611",
+  "entry_url": "https://cses.fi/problemset/hack/1196/entry/15592611/",
+  "author": "Dvir1232024",
+  "submitted_at": "2025-12-14 01:21:43",
+  "reported_characters": 341,
+  "max_time": "0.48 s",
+  "task": "1196",
+  "title": "Flight Routes",
+  "queue_url": "https://cses.fi/problemset/queue/1196/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:20:44.955250+00:00",
+  "sha256": "530a4e726ffab33ccc45bc8b2c55e86cfd7d64517a03edaaa599e727c7dfe79b",
+  "source_bytes": 486,
+  "source_file": "cache/cses-shortest/1196.cpp"
+}

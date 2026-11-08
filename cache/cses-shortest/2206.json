@@ -1,0 +1,18 @@
+{
+  "entry_id": "2115897",
+  "entry_url": "https://cses.fi/problemset/hack/2206/entry/2115897/",
+  "author": "GeeTransit",
+  "submitted_at": "2021-05-08 19:17:40",
+  "reported_characters": 398,
+  "max_time": "0.39 s",
+  "task": "2206",
+  "title": "Pizzeria Queries",
+  "queue_url": "https://cses.fi/problemset/queue/2206/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:12.454517+00:00",
+  "sha256": "b13a49d7249a30ee2e2db0eca04f8e6a4d3301d9932a8d4439e49de63cc0da77",
+  "source_bytes": 496,
+  "source_file": "cache/cses-shortest/2206.cpp"
+}

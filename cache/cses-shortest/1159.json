@@ -1,0 +1,18 @@
+{
+  "entry_id": "8312764",
+  "entry_url": "https://cses.fi/problemset/hack/1159/entry/8312764/",
+  "author": "eyalzus",
+  "submitted_at": "2024-01-28 14:50:50",
+  "reported_characters": 205,
+  "max_time": "0.31 s",
+  "task": "1159",
+  "title": "Book Shop II",
+  "queue_url": "https://cses.fi/problemset/queue/1159/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:31.232472+00:00",
+  "sha256": "b7e80880dfb763cee31d941357b0c016cba282d3e918619c0cf85283f16b7e20",
+  "source_bytes": 238,
+  "source_file": "cache/cses-shortest/1159.cpp"
+}

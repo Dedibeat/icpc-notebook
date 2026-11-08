@@ -1,0 +1,18 @@
+{
+  "entry_id": "6863874",
+  "entry_url": "https://cses.fi/problemset/hack/2420/entry/6863874/",
+  "author": "genf",
+  "submitted_at": "2023-08-22 15:49:38",
+  "reported_characters": 377,
+  "max_time": "0.99 s",
+  "task": "2420",
+  "title": "Palindrome Queries",
+  "queue_url": "https://cses.fi/problemset/queue/2420/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:42.838049+00:00",
+  "sha256": "769dac866b98a89a74e5b2d9014fea29fe828828f0d2e801375349994f47da8f",
+  "source_bytes": 574,
+  "source_file": "cache/cses-shortest/2420.cpp"
+}

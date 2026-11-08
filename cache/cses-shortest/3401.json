@@ -1,0 +1,18 @@
+{
+  "entry_id": "16848682",
+  "entry_url": "https://cses.fi/problemset/hack/3401/entry/16848682/",
+  "author": "8XmyDzvdjc5@",
+  "submitted_at": "2026-04-09 05:17:26",
+  "reported_characters": 707,
+  "max_time": "0.33 s",
+  "task": "3401",
+  "title": "Stick Difference",
+  "queue_url": "https://cses.fi/problemset/queue/3401/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:32.618373+00:00",
+  "sha256": "8700ee9ed1869d5cfdf865ff8ee1135d3227452be10043f2c1a23090d53dcf4e",
+  "source_bytes": 834,
+  "source_file": "cache/cses-shortest/3401.cpp"
+}

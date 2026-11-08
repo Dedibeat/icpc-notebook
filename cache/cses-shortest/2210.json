@@ -1,0 +1,18 @@
+{
+  "entry_id": "4167054",
+  "entry_url": "https://cses.fi/problemset/hack/2210/entry/4167054/",
+  "author": "0-jij-0",
+  "submitted_at": "2022-07-02 14:32:33",
+  "reported_characters": 185,
+  "max_time": "0.01 s",
+  "task": "2210",
+  "title": "Counting Grids",
+  "queue_url": "https://cses.fi/problemset/queue/2210/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:35.793823+00:00",
+  "sha256": "3d4b2c6321217caac2e7e773e43f9bacdaff72a108020b73863dff3db7c9cf4a",
+  "source_bytes": 298,
+  "source_file": "cache/cses-shortest/2210.cpp"
+}

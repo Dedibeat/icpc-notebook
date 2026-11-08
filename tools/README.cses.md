@@ -134,3 +134,6 @@ can use code-golf tricks; acceptance alone does not establish notebook suitabili
 No submissions or hacks are sent. Cookies and authentication forms are never
 saved in the output. Preserve author attribution and source links when reusing
 entries. The tool does not grant a redistribution license for third-party code.
+
+The committed 2026-11-08 snapshot is in [`cache/cses-shortest/`](../cache/cses-shortest/README.md),
+including all 400 sources, author/compiler metadata and ranking evidence.

@@ -1,0 +1,18 @@
+{
+  "entry_id": "12911771",
+  "entry_url": "https://cses.fi/problemset/hack/1111/entry/12911771/",
+  "author": "jeroenodb",
+  "submitted_at": "2025-05-15 18:18:45",
+  "reported_characters": 302,
+  "max_time": "0.04 s",
+  "task": "1111",
+  "title": "Longest Palindrome",
+  "queue_url": "https://cses.fi/problemset/queue/1111/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++20",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:41.565253+00:00",
+  "sha256": "e6ce83a119bfff6e36278e42a4037d70f174a367090f22f55217d22f0ab2870e",
+  "source_bytes": 408,
+  "source_file": "cache/cses-shortest/1111.cpp"
+}

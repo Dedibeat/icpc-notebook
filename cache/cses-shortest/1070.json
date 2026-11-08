@@ -1,0 +1,18 @@
+{
+  "entry_id": "5350859",
+  "entry_url": "https://cses.fi/problemset/hack/1070/entry/5350859/",
+  "author": "eyalzus",
+  "submitted_at": "2023-01-25 17:12:16",
+  "reported_characters": 111,
+  "max_time": "0.10 s",
+  "task": "1070",
+  "title": "Permutations",
+  "queue_url": "https://cses.fi/problemset/queue/1070/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++11",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:19:17.985728+00:00",
+  "sha256": "d7cfa3d564fc96227946d0919e0a003ac32a001db0a44363a659d044d229591c",
+  "source_bytes": 120,
+  "source_file": "cache/cses-shortest/1070.cpp"
+}

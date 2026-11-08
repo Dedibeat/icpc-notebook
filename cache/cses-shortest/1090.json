@@ -1,0 +1,18 @@
+{
+  "entry_id": "9539389",
+  "entry_url": "https://cses.fi/problemset/hack/1090/entry/9539389/",
+  "author": "hugsehbd",
+  "submitted_at": "2024-06-14 01:45:59",
+  "reported_characters": 128,
+  "max_time": "0.05 s",
+  "task": "1090",
+  "title": "Ferris Wheel",
+  "queue_url": "https://cses.fi/problemset/queue/1090/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:19:40.868704+00:00",
+  "sha256": "4333dbb47567f82427fde200b55d85ff0bda83b3fed723456b714d2ca29ff7ba",
+  "source_bytes": 176,
+  "source_file": "cache/cses-shortest/1090.cpp"
+}

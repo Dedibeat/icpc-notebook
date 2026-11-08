@@ -1,0 +1,18 @@
+{
+  "entry_id": "11545358",
+  "entry_url": "https://cses.fi/problemset/hack/1144/entry/11545358/",
+  "author": "manttila",
+  "submitted_at": "2024-12-25 15:00:15",
+  "reported_characters": 374,
+  "max_time": "0.95 s",
+  "task": "1144",
+  "title": "Salary Queries",
+  "queue_url": "https://cses.fi/problemset/queue/1144/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:21:12.720782+00:00",
+  "sha256": "8749a29bc451300736500660fb2dc258d9caaf259c7e69befa500fee323d354e",
+  "source_bytes": 561,
+  "source_file": "cache/cses-shortest/1144.cpp"
+}

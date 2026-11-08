@@ -1,0 +1,18 @@
+{
+  "entry_id": "7664604",
+  "entry_url": "https://cses.fi/problemset/hack/1697/entry/7664604/",
+  "author": "Maezra6",
+  "submitted_at": "2023-11-12 02:45:51",
+  "reported_characters": 376,
+  "max_time": "0.11 s",
+  "task": "1697",
+  "title": "Chess Tournament",
+  "queue_url": "https://cses.fi/problemset/queue/1697/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:05.090661+00:00",
+  "sha256": "31b5fd176eccb3d171beb8c31d698faf99aca85d687fdea7ff4db9911bc89d17",
+  "source_bytes": 718,
+  "source_file": "cache/cses-shortest/1697.cpp"
+}

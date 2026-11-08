@@ -1,0 +1,18 @@
+{
+  "entry_id": "13851557",
+  "entry_url": "https://cses.fi/problemset/hack/3306/entry/13851557/",
+  "author": "8XmyDzvdjc5@",
+  "submitted_at": "2025-07-25 06:53:24",
+  "reported_characters": 617,
+  "max_time": "0.13 s",
+  "task": "3306",
+  "title": "Nearest Campsites I",
+  "queue_url": "https://cses.fi/problemset/queue/3306/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++11",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:19.345797+00:00",
+  "sha256": "be3ee6c34fe307d8f6162352c6817c4809e39bd1d5e53d91c9a4805001e4d42a",
+  "source_bytes": 783,
+  "source_file": "cache/cses-shortest/3306.cpp"
+}

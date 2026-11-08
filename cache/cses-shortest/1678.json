@@ -1,0 +1,18 @@
+{
+  "entry_id": "15102770",
+  "entry_url": "https://cses.fi/problemset/hack/1678/entry/15102770/",
+  "author": "farhan2004",
+  "submitted_at": "2025-10-28 23:40:09",
+  "reported_characters": 413,
+  "max_time": "0.17 s",
+  "task": "1678",
+  "title": "Round Trip II",
+  "queue_url": "https://cses.fi/problemset/queue/1678/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:20:44.971723+00:00",
+  "sha256": "c4f613762086f236a2b73d465d60a695e14c7d649d22e5de77c9a45bfb65eb63",
+  "source_bytes": 670,
+  "source_file": "cache/cses-shortest/1678.cpp"
+}

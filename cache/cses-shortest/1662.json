@@ -1,0 +1,18 @@
+{
+  "entry_id": "2901184",
+  "entry_url": "https://cses.fi/problemset/hack/1662/entry/2901184/",
+  "author": "SUNGOD",
+  "submitted_at": "2021-09-25 16:55:56",
+  "reported_characters": 100,
+  "max_time": "0.10 s",
+  "task": "1662",
+  "title": "Subarray Divisibility",
+  "queue_url": "https://cses.fi/problemset/queue/1662/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:20:02.828637+00:00",
+  "sha256": "41ec25e080886f57448202d01f43a1d40033d16a8c7e7022ef7419332f9738a2",
+  "source_bytes": 120,
+  "source_file": "cache/cses-shortest/1662.cpp"
+}

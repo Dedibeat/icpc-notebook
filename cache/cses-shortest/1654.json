@@ -1,0 +1,18 @@
+{
+  "entry_id": "7480741",
+  "entry_url": "https://cses.fi/problemset/hack/1654/entry/7480741/",
+  "author": "minhtrinh22ti",
+  "submitted_at": "2023-10-24 02:46:06",
+  "reported_characters": 241,
+  "max_time": "0.25 s",
+  "task": "1654",
+  "title": "SOS Bit Problem",
+  "queue_url": "https://cses.fi/problemset/queue/1654/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++11",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:22:03.613275+00:00",
+  "sha256": "67a5436549cec9f390bdae550233956fcf0b610bef879d969c45d68a6746c59d",
+  "source_bytes": 323,
+  "source_file": "cache/cses-shortest/1654.cpp"
+}

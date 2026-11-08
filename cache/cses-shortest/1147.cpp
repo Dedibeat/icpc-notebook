@@ -1,0 +1,2 @@
+#include<iostream>
+int h[1005],s[1005],n,m,a,p,i,t;char c;int main(){for(std::cin>>n>>m;n--;s[p=0]=-1)for(i=0;i<=m;s[++p]=i++)for(i<m?std::cin>>c,h[i]=c==46?-~h[i]:0:0;p&&h[s[p]]>=h[i];)t=h[s[p--]],a=std::max(a,t*(i-s[p]-1));std::cout<<a;}

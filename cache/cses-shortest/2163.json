@@ -1,0 +1,18 @@
+{
+  "entry_id": "6629701",
+  "entry_url": "https://cses.fi/problemset/hack/2163/entry/6629701/",
+  "author": "eyalzus",
+  "submitted_at": "2023-07-28 22:13:38",
+  "reported_characters": 142,
+  "max_time": "0.98 s",
+  "task": "2163",
+  "title": "Josephus Problem II",
+  "queue_url": "https://cses.fi/problemset/queue/2163/1/?lang=3&status=2&user=&by=2&order=0",
+  "compiler": "C++17",
+  "status": "ACCEPTED",
+  "rank": 1,
+  "fetched_at_utc": "2026-11-08T15:19:53.978692+00:00",
+  "sha256": "66131aefdc3c32141e64608686c2dcd2c8ae7ed57a21990a4df0a023412409b5",
+  "source_bytes": 173,
+  "source_file": "cache/cses-shortest/2163.cpp"
+}
