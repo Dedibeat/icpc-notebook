@@ -171,7 +171,7 @@
 \renewcommand{\mdheading}[1]{\Needspace{16\baselineskip}\usageheading{#1}}
 \markdownInput{sections/data_structures/mo_algorithm.md}
 \end{mdnote}
-\alg{Link-Cut Tree}{Dynamic-forest link/cut/connectivity and path sum.}{Amortized $O(\log n)$ per operation.}{Cut requires a direct edge; link requires separate trees; splay invariants are high-risk.}{Configured for commutative path sum; point-set updates only.}{sections/data_structures/link_cut_tree.cpp}
+\alg{Link-Cut Tree}{Dynamic-forest link/cut/connectivity and path sum.}{Amortized $O(\log n)$ per operation.}{Cut requires a direct edge; query requires connectivity; all intermediate sums must fit the value type.}{Configured for commutative path sum; point-set updates only.}{sections/data_structures/link_cut_tree.cpp}
 \notealg{Link-Cut Tree Operations}{Preferred paths, access, makeroot, link, cut, and path query.}{Amortized $O(\log n)$.}{Push reversals before rotations and pull after child changes.}{Explains the narrow implementation above.}{sections/data_structures/link_cut_tree.md}
 \alg{Wavelet Tree}{Static range kth/count-less/count-equal queries.}{Build $O(n\log\sigma)$; queries $O(\log\sigma)$.}{Half-open ranges; kth is 0-based and requires a nonempty range; static only.}{Values are internally compressed, including negatives and duplicates.}{sections/data_structures/wavelet_tree.cpp}
 \alg{Priority Queue with Delete}{Lazy deletion for max heap: \texttt{push/erase/top/pop/size}.}{Amortized $O(\log n)$.}{\texttt{top()/pop()} need \texttt{size()>0}; only erase values currently in the heap.}{Uses two \texttt{priority\_queue<int>}.}{sections/data_structures/priority_queue_with_delete.cpp}

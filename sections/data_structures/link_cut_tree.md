@@ -38,3 +38,18 @@ bool joined = lct.connected(0, 2);
 ```
 
 Never call `pathQuery(u,v)` while disconnected; it asserts connectivity.
+
+### Complexity and pitfalls
+
+Each public operation takes amortized $O(\log n)$ time; a single operation
+can take $O(n)$. Storage is $O(n)$, including the iterative ancestor stack
+in `pushPath`, which avoids recursion overflow on a deep splay tree.
+
+All intermediate sums must fit `V`, even if the final queried sum fits.
+Use `__int128` for larger bounds. Only commutative aggregates are supported;
+changing to min/max also requires updating the identity and initial values.
+There are no subtree queries or path updates. Prefer HLD for a static tree.
+Construct a fresh `LinkCut` for each test case.
+
+The test compares random operations (including rejected links/cuts) against
+a BFS forest oracle and checks a long chain with reversals and updates.
