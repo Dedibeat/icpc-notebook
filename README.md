@@ -1,5 +1,18 @@
 # ICPC Notebook Source Evaluation
 
+## Repository layout
+
+- `notebook.tex` and `notebook.pdf`: printable team reference and its source.
+- `sections/` and `tests/`: copyable snippets, usage notes, and regression tests.
+- `tools/`: build, stress-testing, and CSES utilities.
+- `practice/` and `teaching/`: drills and teaching notes.
+- `cache/cses-shortest/`: accepted CSES sources with provenance; keep this data.
+- `output/pdf/`: companion PDFs. Local scratch work belongs in ignored `tmp/`.
+
+Compiler output, Python caches, and LaTeX intermediates are ignored. Keep the
+tracked PDFs when cleaning build files; `latexmk -c notebook.tex` removes only
+LaTeX intermediates.
+
 ## Local contest tools
 
 - `python3 tools/grader.py [-v] SOL [JUDGE]` compiles a line-based interactive
@@ -13,6 +26,14 @@
   - `python3 tools/stress.py FAST BRUTE [N]` is the same loop with the generator inside, for
     machines without bash.
   - `sections/misc/stress.cpp` runs fast and brute as functions in one file.
+  - [sections/misc/brute.py](sections/misc/brute.py) has Python enumeration recipes
+    (combinations, permutations, products, subsets, submasks) and small oracles for
+    subset sum, knapsack, assignment, graph coloring, and fixed-count coin selection.
+    Also includes all tree paths, simple graph paths, contiguous partitions,
+    traveling-salesman tours, and minimum spanning trees.
+    Run `python3 sections/misc/brute.py --examples` for executable usage examples.
+    Adapt its input format and the stress generator together; run
+    `python3 tests/test_brute.py` to check the recipes and oracle.
 - The debug checklist (`sections/misc/debug.md`) has short checks before submit and after a
   WA, plus one line each for Dedi, Erdene and Tamir. It was built from our 179
   virtual-contest submissions; [team_bugs.md](team_bugs.md) has the evidence.
@@ -432,8 +453,9 @@ with no expected edits), treap and the KACTL do-not-change set.
   Call `addEdge(u,v)` once per undirected edge, then `build()`.
   `bridges` contains edge IDs; `is_cut` contains vertex flags.
   `articulation_point.cpp` includes this shared implementation; print it once.
-- Call `init_sack()` before loading every DSU-on-tree test case. Reset any
-  extra custom counted state there too. The full-capacity reset is deliberate.
+- Call `init_sack(n)` before loading every DSU-on-tree test case and run
+  `dfs(root,-1,false)`: the root pass undoes every `add_one`, so the reset
+  costs O(previous n) instead of O(MAXN) per test.
 - `KruskalTree k(n,edges)` owns reconstruction-forest state and 64-bit weights.
   `roots` includes isolated components; `tree` contains children. LCA-weight
   queries apply only to distinct connected leaves.

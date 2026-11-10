@@ -16,7 +16,7 @@ vector<ll> berlekampMassey(vector<ll> s) {
         if (!d) { ++shift; continue; }
         auto old = C;
         ll coef = d * hpow(last, HMOD-2) % HMOD;
-        C.resize(max(C.size(), B.size()+shift), 0);
+        if (C.size() < B.size()+shift) C.resize(B.size()+shift);
         for (int j = 0; j < (int)B.size(); ++j)
             C[j+shift] = hnorm(C[j+shift] - coef*B[j]%HMOD);
         if (2*L <= i) {

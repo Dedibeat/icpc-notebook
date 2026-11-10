@@ -1,1 +1,18 @@
-tmp/*
+# Local scratch files and compiler output.
+/tmp/
+a.out
+*.o
+
+# Python caches.
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# LaTeX intermediates; printable PDFs remain tracked.
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.toc
+*.synctex.gz
+/_markdown_*/

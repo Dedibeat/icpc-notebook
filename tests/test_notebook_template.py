@@ -29,6 +29,32 @@ for name in ("convex_hull", "circle_tangents", "minimum_enclosing_circle",
     DEPS[name] = ["geometry_base"]
 
 
+# System headers that the snippet says to place above "#define int long long".
+HOIST = {"deep_recursion_stack": "#include <sys/resource.h>\n"}
+STANDALONE = {"gnu_extensions", "simulated_annealing", "quick_select"}
+
+
+def collisions():
+    """Compile every pasteable snippet in ONE file: names must not clash."""
+    order = []
+    def visit(name):
+        if name not in order:
+            for dep in DEPS.get(name, []):
+                visit(dep)
+            order.append(name)
+    for name in sorted(FILES):
+        text = FILES[name].read_text(encoding="utf-8")
+        if name not in STANDALONE and not re.search(r"^\s*(?:signed|int|int32_t)\s+main\s*\(", text, re.M):
+            visit(name)
+    source = "".join(HOIST.values()) + PREAMBLE + "".join(
+        f'#include "{FILES[n].as_posix()}"\n' for n in order) + "signed main(){}\n"
+    result = subprocess.run(
+        ["g++", "-std=c++17", "-fsyntax-only", "-x", "c++", "-"],
+        input=source, encoding="utf-8", capture_output=True, cwd=ROOT,
+    )
+    return result.stderr if result.returncode else ""
+
+
 def check(name):
     source = FILES[name].read_text(encoding="utf-8")
     if not re.search(r"^\s*(?:signed|int|int32_t)\s+main\s*\(", source, re.M):
@@ -37,7 +63,7 @@ def check(name):
             source = "void demo(){ vector<int> a{1}; int k=0;\n" + source + "\n}"
         else:
             source = f'#include "{FILES[name].as_posix()}"\n'
-        source = PREAMBLE + includes + source + "\nsigned main(){}\n"
+        source = HOIST.get(name, "") + PREAMBLE + includes + source + "\nsigned main(){}\n"
     result = subprocess.run(
         ["g++", "-std=c++17", "-fsyntax-only", "-x", "c++", "-"],
         input=source, encoding="utf-8", capture_output=True, cwd=ROOT,
@@ -55,5 +81,9 @@ if __name__ == "__main__":
     for name, msg in failures:
         print(f"{name}:\n{msg}")
     print(f"Compiled {len(names) - len(failures)}/{len(names)} snippets")
+    clash = collisions() if sys.platform == "linux" else ""
+    if clash:
+        failures.append(("all snippets in one file", clash))
+        print(f"Name collisions between snippets:\n{clash}")
     print("Skipped:", ", ".join(sorted(skip)))
     sys.exit(bool(failures))

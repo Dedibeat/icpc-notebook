@@ -1,19 +1,19 @@
 // Functional graph: 64-bit successor jumps plus cycle metadata.
 // Complexity: O(n log K) build, O(log K) jump, O(1) metadata queries.
 // Pitfalls: next[v] must be valid; dist=0 exactly on a cycle; reset per test.
+// Memory is 4*LOG*n bytes (51 MB at n=2e5): lower LOG when k < 2^LOG.
 // go(v,k) follows k edges. cycle[v] identifies the eventual cycle; dist[v]
 // is steps to it and entry[v] is the first cycle vertex reached.
 // Example: next={1,2,1}; go(0,3)==1, dist[0]==1, entry[0]==1.
 struct FunctionalGraph {
-    static constexpr int LOG = 64;
-    vector<vector<int>> up;
+    static constexpr int LOG = 64; // EDIT: go() needs k < 2^LOG
+    vector<vector<int32_t>> up; // int32_t: not widened by #define int
     vector<int> cycle, dist, entry;
 
     FunctionalGraph(const vector<int>& next) {
         int n = (int)next.size();
-        up.assign(LOG, vector<int>(n));
-        if (n == 0) return;
-        up[0] = next;
+        up.assign(LOG, vector<int32_t>(n));
+        up[0].assign(next.begin(), next.end());
         for (int b = 1; b < LOG; ++b) for (int v = 0; v < n; ++v)
             up[b][v] = up[b - 1][up[b - 1][v]];
 

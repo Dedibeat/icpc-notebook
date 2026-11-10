@@ -24,10 +24,10 @@ int main() {
         assert(fact[i] * ifact[i] % MOD == 1);
     }
 
-    assert(C(5, 2) == 10);
-    assert(C(20, 0) == 1);
-    assert(C(20, 20) == 1);
-    assert(C(20, -1) == 0);
-    assert(C(20, 21) == 0);
-    assert(C(20, 10) == 184756);
+    assert(nCr(5, 2) == 10);
+    assert(nCr(20, 0) == 1);
+    assert(nCr(20, 20) == 1);
+    assert(nCr(20, -1) == 0);
+    assert(nCr(20, 21) == 0);
+    assert(nCr(20, 10) == 184756);
 }

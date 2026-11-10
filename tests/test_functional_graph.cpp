@@ -22,4 +22,7 @@ int main() {
     }
     assert(f.dist[4] == 2 && f.entry[4] == 2 && f.cycle[4] == f.cycle[0]);
     assert(f.dist[5] == 0 && f.dist[6] == 0 && f.cycle[5] != f.cycle[0]);
+    assert(f.go(4, ~0ULL) == brute_go(nxt, 4, ~0ULL)); // full 64-bit jump count
+    assert(FunctionalGraph({}).up.size() == 64);          // empty graph
+    assert(sizeof(f.up[0][0]) == 4);                      // 4*LOG*n bytes
 }

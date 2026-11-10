@@ -207,7 +207,7 @@
 \begin{minipage}{\linewidth}
 \alg{Topological Sort}{DFS order and directed-cycle detection.}{$O(n+m)$.}{An empty result also represents an empty graph; check input size separately if needed.}{DFS lambda uses three states; recursion depth can reach $n$.}{sections/graph/topological_sort.cpp}
 \end{minipage}
-\alg{Functional Graph}{64-bit successor jumps, cycle id, entry, and distance to cycle.}{Build $O(64n)$; jump $O(64)$.}{Every successor must be valid; cycle ids are arbitrary and reset per object.}{0-indexed; supports full unsigned 64-bit jump count.}{sections/graph/functional_graph.cpp}
+\alg{Functional Graph}{64-bit successor jumps, cycle id, entry, and distance to cycle.}{Build $O(64n)$; jump $O(64)$.}{Every successor must be valid; cycle ids are arbitrary and reset per object. Memory is $4\cdot\texttt{LOG}\cdot n$ bytes (51 MB at $n=2\cdot10^5$): lower \texttt{LOG} for small jump counts.}{0-indexed; supports full unsigned 64-bit jump count.}{sections/graph/functional_graph.cpp}
 \alg{Heavy Light Decomposition}{Convert tree paths and subtrees into array intervals.}{$O(n)$ build; $O(\log n)$ intervals per path; one per subtree.}{Root is 0. Path intervals may arrive out of order.}{\texttt{process(u,v,op)} visits half-open intervals. \texttt{subtree(v)} returns one.}{sections/graph/heavy_light_decomposition.cpp}
 \begin{mdnote}
 \markdownInput{sections/graph/heavy_light_decomposition.md}
@@ -218,7 +218,7 @@
 \alg{CDQ 3D Dominance}{Count points dominated coordinate-wise by each point.}{$O(n\log^2 n)$.}{Exact duplicates are grouped; result excludes the point itself.}{Coordinates may be negative; includes an internal Fenwick tree.}{sections/graph/cdq_dominance.cpp}
 \alg{Min Cost Flow}{Successive shortest path with potentials.}{$O(FE\log V)$ plus Bellman-Ford init.}{Negative costs ok, but no negative cost cycles. May return less than requested flow.}{Cap/cost are \texttt{long long}; directed edges.}{sections/graph/min_cost_flow.cpp}
 \alg{Strongly Connected Components}{Kosaraju SCC + condensation DAG.}{$O(n+m)$; \texttt{condense} $O(m\log m)$.}{Recursive DFS may overflow. Comp ids are topological (edges go low to high id): DP in id order.}{Directed graph; call \texttt{init} per test case.}{sections/graph/scc.cpp}
-\alg{DSU on Tree Sack}{Answer all subtree queries offline.}{$O(n\log n)$ traversal; reset $O(\texttt{MAXN}+m_{old})$.}{Call \texttt{init\_sack()} before loading each test; recursion depth on chains.}{EDIT ONLY the marked block (\texttt{add\_one}, \texttt{answer}); when \texttt{answer(v)} runs, exactly subtree(v) has been added.}{sections/graph/dsu_on_tree_sack.cpp}
+\alg{DSU on Tree Sack}{Answer all subtree queries offline.}{$O(n\log n)$ traversal; reset $O(n_{old}+m_{old})$.}{Call \texttt{init\_sack(n)} before loading each test and run \texttt{dfs(root,-1,false)} so the state ends empty; recursion depth on chains.}{EDIT ONLY the marked block (\texttt{add\_one}, \texttt{answer}); when \texttt{answer(v)} runs, exactly subtree(v) has been added.}{sections/graph/dsu_on_tree_sack.cpp}
 \alg{Virtual Tree}{Build compressed tree from key vertices and LCAs.}{$O(k\log k)$ per call after LCA build.}{Process returned nodes in reverse for child-before-parent DP.}{Requires LCA (above) built on the tree. Returns nodes by tin (front = root); fills (parent,child) edges.}{sections/graph/virtual_tree.cpp}
 \alg{Deterministic Tree Canonization}{Rooted/unrooted tree-isomorphism ids without hash collisions.}{$O(n\log n)$.}{Compare trees with the same \texttt{TreeCanon} dictionary; recursion depth.}{AHU child-id sorting; handles one or two tree centers.}{sections/graph/tree_hashing.cpp}
 \alg{Bellman--Ford / Difference Constraints}{Negative-edge paths, reachable negative cycles, and systems $x_v-x_u\le w$.}{$O(nm)$.}{Only source-reachable cycles affect shortest paths; feasible assignments must fit \texttt{long long}.}{Difference constraints return \texttt{nullopt} when infeasible.}{sections/graph/bellman_ford.cpp}
@@ -272,7 +272,7 @@
 \alg{Primitive Root}{Find generator modulo prime.}{$O(\sqrt p\log p)$ roughly.}{Prime modulus only (factors \texttt{p-1}). 998244353 has root 3.}{Requires \texttt{modpow} from NT Essentials. Used by kth roots below.}{sections/math/primitive_root.cpp}
 \alg{Discrete Log}{Smallest $x\ge 0$ with $a^x=b \pmod m$, any $a,b,m$.}{$O(\sqrt m)$ time/memory.}{Returns $-1$ if none. Non-coprime handled by factor stripping.}{Requires \texttt{chash} (misc/custom\_hash).}{sections/math/discrete_log.cpp}
 \alg{Discrete kth Roots mod Prime}{Solve $x^k=a \pmod p$.}{$O(\sqrt p\log p)$.}{\texttt{p} must be prime. Returns distinct sorted roots; \texttt{a=0} returns \texttt{\{0\}}.}{Requires NT Essentials, Primitive Root, and \texttt{chash}.}{sections/math/discrete_mod.cpp}
-\alg{Mod Inverse Table}{Inverses, factorials, inverse factorials modulo prime.}{$O(n)$.}{\texttt{MOD} must be prime and \texttt{n<MOD}. \texttt{ifact} code is cumulative inverse factorial.}{Change \texttt{MOD} before use.}{sections/math/mod_inverse_table.cpp}
+\alg{Mod Inverse Table}{Inverses, factorials, inverse factorials modulo prime.}{$O(n)$.}{\texttt{MOD} must be prime and \texttt{n<MOD}. \texttt{ifact} code is cumulative inverse factorial.}{Change \texttt{MOD} before use; binomial is \texttt{nCr(n,k)}.}{sections/math/mod_inverse_table.cpp}
 \alg{Miller Rabin and Pollard Rho}{64-bit primality and factorization.}{Primality $O(\log n)$; factorization expected about $O(n^{1/4})$.}{Probabilistic factor search but deterministic bases for 64-bit primality. Factors unsorted.}{Uses unsigned 64-bit and \texttt{\_\_uint128\_t}.}{sections/math/miller_rabin_pollard_rho.cpp}
 \alg{Lagrange Interpolation}{Evaluate a polynomial from values at $0,1,\ldots,n-1$.}{$O(n+\log MOD)$ per evaluation.}{Prime modulus, $n<MOD$; degree must be below $n$.}{Change \texttt{LAGRANGE\_MOD}; consecutive-point optimized form.}{sections/math/lagrange_interpolation.cpp}
 \label{alg:lagrange-consecutive}
@@ -339,6 +339,8 @@ Floating routines below are for constructions/distances and require the separate
 \lstinputlisting[language=bash]{tools/stress.sh}
 \lstinputlisting[language=Python]{tools/gen.py}
 \lstinputlisting[language=Python]{sections/misc/stress.py}
+\subsection{Python Brute Force Recipes}
+\lstinputlisting[language=Python]{sections/misc/brute.py}
 \alg{In-Process Stress Test}{Fast/brute as functions in one file: no scripts, about $10^5$ tests/s.}{Tests $\times$ brute time.}{\texttt{fast()} runs many times: it must reset its own globals (this also catches multi-test reset bugs). Fixed seed reproduces failures.}{Standalone file with \texttt{main}; example is max subarray sum.}{sections/misc/stress.cpp}
 \par\noindent\rule{\linewidth}{0.4pt}\par
 \subsection{Interactive Grader Helper}
@@ -358,7 +360,7 @@ Floating routines below are for constructions/distances and require the separate
 \markdownInput{sections/misc/parallel_binary_search.md}
 \end{mdnote}
 \alg{Custom Hash for unordered\_map}{Defeat anti-hash tests against gcc's identity hash.}{$O(1)$ per op restored.}{Default integer hash is identity: chosen keys collide into one bucket ($O(n)$ per op).}{\texttt{unordered\_map<ll,int,chash>}; random offset at runtime.}{sections/misc/custom_hash.cpp}
-\alg{Deep Recursion Stack}{Request a larger stack limit for recursive DFS.}{$O(1)$ setup.}{Call before DFS and check the result. Stack use counts toward the memory limit.}{Linux \texttt{setrlimit}.}{sections/misc/deep_recursion_stack.cpp}
+\alg{Deep Recursion Stack}{Request a larger stack limit for recursive DFS.}{$O(1)$ setup.}{Call before DFS and check the result. Stack use counts toward the memory limit. Put the include above \texttt{\#define int long long}.}{Linux \texttt{setrlimit}.}{sections/misc/deep_recursion_stack.cpp}
 
 \newnotebooksection{Hacks}
 Copy the shared C++17 setup once before the snippets that include

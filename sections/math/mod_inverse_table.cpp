@@ -1,7 +1,7 @@
 // Precompute modular inverses and factorial inverses modulo prime MOD.
 // Complexity: O(n). Use when 0 <= n < MOD.
 // Pitfalls: inv[i] uses inv[MOD % i], not inv[i-1]; MOD must be prime.
-// Usage: build_inv(1000000); then invv[i], fact[i], ifact[i], C(n,k).
+// Usage: build_inv(1000000); then invv[i], fact[i], ifact[i], nCr(n,k).
 const long long MOD = 1000000007;
 vector<long long> invv, fact, ifact;
 
@@ -18,7 +18,7 @@ void build_inv(int n) {
     }
 }
 
-long long C(int n, int k) {
+long long nCr(int n, int k) {
     if (k < 0 || k > n) return 0;
     return fact[n] * ifact[k] % MOD * ifact[n - k] % MOD;
 }

@@ -7,14 +7,14 @@ struct OfflineDSU {
     using E = pair<int, int>;
 
     int T = 0;
-    vector<int> p, sz;
+    vector<int> p, siz;
     vector<V> val;
     vector<tuple<int, int, V>> hist;
     vector<tuple<int, int, E>> intervals;
     vector<vector<E>> seg;
     map<E, int> active;
 
-    OfflineDSU(vector<V> a) : p(a.size()), sz(a.size(), 1), val(a) {
+    OfflineDSU(vector<V> a) : p(a.size()), siz(a.size(), 1), val(a) {
         iota(p.begin(), p.end(), 0);
     }
     int find(int u) { return p[u] == u ? u : find(p[u]); }
@@ -23,15 +23,15 @@ struct OfflineDSU {
     void unite(int a, int b) {
         a = find(a), b = find(b);
         if (a == b) return;
-        if (sz[a] < sz[b]) swap(a, b);
+        if (siz[a] < siz[b]) swap(a, b);
         hist.emplace_back(a, b, val[a]);
-        p[b] = a, sz[a] += sz[b], val[a] = merge(val[a], val[b]);
+        p[b] = a, siz[a] += siz[b], val[a] = merge(val[a], val[b]);
     }
     void rollback(int s) {
         while ((int)hist.size() > s) {
             auto [a, b, old] = hist.back();
             hist.pop_back();
-            p[b] = b, sz[a] -= sz[b], val[a] = old;
+            p[b] = b, siz[a] -= siz[b], val[a] = old;
         }
     }
 

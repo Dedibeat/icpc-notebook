@@ -67,7 +67,7 @@ void check(const vector<long long>& values, const vector<Event>& events) {
         assert(dc.hist.empty());
         for (int u = 0; u < n; ++u) {
             assert(dc.find(u) == u);
-            assert(dc.sz[u] == 1);
+            assert(dc.siz[u] == 1);
             assert(dc.component(u) == values[u]);
         }
     }
