@@ -25,24 +25,13 @@ struct Trie {
         }
         ++tr[v].end;
     }
-    int count_word(const string& s) const {
+    int walk(const string& s) const { // node of s, or -1
         int v = 0;
-        for (char c : s) {
-            int x = id(c);
-            if (tr[v].next[x] == -1) return 0;
-            v = tr[v].next[x];
-        }
-        return tr[v].end;
+        for (char c : s) if ((v = tr[v].next[id(c)]) == -1) return -1;
+        return v;
     }
-    int count_prefix(const string& s) const {
-        int v = 0;
-        for (char c : s) {
-            int x = id(c);
-            if (tr[v].next[x] == -1) return 0;
-            v = tr[v].next[x];
-        }
-        return tr[v].pass;
-    }
+    int count_word(const string& s) const { int v = walk(s); return v < 0 ? 0 : tr[v].end; }
+    int count_prefix(const string& s) const { int v = walk(s); return v < 0 ? 0 : tr[v].pass; }
 };
 
 struct BinaryTrie {

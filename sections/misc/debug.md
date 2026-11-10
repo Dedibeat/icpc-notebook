@@ -1,38 +1,39 @@
 ### Before submit
 
-- Re-read constraints and output format; submit the right file.
-- Test smallest, degenerate, duplicate, and maximum cases.
-- Check overflow, memory, recursion depth, and per-test reset.
-- Estimate time from the actual worst-case operation count.
+- Samples pass; output format exact.
+- Constants copied from the statement: modulus, limits.
+- Overflow: products of inputs need `__int128`; INF above every answer.
+- Array sizes ($2n$, $n+1$); time and memory estimated.
+- Edges: $n=1$, zeros, all equal, $k=n$, empty part.
+- Globals reset per test; debug prints and loop caps removed.
+- Unproven greedy or formula: stress test first.
 
-### Wrong answer
+### After a WA
 
-- Print the computed state, not only the final answer.
-- Hand-simulate a tiny counterexample and add assertions.
-- Check off-by-one bounds, $N/M$ mixups, ties, duplicates, and unreachable states.
-- Verify STL/API semantics and strict comparator ordering.
-- Explain the proof and code to a teammate; let fresh eyes inspect it.
-- If the model is wrong, rewrite from the invariant instead of patching symptoms.
+- Two WAs: stop. Stress test, or a teammate reads it cold.
+- Resubmit only a found bug, never the same code.
+- Print the state on the smallest failing test.
+- Off-by-one, ties (`<` or `<=`), duplicates, unreachable states.
+- `priority_queue` is a max-heap; comparators must be strict.
+- Wrong model: rewrite from the invariant, do not patch.
 
-### Runtime, time, and memory
+### RE, TLE, MLE
 
-- **RE:** out-of-bounds, uninitialized data, zero division, invalid iterators,
-  failed assertions, or recursion depth.
-- **TLE:** hidden nested work, infinite loops, copying large containers, slow I/O,
-  or an adversarial hash/table case.
-- **MLE:** actual peak allocation, recursion stack, retained globals, or failure to
-  clear between tests.
+- **RE:** out of bounds, zero division, bad iterators, recursion depth.
+- **TLE:** hidden nested work, container copies, slow I/O, hash attacks.
+- **MLE:** count $\times$ 8 bytes, recursion stack, not clearing between tests.
+
+### Per member
+
+- **Dedi:** samples first; constants aloud; casework on paper; flush queries.
+- **Erdene:** model checked on samples; `__int128` on 64-bit g++; definitions literal.
+- **Tamir:** ties in stacks and sorts; verify the full answer; zero parameters.
 
 ### Known killers
 
-- Hashing modulo $2^{64}$ by overflow: Thue-Morse pairs collide for every base.
-  Use the notebook's modulo-$2^{61}-1$ hash.
-- Default `unordered_map/set`: adversarial keys may share one GCC bucket. Use
-  `chash` from `misc/custom_hash.cpp`.
-- A chain of $10^6$ recursive calls overflows an 8 MB stack. Use
-  `raise_stack()` or an iterative traversal.
-- Kuhn matching is $O(VE)$ and fails on dense adversarial graphs. Use
-  unit-capacity Dinic when needed.
-- Large FFT coefficient energy loses precision. Prefer NTT or FFT-mod.
-- A non-strict comparator such as `<=` causes undefined behavior.
-- `rand()` and `random_shuffle` are banned here; use `mt19937`.
+- Hashing mod $2^{64}$ by overflow: Thue-Morse pairs collide. Use the mod $2^{61}-1$ hash.
+- Default `unordered_map/set` can be attacked: use `chash` (Custom Hash).
+- $10^6$ nested recursive calls overflow an 8 MB stack: `raise_stack()` or iterate.
+- Kuhn is $O(VE)$ and fails on dense adversarial graphs: unit-capacity Dinic.
+- Large FFT coefficients lose precision: prefer NTT or FFT-mod.
+- `rand()` and `random_shuffle` are banned: use `mt19937`.

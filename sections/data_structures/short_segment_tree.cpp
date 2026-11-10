@@ -1,27 +1,31 @@
-// Iterative segment tree: point set, range query [l, r). O(log n) per op.
-// EDIT ONLY op() and ID. Op must be associative AND commutative
-// (sum/min/max/gcd/xor ok; non-commutative like matrix mult needs a
-// two-sided query variant).
-const int N = 1e5;  // limit for array size
-int n;  // array size
-long long t[2 * N];
-
-long long op(long long a, long long b) { return a + b; }
-const long long ID = 0; // identity: op(x, ID) == x
-
-void build() {  // set t[n..n+i] = a[i] first
-  for (int i = n - 1; i > 0; --i) t[i] = op(t[i<<1], t[i<<1|1]);
-}
-
-void modify(int p, long long value) {  // set value at position p
-  for (t[p += n] = value; p > 1; p >>= 1) t[p>>1] = op(t[p], t[p^1]);
-}
-
-long long query(int l, int r) {  // op over [l, r)
-  long long res = ID;
-  for (l += n, r += n; l < r; l >>= 1, r >>= 1) {
-    if (l&1) res = op(res, t[l++]);
-    if (r&1) res = op(res, t[--r]);
-  }
-  return res;
-}
+// Iterative segment tree: point set and ordered range query [l,r).
+// Build O(n), set/query O(log n), memory O(n).
+// Edit V, op and ID; op must be associative, ID its identity.
+// Pitfalls: 0 <= l <= r <= n; set needs p < n; arithmetic must fit V.
+// For noncommutative ops, use query(0,n), not t[1], for the full result.
+// Example: ShortST s; s.build({1,2,3}); s.set(1,5); // query(0,3)==9
+struct ShortST {
+    using V = long long;
+    static constexpr V ID = 0;
+    static V op(V a, V b) { return a + b; }
+    int n;
+    vector<V> t;
+    ShortST(int n = 0) : n(n), t(2*n, ID) {}
+    void build(const vector<V>& a) {
+        n = a.size();
+        t.assign(2*n, ID);
+        copy(a.begin(), a.end(), t.begin() + n);
+        for (int i = n-1; i > 0; --i) t[i] = op(t[2*i], t[2*i+1]);
+    }
+    void set(int p, V x) {
+        for (t[p += n] = x; p >>= 1; ) t[p] = op(t[2*p], t[2*p+1]);
+    }
+    V query(int l, int r) {
+        V left = ID, right = ID;
+        for (l += n, r += n; l < r; l >>= 1, r >>= 1) {
+            if (l&1) left = op(left, t[l++]);
+            if (r&1) right = op(t[--r], right);
+        }
+        return op(left, right);
+    }
+};

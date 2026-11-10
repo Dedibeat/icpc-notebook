@@ -1,8 +1,8 @@
 // Palindromic tree (eertree): online distinct palindromes and occurrences.
-// Complexity: O(n*A) memory here, O(n) build for fixed alphabet.
+// Complexity: O(n*A) memory here, O(n) build and occurrence propagation.
 // Input: lowercase characters passed to add in text order.
-// Effect: each new non-root node is one distinct palindrome; link[v] removes its outer
-// characters to reach the longest proper palindromic suffix. Nodes 0/1 have
+// Each non-root node is one distinct palindrome. link[v] points to its
+// longest proper palindromic suffix. Nodes 0/1 have
 // lengths -1/0. Output: add returns the longest suffix node; after
 // finishOccurrences(), tree[v].occ is the total count of palindrome v.
 // Pitfalls: lowercase only; finish once after all adds, then do not extend.
@@ -48,7 +48,7 @@ struct Eertree {
         suffix=tree[cur].next[c];++tree[suffix].occ;
         return suffix;
     }
-    int distinct() const{return max(0,(int)tree.size()-2);}
+    int distinct() const{return (int)tree.size()-2;}
     int longestSuffix() const{return suffix;}
     string palindrome(int node) const {
         int r=tree[node].firstEnd;
@@ -56,9 +56,8 @@ struct Eertree {
     }
     void finishOccurrences() { // Propagates final occurrence counts; call after the last add().
         if(ready)return;
-        vector<int>order(tree.size());iota(order.begin(),order.end(),0);
-        sort(order.begin(),order.end(),[&](int a,int b){return tree[a].len>tree[b].len;});
-        for(int v:order)if(v>=2)tree[tree[v].link].occ+=tree[v].occ;
+        for(int v=(int)tree.size()-1;v>=2;--v)
+            tree[tree[v].link].occ+=tree[v].occ;
         ready=true;
     }
 };

@@ -1,23 +1,13 @@
+// Place extension headers before #define int long long.
 #include <ext/pb_ds/assoc_container.hpp>
 #include <ext/pb_ds/tree_policy.hpp>
 // NOTE: examples below are not one compilable file; paste only the needed block.
 using namespace __gnu_pbds;
 
-template<typename T>
-using ordered_set = tree<
-    T,
-    null_type,
-    less<T>,
-    rb_tree_tag,
-    tree_order_statistics_node_update>;
-
-template<typename K, typename V>
-using ordered_map = tree<
-    K,
-    V,
-    less<K>,
-    rb_tree_tag,
-    tree_order_statistics_node_update>;
+template<class T> using ordered_set = tree<T, null_type, less<T>,
+    rb_tree_tag, tree_order_statistics_node_update>;
+template<class K, class V> using ordered_map = tree<K, V, less<K>,
+    rb_tree_tag, tree_order_statistics_node_update>;
 
 ordered_set<int> s;
 
@@ -40,7 +30,8 @@ int id = 0;
 ms.insert({value, id++});
 
 // erase one occurrence
-ms.erase(ms.lower_bound({value, 0}));
+auto occurrence = ms.lower_bound({value, 0});
+if (occurrence != ms.end() && occurrence->first == value) ms.erase(occurrence);
 
 // order_of_key({value, 0}) = # elements < value
 

@@ -9,13 +9,11 @@ struct LCA {
     int n, LOG, timer = 0;
     vector<vector<int>> g, up;
     vector<int> depth, tin;
-    LCA(int n = 0) {
-        init(n);
-    }
+    LCA(int n = 0) { init(n); }
     void init(int n_) {
         n = n_;
         LOG = 1;
-        while ((1 << LOG) <= max(1, n)) LOG++;
+        while ((1LL << LOG) <= n) LOG++;
         g.assign(n, {});
         up.assign(LOG, vector<int>(n));
         depth.assign(n, 0);
@@ -26,20 +24,22 @@ struct LCA {
         g[u].push_back(v);
         g[v].push_back(u);
     }
-    void dfs(int v, int p) {
-        tin[v] = timer++;
-        up[0][v] = p;
-        for (int j = 1; j < LOG; j++) up[j][v] = up[j - 1][up[j - 1][v]];
-        for (int to : g[v]) if (to != p) {
-            depth[to] = depth[v] + 1;
-            dfs(to, v);
+    void dfs(int at, int p) {
+        tin[at] = timer++;
+        up[0][at] = p;
+        for (int j = 1; j < LOG; j++) up[j][at] = up[j - 1][up[j - 1][at]];
+        for (int to : g[at]) if (to != p) {
+            depth[to] = depth[at] + 1;
+            dfs(to, at);
         }
     }
     void build(int root = 0) {
+        timer = 0;
         depth[root] = 0;
         dfs(root, root);
     }
     int lift(int v, int k) {
+        k = min(k, depth[v]);
         for (int j = 0; j < LOG; j++) if (k >> j & 1) v = up[j][v];
         return v;
     }

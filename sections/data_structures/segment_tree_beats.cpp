@@ -27,7 +27,7 @@ struct SegTreeBeats {
         else c.mn1=b.mn1,c.mnc=b.mnc,c.mn2=std::min(a.mn1,b.mn2);
         return c;
     }
-    void init(const vector<ll>&a){n=a.size();t.assign(4*std::max(1,n),{});if(n)build(1,0,n,a);}
+    void init(const vector<ll>&a){n=a.size();t.assign(4*n,{});if(n)build(1,0,n,a);}
     void build(int x,int l,int r,const vector<ll>&a){
         if(r-l==1){t[x].sum=t[x].mx1=t[x].mn1=a[l];t[x].mxc=t[x].mnc=1;return;}
         int m=(l+r)/2;build(2*x,l,m,a);build(2*x+1,m,r,a);t[x]=mergeNode(t[2*x],t[2*x+1]);

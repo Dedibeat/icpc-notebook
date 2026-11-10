@@ -34,17 +34,17 @@ struct BlockCutTree {
         vertices.erase(unique(vertices.begin(),vertices.end()),vertices.end());
         blocks.push_back(vertices);
     }
-    void dfs(int v,int parentEdge) {
-        tin[v]=low[v]=timer++;
-        for (auto [u,id]:g[v]) {
+    void dfs(int at,int parentEdge) {
+        tin[at]=low[at]=timer++;
+        for (auto [to,id]:g[at]) {
             if (id==parentEdge) continue;
-            if (tin[u]==-1) {
-                edgeStack.push_back(id); dfs(u,id);
-                low[v]=min(low[v],low[u]);
-                if (low[u]>=tin[v]) makeBlock(id);
-            } else if (tin[u]<tin[v]) {
+            if (tin[to]==-1) {
+                edgeStack.push_back(id); dfs(to,id);
+                low[at]=min(low[at],low[to]);
+                if (low[to]>=tin[at]) makeBlock(id);
+            } else if (tin[to]<tin[at]) {
                 edgeStack.push_back(id);
-                low[v]=min(low[v],tin[u]);
+                low[at]=min(low[at],tin[to]);
             }
         }
     }

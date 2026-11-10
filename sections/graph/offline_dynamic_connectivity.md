@@ -1,24 +1,31 @@
-### Usage: append a timeline, then solve
+### Usage on an edge timeline
 
-Every API call advances time. `connected(u,v)` does not answer immediately: it
-returns an answer index. After the whole timeline is recorded, `solve()` returns
-the query answers in those indices.
+`event(c,u,v)` appends an event and returns its 0-based time. Use `+` and
+`-` for undirected edges and `?` for a query slot. After recording the timeline,
+`solve(answer)` calls `answer(t)` at every event with the DSU in that event's
+state. Size `ask` and `ans` for all events and initialize `ask` to `-1`.
 
 ```cpp
-// Input/operations: a 3-vertex timeline; comments show connectivity at that time.
-OfflineDynamicConnectivity dc(3);
-dc.addEdge(0, 1);
-int q0 = dc.connected(0, 1); // true here
-int q1 = dc.connected(0, 2); // false here
-dc.addEdge(1, 2);
-int q2 = dc.connected(0, 2); // true here
-dc.removeEdge(0, 1);
-int q3 = dc.connected(0, 2); // false here
+OfflineDSU dsu(values);
+dsu.event('+', u, v);           // link
+dsu.event('-', u, v);           // cut
+int t = dsu.event('?');         // query time
+ask[t] = u;
 
-vector<char> ans = dc.solve();
-// Expected output: ans={1,0,1,0} at indices q0,q1,q2,q3 respectively.
+dsu.solve([&](int t) {
+    if (ask[t] != -1)
+        ans[t] = dsu.component(ask[t]); // component XOR
+    // dsu.find(u)                   // component root
+    // dsu.find(u) == dsu.find(v)    // connected?
+});
+// Print answers in time order where ask[t] != -1.
 ```
 
-An edge lifetime is `[add time, remove time)`. Each removal must match one
-active insertion, and this implementation does not allow duplicate active
-copies of the same undirected edge.
+Edge lifetimes are half-open. An edge is present at its addition and absent
+at its removal. Each removal must match an active insertion, and each edge
+has at most one active copy. Edges still active at the end last until `T`.
+
+Callback order can differ from time order when `T` is not a power of two.
+Keep the callback read-only with respect to the DSU. Use an associative,
+commutative `merge` for fixed vertex values. Keep union by size and omit path
+compression so rollback only has to undo successful unions.

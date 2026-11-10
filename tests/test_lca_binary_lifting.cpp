@@ -20,4 +20,8 @@ int main() {
     assert(t.dist(3, 4) == 2);
     assert(t.dist(3, 6) == 5);
     assert(t.lift(6, 2) == 2);
+    assert(t.lift(6, 1 << 20) == 0);
+    t.build(6);
+    assert(t.tin[6] == 0);
+    assert(t.lift(3, 1 << 20) == 6);
 }

@@ -11,11 +11,13 @@ total minus single bad sets, plus pair intersections, and so on.
 
 ### Standard formulas
 
-Onto functions $[n]\to[k]$:
+Onto functions $[n]\to[k]$, maps that use every one of the $k$ values. The
+$i$-th term fixes $i$ values that are missed and maps into the other $k-i$:
 
 $$\sum_{i=0}^k(-1)^i\binom ki(k-i)^n.$$
 
-Derangements:
+Derangements, permutations with no fixed point ($p_i\ne i$ for all $i$). The
+$i$-th term fixes $i$ chosen points and permutes the other $n-i$ freely:
 
 $$!n=n!\sum_{i=0}^n\frac{(-1)^i}{i!}.$$
 

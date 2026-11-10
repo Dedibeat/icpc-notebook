@@ -31,12 +31,14 @@ int main() {
     assert(sort_cyclic_shifts(bytes) == brute_cyclic(bytes));
 
     // suffix_array wrapper vs brute suffix sort
-    for (string t : {string("banana"), string("aaaaa"), string("abacaba"), string("b")}) {
+    for (string t : {string(), string("banana"), string("aaaaa"), string("abacaba"),
+                     string(1,'\0'), bytes + '\1' + bytes}) {
         vector<int> sa = suffix_array(t);
         vector<int> idx(t.size());
         for (size_t i = 0; i < t.size(); i++) idx[i] = (int)i;
         sort(idx.begin(), idx.end(), [&](int a, int b) {
-            return t.substr(a) < t.substr(b);
+            return lexicographical_compare(t.begin()+a, t.end(), t.begin()+b, t.end(),
+                [](unsigned char x, unsigned char y) { return x < y; });
         });
         assert(sa == idx);
     }

@@ -1,28 +1,28 @@
-// egcd: g = gcd(a,b) and x,y with a*x + b*y = g. Needed by CRT.cpp.
-// inv_any: inverse mod any modulus (or -1); inv: prime mod only (Fermat).
+// egcd for a,b >= 0: g = gcd(a,b), a*x+b*y = g. O(log max(a,b)).
+// inv_any: inverse mod positive mod (or -1). inv: prime mod, a nonzero mod mod.
+// modpow: nonnegative exponent, positive modulus. O(log e) time.
 long long egcd(long long a, long long b, long long& x, long long& y) {
-    if (!b) {
-        x = 1; y = 0;
-        return a;
-    }
-    long long x1, y1;
-    long long g = egcd(b, a % b, x1, y1);
-    x = y1;
-    y = x1 - y1 * (a / b);
+    if (!b) { x = 1, y = 0; return a; }
+    long long g = egcd(b, a % b, y, x); // note swapped x, y
+    y -= a / b * x;
     return g;
 }
 
 long long inv_any(long long a, long long mod) {
+    a %= mod;
+    if (a < 0) a += mod;
     long long x, y;
     long long g = egcd(a, mod, x, y);
     if (g != 1) return -1; // no inverse
     x %= mod;
     if (x < 0) x += mod;
     return x;
-}   
+}
 
 long long modpow(long long a, long long e, long long mod) {
-    long long r = 1;
+    a %= mod;
+    if (a < 0) a += mod;
+    long long r = 1 % mod;
     while (e) {
         if (e & 1) r = (__int128)r * a % mod;
         a = (__int128)a * a % mod;

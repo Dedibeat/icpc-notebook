@@ -1,14 +1,17 @@
 // Implicit treap: the inorder traversal is a sequence; subtree sizes are keys.
 // split(t,l,r,k) puts the first k values in l and the rest in r; merge(t,l,r)
-// concatenates l then r. reverse(t,l,r) uses 0-based inclusive positions.
+// concatenates l then r. reverse(t,l,r) reverses [l,r).
 // Expected O(log n) per split/merge; traversal is O(n).
-// Pitfalls: allocate every node with cnt=1, rev=false, l=r=nullptr and a random
-// priority. reverse needs l<=r; push before descent and update sizes afterward.
+// Pitfalls: use random priorities; push before descent and pull afterward.
+// Example: pitem t=nullptr; merge(t,t,new item(42,rng64()));
 typedef struct item * pitem;
 struct item {
-    int prior, value, cnt;
-    bool rev;
-    pitem l, r;
+    uint64_t prior;
+    long long value;
+    int cnt = 1;
+    bool rev = false;
+    pitem l = nullptr, r = nullptr;
+    item(long long value, uint64_t prior) : prior(prior), value(value) {}
 };
 
 int cnt (pitem it) {
@@ -41,22 +44,22 @@ void merge (pitem & t, pitem l, pitem r) {
     upd_cnt (t);
 }
 
-void split (pitem t, pitem & l, pitem & r, int key, int add = 0) {
-    if (!t)
-        return void( l = r = 0 );
+void split (pitem t, pitem & l, pitem & r, int k) {
+    if (!t) { l = r = nullptr; return; }
     push (t);
-    int cur_key = add + cnt(t->l);
-    if (key <= cur_key)
-        split (t->l, l, t->l, key, add),  r = t;
+    int left = cnt(t->l);
+    if (k <= left)
+        split (t->l, l, t->l, k), r = t;
     else
-        split (t->r, t->r, r, key, add + 1 + cnt(t->l)),  l = t;
+        split (t->r, t->r, r, k-left-1), l = t;
     upd_cnt (t);
 }
 
-void reverse (pitem t, int l, int r) {
+void reverse (pitem& t, int l, int r) {
+    if (l >= r) return;
     pitem t1, t2, t3;
     split (t, t1, t2, l);
-    split (t2, t2, t3, r-l+1);
+    split (t2, t2, t3, r-l);
     t2->rev ^= true;
     merge (t, t1, t2);
     merge (t, t, t3);
@@ -66,6 +69,6 @@ void output (pitem t) {
     if (!t)  return;
     push (t);
     output (t->l);
-    printf ("%d ", t->value);
+    cout << t->value << ' ';
     output (t->r);
 }

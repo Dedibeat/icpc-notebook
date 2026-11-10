@@ -23,6 +23,11 @@ int main() {
 
     p = {{0, 0}, {1, 1}, {0, 0}, {5, 5}};
     assert(close(closestPair(p).first, 0));
+    assert(closestPair(vector<P>(100000,{0,0})).first == 0);
+    p.resize(100000);
+    for (int i = 0; i < (int)p.size(); ++i) p[i] = {0, i * 1e-20L};
+    auto d = closestPair(p).first;
+    assert(d > 0 && fabsl(d / 1e-40L - 1) < 1e-10L);
 
     mt19937 rng(2);
     for (int tc = 0; tc < 500; tc++) {

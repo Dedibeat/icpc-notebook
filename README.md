@@ -6,24 +6,50 @@
   solution and judge, then pipes them together. The default judge is `judge.cpp`.
 - `bash tools/test.sh SOL` compiles `SOL.cpp`, reads `input`, and writes at most
   10000 output lines to `output` while showing compiler errors and warnings.
+- Stress test kit (printed in Misc):
+  - `bash tools/stress.sh FAST BRUTE GEN [N]` runs both commands on `GEN SEED` tests, with
+    `tools/gen.py` as the generator template. It stops on WA or RE/TLE and prints the seed,
+    the test and the diff.
+  - `python3 tools/stress.py FAST BRUTE [N]` is the same loop with the generator inside, for
+    machines without bash.
+  - `sections/misc/stress.cpp` runs fast and brute as functions in one file.
+- The debug checklist (`sections/misc/debug.md`) has short checks before submit and after a
+  WA, plus one line each for Dedi, Erdene and Tamir. It was built from our 179
+  virtual-contest submissions; [team_bugs.md](team_bugs.md) has the evidence.
+- [practice/stress/](practice/stress/README.md) has 11 short Python drills: buggy solutions with
+  our own bug classes, to find by stress testing. `python tests/test_stress.py` checks the kit
+  and every drill.
 
 ## Build the printable notebook
 
 The explanatory `.md` files are rendered as Markdown, including inline and
-display math, instead of being printed as source code. Build with LuaLaTeX so
-the Markdown converter runs without shell escape:
+display math, instead of being printed as source code. Install the LaTeX
+packages `markdown` and `needspace` if your TeX distribution lacks them.
+Build with LuaLaTeX so the Markdown converter runs without shell escape:
 
 ```bash
 latexmk -lualatex -interaction=nonstopmode -halt-on-error notebook.tex
 ```
 
-## Focused practical-tricks notebook
+The contest template keeps `#define int long long`. Graph traversals use
+`at` for the current vertex and `to` for its neighbor. Public array ranges
+are half-open `[l,r)` and order-statistic ranks are zero-based. The short
+segment tree beats covers `chmin`, sum and max. The full version adds
+range addition, `chmax` and minimum queries.
 
-[hack_notebook.md](hack_notebook.md) is a separate C++17 companion covering nine
-practical algorithms, two Lagrange interpolation variants, and the supplied
-connected-subset centroid-counting solution. It includes
-contracts, pitfalls, examples, references, and tests; heuristic failures are
-explicitly distinguished from exact negative answers.
+Run `python tests/test_notebook_template.py` to compile snippets with the
+contest preamble and `python tests/test_notebook_examples.py` to run the
+printed examples. The review tables below are historical. The current
+lazy tree defaults to range add/sum, the zeta transforms are self-contained,
+and the virtual tree is a reusable builder.
+
+## Hacks
+
+The main notebook prints the tested practical-trick snippets, general
+Lagrange interpolation, and the connected-subset centroid-counting solution
+in its Hacks section. Consecutive-point interpolation is in Math. The
+[practical-tricks companion](hack_notebook.md) has fuller explanations,
+examples, references, and test coverage.
 
 Run `bash tools/test_hack_notebook.sh` (or prefix with `SANITIZE=1`). Build the
 13-page PDF with `python3 tools/build_hack_notebook.py` after installing
@@ -117,7 +143,7 @@ References used while adapting and testing this batch include the
 [KACTL](https://github.com/kth-competitive-programming/kactl), and
 [AtCoder Library convolution documentation](https://atcoder.github.io/ac-library/production/document_en/convolution.html).
 
-This is a skeptical review of the current `sections/` snippets. It does not
+This is a historical review of the earlier `sections/` snippets. It does not
 assume the code is correct. No snippet should be printed as trusted notebook
 material until it has the listed tests or an equivalent stress test.
 
@@ -238,7 +264,7 @@ Full test sweep passed:
 for f in tests/*.cpp; do b=/tmp/$(basename "$f" .cpp); g++ -std=c++17 -Wall -Wextra -pedantic "$f" -o "$b" && "$b" || exit 1; done
 ```
 
-## Current Problems
+## Problems Found Before the July Review
 
 These are the main issues remaining before the notebook is genuinely trusted
 and printable:
@@ -396,3 +422,47 @@ mid-contest modification. All 49 tests pass.
 
 Not converted on purpose: NTT/FFT/Dinic/MCMF/2-SAT/geometry (library code
 with no expected edits), treap and the KACTL do-not-change set.
+
+### Hand-typed snippet API updates
+
+- `ShortST` owns its storage: `ShortST s; s.build(a); s.set(p,x); s.query(l,r);`.
+  Queries preserve order; customize `V`, `op`, and `ID`. Do not use `t[1]`
+  as an ordered whole-array aggregate for non-power-of-two sizes.
+- `Lowlink g(n)` replaces the separate global bridge/cutpoint routines.
+  Call `addEdge(u,v)` once per undirected edge, then `build()`.
+  `bridges` contains edge IDs; `is_cut` contains vertex flags.
+  `articulation_point.cpp` includes this shared implementation; print it once.
+- Call `init_sack()` before loading every DSU-on-tree test case. Reset any
+  extra custom counted state there too. The full-capacity reset is deliberate.
+- `KruskalTree k(n,edges)` owns reconstruction-forest state and 64-bit weights.
+  `roots` includes isolated components; `tree` contains children. LCA-weight
+  queries apply only to distinct connected leaves.
+- SCC uses member DFS functions; KMP/Z retain free functions with usage notes.
+
+Tests: the corresponding C++ tests, `tests/test_string_prefix.cpp`, and
+`python tests/test_short_segment_tree_ordered.py` cover these updates.
+
+### Exact geometry default and overflow fixes
+
+Use `sections/geometry/integer_geometry.cpp` for integer-input predicates.
+It is self-contained and preserves the notebook's `#define int long long` convention.
+The common safe bound is absolute coordinates at most 10^15 and at most 10^6
+polygon vertices; larger inputs require proving each signed-128 intermediate fits.
+
+- `onSeg_i(a,b,p)` and `segInter_i(a,b,c,d)` include touching and degenerate segments.
+- `inTriStrict_i(a,b,c,q)` excludes edges/vertices and rejects degenerate triangles.
+- `area2_i(p)` returns signed **twice** the area as `i128` (CCW positive).
+- `inPolygon_i(p,q)` returns 1 inside, 0 boundary, -1 outside, in O(n).
+  It accepts either orientation and empty/point/segment inputs. For n>=3 use a
+  simple polygon in boundary order. Never sort polygon vertices.
+- `hull_i(points)` returns a strict CCW hull, removing duplicates and collinear
+  interior points. Empty and collinear point sets are supported.
+
+The pasted angular comparator, logarithmic convex query, polygon simplicity
+checker, and specialized geometric facts are omitted from the core kit to keep
+its assumptions and typing burden small. Existing specialized snippets remain.
+
+LineContainer now computes intersection differences, breakpoints, and query
+values in `__int128`. `get(x)` returns that type; retain it until output or prove
+it fits before casting. The MIN-by-negation recipe excludes LLONG_MIN coefficients.
+The global `#define int long long` design is unchanged.

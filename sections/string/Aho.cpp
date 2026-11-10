@@ -10,69 +10,40 @@ struct Aho {
     static int idx(char ch) { return ch - 'a'; }
 
     struct Node {
-        int nxt[A];
-        int link = 0;
-        int out = 0;
-
-        Node() {
-            memset(nxt, -1, sizeof nxt);
-        }
+        int nxt[A], link = 0, out = 0;
+        Node() { memset(nxt, -1, sizeof nxt); }
     };
-
-    vector<Node> t;
-
-    Aho() {
-        t.push_back(Node());
-    }
-
+    vector<Node> t{Node()};
     void add(const string& s) {
         int v = 0;
         for (char ch : s) {
             int c = idx(ch);
-            if (t[v].nxt[c] == -1) {
-                t[v].nxt[c] = t.size();
-                t.push_back(Node());
-            }
+            if (t[v].nxt[c] == -1) t[v].nxt[c] = t.size(), t.emplace_back();
             v = t[v].nxt[c];
         }
         t[v].out++;
     }
-
     void build() { // Completes failure transitions; call after all patterns and before matching.
         queue<int> q;
-
         for (int c = 0; c < A; c++) {
             int u = t[0].nxt[c];
             if (u == -1) t[0].nxt[c] = 0;
             else q.push(u);
         }
-
         while (!q.empty()) {
-            int v = q.front();
-            q.pop();
-
+            int v = q.front(); q.pop();
             t[v].out += t[t[v].link].out;
-
             for (int c = 0; c < A; c++) {
                 int u = t[v].nxt[c];
-                if (u == -1) {
-                    t[v].nxt[c] = t[t[v].link].nxt[c];
-                } else {
-                    t[u].link = t[t[v].link].nxt[c];
-                    q.push(u);
-                }
+                if (u == -1) t[v].nxt[c] = t[t[v].link].nxt[c];
+                else t[u].link = t[t[v].link].nxt[c], q.push(u);
             }
         }
     }
-
     long long countMatches(const string& s) {
         int v = 0;
         long long ans = 0;
-        for (char ch : s) {
-            int c = idx(ch);
-            v = t[v].nxt[c];
-            ans += t[v].out;
-        }
+        for (char ch : s) v = t[v].nxt[idx(ch)], ans += t[v].out;
         return ans;
     }
 };

@@ -54,8 +54,7 @@ int inPoly(const vector<P>& poly, P q) {
     for (int i = 0, j = n - 1; i < n; j = i++) {
         P a = poly[i], b = poly[j];
         if (onSegment(a, b, q)) return 2;
-        bool cond = (a.y > q.y) != (b.y > q.y);
-        if (cond) {
+        if ((a.y > q.y) != (b.y > q.y)) {
             T x = a.x + (b.x - a.x) * (q.y - a.y) / (b.y - a.y);
             if (sgn(x - q.x) > 0) in = !in;
         }
@@ -64,25 +63,23 @@ int inPoly(const vector<P>& poly, P q) {
 }
 
 // convex hull in CCW order. O(n log n).
-// Pitfalls: <= removes collinear boundary points; change to < to keep them.
+// Pitfalls: <= removes collinear boundary points. To keep them, use <
+// and handle all-collinear input separately so points are not duplicated.
 vector<P> convexHull(vector<P> p) {
     sort(p.begin(), p.end());
     p.erase(unique(p.begin(), p.end()), p.end());
     if ((int)p.size() <= 1) return p;
     vector<P> h;
-    for (P pt : p) {
-        while ((int)h.size() >= 2 && sgn(cross(h[(int)h.size() - 2], h.back(), pt)) <= 0)
-            h.pop_back();
-        h.push_back(pt);
+    for (int pass = 0; pass < 2; pass++) { // lower chain, then upper chain
+        int start = (int)h.size();
+        for (P pt : p) {
+            while ((int)h.size() >= start + 2 && sgn(cross(h[h.size() - 2], h.back(), pt)) <= 0)
+                h.pop_back();
+            h.push_back(pt);
+        }
+        h.pop_back();
+        reverse(p.begin(), p.end());
     }
-    int lower = (int)h.size();
-    for (int i = (int)p.size() - 2; i >= 0; i--) {
-        P pt = p[i];
-        while ((int)h.size() > lower && sgn(cross(h[(int)h.size() - 2], h.back(), pt)) <= 0)
-            h.pop_back();
-        h.push_back(pt);
-    }
-    h.pop_back();
     return h;
 }
 
@@ -107,11 +104,9 @@ T diameter2(const vector<P>& p) {
 // circle-line intersection. O(1).
 // Pitfalls: a and b must be distinct; returns 0/1/2 points.
 vector<P> circleLine(P c, T r, P a, P b) {
-    P ab = b - a;
-    P h = a + ab * (dot(c - a, ab) / norm2(ab));
+    P h = projLine(a, b, c), dir = (b - a) / norm(b - a);
     T d2 = norm2(h - c);
     if (sgn(d2 - r * r) > 0) return {};
-    P dir = ab / norm(ab);
     if (sgn(d2 - r * r) == 0) return {h};
     T len = sqrtl(max((T)0, r * r - d2));
     return {h - dir * len, h + dir * len};

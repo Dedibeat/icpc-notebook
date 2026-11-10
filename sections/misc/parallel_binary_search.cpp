@@ -1,7 +1,7 @@
 // Parallel binary search for predicates monotone over an event prefix.
 // Returns smallest prefix length t in [0,events], or events+1 if never true.
-// Complexity: O(log(events+1)) full replays; memory O(q+events).
-// Pitfalls: apply events in fixed order; reset must fully clear state; check(q)
+// Complexity: O(log(events+2)) full replays; memory O(q+events).
+// Pitfalls: apply events in fixed order; reset must fully clear state; check(id)
 //           must stay true after becoming true.
 // Usage: ans=parallel_bs(q,event_count,reset,apply_event,check_query);
 template<class Reset,class Apply,class Check>

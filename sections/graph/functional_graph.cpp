@@ -22,8 +22,8 @@ struct FunctionalGraph {
         queue<int> q;
         for (int v = 0; v < n; ++v) if (!indeg[v]) q.push(v);
         while (!q.empty()) {
-            int v = q.front(); q.pop(); alive[v] = 0; order.push_back(v);
-            if (--indeg[next[v]] == 0) q.push(next[v]);
+            int at = q.front(); q.pop(); alive[at] = 0; order.push_back(at);
+            if (--indeg[next[at]] == 0) q.push(next[at]);
         }
         cycle.assign(n, -1); dist.assign(n, -1); entry.assign(n, -1);
         int cid = 0;

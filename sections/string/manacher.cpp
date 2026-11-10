@@ -4,18 +4,13 @@
 // Sentinels are bytes 1 and 2, so any printable input is safe (using '$'/'^'
 // as sentinels breaks on inputs that contain those characters).
 vector<int> manacher_odd(string s) {
-    int n = s.size();
+    int n = s.size(), l = 0, r = 1;
     s = char(1) + s + char(2);
     vector<int> p(n + 2);
-    int l = 0, r = 1;
-    for(int i = 1; i <= n; i++) {
+    for (int i = 1; i <= n; i++) {
         p[i] = min(r - i, p[l + (r - i)]);
-        while(s[i - p[i]] == s[i + p[i]]) {
-            p[i]++;
-        }
-        if(i + p[i] > r) {
-            l = i - p[i], r = i + p[i];
-        }
+        while (s[i - p[i]] == s[i + p[i]]) p[i]++;
+        if (i + p[i] > r) l = i - p[i], r = i + p[i];
     }
     return vector<int>(begin(p) + 1, end(p) - 1);
 }

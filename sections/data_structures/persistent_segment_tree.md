@@ -1,32 +1,24 @@
-### Usage: kth and value count on a subarray
+### Usage on branching versions
 
-Build `root[i]` for prefix `a[0..i)`. The tree stores compressed ranks, so
-decompress the result of `kth`. Both index and value intervals below are
-half-open; only `k` is 1-based.
+Start with an empty root. Each update copies one path and shares the other
+subtrees with older versions. Use the same 0-based inclusive domain for every
+operation on a version.
 
 ```cpp
-// Input: original (uncompressed) values.
-vector<long long> a = {4, 1, 4, 2};
-vector<long long> xs = a;
-sort(xs.begin(), xs.end());
-xs.erase(unique(xs.begin(), xs.end()), xs.end());
-
-PST st(xs.size());
-vector<int> root(a.size() + 1); // root[0] = empty root 0
-for (int i = 0; i < (int)a.size(); ++i) {
-    int rank = lower_bound(xs.begin(), xs.end(), a[i]) - xs.begin();
-    root[i + 1] = st.upd(root[i], rank);
-}
-
-// Query input: a[l..r)={1,4,2}; k is 1-based.
-int l = 1, r = 4, k = 2;
-long long kthValue = xs[st.kth(root[l], root[r], k)];
-
-int lo = lower_bound(xs.begin(), xs.end(), 2) - xs.begin();
-int hi = lower_bound(xs.begin(), xs.end(), 5) - xs.begin();
-int count = st.cnt(root[r], lo, hi) - st.cnt(root[l], lo, hi);
-// Expected output: kthValue=2; count=2 values in [2,5).
+Node empty;
+Node *a = empty.update(0, 3, 1, 4);
+Node *b = a->update(0, 3, 1, -2);
+Node *c = a->update(0, 3, 3, 7);
+long long sumA = a->query(0, 3, 1, 3); // 4
+long long sumB = b->query(0, 3, 1, 3); // 2
+long long sumC = c->query(0, 3, 1, 3); // 11
 ```
 
-`kth` requires `1 <= k <= r-l`. `upd` needs a rank in `[0,xs.size())`.
-The pool grows by `O(log xs.size())` nodes per inserted value.
+Use `n >= 1` and `0 <= p < n`. Choose an associative `merge` with identity
+`VID`, the value of untouched leaves. For point assignment, make `apply`
+return `x`. Use `__int128` for `V` if sums can exceed `long long`.
+
+Each update allocates nodes with `new`. If memory must be reclaimed between
+cases, use a pool with stable addresses and reset it after discarding all
+versions of the case. Recursive deletion from each root can double-delete
+shared nodes.

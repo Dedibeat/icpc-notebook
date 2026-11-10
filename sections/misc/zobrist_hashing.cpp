@@ -1,6 +1,6 @@
 // Zobrist hashing: xor random keys for incremental state hashes.
 // Source: standard Zobrist/tabulation hashing.
-// Complexity: build O(positions * values), update/query O(1).
+// Build O(positions * values), toggle O(1), full hash O(state.size()).
 // Pitfalls: probabilistic collisions; state values must be in range.
 // Usage: h ^= key[pos][old]; h ^= key[pos][now];
 struct Zobrist {

@@ -15,7 +15,7 @@ bool mpAngleLess(IP a,IP b) {
 }
 
 vector<IP> mpNormalize(vector<IP> p) {
-    if(p.size()>1 && p.front().x==p.back().x && p.front().y==p.back().y) p.pop_back();
+    if(p.size()>1 && p.front()==p.back()) p.pop_back();
     i128 area=0;
     for(int i=0;i<(int)p.size();++i) area+=mpCross(p[i],p[(i+1)%p.size()]);
     if(area<0) reverse(p.begin(),p.end());
@@ -33,9 +33,8 @@ vector<IP> minkowskiSum(vector<IP> a,vector<IP> b) {
     vector<IP> ans={mpAdd(a[0],b[0])};
     int i=0,j=0;
     while(i<(int)ea.size() || j<(int)eb.size()) {
-        i128 cr=(i<(int)ea.size() && j<(int)eb.size())?mpCross(ea[i],eb[j]):0;
         IP step;
-        if(i<(int)ea.size() && j<(int)eb.size() && cr==0 && mpDot(ea[i],eb[j])>0)
+        if(i<(int)ea.size() && j<(int)eb.size() && mpCross(ea[i],eb[j])==0 && mpDot(ea[i],eb[j])>0)
             step=mpAdd(ea[i++],eb[j++]);
         else if(j==(int)eb.size() || (i<(int)ea.size() && mpAngleLess(ea[i],eb[j]))) step=ea[i++];
         else step=eb[j++];

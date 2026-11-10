@@ -13,15 +13,8 @@ long long lagrangian_exact_k(int k,long long lo,long long hi,Solve solve) {
         if(solve(mid).second<=k)hi=mid;
         else lo=mid+1;
     }
-    auto adjusted=[&](long long lambda) {
-        auto [penalized,count]=solve(lambda);(void)count;
-        return penalized-lambda*k;
-    };
+    auto adjusted=[&](long long lambda){return solve(lambda).first-lambda*k;};
     long long ans=adjusted(lo);
     if(lo>originalLo)ans=max(ans,adjusted(lo-1));
     return ans;
-}
-template<class Solve>
-long long aliens_exact_k(int k,long long lo,long long hi,Solve solve) {
-    return lagrangian_exact_k(k,lo,hi,solve);
 }

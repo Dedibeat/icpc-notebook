@@ -19,7 +19,7 @@ vector<ll> fps_inv(const vector<ll>& a,int n) {
     return r;
 }
 vector<ll> fps_derivative(const vector<ll>& a) {
-    vector<ll>d(max(0,(int)a.size()-1));
+    vector<ll>d(a.empty() ? 0 : a.size()-1);
     for(int i=1;i<(int)a.size();++i)d[i-1]=a[i]*i%NTT_MOD;
     return d;
 }

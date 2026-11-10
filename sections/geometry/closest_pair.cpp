@@ -5,10 +5,9 @@
 // Usage: auto [d2, pr] = closestPair(points);
 pair<T, pair<P, P>> closestPair(vector<P> p) {
     assert((int)p.size() >= 2);
-    sort(p.begin(), p.end(), [](P a, P b) {
-        if (a.x != b.x) return a.x < b.x;
-        return a.y < b.y;
-    });
+    sort(p.begin(), p.end()); // P::operator<: exact (x, y)
+    for (int i = 1; i < (int)p.size(); ++i)
+        if (norm2(p[i] - p[i-1]) == 0) return {0, {p[i-1], p[i]}};
     vector<P> tmp(p.size());
     pair<T, pair<P, P>> ans = {norm2(p[0] - p[1]), {p[0], p[1]}};
 
@@ -33,10 +32,14 @@ pair<T, pair<P, P>> closestPair(vector<P> p) {
         copy(tmp.begin(), tmp.begin() + (r - l), p.begin() + l);
 
         int sz = 0;
-        T d = sqrtl(ans.first);
-        for (int i = l; i < r; i++) if (fabsl(p[i].x - mx) <= d + EPS) {
-            for (int j = sz - 1; j >= 0 && p[i].y - tmp[j].y <= d + EPS; j--)
+        for (int i = l; i < r; i++) {
+            T dx = p[i].x - mx;
+            if (dx * dx >= ans.first) continue;
+            for (int j = sz - 1; j >= 0; j--) {
+                T dy = p[i].y - tmp[j].y;
+                if (dy * dy >= ans.first) break;
                 upd(p[i], tmp[j]);
+            }
             tmp[sz++] = p[i];
         }
     };

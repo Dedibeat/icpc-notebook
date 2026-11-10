@@ -33,19 +33,20 @@ struct TwoSat {
     }
     vector<int> val, comp, z;
     int timer = 0;
-    int dfs(int i) {
-        int low = val[i] = ++timer, x;
-        z.push_back(i);
-        for (int e : gr[i]) if (!comp[e])
-            low = min(low, val[e] ? val[e] : dfs(e));
-        if (low == val[i]) do {
+    int dfs(int at) {
+        int low = val[at] = ++timer, x;
+        z.push_back(at);
+        for (int to : gr[at]) if (!comp[to])
+            low = min(low, val[to] ? val[to] : dfs(to));
+        if (low == val[at]) do {
             x = z.back(); z.pop_back();
             comp[x] = low;
             if (values[x >> 1] == -1) values[x >> 1] = x & 1;
-        } while (x != i);
-        return val[i] = low;
+        } while (x != at);
+        return val[at] = low;
     }
     bool solve() {
+        timer = 0;
         values.assign(N, -1);
         val.assign(2 * N, 0);
         comp = val;

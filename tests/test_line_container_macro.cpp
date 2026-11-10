@@ -45,4 +45,24 @@ int main() {
         assert(rc.get(x) == brute(rl, x, false));
     }
     return 0;
+
+    // Full signed-64 coefficient range; intersection differences exceed int64.
+    vector<pair<long long,long long>> extreme = {
+        {LLONG_MIN,LLONG_MAX}, {LLONG_MAX,LLONG_MIN},
+        {0,LLONG_MAX}, {0,LLONG_MIN}, {1,LLONG_MIN}, {-1,LLONG_MAX}
+    };
+    vector<long long> queries={LLONG_MIN,LLONG_MIN+1,-2,-1,0,1,2,LLONG_MAX-1,LLONG_MAX};
+    for(int pass=0;pass<20;++pass) {
+        shuffle(extreme.begin(),extreme.end(),rng);
+        LineContainer lc;
+        vector<pair<long long,long long>> inserted;
+        for(auto [k,m]:extreme) {
+            lc.add(k,m); inserted.push_back({k,m});
+            for(long long x:queries) {
+                __int128 want=-((__int128)1<<126);
+                for(auto [a,b]:inserted) want=max(want,(__int128)a*x+b);
+                assert(lc.get(x)==want);
+            }
+        }
+    }
 }

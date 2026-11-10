@@ -10,9 +10,7 @@ struct CentroidDecomposition {
     vector<int> sub, parent;
     vector<char> dead;
 
-    CentroidDecomposition(int n = 0) {
-        init(n);
-    }
+    CentroidDecomposition(int n = 0) { init(n); }
     void init(int n_) {
         n = n_;
         g.assign(n, {});
@@ -24,22 +22,22 @@ struct CentroidDecomposition {
         g[u].push_back(v); g[v].push_back(u);
     }
 
-    int sizes(int v, int p) {
-        sub[v] = 1;
-        for (int u : g[v]) if (u != p && !dead[u]) sub[v] += sizes(u, v);
-        return sub[v];
+    int sizes(int at, int p) {
+        sub[at] = 1;
+        for (int to : g[at]) if (to != p && !dead[to]) sub[at] += sizes(to, at);
+        return sub[at];
     }
-    int centroid(int v, int p, int total) {
-        for (int u : g[v])
-            if (u != p && !dead[u] && sub[u] > total / 2)
-                return centroid(u, v, total);
-        return v;
+    int centroid(int at, int p, int total) {
+        for (int to : g[at])
+            if (to != p && !dead[to] && sub[to] > total / 2)
+                return centroid(to, at, total);
+        return at;
     }
     int decompose(int entry, int p) {
         int c = centroid(entry, -1, sizes(entry, -1));
         parent[c] = p;
         dead[c] = true;
-        for (int u : g[c]) if (!dead[u]) decompose(u, c);
+        for (int to : g[c]) if (!dead[to]) decompose(to, c);
         return c;
     }
     void build() {

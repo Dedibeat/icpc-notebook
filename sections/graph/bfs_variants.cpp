@@ -8,8 +8,8 @@ vector<int> bfs_multi(const vector<vector<int>>& g, const vector<int>& sources) 
     for (int s : sources) if (0 <= s && s < (int)g.size() && d[s] == -1)
         d[s] = 0, q.push(s);
     while (!q.empty()) {
-        int v = q.front(); q.pop();
-        for (int to : g[v]) if (d[to] == -1) d[to] = d[v] + 1, q.push(to);
+        int at = q.front(); q.pop();
+        for (int to : g[at]) if (d[to] == -1) d[to] = d[at] + 1, q.push(to);
     }
     return d;
 }
@@ -20,10 +20,10 @@ vector<long long> bfs01(const vector<vector<pair<int, int>>>& g, int s) {
     deque<pair<long long, int>> q;
     d[s] = 0; q.push_front({0, s});
     while (!q.empty()) {
-        auto [dv, v] = q.front(); q.pop_front();
-        if (dv != d[v]) continue;
-        for (auto [to, w] : g[v]) if (d[to] > dv + w) {
-            d[to] = dv + w;
+        auto [distAt, at] = q.front(); q.pop_front();
+        if (distAt != d[at]) continue;
+        for (auto [to, w] : g[at]) if (d[to] > distAt + w) {
+            d[to] = distAt + w;
             if (w == 0) q.push_front({d[to], to});
             else q.push_back({d[to], to});
         }

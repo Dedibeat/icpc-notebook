@@ -9,12 +9,11 @@ struct TreeCanon {
     map<vector<int>,int> id;
     int get(vector<int> children) {
         sort(children.begin(),children.end());
-        auto [it,inserted]=id.emplace(children,id.size());
-        return it->second;
+        return id.emplace(children,id.size()).first->second; // new id = old size
     }
-    int rootedDfs(const vector<vector<int>>& g,int v,int p) {
+    int rootedDfs(const vector<vector<int>>& g,int at,int p) {
         vector<int>children;
-        for(int u:g[v]) if(u!=p) children.push_back(rootedDfs(g,u,v));
+        for(int to:g[at]) if(to!=p) children.push_back(rootedDfs(g,to,at));
         return get(children);
     }
     int rooted(const vector<vector<int>>& g,int root) { return rootedDfs(g,root,-1); }
@@ -26,7 +25,7 @@ struct TreeCanon {
         int left=n;
         while(left>2) {
             int take=q.size();left-=take;
-            while(take--) {int v=q.front();q.pop();for(int u:g[v])if(--deg[u]==1)q.push(u);}
+            while(take--) {int at=q.front();q.pop();for(int to:g[at])if(--deg[to]==1)q.push(to);}
         }
         vector<int>c;while(!q.empty())c.push_back(q.front()),q.pop();return c;
     }
@@ -35,6 +34,6 @@ struct TreeCanon {
         auto c=centers(g);
         if(c.size()==1) return rooted(g,c[0]);
         int a=rootedDfs(g,c[0],c[1]),b=rootedDfs(g,c[1],c[0]);
-        return get({min(a,b),max(a,b)}); // virtual root between the centers
+        return get({-1,a,b}); // tag the virtual root so it cannot match a real root
     }
 };

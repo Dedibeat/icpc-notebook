@@ -5,6 +5,14 @@ using namespace std;
 
 int main() {
     {
+        MCMF mf(2);
+        mf.addEdge(0, 0, 4, 1);
+        assert(mf.g[0][0].rev == 1 && mf.g[0][1].rev == 0);
+        assert((mf.minCost(0, 0, 5) == pair<long long,long long>{0,0}));
+        mf.addEdge(0, 1, 2, -1);
+        assert((mf.minCost(0, 1, 5) == pair<long long,long long>{2,-2}));
+    }
+    {
         MCMF mf(4);
         mf.addEdge(0, 1, 2, 1);
         mf.addEdge(0, 2, 1, 5);

@@ -1,34 +1,28 @@
-// Knuth optimization: dp[i][j] = min_{i<=k<j}(dp[i][k]+dp[k+1][j]) + C(i,j).
-// Valid when opt[i][j-1] <= opt[i][j] <= opt[i+1][j], e.g. C satisfies the
-// quadrangle inequality and is monotone on inclusion. O(n^2) total.
-// 1-indexed. Example: merge-stones cost C(i,j) = sum a[i..j].
-// Input: n, then n nonnegative pile weights.
-// Output: minimum total cost to merge all adjacent piles into one.
-#include <bits/stdc++.h>
-using namespace std;
-#define int long long
-const int N = 5e3 + 5;
-int a[N], pref[N];
-int dp[N][N], opt[N][N];
-// EDIT ONLY C(): the interval cost. The loops below are the optimization.
-int C(int l, int r) { return pref[r] - pref[l - 1]; }
-int32_t main() {
-    ios::sync_with_stdio(0); cin.tie(NULL);
-    int n; cin >> n;
-    for (int i = 1; i <= n; i++) {
-        cin >> a[i];
-        pref[i] = pref[i - 1] + a[i];
-    }
-    for (int i = 1; i <= n; i++) opt[i][i] = i;
-    for (int len = 2; len <= n; len++) {
-        for (int i = 1; i + len - 1 <= n; i++) {
-            int j = i + len - 1;
-            pair<int, int> best = {(int)1e18, -1};
-            for (int k = max(i, opt[i][j - 1]); k <= min(opt[i + 1][j], j - 1); k++)
-                best = min(best, make_pair(dp[i][k] + dp[k + 1][j], k));
-            dp[i][j] = best.first + C(i, j);
-            opt[i][j] = best.second;
+// Knuth optimization for merging intervals. cost(l,r) uses [l,r).
+// Require monotone optimal splits: opt(l,r-1) <= opt(l,r) <= opt(l+1,r).
+// Example: knuth(n, [&](int l,int r){return pref[r]-pref[l];}) for
+// adjacent pile merging with nonnegative weights. Singleton cost is zero.
+// O(n^2) time for O(1) cost, n(n+1)/2 stored sums plus O(n) split indices.
+// At n=5000 the sums alone take about 100 MB. All costs/sums must fit ll.
+template<class Cost>
+long long knuth(int n, Cost cost) {
+    if (!n) return 0;
+    vector<vector<long long>> dp(n); // dp[r][l] represents [l,r+1)
+    for (int r = 0; r < n; ++r) dp[r].resize(r+1);
+    vector<int> opt(n);
+    iota(opt.begin(),opt.end(),0);
+    for (int len = 2; len <= n; ++len) {
+        for (int l = 0, r = len-1; r < n; ++l, ++r) {
+            // Left-to-right: opt[l] and opt[l+1] still describe length len-1.
+            long long best = LLONG_MAX;
+            int split = opt[l];
+            for (int k = opt[l]; k <= min(opt[l+1],r-1); ++k) {
+                long long cand = dp[k][l] + dp[r][k+1];
+                if (cand < best) best = cand, split = k;
+            }
+            dp[r][l] = best + cost(l,r+1);
+            opt[l] = split;
         }
     }
-    cout << dp[1][n] << "\n";
+    return dp[n-1][0];
 }

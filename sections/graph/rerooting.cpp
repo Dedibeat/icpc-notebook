@@ -17,24 +17,24 @@ struct Rerooting {
     vector<DP> down, answer;
     Rerooting(const vector<vector<int>>& graph):n(graph.size()),g(graph),down(n),answer(n){}
 
-    DP dfsDown(int v,int p) {
+    DP dfsDown(int at,int p) {
         DP cur=id();
-        for (int u:g[v]) if (u!=p) cur=merge(cur,addEdge(dfsDown(u,v),u,v));
-        return down[v]=addRoot(cur,v);
+        for (int to:g[at]) if (to!=p) cur=merge(cur,addEdge(dfsDown(to,at),to,at));
+        return down[at]=addRoot(cur,at);
     }
-    void dfsAll(int v,int p,DP fromParent) {
-        int d=g[v].size();
+    void dfsAll(int at,int p,DP fromParent) {
+        int d=g[at].size();
         vector<DP> side(d),pre(d+1,id()),suf(d+1,id());
         for (int i=0;i<d;++i) {
-            int u=g[v][i];
-            side[i]=(u==p?fromParent:addEdge(down[u],u,v));
+            int to=g[at][i];
+            side[i]=(to==p?fromParent:addEdge(down[to],to,at));
             pre[i+1]=merge(pre[i],side[i]);
         }
         for (int i=d-1;i>=0;--i) suf[i]=merge(side[i],suf[i+1]);
-        answer[v]=addRoot(pre[d],v);
-        for (int i=0;i<d;++i) if (g[v][i]!=p) {
-            DP without=addRoot(merge(pre[i],suf[i+1]),v);
-            dfsAll(g[v][i],v,addEdge(without,v,g[v][i]));
+        answer[at]=addRoot(pre[d],at);
+        for (int i=0;i<d;++i) if (g[at][i]!=p) {
+            DP without=addRoot(merge(pre[i],suf[i+1]),at);
+            dfsAll(g[at][i],at,addEdge(without,at,g[at][i]));
         }
     }
     vector<DP> solve(int root=0) {

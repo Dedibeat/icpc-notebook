@@ -12,6 +12,7 @@ int main() {
     add(0, 2, 20);
     add(2, 3, 1);
     add(1, 3, 100);
+    add(1, 4, LLONG_MAX); // must not wrap to a negative candidate distance
     vector<ll> d = dijkstra(g, 0);
     assert(d[0] == 0);
     assert(d[1] == 3);

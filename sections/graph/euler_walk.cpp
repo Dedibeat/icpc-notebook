@@ -10,13 +10,13 @@ vector<int> eulerWalk(vector<vector<pair<int, int>>>& gr, int nedges, int src = 
     vector<int> D(n), its(n), eu(nedges), ret, s = {src};
     D[src]++; // to allow Euler paths, not just cycles
     while (!s.empty()) {
-        int x = s.back(), y, e, &it = its[x], end = gr[x].size();
-        if (it == end) { ret.push_back(x); s.pop_back(); continue; }
-        tie(y, e) = gr[x][it++];
+        int at = s.back(), to, e, &it = its[at], end = gr[at].size();
+        if (it == end) { ret.push_back(at); s.pop_back(); continue; }
+        tie(to, e) = gr[at][it++];
         if (!eu[e]) {
-            D[x]--, D[y]++;
+            D[at]--, D[to]++;
             eu[e] = 1;
-            s.push_back(y);
+            s.push_back(to);
         }
     }
     for (int x : D) if (x < 0 || (int)ret.size() != nedges + 1) return {};

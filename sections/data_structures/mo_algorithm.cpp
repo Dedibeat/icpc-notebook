@@ -1,11 +1,12 @@
-// Mo example: number of distinct values in each static query [l,r).
-// Input: static compressed a[i] in [0,sigma), queries as valid [l,r) pairs.
-// Output: distinct counts in query input order; an empty interval gives 0.
-// O((n+q)*sqrt(n)) moves + O(q log q) sorting; O(q+sigma) extra space.
-vector<int> mo_distinct(const vector<int>& a,
-        const vector<pair<int,int>>& queries, int sigma) {
-    int n=a.size(), q=queries.size(), block=max(1,(int)sqrt(n));
-    vector<int> order(q), ans(q), freq(sigma);
+// Mo's algorithm on static queries [l,r), including empty ranges.
+// Start with empty state. add/remove take an index; answer takes a query id.
+// State on return represents the last processed window.
+// O((n+q)*sqrt(n+1)) moves, O(q log q) sorting and O(q) extra space.
+template<class Add, class Remove, class Answer>
+void mo(int n, const vector<pair<int,int>>& queries, Add add, Remove remove,
+        Answer answer) {
+    int q=queries.size(), block=max<int>(1,sqrt(n));
+    vector<int> order(q);
     iota(order.begin(),order.end(),0);
     sort(order.begin(),order.end(),[&](int i,int j) {
         int bi=queries[i].first/block, bj=queries[j].first/block;
@@ -13,17 +14,13 @@ vector<int> mo_distinct(const vector<int>& a,
         return (bi&1) ? queries[i].second>queries[j].second
                       : queries[i].second<queries[j].second;
     });
-    int l=0, r=0, distinct=0;
-    // Adapt these updates and ans[id] for another window statistic.
-    auto add = [&](int i) { distinct += freq[a[i]]++ == 0; };
-    auto remove = [&](int i) { distinct -= --freq[a[i]] == 0; };
+    int l=0, r=0;
     for(int id:order) {
         auto [ql,qr]=queries[id];
         while(l>ql) add(--l);
         while(r<qr) add(r++);
         while(l<ql) remove(l++);
         while(r>qr) remove(--r);
-        ans[id]=distinct;
+        answer(id);
     }
-    return ans;
 }

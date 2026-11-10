@@ -4,7 +4,7 @@
 vector<int> lcp_array(const string& s, const vector<int>& sa) {
     int n = (int)s.size();
     if (n == 0) return {};
-    vector<int> rank(n), lcp(max(0, n - 1));
+    vector<int> rank(n), lcp(n - 1);
     for (int i = 0; i < n; i++) rank[sa[i]] = i;
     int h = 0;
     for (int i = 0; i < n; i++) {

@@ -114,7 +114,7 @@ int main() {
 		visit_time[at] = visit_order.size();
 		visit_order.push_back(at);
 		visit_parent[at] = prev;
-		for (int next : adj[at]) { dfs(next, at); }
+		for (int to : adj[at]) { dfs(to, at); }
 	};
 	dfs(0, -1);
 

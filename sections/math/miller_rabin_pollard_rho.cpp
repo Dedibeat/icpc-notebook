@@ -38,7 +38,7 @@ ull pollard(ull n) {
     while (true) {
         ull c = uniform_int_distribution<ull>(1, n - 1)(rng);
         ull x = uniform_int_distribution<ull>(0, n - 1)(rng), y = x, d = 1;
-        auto f = [&](ull v) { return (mod_mul(v, v, n) + c) % n; };
+        auto f = [&](ull v) { return (ull)(((u128)v * v + c) % n); };
         while (d == 1) {
             x = f(x);
             y = f(f(y));

@@ -1,112 +1,80 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#include "../sections/data_structures/lazy_segment_tree.cpp"
 #include "../sections/graph/heavy_light_decomposition.cpp"
 
-// brute force: values on vertices (or edges to parent), walk the tree
-struct Brute {
-    int n;
-    vector<vector<int>> g;
-    vector<int> par, dep;
-    vector<long long> val; // val[v]: vertex value, or value of edge (v, par[v])
-    Brute(const vector<vector<int>>& g_) : n(g_.size()), g(g_), par(n, -1), dep(n), val(n, 0) {
-        vector<int> st = {0};
-        vector<bool> vis(n);
-        vis[0] = true;
-        while (!st.empty()) {
-            int v = st.back(); st.pop_back();
-            for (int u : g[v]) if (!vis[u]) {
-                vis[u] = true;
-                par[u] = v;
-                dep[u] = dep[v] + 1;
-                st.push_back(u);
-            }
+template<bool Edges>
+void check(const vector<vector<int>>& g, mt19937& rng) {
+    int n = g.size();
+    HLD<Edges> h(g);
+    if (!n) return;
+
+    vector<int> parent(n, -1), depth(n), byPos(n, -1);
+    vector<int> pending{0};
+    while (!pending.empty()) {
+        int v = pending.back();
+        pending.pop_back();
+        for (int u : g[v]) if (u != parent[v]) {
+            parent[u] = v;
+            depth[u] = depth[v] + 1;
+            pending.push_back(u);
         }
     }
-    vector<int> pathV(int u, int v) { // vertices on u..v path
-        vector<int> a, b;
+    for (int v = 0; v < n; ++v) {
+        assert(0 <= h.pos[v] && h.pos[v] < n);
+        assert(byPos[h.pos[v]] == -1);
+        byPos[h.pos[v]] = v;
+    }
+
+    for (int q = 0; q < 100; ++q) {
+        int u = rng() % n, v = rng() % n;
+        if (q == 0) v = u;
+        vector<int> got, want;
+        h.process(u, v, [&](int l, int r) {
+            assert(0 <= l && l <= r && r <= n);
+            got.insert(got.end(), byPos.begin() + l, byPos.begin() + r);
+        });
         while (u != v) {
-            if (dep[u] >= dep[v]) { a.push_back(u); u = par[u]; }
-            else { b.push_back(v); v = par[v]; }
+            if (depth[u] < depth[v]) swap(u, v);
+            want.push_back(u);
+            u = parent[u];
         }
-        a.push_back(u);
-        a.insert(a.end(), b.rbegin(), b.rend());
-        return a;
+        if (!Edges) want.push_back(u);
+        sort(want.begin(), want.end());
+        sort(got.begin(), got.end());
+        assert(got == want);
     }
-    vector<int> pathE(int u, int v) { // deeper endpoints of edges on u..v path
-        vector<int> res;
-        while (u != v) {
-            if (dep[u] >= dep[v]) { res.push_back(u); u = par[u]; }
-            else { res.push_back(v); v = par[v]; }
+
+    for (int v = 0; v < n; ++v) {
+        auto [l, r] = h.subtree(v);
+        assert(0 <= l && l <= r && r <= n);
+        vector<int> got(byPos.begin() + l, byPos.begin() + r), want;
+        for (int u = 0; u < n; ++u) {
+            if (Edges && u == v) continue;
+            int a = u;
+            while (a != -1 && a != v) a = parent[a];
+            if (a == v) want.push_back(u);
         }
-        return res;
+        sort(got.begin(), got.end());
+        assert(got == want);
     }
-};
+}
 
 int main() {
     mt19937 rng(2026);
-    for (int vals_edges = 0; vals_edges < 2; vals_edges++) {
-        for (int it = 0; it < 60; it++) {
-            int n = 2 + rng() % 30;
-            vector<vector<int>> g(n);
-            for (int v = 1; v < n; v++) {
-                int p = rng() % v;
-                g[p].push_back(v);
-                g[v].push_back(p);
-            }
-            Brute br(g);
-            if (!vals_edges) {
-                HLD<false> h(g);
-                for (int q = 0; q < 100; q++) {
-                    int u = rng() % n, v = rng() % n;
-                    if (rng() % 2) {
-                        long long x = (long long)(rng() % 20) - 10;
-                        h.modifyPath(u, v, x);
-                        for (int w : br.pathV(u, v)) br.val[w] += x;
-                    } else if (rng() % 2) {
-                        long long sum = 0;
-                        for (int w : br.pathV(u, v)) sum += br.val[w];
-                        assert(h.queryPath(u, v) == sum);
-                    } else {
-                        long long x = (long long)(rng() % 20) - 10;
-                        h.modifySubtree(u, x);
-                        long long sum = 0;
-                        for (int w = 0; w < n; w++) {
-                            int a = w;
-                            bool in = false;
-                            while (a != -1) { if (a == u) { in = true; break; } a = br.par[a]; }
-                            if (in) br.val[w] += x;
-                        }
-                        for (int w = 0; w < n; w++) {
-                            int a = w;
-                            bool in = false;
-                            while (a != -1) { if (a == u) { in = true; break; } a = br.par[a]; }
-                            if (in) sum += br.val[w];
-                        }
-                        assert(h.querySubtree(u) == sum);
-                    }
-                }
-            } else {
-                HLD<true> h(g);
-                for (int q = 0; q < 100; q++) {
-                    int u = rng() % n, v = rng() % n;
-                    if (rng() % 2) {
-                        long long x = (long long)(rng() % 20) - 10;
-                        h.modifyPath(u, v, x);
-                        for (int w : br.pathE(u, v)) br.val[w] += x;
-                    } else {
-                        long long sum = 0;
-                        for (int w : br.pathE(u, v)) sum += br.val[w];
-                        assert(h.queryPath(u, v) == sum);
-                    }
-                }
-                // subtree of root = all edges; subtree of leaf = empty
-                long long all = 0;
-                for (int w = 1; w < n; w++) all += br.val[w];
-                assert(h.querySubtree(0) == all);
-            }
+    check<false>({}, rng);
+    check<true>({}, rng);
+    check<false>({{}}, rng);
+    check<true>({{}}, rng);
+    for (int it = 0; it < 60; ++it) {
+        int n = 2 + rng() % 30;
+        vector<vector<int>> g(n);
+        for (int v = 1; v < n; ++v) {
+            int p = rng() % v;
+            g[p].push_back(v);
+            g[v].push_back(p);
         }
+        check<false>(g, rng);
+        check<true>(g, rng);
     }
-    return 0;
 }

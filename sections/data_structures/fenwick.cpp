@@ -29,7 +29,7 @@ struct Fenwick {
         // first idx with sumPrefix(idx+1) >= need, or n if total < need
         if (need <= 0) return 0;
         int idx = 0;
-        for (int step = 1 << __lg(max(1, n)); step; step >>= 1) {
+        for (int step = n ? 1LL << __lg(n) : 0; step; step >>= 1) {
             int next = idx + step;
             if (next <= n && bit[next] < need) {
                 idx = next;

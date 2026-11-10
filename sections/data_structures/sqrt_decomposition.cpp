@@ -21,7 +21,7 @@ struct SqrtDecomp {
     vector<L> lazy;
 
     SqrtDecomp(const vector<V>& values) : n(values.size()), a(values) {
-        B = max(1, (int)sqrt(max(1, n)) + 1);
+        B = (int)sqrt(n) + 1;
         blocks = (n + B - 1) / B;
         aggregate.assign(blocks, VID);
         lazy.assign(blocks, LID);

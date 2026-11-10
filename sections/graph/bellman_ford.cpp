@@ -31,7 +31,7 @@ BFResult bellman_ford(int n,const vector<BFEdge>& edges,int source) {
     vector<char>neg(n);
     queue<int>q;
     for(int v:changed) if(!neg[v]) neg[v]=1,q.push(v);
-    while(!q.empty()) {int v=q.front();q.pop();for(int u:g[v])if(!neg[u])neg[u]=1,q.push(u);}
+    while(!q.empty()) {int at=q.front();q.pop();for(int to:g[at])if(!neg[to])neg[to]=1,q.push(to);}
     vector<long long>dist(n,INF);
     for(int v=0;v<n;++v) {
         if(neg[v])dist[v]=-INF;

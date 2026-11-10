@@ -1,21 +1,35 @@
-pair<int, vi> globalMinCut(vector<vi> mat) {
-	pair<int, vi> best = {INT_MAX, {}};
-	int n = sz(mat);
-	vector<vi> co(n);
-	rep(i,0,n) co[i] = {i};
-	rep(ph,1,n) {
-		vi w = mat[0];
-		size_t s = 0, t = 0;
-		rep(it,0,n-ph) { // O(V^2) -> O(E log V) with prio. queue
-			w[t] = INT_MIN;
-			s = t, t = max_element(all(w)) - w.begin();
-			rep(i,0,n) w[i] += mat[t][i];
-		}
-		best = min(best, {w[t] - mat[t][t], co[t]});
-		co[s].insert(co[s].end(), all(co[t]));
-		rep(i,0,n) mat[s][i] += mat[t][i];
-		rep(i,0,n) mat[i][s] = mat[s][i];
-		mat[0][t] = INT_MIN;
-	}
-	return best;
+// Stoer-Wagner global min cut. O(n^3) time, O(n^2) memory.
+// Input: symmetric matrix of nonnegative capacities, diagonal zero.
+// Returns {cut weight, one side}; n < 2 returns {0,{}}.
+// All capacity sums must fit long long. Example: {{0,5},{5,0}} gives weight 5.
+pair<long long, vector<int>> globalMinCut(vector<vector<long long>> a) {
+    int n = a.size();
+    if (n < 2) return {0, {}};
+    vector<int> active(n);
+    iota(active.begin(), active.end(), 0);
+    vector<vector<int>> group(n);
+    for (int i = 0; i < n; ++i) group[i] = {i};
+    pair<long long, vector<int>> best = {LLONG_MAX, {}};
+    while (active.size() > 1) {
+        vector<long long> weight(n);
+        vector<bool> used(n);
+        int prev = -1;
+        for (int i = 0; i < (int)active.size(); ++i) {
+            int at = -1;
+            for (int to : active)
+                if (!used[to] && (at == -1 || weight[to] > weight[at])) at = to;
+            if (i + 1 == (int)active.size()) {
+                if (weight[at] <= best.first) best = {weight[at], group[at]};
+                for (int to : active) if (to != prev && to != at)
+                    a[prev][to] = a[to][prev] = a[prev][to] + a[at][to];
+                group[prev].insert(group[prev].end(), group[at].begin(), group[at].end());
+                active.erase(find(active.begin(), active.end(), at));
+                break;
+            }
+            used[at] = true;
+            for (int to : active) if (!used[to]) weight[to] += a[at][to];
+            prev = at;
+        }
+    }
+    return best;
 }

@@ -4,6 +4,7 @@ using namespace std;
 #include "../sections/graph/dsu_on_tree_sack.cpp"
 
 int main() {
+    init_sack();
     // small fixed tree, hand-checked
     for (int i = 0; i < 5; i++) g[i].clear(), cnt[i] = 0;
     timer_sack = 0;
@@ -28,6 +29,8 @@ int main() {
     // randomized: subtree color counts at the answer point vs brute force
     mt19937 rng(66);
     for (int it = 0; it < 100; it++) {
+        init_sack();
+        assert(timer_sack == 0 && cnt[1] == 0 && g[0].empty());
         int n = 1 + rng() % 60;
         for (int i = 0; i < n; i++) {
             g[i].clear();
@@ -65,5 +68,13 @@ int main() {
             add_subtree(v, -1);
         }
     }
+    // Reset after a retained root, including a color beyond the new tree size.
+    init_sack(); col[0] = MAXN-1;
+    dfs_sz(0,-1); dfs(0,-1,true);
+    assert(cnt[MAXN-1] == 1);
+    init_sack();
+    assert(cnt[MAXN-1] == 0 && timer_sack == 0);
+    col[0] = 0; dfs_sz(0,-1); dfs(0,-1,true);
+    assert(cnt[0] == 1);
     return 0;
 }

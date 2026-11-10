@@ -13,7 +13,7 @@ int main() {
 
     auto bruteCount = [&](int s, int l, int r) {
         int c = 0;
-        for (int x : brute[s]) c += (x >= l && x <= r);
+        for (int x : brute[s]) c += (x >= l && x < r);
         return c;
     };
 
@@ -40,15 +40,16 @@ int main() {
     }
     // full-range totals
     for (int s = 0; s < SETS; s++)
-        assert(query(root[s], 0, POSMAX) == (int)brute[s].size());
+        assert(query(root[s], 0, POSMAX + 1) == (int)brute[s].size());
 
     // boundary positions
     tp = 1;
     int r0 = 0;
     upd(r0, 0, +1);
-    upd(r0, POSMAX, +1);
-    assert(query(r0, 0, 0) == 1);
-    assert(query(r0, POSMAX, POSMAX) == 1);
-    assert(query(r0, 1, POSMAX - 1) == 0);
+    upd(r0, POSMAX, 3'000'000'000LL);
+    assert(query(r0, 0, 0) == 0);
+    assert(query(r0, 0, 1) == 1);
+    assert(query(r0, POSMAX, POSMAX + 1) == 3'000'000'000LL);
+    assert(query(r0, 1, POSMAX) == 0);
     return 0;
 }

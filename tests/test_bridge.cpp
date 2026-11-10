@@ -25,6 +25,7 @@ int components(int nn, const vector<pair<int, int>>& edges, int skip) {
 }
 
 int main() {
+    Lowlink empty(0); empty.build(); assert(empty.bridges.empty());
     mt19937 rng(404);
     for (int it = 0; it < 400; it++) {
         int nn = 1 + rng() % 9;
@@ -32,20 +33,22 @@ int main() {
         vector<pair<int, int>> edges;
         for (int i = 0; i < m; i++) {
             int u = rng() % nn, v = rng() % nn;
-            if (u == v) continue; // no self loops
+
             edges.push_back({u, v}); // duplicates allowed: multiedges
         }
-        n = nn;
-        adj.assign(nn, {});
-        for (auto [u, v] : edges) {
-            adj[u].push_back(v);
-            adj[v].push_back(u);
-        }
-        find_bridges();
+        Lowlink graph(nn);
+        for (auto [u, v] : edges) graph.addEdge(u,v);
+        graph.build();
+        auto first = graph.bridges;
+        graph.build();
+        assert(graph.bridges == first);
 
         int base = components(nn, edges, -1);
         set<pair<int, int>> got;
-        for (auto [u, v] : bridges) got.insert({min(u, v), max(u, v)});
+        for (int id : graph.bridges) {
+            auto [u,v] = edges[id];
+            got.insert({min(u,v), max(u,v)});
+        }
         set<pair<int, int>> want;
         for (int i = 0; i < (int)edges.size(); i++) {
             auto [u, v] = edges[i];
@@ -53,7 +56,7 @@ int main() {
                 want.insert({min(u, v), max(u, v)});
         }
         assert(got == want);
-        assert(bridges.size() == want.size()); // no duplicate reports
+        assert(graph.bridges.size() == want.size()); // no duplicate reports
     }
     return 0;
 }

@@ -1,6 +1,9 @@
 ### Stored invariant
 
-Each node stores its sum and two extrema in each direction:
+The short version stores the sum and maximum-side fields. Use the full
+version when the problem also needs range addition or a lower clamp.
+
+The full version stores the sum and two extrema in each direction.
 
 - $mx_1$: maximum; $mx_2$: **strict** second maximum; $mx_c$: count of $mx_1$.
 - $mn_1$: minimum; $mn_2$: **strict** second minimum; $mn_c$: count of $mn_1$.
@@ -18,3 +21,9 @@ their counts.
 Every failed $O(1)$ clamp can be charged to a strict-extremum level change,
 giving the usual amortized $O(\log^2 n)$ bound. Never change `<` to `<=` in a
 fast-path condition without re-deriving the invariant.
+
+For the short version, charge each forced descent on a fully covered node to
+the disappearance of a distinct value in that node. A cap can introduce at
+most one new distinct value at each partially covered node. There are
+$O(\log n)$ such nodes per cap and the initial sum of distinct counts over all
+nodes is $O(n\log n)$.

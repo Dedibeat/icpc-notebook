@@ -5,6 +5,7 @@
 // {flow,cost} for as much of need as the residual network can send.
 // Example: addEdge(0,1,3,7); auto [flow,cost]=minCost(0,1,2); // 2, 14
 // Pitfalls: costs/caps and cost*flow must fit long long; flow may be < need.
+// minCost(s,s,need) returns {0,0}.
 struct MCMF {
     using ll = long long;
     const ll INF = (1LL << 62);
@@ -17,9 +18,7 @@ struct MCMF {
     vector<ll> pot, dist;
     vector<int> pv, pe;
 
-    MCMF(int n = 0) {
-        init(n);
-    }
+    MCMF(int n = 0) { init(n); }
     void init(int n_) {
         n = n_;
         g.assign(n, {});
@@ -28,11 +27,11 @@ struct MCMF {
         pv.resize(n);
         pe.resize(n);
     }
-    void addEdge(int v, int to, ll cap, ll cost) {
+    void addEdge(int at, int to, ll cap, ll cost) {
         if (cap <= 0) return;
-        Edge a{to, (int)g[to].size(), cap, cost};
-        Edge b{v, (int)g[v].size(), 0, -cost};
-        g[v].push_back(a);
+        Edge a{to, (int)g[to].size() + (at == to), cap, cost};
+        Edge b{at, (int)g[at].size(), 0, -cost};
+        g[at].push_back(a);
         g[to].push_back(b);
     }
     void setPotentials(int s) {
@@ -40,9 +39,9 @@ struct MCMF {
         pot[s] = 0;
         for (int it = 0; it < n - 1; it++) {
             bool changed = false;
-            for (int v = 0; v < n; v++) if (pot[v] != INF) {
-                for (Edge& e : g[v]) if (e.cap && pot[e.to] > pot[v] + e.cost) {
-                    pot[e.to] = pot[v] + e.cost;
+            for (int at = 0; at < n; at++) if (pot[at] != INF) {
+                for (Edge& e : g[at]) if (e.cap && pot[e.to] > pot[at] + e.cost) {
+                    pot[e.to] = pot[at] + e.cost;
                     changed = true;
                 }
             }
@@ -51,6 +50,7 @@ struct MCMF {
         for (ll& x : pot) if (x == INF) x = 0;
     }
     pair<ll, ll> minCost(int s, int t, ll need = (1LL << 62)) {
+        if (s == t || need == 0) return {0, 0};
         setPotentials(s);
         ll flow = 0, cost = 0;
         while (flow < need) {
@@ -59,16 +59,16 @@ struct MCMF {
             dist[s] = 0;
             pq.push({0, s});
             while (!pq.empty()) {
-                auto [d, v] = pq.top();
+                auto [d, at] = pq.top();
                 pq.pop();
-                if (d != dist[v]) continue;
-                for (int i = 0; i < (int)g[v].size(); i++) {
-                    Edge& e = g[v][i];
+                if (d != dist[at]) continue;
+                for (int i = 0; i < (int)g[at].size(); i++) {
+                    Edge& e = g[at][i];
                     if (!e.cap) continue;
-                    ll nd = d + e.cost + pot[v] - pot[e.to];
+                    ll nd = d + e.cost + pot[at] - pot[e.to];
                     if (nd < dist[e.to]) {
                         dist[e.to] = nd;
-                        pv[e.to] = v;
+                        pv[e.to] = at;
                         pe[e.to] = i;
                         pq.push({nd, e.to});
                     }

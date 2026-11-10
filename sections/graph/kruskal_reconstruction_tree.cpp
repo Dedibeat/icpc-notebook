@@ -1,40 +1,33 @@
-// Kruskal reconstruction tree for an undirected weighted graph.
-// Original vertices are [0, n0); each MST-merge adds an internal node whose
-// node_weight is the edge weight. Connected graph: root = total_nodes - 1.
-// Time: O(m log m alpha(n)).
-// Queries (weights increase toward the root):
-// - max edge on u..v MST path = node_weight[LCA(u,v) in ktree].
-// - "vertices reachable from u via edges <= w" = leaves under the highest
-//   ancestor of u with node_weight <= w (find it by binary lifting).
-// For min-edge/max-bottleneck versions sort edges descending instead.
-const int MAXK = 400000 + 5; // at least 2 * original_n + m_components
-struct KEdge { int w, u, v; };
-vector<KEdge> edges;
-vector<int> ktree[MAXK];
-int dsu[MAXK], node_weight[MAXK], total_nodes;
-
-int getRoot(int u) {
-    if (u == dsu[u]) return u;
-    return dsu[u] = getRoot(dsu[u]);
-}
-
-int build_kruskal_tree(int n0) {
-    total_nodes = n0;
-    for (int i = 0; i < MAXK; i++) {
-        dsu[i] = i;
-        ktree[i].clear();
+// Kruskal reconstruction forest: leaves [0,n), merge nodes [n,total).
+// Build O(m log m + (n+m) log n) time, O(n+m) memory (edges copied).
+// weight[LCA(u,v)] is the minimax path value for DISTINCT connected leaves.
+// roots lists every component, including isolated vertices; tree stores children.
+// Pitfalls: leaves have no edge weight; check connectivity before LCA queries.
+// Example: KruskalTree k(3, {{7,0,1}}); // two roots, weight[3]==7
+struct KruskalTree {
+    struct Edge { long long w; int u, v; };
+    int total;
+    vector<int> parent, roots;
+    vector<vector<int>> tree;
+    vector<long long> weight;
+    int find(int v) {
+        int r = v;
+        while (parent[r] != r) r = parent[r];
+        while (v != r) { int u = parent[v]; parent[v] = r; v = u; }
+        return r;
     }
-    sort(edges.begin(), edges.end(), [](const KEdge& a, const KEdge& b) {
-        return a.w < b.w;
-    });
-    for (auto e : edges) {
-        int u = getRoot(e.u), v = getRoot(e.v);
-        if (u == v) continue;
-        int x = total_nodes++;
-        node_weight[x] = e.w;
-        ktree[x].push_back(u);
-        ktree[x].push_back(v);
-        dsu[u] = dsu[v] = dsu[x] = x;
+    KruskalTree(int n, vector<Edge> edges) : total(n), parent(2*n),
+        tree(2*n), weight(2*n) {
+        iota(parent.begin(), parent.end(), 0);
+        sort(edges.begin(), edges.end(), [](Edge a, Edge b) { return a.w < b.w; });
+        for (auto e : edges) {
+            int u = find(e.u), v = find(e.v);
+            if (u == v) continue;
+            int x = total++;
+            weight[x] = e.w;
+            tree[x] = {u,v};
+            parent[u] = parent[v] = x;
+        }
+        for (int v = 0; v < total; ++v) if (parent[v] == v) roots.push_back(v);
     }
-    return total_nodes - 1;
-}
+};

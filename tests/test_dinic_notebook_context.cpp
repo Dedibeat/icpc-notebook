@@ -33,4 +33,9 @@ int main() {
     assert(zero.leftOfMinCut(0));
     assert(!zero.leftOfMinCut(1));
     assert(zero.minCutEdges().empty());
+
+    Dinic loop(1);
+    loop.addEdge(0, 0, 5);
+    assert(loop.adj[0][0].rev == 1 && loop.adj[0][1].rev == 0);
+    assert(loop.calc(0, 0) == 0);
 }

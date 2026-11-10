@@ -1,16 +1,16 @@
 ### Use: add to an interval, then ask its sum
 
-Ranges are inclusive. `init(a)` builds the initial values; `init(n)` fills
+Ranges are half-open `[l,r)`. `init(a)` builds the initial values and `init(n)` fills
 leaves with `VID` (zero for the default). Empty ranges return `VID`.
 
 ```cpp
-// Input: a={2,1,4}; inclusive update/query intervals.
+// Input: a={2,1,4}; half-open update/query intervals.
 SegTree st;
 st.init(vector<long long>{2, 1, 4});
-// Effect: add 3 to a[0..1], producing {5,4,4}.
-st.update(0, 1, 3);
-// Expected output: sum=8 over a[1..2].
-auto sum = st.query(1, 2);
+// Add 3 to a[0..2), producing {5,4,4}.
+st.update(0, 2, 3);
+// Expected sum over a[1..3) is 8.
+auto sum = st.query(1, 3);
 ```
 
 ### Adapt: range add, range minimum
@@ -28,7 +28,7 @@ static V applyVal(V a, L f, int) { return a + f; }
 static L compose(L a, L f) { return a + f; }
 ```
 
-On the same array and update above, `query(1,2)` returns **4**.
+On the same array and update above, `query(1,3)` returns **4**.
 Real values and all updated values must fit `long long`.
 
 ### Adapt: range assignment, range sum
@@ -48,7 +48,7 @@ static V applyVal(V a, L f, int len) {
 static L compose(L a, L f) { return f == LID ? a : f; }
 ```
 
-Starting from `[2,1,4]`, `update(0,1,0)` assigns zero; `query(0,2)` returns **4**.
+Starting from `[2,1,4]`, `update(0,2,0)` assigns zero to two cells and `query(0,3)` returns **4**.
 All three configurations build in $O(n)$, use $O(n)$ memory, and take
 $O(\log n)$ per operation. For other configurations, `merge` must be
 associative with identity `VID`; applying a tag must agree with merging
